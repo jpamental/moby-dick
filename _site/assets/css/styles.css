@@ -1,0 +1,188 @@
+/* Set custom properties for layout and sizing */
+:root {
+  --content-width: 98vw;
+  --margin-left: 1vw;
+  --margin-right: 1vw;
+}
+@media screen and (min-width: 42rem) {
+  :root {
+    --content-width: 40rem;
+    --margin-left: calc( (100vw - var(--content-width)) / 3 );
+    --margin-right: calc( ((100vw - var(--content-width)) / 3) * 2 );
+  }
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Base typography */
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+h1 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 4rem;
+  line-height: 1.15;
+  margin: 2rem 0 0 0;
+  max-width: calc( var(--content-width) + var(--margin-left) );
+}
+
+h1 + p {
+  margin-top: 3rem;
+}
+
+p {
+  color: #333333;
+  margin: 0;
+  max-width: var(--content-width);
+  position: relative;
+}
+
+p + p {
+  text-indent: 1.5em;
+}
+
+/* Style first line of the first paragraph in the chapter */
+p:first-of-type::first-line {
+  font-variant-caps: small-caps;
+  font-weight: bold;
+}
+
+/* Add an end mark at the end of the last paragraph */
+p:last-child:after {
+  content: "\2766";
+  display: inline;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.25em;
+  line-height: 0.5;
+}
+
+/* Style the initial letter */
+p:first-of-type::first-letter {
+  color: #555555;
+  float: left;
+  font-weight: normal;
+  font-size: 5.125em;
+  /* tweak vertical positioning in Chrome & Safari */
+  line-height: 0.7;
+  margin: 0;
+  padding: 0 0.1em 0 0;
+
+  /* tweak vertical positioning in Firefox */
+  padding-top: 0.1em;
+}
+
+/* Layout */
+
+.title-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.title-page .title {
+  padding-top: 25vh;
+}
+
+article {
+  max-width: 100%;
+  padding-bottom: 3rem;
+}
+
+article > * {
+  margin-left: var(--margin-left);
+}
+
+/* Top bar */
+.top-bar { border-bottom: solid 1px rgba(0,0,0,.25);
+  display: grid;
+  grid-template-columns: max-content 1fr;
+}
+
+.top-bar *:last-child {
+  justify-self: right;
+}
+
+/* Navigation */
+
+.toc {
+  position: relative;
+}
+
+.toc-trigger {
+  display: block;
+  height: 2rem;
+  min-width: 15rem;
+}
+
+.toc-menu {
+  height: 1px;
+  list-style: none;
+  margin: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0.25rem;
+  position: absolute;
+  top: 2rem;
+  transition: opacity 0.2s ease-in, height 0.1s ease-in;
+  left: 0;
+}
+
+.toc:focus-within .toc-menu,
+.toc:hover .toc-menu {
+  background-color: rgba(0,0,0,.025);
+  box-shadow: 0.1em 0.1em 0.2em rgba(0,0,0,0.5);
+  height: 35vh;
+  min-height: 10rem;
+  opacity: 1;
+  overflow-y: scroll;
+}
+
+.toc-menu li {
+  border-bottom: solid 1px rgba(0,0,0,.25);
+}
+
+.toc-menu li:last-child {
+  border-bottom: none;
+}
+.toc-menu a {
+  display: block;
+  font-size: 0.92rem;
+  padding: 0.5em 0.15em;
+}
+
+.toc-menu a:link {
+  text-decoration: none;
+}
+
+.toc-menu a:visited {
+  text-decoration: none;
+}
+
+.toc-menu a:hover {
+  background-color: rgba(0,0,0,.05);
+  text-decoration: none;
+}
+
+.toc-menu a:focus {
+  background-color: rgba(0,0,0,.05);
+  text-decoration: none;
+}
+
+.toc-menu a:active {
+  background-color: rgba(0,0,0,.05);
+  text-decoration: none;
+}
+

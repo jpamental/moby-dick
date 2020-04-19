@@ -1,0 +1,23 @@
+{
+  "name": "moby-dick",
+  "version": "1.0.0",
+  "description": "A new look at a web-based book.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://jpamental@github.com/jpamental/moby-dick.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jpamental/moby-dick/issues"
+  },
+  "homepage": "https://github.com/jpamental/moby-dick#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.10.0"
+  }
+}
