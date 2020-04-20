@@ -1,4 +1,5 @@
-# moby-dick
+# MOBY-DICK; or, THE WHALE.
+_By Herman Melville_
 A new look at a web-based book.
 
 ## Setup
