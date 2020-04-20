@@ -92,7 +92,18 @@ main {
   min-height: 100vh; }
 
 .title-page .title {
-  padding-top: 25vh; }
+  padding-top: 10vh; }
+
+figure {
+  margin: 0;
+  padding: 0; }
+  figure.wide {
+    max-width: var(--content-width);
+    width: 100%; }
+  figure img {
+    height: auto;
+    max-width: 100%;
+    width: 100%; }
 
 article {
   position: relative;
