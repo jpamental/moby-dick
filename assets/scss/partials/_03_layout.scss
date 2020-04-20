@@ -1,9 +1,5 @@
 /* Layout */
 
-main {
-  position: relative;
-  z-index: 0;
-}
 .title-page {
   display: flex;
   flex-direction: column;
@@ -29,10 +25,7 @@ figure {
     width: 100%;
   }
 }
-article {
-  position: relative;
-  z-index: 0;
-}
+
 article {
   max-width: 100%;
   padding-bottom: 3rem;
@@ -46,8 +39,6 @@ article > * {
 .top-bar { border-bottom: solid 1px rgba(0,0,0,.25);
   display: grid;
   grid-template-columns: max-content 1fr;
-  position: relative;
-  z-index: 99;
 }
 
 .top-bar *:last-child {
@@ -58,7 +49,6 @@ article > * {
 
 .toc {
   position: relative;
-  z-index: 99;
 }
 
 .toc-trigger {
@@ -78,18 +68,19 @@ article > * {
   top: 2rem;
   transition: opacity 0.2s ease-in, height 0.1s ease-in;
   left: 0;
-  z-index: 99;
 }
 
-.toc:focus-within .toc-menu,
-.toc:hover .toc-menu {
-  background-color: rgba(0,0,0,.025);
-  box-shadow: 0.1em 0.1em 0.2em rgba(0,0,0,0.5);
-  height: 35vh;
-  min-height: 10rem;
-  opacity: 1;
-  overflow-y: scroll;
-  z-index: 99;
+.toc:focus-within,
+.toc:hover {
+  .toc-menu {
+    background-color: #fafafa;
+    box-shadow: 0.1em 0.1em 0.2em #eaeaea;
+    height: 35vh;
+    min-height: 10rem;
+    opacity: 1;
+    overflow-y: scroll;
+    z-index: 99;
+  }
 }
 
 .toc .toc-menu li {
