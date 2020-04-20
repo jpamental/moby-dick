@@ -1,0 +1,72 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Base typography */
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+h1 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 4rem;
+  line-height: 1.15;
+  margin: 2rem 0 0 0;
+  max-width: calc( var(--content-width) + var(--margin-left) );
+  position: relative;
+}
+
+h1 + p {
+  margin-top: 3rem;
+}
+
+p {
+  color: #333333;
+  margin: 0;
+  max-width: var(--content-width);
+  position: relative;
+}
+
+p + p {
+  text-indent: 1.5em;
+}
+
+/* Style first line of the first paragraph in the chapter */
+p:first-of-type::first-line {
+  font-variant-caps: small-caps;
+  font-weight: bold;
+}
+
+/* Add an end mark at the end of the last paragraph */
+p:last-child:after {
+  content: "\2766";
+  display: inline;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.25em;
+  line-height: 0.5;
+}
+
+/* Style the initial letter */
+p:first-of-type::first-letter {
+  color: #555555;
+  float: left;
+  font-weight: normal;
+  font-size: 5.125em;
+  /* tweak vertical positioning in Chrome & Safari */
+  line-height: 0.7;
+  margin: 0;
+  padding: 0 0.1em 0 0;
+
+  /* tweak vertical positioning in Firefox */
+  padding-top: 0.1em;
+}

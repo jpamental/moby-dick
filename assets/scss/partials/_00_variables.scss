@@ -1,0 +1,31 @@
+
+// mq values (no unit)
+$bp--small-value: 28;
+$bp--medium-value: 42;
+$bp--large-value: 60;
+$bp--xlarge-value: 75;
+$bp--xxlarge-value: 90;
+$bp--xxxlarge-value: 110;
+
+// mq's in ems
+$bp--small: $bp--small-value * 1em;
+$bp--medium: $bp--medium-value * 1em;
+$bp--large: $bp--large-value * 1em;
+$bp--xlarge: $bp--xlarge-value * 1em;
+$bp--xxlarge: $bp--xxlarge-value * 1em;
+$bp--xxxlarge: $bp--xxxlarge-value * 1em;
+
+
+
+/* Set custom properties for layout and sizing */
+:root {
+  --content-width: 98vw;
+  --margin-left: 1vw;
+  --margin-right: 1vw;
+
+  @media screen and (min-width: $bp--medium) {
+    --content-width: 40rem;
+    --margin-left: calc( (100vw - var(--content-width)) / 3 );
+    --margin-right: calc( ((100vw - var(--content-width)) / 3) * 2 );
+  }
+}
