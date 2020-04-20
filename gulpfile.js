@@ -35,3 +35,7 @@ exports.default = gulp.series(
     scssTask,
     watchTask
 );
+
+exports.build = gulp.series(
+  scssTask
+)
