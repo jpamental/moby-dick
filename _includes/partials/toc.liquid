@@ -1,5 +1,5 @@
 <ul class="toc-menu">
- {%- for chapter in collections.chapter-%}
+ {%- for chapter in collections.chapter -%}
     <li{% if page.url == chapter.url %} class="active"{% endif %}>
       {% if page.url != chapter.url %}<a href="{{ chapter.url }}">{% endif %}{{ chapter.data.title }}{% if page.url != chapter.url %}</a>{% endif %}
     </li>

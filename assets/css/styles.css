@@ -12,6 +12,16 @@
   }
 }
 
+.visually-hidden:not(:focus):not(:active) { 
+  position: absolute !important;
+  height: 1px; 
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap; /* added line */
+}
+
 html {
   box-sizing: border-box;
 }
@@ -186,3 +196,20 @@ article > * {
   text-decoration: none;
 }
 
+.prev-next-chapters {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0 0 0 var(--margin-left);
+  padding: 0;
+  width: var(--content-width);
+}
+
+.prev-next-chapters:first-child {
+  text-align: left;
+}
+
+.prev-next-chapters .next {
+  text-align: right;
+}
