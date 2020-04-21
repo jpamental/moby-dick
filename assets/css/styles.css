@@ -55,31 +55,31 @@ p {
 p + p {
   text-indent: 1.5em; }
 
-/* Style first line of the first paragraph in the chapter */
-p:first-of-type::first-line {
-  font-variant-caps: small-caps;
-  font-weight: bold; }
-
-/* Add an end mark at the end of the last paragraph */
-p:last-child:after {
-  content: "\2766";
-  display: inline;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.25em;
-  line-height: 0.5; }
-
-/* Style the initial letter */
-p:first-of-type::first-letter {
-  color: #555555;
-  float: left;
-  font-weight: normal;
-  font-size: 5.125em;
-  /* tweak vertical positioning in Chrome & Safari */
-  line-height: 0.7;
-  margin: 0;
-  padding: 0 0.1em 0 0;
-  /* tweak vertical positioning in Firefox */
-  padding-top: 0.1em; }
+/* Scope these styles to just within chapter content */
+.chapter {
+  /* Style first line of the first paragraph in the chapter */
+  /* Add an end mark at the end of the last paragraph */
+  /* Style the initial letter */ }
+  .chapter p:first-of-type::first-line {
+    font-variant-caps: small-caps;
+    font-weight: bold; }
+  .chapter p:last-child:after {
+    content: "\2766";
+    display: inline;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.25em;
+    line-height: 0.5; }
+  .chapter p:first-of-type::first-letter {
+    color: #555555;
+    float: left;
+    font-weight: normal;
+    font-size: 5.125em;
+    /* tweak vertical positioning in Chrome & Safari */
+    line-height: 0.7;
+    margin: 0;
+    padding: 0 0.1em 0 0;
+    /* tweak vertical positioning in Firefox */
+    padding-top: 0.1em; }
 
 /* Layout */
 .title-page {
@@ -196,5 +196,15 @@ body > footer {
   border-top: solid 1px rgba(0, 0, 0, 0.15);
   margin-top: 3rem;
   padding: 0.5rem 0 0.5rem var(--margin-left); }
+
+.note {
+  background-color: #ffffff;
+  border: solid 1px #eaeaea;
+  max-width: var(--content-width);
+  padding: 0.5rem; }
+  figure + .note {
+    margin-top: 1rem; }
+  .note > *:first-child {
+    margin-top: 0; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -143,3 +143,16 @@ body > footer {
   margin-top: 3rem;
   padding: 0.5rem 0 0.5rem var(--margin-left);
 }
+
+.note {
+  background-color: #ffffff;
+  border: solid 1px #eaeaea;
+  max-width: var(--content-width);
+  padding: 0.5rem;
+  figure + & {
+    margin-top: 1rem;
+  }
+  > *:first-child {
+    margin-top: 0;
+  }
+}
