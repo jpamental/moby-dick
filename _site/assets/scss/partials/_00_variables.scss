@@ -29,3 +29,13 @@ $bp--xxxlarge: $bp--xxxlarge-value * 1em;
     --margin-right: calc( ((100vw - var(--content-width)) / 3) * 2 );
   }
 }
+
+/* Colors */
+
+$color-paper-light: #fafafd;
+
+:root {
+  --color-paper-light: #{$color-paper-light};
+
+  --color-background: var(--color-paper-light);
+}

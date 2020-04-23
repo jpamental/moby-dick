@@ -12,10 +12,35 @@ html {
 }
 
 body {
+  background-color: var(--color-background);
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 1rem;
   line-height: 1.5;
 }
+
+img {
+  height: auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+  max-width: var(--content-width);
+  width: 100%;
+
+  img {
+    margin: 0;
+    padding: 0;
+  }
+
+  &.wide {
+    max-width: var(--content-width);
+    width: 100%;
+  }
+}
+
 
 h1 {
   font-family: Georgia, 'Times New Roman', Times, serif;
