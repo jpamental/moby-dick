@@ -30,8 +30,8 @@ $content-width-l: 44rem;
 
   @media screen and (min-width: $bp--medium) {
     --content-width: #{$content-width-m};
-    --margin-left: calc( (100vw - var(--content-width)) / 3 );
-    --margin-right: calc( ((100vw - var(--content-width)) / 3) * 2 );
+    --margin-left: calc( ((100vw - var(--content-width)) / 5) * 2 );
+    --margin-right: calc( ((100vw - var(--content-width)) / 5) * 3 );
   }
 
   @media screen and (min-width: $bp--large) {
@@ -69,17 +69,36 @@ $fonts-sans: $fonts-base-sans;
 
 /* Text sizing */
 
+/* Set base text size for all calcs */
+$text-base-size: 16;
+
 /* Preprocessed for fallbacks */
-/* Change values here for all font sizing */
 
-/* Font size values (needed for dynamic sizing) */
-$p-size-s-value: 1;
-$p-size-m-value: 1.125;
-$p-size-l-value: 1.25;
+/* Change px values here for all font sizing */
+$p-size-s-px: 16;
+$p-size-m-px: 18;
+$p-size-l-px: 20;
 
-$h1-size-s-value: 2.5;
-$h1-size-m-value: 3;
-$h1-size-l-value: 4;
+$h1-size-s-px: 36;
+$h1-size-m-px: 48;
+$h1-size-l-px: 64;
+
+$h2-size-s-px: 24;
+$h2-size-m-px: 30;
+$h2-size-l-px: 36;
+
+/* Font size rem values (needed for dynamic sizing) */
+$p-size-s-value: $p-size-s-px / $text-base-size;
+$p-size-m-value: $p-size-m-px / $text-base-size;
+$p-size-l-value: $p-size-l-px / $text-base-size;
+
+$h1-size-s-value: $h1-size-s-px / $text-base-size;
+$h1-size-m-value: $h1-size-m-px / $text-base-size;
+$h1-size-l-value: $h1-size-l-px / $text-base-size;
+
+$h2-size-s-value: $h2-size-s-px / $text-base-size;
+$h2-size-m-value: $h2-size-m-px / $text-base-size;
+$h2-size-l-value: $h2-size-l-px / $text-base-size;
 
 /* Font sizes in rems */
 $p-size-s: $p-size-s-value * 1rem;
@@ -90,6 +109,10 @@ $h1-size-s: $h1-size-s-value * 1rem;
 $h1-size-m: $h1-size-m-value * 1rem;
 $h1-size-l: $h1-size-l-value * 1rem;
 
+$h2-size-s: $h2-size-s-value * 1rem;
+$h2-size-m: $h2-size-m-value * 1rem;
+$h2-size-l: $h2-size-l-value * 1rem;
+
 /* Line-height */
 $p-lh-s: 1.4;
 $p-lh-m: 1.45;
@@ -98,6 +121,10 @@ $p-lh-l: 1.5;
 $h1-lh-s: 1.05;
 $h1-lh-m: 1.1;
 $h1-lh-l: 1.15;
+
+$h2-lh-s: 1.1;
+$h2-lh-m: 1.15;
+$h2-lh-l: 1.2;
 
 /* Custom props for modern browsers */
 :root {
@@ -109,6 +136,10 @@ $h1-lh-l: 1.15;
   --h1-size-m-value: #{$h1-size-m-value};
   --h1-size-l-value: #{$h1-size-l-value};
 
+  --h2-size-s-value: #{$h2-size-s-value};
+  --h2-size-m-value: #{$h2-size-m-value};
+  --h2-size-l-value: #{$h2-size-l-value};
+
   --p-size-s: #{$p-size-s-value * 1rem};
   --p-size-m: #{$p-size-m-value * 1rem};
   --p-size-l: #{$p-size-l-value * 1rem};
@@ -117,6 +148,10 @@ $h1-lh-l: 1.15;
   --h1-size-m: #{$h1-size-m-value * 1rem};
   --h1-size-l: #{$h1-size-l-value * 1rem};
 
+  --h2-size-s: #{$h2-size-s-value * 1rem};
+  --h2-size-m: #{$h2-size-m-value * 1rem};
+  --h2-size-l: #{$h2-size-l-value * 1rem};
+
   --p-lh-s: #{$p-lh-s};
   --p-lh-m: #{$p-lh-m};
   --p-lh-l: #{$p-lh-l};
@@ -124,4 +159,23 @@ $h1-lh-l: 1.15;
   --h1-lh-s: #{$h1-lh-s};
   --h1-lh-m: #{$h1-lh-m};
   --h1-lh-l: #{$h1-lh-l};
+
+  --h2-lh-s: #{$h2-lh-s};
+  --h2-lh-m: #{$h2-lh-m};
+  --h2-lh-l: #{$h2-lh-l};
+}
+
+/* Responsive text-size spacer */
+$body-text-spacer-s: $p-size-s;
+$body-text-spacer-m: $p-size-m;
+$body-text-spacer-l: $p-size-l;
+
+:root {
+  --body-text-spacer: #{$body-text-spacer-s};
+  @media screen and (min-width: $bp--medium) {
+    --body-text-spacer: #{$body-text-spacer-m};
+  }  
+  @media screen and (min-width: $bp--large) {
+    --body-text-spacer: #{$body-text-spacer-l};
+  }  
 }

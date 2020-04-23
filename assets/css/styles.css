@@ -6,8 +6,8 @@
   @media screen and (min-width: 42em) {
     :root {
       --content-width: 40rem;
-      --margin-left: calc( (100vw - var(--content-width)) / 3 );
-      --margin-right: calc( ((100vw - var(--content-width)) / 3) * 2 ); } }
+      --margin-left: calc( ((100vw - var(--content-width)) / 5) * 2 );
+      --margin-right: calc( ((100vw - var(--content-width)) / 5) * 3 ); } }
   @media screen and (min-width: 60em) {
     :root {
       --content-width: 44rem; } }
@@ -27,9 +27,10 @@
   --fonts-sans: Helvetica, Arial, sans-serif; }
 
 /* Text sizing */
+/* Set base text size for all calcs */
 /* Preprocessed for fallbacks */
-/* Change values here for all font sizing */
-/* Font size values (needed for dynamic sizing) */
+/* Change px values here for all font sizing */
+/* Font size rem values (needed for dynamic sizing) */
 /* Font sizes in rems */
 /* Line-height */
 /* Custom props for modern browsers */
@@ -37,21 +38,40 @@
   --p-size-s-value: 1;
   --p-size-m-value: 1.125;
   --p-size-l-value: 1.25;
-  --h1-size-s-value: 2.5;
+  --h1-size-s-value: 2.25;
   --h1-size-m-value: 3;
   --h1-size-l-value: 4;
+  --h2-size-s-value: 1.5;
+  --h2-size-m-value: 1.875;
+  --h2-size-l-value: 2.25;
   --p-size-s: 1rem;
   --p-size-m: 1.125rem;
   --p-size-l: 1.25rem;
-  --h1-size-s: 2.5rem;
+  --h1-size-s: 2.25rem;
   --h1-size-m: 3rem;
   --h1-size-l: 4rem;
+  --h2-size-s: 1.5rem;
+  --h2-size-m: 1.875rem;
+  --h2-size-l: 2.25rem;
   --p-lh-s: 1.4;
   --p-lh-m: 1.45;
   --p-lh-l: 1.5;
   --h1-lh-s: 1.05;
   --h1-lh-m: 1.1;
-  --h1-lh-l: 1.15; }
+  --h1-lh-l: 1.15;
+  --h2-lh-s: 1.1;
+  --h2-lh-m: 1.15;
+  --h2-lh-l: 1.2; }
+
+/* Responsive text-size spacer */
+:root {
+  --body-text-spacer: 1rem; }
+  @media screen and (min-width: 42em) {
+    :root {
+      --body-text-spacer: 1.125rem; } }
+  @media screen and (min-width: 60em) {
+    :root {
+      --body-text-spacer: 1.25rem; } }
 
 .visually-hidden:not(:focus):not(:active) {
   position: absolute !important;
@@ -115,11 +135,12 @@ h1 {
   color: var(--color-text);
   font-family: Georgia, "Times New Roman", Times, serif;
   font-family: var(--fonts-serif);
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   font-size: var(--h1-size-s);
   line-height: 1.05;
   line-height: var(--h1-lh-s);
   margin: 2rem 0 0 0;
+  margin-top: calc( var(--body-text-spacer) * 2);
   max-width: 92vw;
   max-width: var(--content-width);
   position: relative; }
@@ -141,7 +162,40 @@ h1 {
       max-width: var(--content-width); } }
 
 h1 + p {
-  margin-top: 3rem; }
+  margin-top: calc( var(--body-text-spacer) * 3); }
+
+h2 {
+  color: #333333;
+  color: var(--color-text);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: var(--fonts-serif);
+  font-size: 1.5rem;
+  font-size: var(--h2-size-s);
+  line-height: 1.1;
+  line-height: var(--h2-lh-s);
+  margin: 2rem 0 0 0;
+  max-width: 92vw;
+  max-width: var(--content-width);
+  position: relative; }
+  @media screen and (min-width: 42em) {
+    h2 {
+      font-size: 1.875rem;
+      font-size: var(--h2-size-m);
+      line-height: 1.15;
+      line-height: var(--h2-lh-m);
+      max-width: 40rem;
+      max-width: var(--content-width); } }
+  @media screen and (min-width: 60em) {
+    h2 {
+      font-size: 2.25rem;
+      font-size: var(--h2-size-l);
+      line-height: 1.2;
+      line-height: var(--h2-lh-l);
+      max-width: 44rem;
+      max-width: var(--content-width); } }
+
+h2 + p {
+  margin-top: calc( var(--body-text-spacer) * 2); }
 
 p {
   color: #333333;
@@ -248,7 +302,8 @@ article {
   max-width: 100%;
   padding-bottom: 3rem; }
   main > article {
-    margin-top: 1rem; }
+    margin-top: 1rem;
+    margin-top: var(--body-text-spacer); }
   article > * {
     margin-left: auto;
     margin-right: auto;
@@ -339,7 +394,8 @@ body > footer {
   .prev-next-chapters > * {
     display: block;
     flex-grow: 1;
-    margin-bottom: 1rem; }
+    margin-bottom: 1rem;
+    margin-bottom: var(--body-text-spacer); }
   .prev-next-chapters .previous {
     text-align: left; }
   .prev-next-chapters .next {
@@ -360,7 +416,8 @@ body > footer {
   max-width: var(--content-width);
   padding: 0.5rem; }
   figure + .note {
-    margin-top: 1rem; }
+    margin-top: 1rem;
+    margin-top: var(--body-text-spacer); }
   .note > *:first-child {
     margin-top: 0; }
 
@@ -390,16 +447,19 @@ figure.center {
 figure.left {
   float: left;
   margin-right: 1.5rem;
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+  margin-bottom: var(--body-text-spacer); }
 
 figure.right {
   float: right;
   margin-left: 1.5rem;
   margin-right: var(--margin-right);
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+  margin-bottom: var(--body-text-spacer); }
 
 * + figure {
-  margin-top: 1rem; }
+  margin-top: 1rem;
+  margin-top: var(--body-text-spacer); }
 
 article > h1 {
   margin-left: calc( var(--margin-left) / 2);
@@ -407,7 +467,8 @@ article > h1 {
   max-width: calc( 100vw - var(--margin-left)); }
 
 article figure + h1 {
-  margin-top: 0.25rem; }
+  margin-top: 0.25rem;
+  margin-top: calc( var(--body-text-spacer) * .25); }
 
 body > footer {
   text-align: center; }

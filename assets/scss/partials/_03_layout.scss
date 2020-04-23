@@ -16,6 +16,7 @@ article {
   padding-bottom: 3rem;
   main > & {
     margin-top: 1rem;
+    margin-top: var(--body-text-spacer);
   }
 
   > * {
