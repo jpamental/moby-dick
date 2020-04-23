@@ -88,6 +88,7 @@ p {
   color: var(--color-text);
   font-size: $p-size-s;
   font-size: var(--p-size-s);
+  -webkit-hyphens: auto;
   hyphens: auto;
   line-height: $p-lh-s;
   line-height: var(--p-lh-s);
@@ -98,6 +99,7 @@ p {
   @media screen and (min-width: $bp--medium) {
     font-size: $p-size-m;
     font-size: var(--p-size-m);
+    -webkit-hyphens: none;
     hyphens: none;
     line-height: $p-lh-m;
     line-height: var(--p-lh-m);

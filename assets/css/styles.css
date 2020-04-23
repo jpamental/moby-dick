@@ -135,6 +135,7 @@ p {
   color: var(--color-text);
   font-size: 1rem;
   font-size: var(--p-size-s);
+  -webkit-hyphens: auto;
   hyphens: auto;
   line-height: 1.4;
   line-height: var(--p-lh-s);
@@ -146,6 +147,7 @@ p {
     p {
       font-size: 1.125rem;
       font-size: var(--p-size-m);
+      -webkit-hyphens: none;
       hyphens: none;
       line-height: 1.45;
       line-height: var(--p-lh-m);
