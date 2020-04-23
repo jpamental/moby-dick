@@ -326,7 +326,9 @@ body > footer {
     margin-top: 0; }
 
 figure.wide {
-  max-width: var(--content-width);
+  margin-left: calc( var(--margin-left) / 2);
+  margin-right: calc( var(--margin-left) / 2);
+  max-width: calc( 100vw - var(--margin-left));
   width: 100%; }
 
 figure.small {
@@ -338,6 +340,10 @@ figure.medium {
   --figure-width: calc( var(--content-width) / 2);
   --centering-margin: calc( var(--content-width) / 4);
   width: var(--figure-width); }
+
+figure.large {
+  max-width: var(--content-width);
+  width: 100%; }
 
 figure.center {
   margin-left: calc( var(--margin-left) + var(--centering-margin)); }
@@ -355,5 +361,13 @@ figure.right {
 
 * + figure {
   margin-top: 1rem; }
+
+article > h1 {
+  margin-left: calc( var(--margin-left) / 2);
+  margin-right: calc( var(--margin-left) / 2);
+  max-width: calc( 100vw - var(--margin-left)); }
+
+article figure + h1 {
+  margin-top: 0.25rem; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -120,7 +120,9 @@
 figure {
 
   &.wide {
-    max-width: var(--content-width);
+    margin-left: calc( var(--margin-left) / 2 );
+    margin-right: calc( var(--margin-left) / 2 );
+    max-width: calc( 100vw - var(--margin-left) );
     width: 100%;
   }
 
@@ -134,6 +136,11 @@ figure {
     --figure-width: calc( var(--content-width) / 2);
     --centering-margin: calc( var(--content-width) / 4);
     width: var(--figure-width);
+  }
+
+  &.large {
+    max-width: var(--content-width);
+    width: 100%;
   }
 
   &.center {
@@ -155,5 +162,16 @@ figure {
 
   * + & {
     margin-top: 1rem;
+  }
+}
+
+article {
+  > h1 {
+    margin-left: calc( var(--margin-left) / 2 );
+    margin-right: calc( var(--margin-left) / 2 );
+    max-width: calc( 100vw - var(--margin-left) );
+  }
+  figure + h1 {
+    margin-top: 0.25rem;
   }
 }
