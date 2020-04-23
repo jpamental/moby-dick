@@ -1,6 +1,6 @@
 /* Set custom properties for layout and sizing */
 :root {
-  --content-width: 94vw;
+  --content-width: 92vw;
   --margin-left: calc( (100vw - var(--content-width)) / 2 );
   --margin-right: calc( (100vw - var(--content-width)) / 2 ); }
   @media screen and (min-width: 42em) {
@@ -83,7 +83,7 @@ img {
 figure {
   margin: 0;
   padding: 0;
-  max-width: 94vw;
+  max-width: 92vw;
   max-width: var(--content-width);
   width: 100%; }
   @media screen and (min-width: 42em) {
@@ -107,7 +107,7 @@ h1 {
   line-height: 1.05;
   line-height: var(--h1-lh-s);
   margin: 2rem 0 0 0;
-  max-width: 94vw;
+  max-width: 92vw;
   max-width: var(--content-width);
   position: relative; }
   @media screen and (min-width: 42em) {
@@ -138,7 +138,7 @@ p {
   line-height: 1.4;
   line-height: var(--p-lh-s);
   margin: 0;
-  max-width: 94vw;
+  max-width: 92vw;
   max-width: var(--content-width);
   position: relative; }
   @media screen and (min-width: 42em) {
@@ -168,7 +168,7 @@ ul {
   line-height: 1.4;
   line-height: var(--p-lh-s);
   margin: 0;
-  max-width: 94vw;
+  max-width: 92vw;
   max-width: var(--content-width);
   padding-left: 1.25rem; }
   @media screen and (min-width: 42em) {
