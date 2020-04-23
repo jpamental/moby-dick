@@ -16,6 +16,8 @@ body {
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 1rem;
   line-height: 1.5;
+  margin: 0;
+  padding: 0;
 }
 
 img {
@@ -27,43 +29,121 @@ img {
 figure {
   margin: 0;
   padding: 0;
+  max-width: $content-width-s;
   max-width: var(--content-width);
   width: 100%;
+  @media screen and (min-width: $bp--medium) {
+    max-width: $content-width-m;
+    max-width: var(--content-width);
+ }
+ @media screen and (min-width: $bp--large) {
+  max-width: $content-width-l;
+  max-width: var(--content-width);
+}
 
   img {
     margin: 0;
     padding: 0;
   }
-
-  &.wide {
-    max-width: var(--content-width);
-    width: 100%;
-  }
 }
 
 
 h1 {
+  color: $color-dark-gray;
+  color: var(--color-text);
   font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 4rem;
-  line-height: 1.15;
+  font-size: $h1-size-s;
+  font-size: var(--h1-size-s);
+  line-height: $h1-lh-s;
+  line-height: var(--h1-lh-s);
   margin: 2rem 0 0 0;
-  max-width: calc( var(--content-width) + var(--margin-left) );
+  max-width: $content-width-s;
+  max-width: var(--content-width);
   position: relative;
+  @media screen and (min-width: $bp--medium) {
+    font-size: $h1-size-m;
+    font-size: var(--h1-size-m);
+    line-height: $h1-lh-m;
+    line-height: var(--h1-lh-m);
+    max-width: $content-width-m;
+    max-width: var(--content-width);
+ }
+  @media screen and (min-width: $bp--large) {
+    font-size: $h1-size-l;
+    font-size: var(--h1-size-l);
+    line-height: $h1-lh-l;
+    line-height: var(--h1-lh-l);
+    max-width: $content-width-l;
+    max-width: var(--content-width);
+  }
 }
+
 
 h1 + p {
   margin-top: 3rem;
 }
 
 p {
-  color: #333333;
+  color: $color-dark-gray;
+  color: var(--color-text);
+  font-size: $p-size-s;
+  font-size: var(--p-size-s);
+  line-height: $p-lh-s;
+  line-height: var(--p-lh-s);
   margin: 0;
+  max-width: $content-width-s;
   max-width: var(--content-width);
   position: relative;
+  @media screen and (min-width: $bp--medium) {
+    font-size: $p-size-m;
+    font-size: var(--p-size-m);
+    line-height: $p-lh-m;
+    line-height: var(--p-lh-m);
+    max-width: $content-width-m;
+    max-width: var(--content-width);
+  }
+  @media screen and (min-width: $bp--large) {
+    font-size: $p-size-l;
+    font-size: var(--p-size-l);
+    line-height: $p-lh-l;
+    line-height: var(--p-lh-l);
+    max-width: $content-width-l;
+    max-width: var(--content-width);
+  }
+
+  + p {
+    text-indent: 1.5em;
+  }
 }
 
-p + p {
-  text-indent: 1.5em;
+
+ul {
+  color: $color-dark-gray;
+  color: var(--color-text);
+  font-size: $p-size-s;
+  font-size: var(--p-size-s);
+  line-height: $p-lh-s;
+  line-height: var(--p-lh-s);
+  margin: 0;
+  max-width: $content-width-s;
+  max-width: var(--content-width);
+  padding-left: 1.25rem;
+  @media screen and (min-width: $bp--medium) {
+    font-size: $p-size-m;
+    font-size: var(--p-size-m);
+    line-height: $p-lh-m;
+    line-height: var(--p-lh-m);
+    max-width: $content-width-m;
+    max-width: var(--content-width);
+  }
+  @media screen and (min-width: $bp--large) {
+    font-size: $p-size-l;
+    font-size: var(--p-size-l);
+    line-height: $p-lh-l;
+    line-height: var(--p-lh-l);
+    max-width: $content-width-l;
+    max-width: var(--content-width);
+  }
 }
 
 /* Scope these styles to just within chapter content */

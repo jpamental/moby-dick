@@ -18,24 +18,95 @@ $bp--xxxlarge: $bp--xxxlarge-value * 1em;
 
 
 /* Set custom properties for layout and sizing */
+
+$content-width-s: 94vw;
+$content-width-m: 40rem;
+$content-width-l: 44rem;
+
 :root {
-  --content-width: 98vw;
-  --margin-left: 1vw;
-  --margin-right: 1vw;
+  --content-width: #{$content-width-s};
+  --margin-left: calc( (100vw - var(--content-width)) / 2 );
+  --margin-right: calc( (100vw - var(--content-width)) / 2 );
 
   @media screen and (min-width: $bp--medium) {
-    --content-width: 40rem;
+    --content-width: #{$content-width-m};
     --margin-left: calc( (100vw - var(--content-width)) / 3 );
     --margin-right: calc( ((100vw - var(--content-width)) / 3) * 2 );
+  }
+
+  @media screen and (min-width: $bp--large) {
+    --content-width: #{$content-width-l};
   }
 }
 
 /* Colors */
 
 $color-paper-light: #fafafd;
+$color-dark-gray: #333333;
 
 :root {
   --color-paper-light: #{$color-paper-light};
+  --color-dark-gray: #{$color-dark-gray};
 
   --color-background: var(--color-paper-light);
+  --color-text: var(--color-dark-gray);
+}
+
+/* Text sizing */
+
+/* Preprocessed for fallbacks */
+/* Change values here for all font sizing */
+
+/* Font size values (needed for dynamic sizing) */
+$p-size-s-value: 1;
+$p-size-m-value: 1.125;
+$p-size-l-value: 1.25;
+
+$h1-size-s-value: 2.5;
+$h1-size-m-value: 3;
+$h1-size-l-value: 4;
+
+/* Font sizes in rems */
+$p-size-s: $p-size-s-value * 1rem;
+$p-size-m: $p-size-m-value * 1rem;
+$p-size-l: $p-size-l-value * 1rem;
+
+$h1-size-s: $h1-size-s-value * 1rem;
+$h1-size-m: $h1-size-m-value * 1rem;
+$h1-size-l: $h1-size-l-value * 1rem;
+
+/* Line-height */
+$p-lh-s: 1.4;
+$p-lh-m: 1.45;
+$p-lh-l: 1.5;
+
+$h1-lh-s: 1.05;
+$h1-lh-m: 1.1;
+$h1-lh-l: 1.15;
+
+/* Custom props for modern browsers */
+:root {
+  --p-size-s-value: #{$p-size-s-value};
+  --p-size-m-value: #{$p-size-m-value};
+  --p-size-l-value: #{$p-size-l-value};
+
+  --h1-size-s-value: #{$h1-size-s-value};
+  --h1-size-m-value: #{$h1-size-m-value};
+  --h1-size-l-value: #{$h1-size-l-value};
+
+  --p-size-s: #{$p-size-s-value * 1rem};
+  --p-size-m: #{$p-size-m-value * 1rem};
+  --p-size-l: #{$p-size-l-value * 1rem};
+
+  --h1-size-s: #{$h1-size-s-value * 1rem};
+  --h1-size-m: #{$h1-size-m-value * 1rem};
+  --h1-size-l: #{$h1-size-l-value * 1rem};
+
+  --p-lh-s: #{$p-lh-s};
+  --p-lh-m: #{$p-lh-m};
+  --p-lh-l: #{$p-lh-l};
+
+  --h1-lh-s: #{$h1-lh-s};
+  --h1-lh-m: #{$h1-lh-m};
+  --h1-lh-l: #{$h1-lh-l};
 }
