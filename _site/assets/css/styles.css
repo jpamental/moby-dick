@@ -135,6 +135,7 @@ p {
   color: var(--color-text);
   font-size: 1rem;
   font-size: var(--p-size-s);
+  hyphens: auto;
   line-height: 1.4;
   line-height: var(--p-lh-s);
   margin: 0;
@@ -145,6 +146,7 @@ p {
     p {
       font-size: 1.125rem;
       font-size: var(--p-size-m);
+      hyphens: none;
       line-height: 1.45;
       line-height: var(--p-lh-m);
       max-width: 40rem;
@@ -212,7 +214,10 @@ ul {
     margin: 0;
     padding: 0 0.1em 0 0;
     /* tweak vertical positioning in Firefox */
-    padding-top: 0.1em; }
+    padding-top: 0.05em; }
+    @media screen and (min-width: 60em) {
+      .chapter p:first-of-type::first-letter {
+        padding-top: 0.1em; } }
 
 /* Layout */
 .title-page {
