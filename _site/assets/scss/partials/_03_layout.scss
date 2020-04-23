@@ -30,6 +30,8 @@ article {
 body > footer {
   border-top: solid 1px rgba(0,0,0,0.15);
   margin-top: 3rem;
-  padding: 0.5rem 2vw;
-  padding: 0.5rem 0 0.5rem var(--margin-left);
+  padding: 0.5rem 2vw 1rem 2vw;
+  @media screen and (min-width: $bp--small) {
+    padding-left: var(--margin-left);
+  }
 }

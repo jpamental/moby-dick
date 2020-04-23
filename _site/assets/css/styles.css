@@ -19,6 +19,13 @@
   --color-background: var(--color-paper-light);
   --color-text: var(--color-dark-gray); }
 
+/* Fonts */
+:root {
+  --fonts-base-serif: Georgia, Times New Roman, Times, serif;
+  --fonts-base-sans: Helvetica, Arial, sans-serif;
+  --fonts-serif: Georgia, Times New Roman, Times, serif;
+  --fonts-sans: Helvetica, Arial, sans-serif; }
+
 /* Text sizing */
 /* Preprocessed for fallbacks */
 /* Change values here for all font sizing */
@@ -65,11 +72,16 @@ html {
 
 /* Base typography */
 html {
-  font-size: 100%; }
+  font-size: 100%;
+  scroll-behavior: smooth; }
+  @media screen and (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto; } }
 
 body {
   background-color: var(--color-background);
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: var(--fonts-serif);
   font-size: 1rem;
   line-height: 1.5;
   margin: 0;
@@ -101,7 +113,8 @@ figure {
 h1 {
   color: #333333;
   color: var(--color-text);
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: var(--fonts-serif);
   font-size: 2.5rem;
   font-size: var(--h1-size-s);
   line-height: 1.05;
@@ -203,7 +216,8 @@ ul {
   .chapter p:last-child:after {
     content: "\2766";
     display: inline;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: var(--fonts-serif);
     font-size: 1.25em;
     line-height: 0.5; }
   .chapter p:first-of-type::first-letter {
@@ -245,8 +259,10 @@ article {
 body > footer {
   border-top: solid 1px rgba(0, 0, 0, 0.15);
   margin-top: 3rem;
-  padding: 0.5rem 2vw;
-  padding: 0.5rem 0 0.5rem var(--margin-left); }
+  padding: 0.5rem 2vw 1rem 2vw; }
+  @media screen and (min-width: 28em) {
+    body > footer {
+      padding-left: var(--margin-left); } }
 
 /* Top bar */
 .top-bar {
@@ -263,7 +279,8 @@ body > footer {
   .toc-trigger {
     display: block;
     height: 2rem;
-    min-width: 15rem; }
+    min-width: 15rem;
+    text-align: right; }
   .toc .toc-menu {
     height: 1px;
     list-style: none;
@@ -308,18 +325,33 @@ body > footer {
 
 /* Chapter prev/next navigation */
 .prev-next-chapters {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   justify-content: space-between;
+  flex-direction: column-reverse;
   list-style: none;
   margin: 0 auto;
   margin: 0 0 0 var(--margin-left);
   max-width: var(--content-width);
   padding: 0; }
-  .prev-next-chapters:first-child {
+  @media screen and (min-width: 28em) {
+    .prev-next-chapters {
+      flex-direction: row; } }
+  .prev-next-chapters > * {
+    display: block;
+    flex-grow: 1;
+    margin-bottom: 1rem; }
+  .prev-next-chapters .previous {
     text-align: left; }
   .prev-next-chapters .next {
     text-align: right; }
+  .prev-next-chapters a:link, .prev-next-chapters a:visited {
+    font-size: 0.875rem;
+    text-decoration: none; }
+    @media screen and (min-width: 60em) {
+      .prev-next-chapters a:link, .prev-next-chapters a:visited {
+        font-size: 1rem; } }
+  .prev-next-chapters a:hover, .prev-next-chapters a:focus, .prev-next-chapters a:active {
+    text-decoration: underline; }
 
 /* Editor's note */
 .note {
@@ -376,5 +408,18 @@ article > h1 {
 
 article figure + h1 {
   margin-top: 0.25rem; }
+
+body > footer {
+  text-align: center; }
+  @media screen and (min-width: 28em) {
+    body > footer {
+      text-align: left; } }
+  body > footer a:link, body > footer a:visited {
+    font-family: Helvetica, Arial, sans-serif;
+    font-family: var(--fonts-sans);
+    font-size: 0.75rem;
+    text-decoration: none; }
+  body > footer a:hover, body > footer a:focus, body > footer a:active {
+    text-decoration: underline; }
 
 /*# sourceMappingURL=styles.css.map */

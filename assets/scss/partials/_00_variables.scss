@@ -52,6 +52,21 @@ $color-dark-gray: #333333;
   --color-text: var(--color-dark-gray);
 }
 
+/* Fonts */
+$fonts-base-serif: Georgia, 'Times New Roman', Times, serif;
+$fonts-base-sans: Helvetica, Arial, sans-serif;
+
+$fonts-serif: $fonts-base-serif;
+$fonts-sans: $fonts-base-sans;
+
+:root {
+  --fonts-base-serif: #{$fonts-base-serif};
+  --fonts-base-sans: #{$fonts-base-sans};
+
+  --fonts-serif: #{$fonts-serif};
+  --fonts-sans: #{$fonts-sans};
+}
+
 /* Text sizing */
 
 /* Preprocessed for fallbacks */
