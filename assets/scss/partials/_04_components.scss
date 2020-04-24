@@ -264,6 +264,19 @@ blockquote {
   }
 }
 
+.lang-table {
+  list-style: none;
+  padding: 0;
+  .chars {
+    display: inline-block;
+    width: 13.5rem;
+  }
+  .language {
+    display: inline-block;
+    font-style: italic;
+  }
+}
+
 article {
   > h1 {
     margin-left: calc( var(--margin-left) / 2 );

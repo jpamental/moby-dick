@@ -577,6 +577,16 @@ blockquote {
     blockquote cite:before {
       content: "—"; }
 
+.lang-table {
+  list-style: none;
+  padding: 0; }
+  .lang-table .chars {
+    display: inline-block;
+    width: 13.5rem; }
+  .lang-table .language {
+    display: inline-block;
+    font-style: italic; }
+
 article > h1 {
   margin-left: calc( var(--margin-left) / 2);
   margin-right: calc( var(--margin-left) / 2);
