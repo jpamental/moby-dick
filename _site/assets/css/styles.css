@@ -251,6 +251,24 @@ p {
   p + p {
     text-indent: 1.5em; }
 
+td {
+  font-size: 1rem;
+  font-size: var(--p-size-s);
+  line-height: 1.4;
+  line-height: var(--p-lh-s); }
+  @media screen and (min-width: 42em) {
+    td {
+      font-size: 1.125rem;
+      font-size: var(--p-size-m);
+      line-height: 1.45;
+      line-height: var(--p-lh-m); } }
+  @media screen and (min-width: 60em) {
+    td {
+      font-size: 1.25rem;
+      font-size: var(--p-size-l);
+      line-height: 1.5;
+      line-height: var(--p-lh-l); } }
+
 ul {
   color: #333333;
   color: var(--color-text);

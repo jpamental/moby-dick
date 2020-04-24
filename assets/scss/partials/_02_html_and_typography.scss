@@ -170,6 +170,24 @@ p {
   }
 }
 
+td {
+  font-size: $p-size-s;
+  font-size: var(--p-size-s);
+  line-height: $p-lh-s;
+  line-height: var(--p-lh-s);
+  @media screen and (min-width: $bp--medium) {
+    font-size: $p-size-m;
+    font-size: var(--p-size-m);
+    line-height: $p-lh-m;
+    line-height: var(--p-lh-m);
+  }
+  @media screen and (min-width: $bp--large) {
+    font-size: $p-size-l;
+    font-size: var(--p-size-l);
+    line-height: $p-lh-l;
+    line-height: var(--p-lh-l);
+  }
+}
 
 ul {
   color: $color-dark-gray;
