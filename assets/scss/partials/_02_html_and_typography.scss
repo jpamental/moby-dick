@@ -52,6 +52,15 @@ figure {
   }
 }
 
+table {
+  border-collapse: collapse;
+  td {
+    & + td {
+      padding-left: 1rem;
+    }
+  }
+}
+
 h1 {
   color: $color-dark-gray;
   color: var(--color-text);
@@ -191,16 +200,57 @@ ul {
   }
 }
 
+a {
+  &:link {
+    color: $color-a-link;
+    color: var(--color-a-link);
+    text-decoration: underline;
+    text-decoration-thickness: 0.05em;
+    text-underline-offset: .075em;
+    text-decoration-skip-ink: auto;
+    transition: all .2s ease; 
+}
+  
+  &:visited {
+    color: $color-a-visited;
+    color: var(--color-a-visited);
+    text-decoration: underline;
+    text-decoration-thickness: 0.05em;
+    text-underline-offset: .075em;
+    text-decoration-skip-ink: auto;
+    transition: all .2s ease; 
+  }
+  
+  &:hover {
+    color: $color-a-hover;
+    color: var(--color-a-hover);
+    text-decoration: underline;
+  }
+  
+  &:focus {
+    color: $color-a-focus;
+    color: var(--color-a-focus);
+    text-decoration: underline;
+  }
+  
+  &:active {
+    color: $color-a-active;
+    color: var(--color-a-active);
+    text-decoration: underline;
+  }
+}
+
+
 /* Scope these styles to just within chapter content */
 .chapter {
   /* Style first line of the first paragraph in the chapter */
-  p:first-of-type::first-line {
+  > p:first-of-type::first-line {
     font-variant-caps: small-caps;
     font-weight: bold;
   }
 
   /* Add an end mark at the end of the last paragraph */
-  p:last-child:after {
+  > p:last-child:after {
     content: "\2766";
     display: inline;
     font-family: $fonts-serif;
@@ -210,7 +260,7 @@ ul {
   }
 
   /* Style the initial letter */
-  p:first-of-type::first-letter {
+  > p:first-of-type::first-letter {
     color: #555555;
     float: left;
     font-weight: normal;

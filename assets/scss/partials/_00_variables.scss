@@ -43,13 +43,33 @@ $content-width-l: 44rem;
 
 $color-paper-light: #fafafd;
 $color-dark-gray: #333333;
+$color-blue: #3333ff;
+$color-purple: #8221e4;
+$color-red: #ff4444;
+
+$color-background: $color-paper-light;
+$color-text: $color-dark-gray;
+$color-a-link: $color-blue;
+$color-a-visited: $color-purple;
+$color-a-hover: $color-red;
+$color-a-focus: $color-red;
+$color-a-active: $color-red;
+
 
 :root {
   --color-paper-light: #{$color-paper-light};
   --color-dark-gray: #{$color-dark-gray};
+  --color-blue: #{$color-blue};
+  --color-purple: #{$color-purple};
+  --color-red: #{$color-red};
 
   --color-background: var(--color-paper-light);
   --color-text: var(--color-dark-gray);
+  --color-a-link: #{$color-blue};
+  --color-a-visited: #{$color-purple};
+  --color-a-hover: #{$color-red};
+  --color-a-focus: #{$color-red};
+  --color-a-active: #{$color-red};
 }
 
 /* Fonts */
@@ -87,6 +107,10 @@ $h2-size-s-px: 24;
 $h2-size-m-px: 30;
 $h2-size-l-px: 36;
 
+$bq-size-s-px: 20;
+$bq-size-m-px: 22;
+$bq-size-l-px: 24;
+
 /* Font size rem values (needed for dynamic sizing) */
 $p-size-s-value: $p-size-s-px / $text-base-size;
 $p-size-m-value: $p-size-m-px / $text-base-size;
@@ -100,6 +124,10 @@ $h2-size-s-value: $h2-size-s-px / $text-base-size;
 $h2-size-m-value: $h2-size-m-px / $text-base-size;
 $h2-size-l-value: $h2-size-l-px / $text-base-size;
 
+$bq-size-s-value: $bq-size-s-px / $text-base-size;
+$bq-size-m-value: $bq-size-m-px / $text-base-size;
+$bq-size-l-value: $bq-size-l-px / $text-base-size;
+
 /* Font sizes in rems */
 $p-size-s: $p-size-s-value * 1rem;
 $p-size-m: $p-size-m-value * 1rem;
@@ -112,6 +140,10 @@ $h1-size-l: $h1-size-l-value * 1rem;
 $h2-size-s: $h2-size-s-value * 1rem;
 $h2-size-m: $h2-size-m-value * 1rem;
 $h2-size-l: $h2-size-l-value * 1rem;
+
+$bq-size-s: $bq-size-s-value * 1rem;
+$bq-size-m: $bq-size-m-value * 1rem;
+$bq-size-l: $bq-size-l-value * 1rem;
 
 /* Line-height */
 $p-lh-s: 1.4;
@@ -140,6 +172,10 @@ $h2-lh-l: 1.2;
   --h2-size-m-value: #{$h2-size-m-value};
   --h2-size-l-value: #{$h2-size-l-value};
 
+  --bq-size-s-value: #{$bq-size-s-value};
+  --bq-size-m-value: #{$bq-size-m-value};
+  --bq-size-l-value: #{$bq-size-l-value};
+
   --p-size-s: #{$p-size-s-value * 1rem};
   --p-size-m: #{$p-size-m-value * 1rem};
   --p-size-l: #{$p-size-l-value * 1rem};
@@ -151,6 +187,10 @@ $h2-lh-l: 1.2;
   --h2-size-s: #{$h2-size-s-value * 1rem};
   --h2-size-m: #{$h2-size-m-value * 1rem};
   --h2-size-l: #{$h2-size-l-value * 1rem};
+
+  --bq-size-s: #{$bq-size-s-value * 1rem};
+  --bq-size-m: #{$bq-size-m-value * 1rem};
+  --bq-size-l: #{$bq-size-l-value * 1rem};
 
   --p-lh-s: #{$p-lh-s};
   --p-lh-m: #{$p-lh-m};
