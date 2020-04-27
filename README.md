@@ -28,3 +28,4 @@ Each time a new issue of the newsletter comes out, a new release will be tagged 
 As they are published, links to each relevant issue of Web Typography News will be linked here.
 
 - [Landing the whale: making a book on the web, part 1](https://rwt.io/typography-tips/landing-whale-making-book-web-part-1)
+- [Part 2: Making the typography responsive and laying foundations for more to come](https://rwt.io/typography-tips/part-2-making-typography-responsive-and-laying-foundations-more-come)
