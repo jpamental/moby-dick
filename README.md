@@ -6,7 +6,7 @@ This project is a companion to a newsletter series exploring what can be done to
 
 ## Live URL
 
-The latest version of this code is automatically deployed to [Netlify](https://www.netlify.com/) and is findable at https://mobydick.rwt.io
+The latest version of this code is automatically deployed to [Netlify](https://www.netlify.com/) and is findable at https://mobydick.wales
 
 
 ## Setup
@@ -18,3 +18,13 @@ To run the build process and serve the site locally, use this combination of com
 ## Just the site
 
 If you want to just look at or work with the pre-built site, take a peek in the `_site` directory.
+
+## The latest is live
+
+Each time a new issue of the newsletter comes out, a new release will be tagged so while the latest code will always be live, you can always step back in time to see the code as it was for previous issues. [You can see all the releases here](https://github.com/jpamental/moby-dick/releases)
+
+## Newsletter issues
+
+As they are published, links to each relevant issue of Web Typography News will be linked here.
+
+- [Landing the whale: making a book on the web, part 1](https://rwt.io/typography-tips/landing-whale-making-book-web-part-1)

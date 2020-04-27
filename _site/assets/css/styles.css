@@ -470,7 +470,6 @@ article {
     margin-top: 0; }
 
 figure {
-  margin: 0;
   padding: 0;
   max-width: 92vw;
   max-width: var(--content-width);
