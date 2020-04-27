@@ -152,6 +152,24 @@
 }
 
 figure {
+  margin: 0;
+  padding: 0;
+  max-width: $content-width-s;
+  max-width: var(--content-width);
+  width: 100%;
+  @media screen and (min-width: $bp--medium) {
+    max-width: $content-width-m;
+    max-width: var(--content-width);
+  }
+  @media screen and (min-width: $bp--large) {
+    max-width: $content-width-l;
+    max-width: var(--content-width);
+  }
+
+  img {
+    margin: 0;
+    padding: 0;
+  }
 
   &.wide {
     margin-left: calc( var(--margin-left) / 2 );

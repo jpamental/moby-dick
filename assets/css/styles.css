@@ -127,24 +127,6 @@ img {
   max-width: 100%;
   width: 100%; }
 
-figure {
-  margin: 0;
-  padding: 0;
-  max-width: 92vw;
-  max-width: var(--content-width);
-  width: 100%; }
-  @media screen and (min-width: 42em) {
-    figure {
-      max-width: 40rem;
-      max-width: var(--content-width); } }
-  @media screen and (min-width: 60em) {
-    figure {
-      max-width: 44rem;
-      max-width: var(--content-width); } }
-  figure img {
-    margin: 0;
-    padding: 0; }
-
 table {
   border-collapse: collapse; }
   table td + td {
@@ -487,47 +469,57 @@ article {
   .note > *:first-child {
     margin-top: 0; }
 
-figure.wide {
-  margin-left: calc( var(--margin-left) / 2);
-  margin-right: calc( var(--margin-left) / 2);
-  max-width: calc( 100vw - var(--margin-left));
-  width: 100%; }
-
-figure.small {
-  --figure-width: calc( var(--content-width) / 3);
-  --centering-margin: calc( var(--content-width) / 3);
-  width: var(--figure-width); }
-
-figure.medium {
-  --figure-width: calc( var(--content-width) / 2);
-  --centering-margin: calc( var(--content-width) / 4);
-  width: var(--figure-width); }
-
-figure.large {
+figure {
+  margin: 0;
+  padding: 0;
+  max-width: 92vw;
   max-width: var(--content-width);
   width: 100%; }
-
-figure.center {
-  margin-left: calc( var(--margin-left) + var(--centering-margin)); }
-
-figure.left {
-  clear: left;
-  float: left;
-  margin-right: 1.5rem;
-  margin-bottom: 1rem;
-  margin-bottom: var(--body-text-spacer); }
-
-figure.right {
-  clear: right;
-  float: right;
-  margin-left: 1.5rem;
-  margin-right: var(--margin-right);
-  margin-bottom: 1rem;
-  margin-bottom: var(--body-text-spacer); }
-
-* + figure {
-  margin-top: 1rem;
-  margin-top: var(--body-text-spacer); }
+  @media screen and (min-width: 42em) {
+    figure {
+      max-width: 40rem;
+      max-width: var(--content-width); } }
+  @media screen and (min-width: 60em) {
+    figure {
+      max-width: 44rem;
+      max-width: var(--content-width); } }
+  figure img {
+    margin: 0;
+    padding: 0; }
+  figure.wide {
+    margin-left: calc( var(--margin-left) / 2);
+    margin-right: calc( var(--margin-left) / 2);
+    max-width: calc( 100vw - var(--margin-left));
+    width: 100%; }
+  figure.small {
+    --figure-width: calc( var(--content-width) / 3);
+    --centering-margin: calc( var(--content-width) / 3);
+    width: var(--figure-width); }
+  figure.medium {
+    --figure-width: calc( var(--content-width) / 2);
+    --centering-margin: calc( var(--content-width) / 4);
+    width: var(--figure-width); }
+  figure.large {
+    max-width: var(--content-width);
+    width: 100%; }
+  figure.center {
+    margin-left: calc( var(--margin-left) + var(--centering-margin)); }
+  figure.left {
+    clear: left;
+    float: left;
+    margin-right: 1.5rem;
+    margin-bottom: 1rem;
+    margin-bottom: var(--body-text-spacer); }
+  figure.right {
+    clear: right;
+    float: right;
+    margin-left: 1.5rem;
+    margin-right: var(--margin-right);
+    margin-bottom: 1rem;
+    margin-bottom: var(--body-text-spacer); }
+  * + figure {
+    margin-top: 1rem;
+    margin-top: var(--body-text-spacer); }
 
 /* Blockquote styles */
 blockquote {
