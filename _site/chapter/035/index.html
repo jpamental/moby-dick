@@ -16,7 +16,8 @@
 
   </head>
   <body>
-    <header class="top-bar">
+    <header id="top" class="top-bar">
+      <a href="#main_content" class="visually-hidden">Jump to main <span role="presentation">content</span></a>
       <div class="book-name">
         <a href="/">Moby Dick</a>
       </div>
@@ -302,7 +303,7 @@
 
       </nav>
     </header>
-    <main>
+    <main id="main_content">
 
 
 <article class="chapter">
@@ -505,10 +506,10 @@
   mast-head of some luckless disappointed whale-ship, and in moody phrase
   ejaculates:&mdash;
 </p>
-<pre xml:space="preserve">
-  &ldquo;Roll on, thou deep and dark blue ocean, roll!
-  Ten thousand blubber-hunters sweep over thee in vain.&rdquo;
-</pre>
+<blockquote class="bq--quiet bq--inline"> 
+  <p>Roll on, thou deep and dark blue ocean, roll!<br />
+  Ten thousand blubber-hunters sweep over thee in vain.</p>
+</blockquote>
 <p>
   Very often do the captains of such ships take those absent-minded young
   philosophers to task, upbraiding them with not feeling sufficient
@@ -558,8 +559,10 @@
 
     </main>
     <footer>
-      <a href="https://github.com/jpamental/moby-dick">See the source on Github</a> | 
-      <a href="https://www.gutenberg.org/files/2701/2701-h/2701-h.htm">Based on text from Project Gutenberg</a>
+      <a href="#top">Top</a> | 
+      <a href="/">Home</a> | 
+      <a href="https://github.com/jpamental/moby-dick">Source on GitHub</a> | 
+      <a href="https://www.gutenberg.org/files/2701/2701-h/2701-h.htm">Book text on Project Gutenberg</a>
     </footer>
     <script src="../assets/js/scripts.js"></script>
   </body>

@@ -9,57 +9,255 @@ html {
 
 html {
   font-size: 100%;
+  scroll-behavior: smooth;
+  @media screen and (prefers-reduced-motion: reduce) {
+		scroll-behavior: auto;
+	}
 }
 
 body {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: var(--color-background);
+  font-family: $fonts-serif;
+  font-family: var(--fonts-serif);
   font-size: 1rem;
   line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  td {
+    & + td {
+      padding-left: 1rem;
+    }
+  }
 }
 
 h1 {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 4rem;
-  line-height: 1.15;
+  color: $color-dark-gray;
+  color: var(--color-text);
+  font-family: $fonts-serif;
+  font-family: var(--fonts-serif);
+  font-size: $h1-size-s;
+  font-size: var(--h1-size-s);
+  line-height: $h1-lh-s;
+  line-height: var(--h1-lh-s);
   margin: 2rem 0 0 0;
-  max-width: calc( var(--content-width) + var(--margin-left) );
+  margin-top: calc( var(--body-text-spacer) * 2 );
+  max-width: $content-width-s;
+  max-width: var(--content-width);
   position: relative;
+  @media screen and (min-width: $bp--medium) {
+    font-size: $h1-size-m;
+    font-size: var(--h1-size-m);
+    line-height: $h1-lh-m;
+    line-height: var(--h1-lh-m);
+    max-width: $content-width-m;
+    max-width: var(--content-width);
+ }
+  @media screen and (min-width: $bp--large) {
+    font-size: $h1-size-l;
+    font-size: var(--h1-size-l);
+    line-height: $h1-lh-l;
+    line-height: var(--h1-lh-l);
+    max-width: $content-width-l;
+    max-width: var(--content-width);
+  }
 }
 
+
 h1 + p {
-  margin-top: 3rem;
+  margin-top: calc( var(--body-text-spacer) * 3 );
+}
+
+h2 {
+  color: $color-dark-gray;
+  color: var(--color-text);
+  font-family: $fonts-serif;
+  font-family: var(--fonts-serif);
+  font-size: $h2-size-s;
+  font-size: var(--h2-size-s);
+  line-height: $h2-lh-s;
+  line-height: var(--h2-lh-s);
+  margin: 2rem 0 0 0;
+  max-width: $content-width-s;
+  max-width: var(--content-width);
+  position: relative;
+  @media screen and (min-width: $bp--medium) {
+    font-size: $h2-size-m;
+    font-size: var(--h2-size-m);
+    line-height: $h2-lh-m;
+    line-height: var(--h2-lh-m);
+    max-width: $content-width-m;
+    max-width: var(--content-width);
+ }
+  @media screen and (min-width: $bp--large) {
+    font-size: $h2-size-l;
+    font-size: var(--h2-size-l);
+    line-height: $h2-lh-l;
+    line-height: var(--h2-lh-l);
+    max-width: $content-width-l;
+    max-width: var(--content-width);
+  }
+}
+
+h2 + p {
+  margin-top: calc( var(--body-text-spacer) * 2 );
 }
 
 p {
-  color: #333333;
+  color: $color-dark-gray;
+  color: var(--color-text);
+  font-size: $p-size-s;
+  font-size: var(--p-size-s);
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  line-height: $p-lh-s;
+  line-height: var(--p-lh-s);
   margin: 0;
+  max-width: $content-width-s;
   max-width: var(--content-width);
   position: relative;
+  @media screen and (min-width: $bp--medium) {
+    font-size: $p-size-m;
+    font-size: var(--p-size-m);
+    -webkit-hyphens: none;
+    hyphens: none;
+    line-height: $p-lh-m;
+    line-height: var(--p-lh-m);
+    max-width: $content-width-m;
+    max-width: var(--content-width);
+  }
+  @media screen and (min-width: $bp--large) {
+    font-size: $p-size-l;
+    font-size: var(--p-size-l);
+    line-height: $p-lh-l;
+    line-height: var(--p-lh-l);
+    max-width: $content-width-l;
+    max-width: var(--content-width);
+  }
+
+  + p {
+    text-indent: 1.5em;
+  }
 }
 
-p + p {
-  text-indent: 1.5em;
+td {
+  font-size: $p-size-s;
+  font-size: var(--p-size-s);
+  line-height: $p-lh-s;
+  line-height: var(--p-lh-s);
+  @media screen and (min-width: $bp--medium) {
+    font-size: $p-size-m;
+    font-size: var(--p-size-m);
+    line-height: $p-lh-m;
+    line-height: var(--p-lh-m);
+  }
+  @media screen and (min-width: $bp--large) {
+    font-size: $p-size-l;
+    font-size: var(--p-size-l);
+    line-height: $p-lh-l;
+    line-height: var(--p-lh-l);
+  }
 }
+
+ul {
+  color: $color-dark-gray;
+  color: var(--color-text);
+  font-size: $p-size-s;
+  font-size: var(--p-size-s);
+  line-height: $p-lh-s;
+  line-height: var(--p-lh-s);
+  margin: 0;
+  max-width: $content-width-s;
+  max-width: var(--content-width);
+  padding-left: 1.25rem;
+  @media screen and (min-width: $bp--medium) {
+    font-size: $p-size-m;
+    font-size: var(--p-size-m);
+    line-height: $p-lh-m;
+    line-height: var(--p-lh-m);
+    max-width: $content-width-m;
+    max-width: var(--content-width);
+  }
+  @media screen and (min-width: $bp--large) {
+    font-size: $p-size-l;
+    font-size: var(--p-size-l);
+    line-height: $p-lh-l;
+    line-height: var(--p-lh-l);
+    max-width: $content-width-l;
+    max-width: var(--content-width);
+  }
+}
+
+a {
+  &:link {
+    color: $color-a-link;
+    color: var(--color-a-link);
+    text-decoration: underline;
+    text-decoration-thickness: 0.05em;
+    text-underline-offset: .075em;
+    text-decoration-skip-ink: auto;
+    transition: all .2s ease; 
+}
+  
+  &:visited {
+    color: $color-a-visited;
+    color: var(--color-a-visited);
+    text-decoration: underline;
+    text-decoration-thickness: 0.05em;
+    text-underline-offset: .075em;
+    text-decoration-skip-ink: auto;
+    transition: all .2s ease; 
+  }
+  
+  &:hover {
+    color: $color-a-hover;
+    color: var(--color-a-hover);
+    text-decoration: underline;
+  }
+  
+  &:focus {
+    color: $color-a-focus;
+    color: var(--color-a-focus);
+    text-decoration: underline;
+  }
+  
+  &:active {
+    color: $color-a-active;
+    color: var(--color-a-active);
+    text-decoration: underline;
+  }
+}
+
 
 /* Scope these styles to just within chapter content */
 .chapter {
   /* Style first line of the first paragraph in the chapter */
-  p:first-of-type::first-line {
+  > p:first-of-type::first-line {
     font-variant-caps: small-caps;
     font-weight: bold;
   }
 
   /* Add an end mark at the end of the last paragraph */
-  p:last-child:after {
+  > p:last-child:after {
     content: "\2766";
     display: inline;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: $fonts-serif;
+    font-family: var(--fonts-serif);
     font-size: 1.25em;
     line-height: 0.5;
   }
 
   /* Style the initial letter */
-  p:first-of-type::first-letter {
+  > p:first-of-type::first-letter {
     color: #555555;
     float: left;
     font-weight: normal;
@@ -70,6 +268,9 @@ p + p {
     padding: 0 0.1em 0 0;
 
     /* tweak vertical positioning in Firefox */
-    padding-top: 0.1em;
+    padding-top: 0.05em;
+    @media screen and (min-width: $bp--large) {
+      padding-top: 0.1em;
+    }
   }
 }

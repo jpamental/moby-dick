@@ -16,7 +16,8 @@
 
   </head>
   <body>
-    <header class="top-bar">
+    <header id="top" class="top-bar">
+      <a href="#main_content" class="visually-hidden">Jump to main <span role="presentation">content</span></a>
       <div class="book-name">
         <a href="{{ '/' | url }}">{{ metadata.title }}</a>
       </div>
@@ -25,4 +26,4 @@
         {% include partials/toc.liquid %}
       </nav>
     </header>
-    <main>
+    <main id="main_content">

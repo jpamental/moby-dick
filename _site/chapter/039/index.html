@@ -16,7 +16,8 @@
 
   </head>
   <body>
-    <header class="top-bar">
+    <header id="top" class="top-bar">
+      <a href="#main_content" class="visually-hidden">Jump to main <span role="presentation">content</span></a>
       <div class="book-name">
         <a href="/">Moby Dick</a>
       </div>
@@ -302,7 +303,7 @@
 
       </nav>
     </header>
-    <main>
+    <main id="main_content">
 
 
 <article class="chapter">
@@ -332,12 +333,12 @@
   out?&mdash;Giving a party to the last arrived harpooneers, I dare say, gay
   as a frigate&rsquo;s pennant, and so am I&mdash;fa, la! lirra, skirra! Oh&mdash;
 </p>
-<pre xml:space="preserve">
-  We&rsquo;ll drink to-night with hearts as light,
-     To love, as gay and fleeting
-  As bubbles that swim, on the beaker&rsquo;s brim,
-     And break on the lips while meeting.
-</pre>
+<blockquote class="bq--quiet bq--inline"> 
+  <p>We&rsquo;ll drink to-night with hearts as light,<br />
+  To love, as gay and fleeting<br />
+  As bubbles that swim, on the beaker&rsquo;s brim,<br />
+  And break on the lips while meeting.</p>
+</blockquote>
 <p>
   A brave stave that&mdash;who calls? Mr. Starbuck? Aye, aye, sir&mdash;(<em>Aside</em>)
   he&rsquo;s my superior, he has his too, if I&rsquo;m not mistaken.&mdash;Aye, aye,
@@ -355,8 +356,10 @@
 
     </main>
     <footer>
-      <a href="https://github.com/jpamental/moby-dick">See the source on Github</a> | 
-      <a href="https://www.gutenberg.org/files/2701/2701-h/2701-h.htm">Based on text from Project Gutenberg</a>
+      <a href="#top">Top</a> | 
+      <a href="/">Home</a> | 
+      <a href="https://github.com/jpamental/moby-dick">Source on GitHub</a> | 
+      <a href="https://www.gutenberg.org/files/2701/2701-h/2701-h.htm">Book text on Project Gutenberg</a>
     </footer>
     <script src="../assets/js/scripts.js"></script>
   </body>
