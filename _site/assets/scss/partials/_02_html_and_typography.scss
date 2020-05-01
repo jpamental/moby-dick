@@ -190,6 +190,7 @@ p {
   position: relative;
   @supports (font-variation-settings: normal) {
     font-variation-settings: 'opsz' var(--text-opsz);
+    font-weight: 375;
   }
   @media screen and (min-width: $bp--medium) {
     --text-opsz: var(--p-opsz-m);
@@ -325,6 +326,9 @@ a {
     color: #594747;
     font-variant-caps: small-caps;
     font-weight: 600;
+    @supports (font-variation-settings: normal) {
+      font-weight: 525;
+    }
   }
 
   /* Add an end mark at the end of the last paragraph */
