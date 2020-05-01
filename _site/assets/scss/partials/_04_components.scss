@@ -14,6 +14,8 @@
 /* Navigation */
 
 .toc {
+  font-family: $fonts-serif-static-caption;
+  font-family: var(--fonts-serif-static-caption);
   position: relative;
 
   &-trigger {
@@ -48,7 +50,7 @@
   
       a {
         display: block;
-        font-size: 0.92rem;
+        font-size: 0.875rem;
         padding: 0.5em 0.15em;
   
         &:link {
@@ -122,6 +124,8 @@
   a {
     &:link,
     &:visited {
+      font-family: $fonts-serif-static-caption;
+      font-family: var(--fonts-serif-static-caption);
       font-size: 0.875rem;
       text-decoration: none;
       @media screen and (min-width: $bp--large) {

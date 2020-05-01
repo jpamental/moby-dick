@@ -17,21 +17,27 @@
 :root {
   --color-paper-light: #fafafd;
   --color-dark-gray: #333333;
-  --color-blue: #3333ff;
-  --color-purple: #8221e4;
+  --color-blue: #14218c;
+  --color-purple: #5407a2;
   --color-red: #ff4444;
   --color-background: var(--color-paper-light);
   --color-text: var(--color-dark-gray);
-  --color-a-link: #3333ff;
-  --color-a-visited: #8221e4;
+  --color-a-link: #14218c;
+  --color-a-visited: #5407a2;
   --color-a-hover: #ff4444;
   --color-a-focus: #ff4444;
   --color-a-active: #ff4444; }
 
 /* Fonts */
+/* No web fonts specified for Sans */
 :root {
   --fonts-base-serif: Georgia, Times New Roman, Times, serif;
   --fonts-base-sans: Helvetica, Arial, sans-serif;
+  --fonts-serif-static: Literata, Georgia, Times New Roman, Times, serif;
+  --fonts-sans-static: Helvetica, Arial, sans-serif;
+  --fonts-serif-static-caption: Literata Caption, Georgia, Times New Roman, Times, serif;
+  --fonts-serif-static-deck: Literata Deck, Georgia, Times New Roman, Times, serif;
+  --fonts-serif-static-display: Literata Display, Georgia, Times New Roman, Times, serif;
   --fonts-serif: Georgia, Times New Roman, Times, serif;
   --fonts-sans: Helvetica, Arial, sans-serif; }
 
@@ -53,6 +59,9 @@
   --h2-size-s-value: 1.5;
   --h2-size-m-value: 1.875;
   --h2-size-l-value: 2.25;
+  --h3-size-s-value: 1.25;
+  --h3-size-m-value: 1.375;
+  --h3-size-l-value: 1.5;
   --bq-size-s-value: 1.25;
   --bq-size-m-value: 1.375;
   --bq-size-l-value: 1.5;
@@ -65,6 +74,9 @@
   --h2-size-s: 1.5rem;
   --h2-size-m: 1.875rem;
   --h2-size-l: 2.25rem;
+  --h3-size-s: 1.25rem;
+  --h3-size-m: 1.375rem;
+  --h3-size-l: 1.5rem;
   --bq-size-s: 1.25rem;
   --bq-size-m: 1.375rem;
   --bq-size-l: 1.5rem;
@@ -76,7 +88,10 @@
   --h1-lh-l: 1.15;
   --h2-lh-s: 1.1;
   --h2-lh-m: 1.15;
-  --h2-lh-l: 1.2; }
+  --h2-lh-l: 1.2;
+  --h3-lh-s: 1.1;
+  --h3-lh-m: 1.15;
+  --h3-lh-l: 1.2; }
 
 /* Responsive text-size spacer */
 :root {
@@ -87,6 +102,300 @@
   @media screen and (min-width: 60em) {
     :root {
       --body-text-spacer: 1.25rem; } }
+
+/* Literata Static Fonts */
+/* Standard Regular, Italic, Bold, Bold Italic */
+@font-face {
+  font-family: 'Literata';
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/literata/woff2/Literata-12ptRegular-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-12ptRegular-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata';
+  font-style: italic;
+  font-weight: normal;
+  src: url("../fonts/literata/woff2/Literata-12ptItalic-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-12ptItalic-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata';
+  font-style: normal;
+  font-weight: bold;
+  src: url("../fonts/literata/woff2/Literata-12ptBold-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-12ptBold-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata';
+  font-style: italic;
+  font-weight: bold;
+  src: url("../fonts/literata/woff2/Literata-12ptBoldItalic-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-12ptBoldItalic-subset.woff") format("woff"); }
+
+/* Literata (regular) additional weights - optimized for body copy up to 30px or so */
+@font-face {
+  font-family: 'Literata';
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/literata/woff2/Literata-12ptLight-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-12ptLight-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata';
+  font-style: italic;
+  font-weight: 300;
+  src: url("../fonts/literata/woff2/Literata-12ptLightItalic-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-12ptLightItalic-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata';
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/literata/woff2/Literata-12ptMedium-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-12ptMedium-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata';
+  font-style: italic;
+  font-weight: 500;
+  src: url("../fonts/literata/woff2/Literata-12ptMediumItalic-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-12ptMediumItalic-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata';
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/literata/woff2/Literata-12ptSemiBold-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-12ptSemiBold-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata';
+  font-style: italic;
+  font-weight: 600;
+  src: url("../fonts/literata/woff2/Literata-12ptSemiBoldItalic-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-12ptSemiBoldItalic-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata';
+  font-style: normal;
+  font-weight: 800;
+  src: url("../fonts/literata/woff2/Literata-12ptExtraBold-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-12ptExtraBold-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata';
+  font-style: italic;
+  font-weight: 800;
+  src: url("../fonts/literata/woff2/Literata-12ptExtraBoldItalic-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-12ptExtraBoldItalic-subset.woff") format("woff"); }
+
+/* Literata Caption optimized for 12px or less */
+@font-face {
+  font-family: 'Literata Caption';
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/literata/woff2/Literata-7ptRegular-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-7ptRegular-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Caption';
+  font-style: italic;
+  font-weight: normal;
+  src: url("../fonts/literata/woff2/Literata-7ptItalic-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-7ptItalic-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Caption';
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/literata/woff2/Literata-7ptMedium-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-7ptMedium-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Caption';
+  font-style: italic;
+  font-weight: 500;
+  src: url("../fonts/literata/woff2/Literata-7ptMediumItalic-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-7ptMediumItalic-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Caption';
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/literata/woff2/Literata-7ptSemiBold-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-7ptSemiBold-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Caption';
+  font-style: italic;
+  font-weight: 600;
+  src: url("../fonts/literata/woff2/Literata-7ptSemiBoldItalic-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-7ptSemiBoldItalic-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Caption';
+  font-style: normal;
+  font-weight: bold;
+  src: url("../fonts/literata/woff2/Literata-7ptBold-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-7ptBold-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Caption';
+  font-style: italic;
+  font-weight: bold;
+  src: url("../fonts/literata/woff2/Literata-7ptBoldItalic-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-7ptBoldItalic-subset.woff") format("woff"); }
+
+/* Literata Deck optimized for text from 30px to 48px or so */
+@font-face {
+  font-family: 'Literata Deck';
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/literata/woff2/Literata-36ptLight-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-36ptLight-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Deck';
+  font-style: italic;
+  font-weight: 300;
+  src: url("../fonts/literata/woff2/Literata-36ptLightItalic-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-36ptLightItalic-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Deck';
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/literata/woff2/Literata-36ptRegular-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-36ptRegular-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Deck';
+  font-style: italic;
+  font-weight: normal;
+  src: url("../fonts/literata/woff2/Literata-36ptItalic-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-36ptItalic-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Deck';
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/literata/woff2/Literata-36ptMedium-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-36ptMedium-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Deck';
+  font-style: italic;
+  font-weight: 500;
+  src: url("../fonts/literata/woff2/Literata-36ptMediumItalic-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-36ptMediumItalic-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Deck';
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/literata/woff2/Literata-36ptSemiBold-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-36ptSemiBold-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Deck';
+  font-style: italic;
+  font-weight: 600;
+  src: url("../fonts/literata/woff2/Literata-36ptSemiBoldItalic-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-36ptSemiBoldItalic-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Deck';
+  font-style: normal;
+  font-weight: bold;
+  src: url("../fonts/literata/woff2/Literata-36ptBold-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-36ptBold-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Deck';
+  font-style: italic;
+  font-weight: bold;
+  src: url("../fonts/literata/woff2/Literata-36ptBoldItalic-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-36ptBoldItalic-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Deck';
+  font-style: normal;
+  font-weight: 800;
+  src: url("../fonts/literata/woff2/Literata-36ptExtraBold-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-36ptExtraBold-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Deck';
+  font-style: italic;
+  font-weight: 800;
+  src: url("../fonts/literata/woff2/Literata-36ptExtraBoldItalic-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-36ptExtraBoldItalic-subset.woff") format("woff"); }
+
+/* Literata Display optimized for text from 48px or so and up */
+@font-face {
+  font-family: 'Literata Display';
+  font-style: normal;
+  font-weight: 200;
+  src: url("../fonts/literata/woff2/Literata-72ptExtraLight-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-72ptExtraLight-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Display';
+  font-style: italic;
+  font-weight: 200;
+  src: url("../fonts/literata/woff2/Literata-72ptExtraLightItalic-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-72ptExtraLightItalic-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Display';
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/literata/woff2/Literata-72ptLight-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-72ptLight-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Display';
+  font-style: italic;
+  font-weight: 300;
+  src: url("../fonts/literata/woff2/Literata-72ptLightItalic-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-72ptLightItalic-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Display';
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/literata/woff2/Literata-72ptRegular-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-72ptRegular-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Display';
+  font-style: italic;
+  font-weight: normal;
+  src: url("../fonts/literata/woff2/Literata-72ptItalic-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-72ptItalic-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Display';
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/literata/woff2/Literata-72ptMedium-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-72ptMedium-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Display';
+  font-style: italic;
+  font-weight: 500;
+  src: url("../fonts/literata/woff2/Literata-72ptMediumItalic-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-72ptMediumItalic-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Display';
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/literata/woff2/Literata-72ptSemiBold-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-72ptSemiBold-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Display';
+  font-style: italic;
+  font-weight: 600;
+  src: url("../fonts/literata/woff2/Literata-72ptSemiBoldItalic-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-72ptSemiBoldItalic-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Display';
+  font-style: normal;
+  font-weight: bold;
+  src: url("../fonts/literata/woff2/Literata-72ptBold-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-72ptBold-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Display';
+  font-style: italic;
+  font-weight: bold;
+  src: url("../fonts/literata/woff2/Literata-72ptBoldItalic-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-72ptBoldItalic-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Display';
+  font-style: normal;
+  font-weight: 800;
+  src: url("../fonts/literata/woff2/Literata-72ptExtraBold-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-72ptExtraBold-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Display';
+  font-style: italic;
+  font-weight: 800;
+  src: url("../fonts/literata/woff2/Literata-72ptExtraBoldItalic-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-72ptExtraBoldItalic-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Display';
+  font-style: normal;
+  font-weight: 900;
+  src: url("../fonts/literata/woff2/Literata-72ptBlack-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-72ptBlack-subset.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Literata Display';
+  font-style: italic;
+  font-weight: 900;
+  src: url("../fonts/literata/woff2/Literata-72ptBlackItalic-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-72ptBlackItalic-subset.woff") format("woff"); }
 
 .visually-hidden:not(:focus):not(:active) {
   position: absolute !important;
@@ -115,8 +424,8 @@ html {
 
 body {
   background-color: var(--color-background);
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-family: var(--fonts-serif);
+  font-family: "Literata", Georgia, "Times New Roman", Times, serif;
+  font-family: var(--fonts-serif-static);
   font-size: 1rem;
   line-height: 1.5;
   margin: 0;
@@ -135,8 +444,8 @@ table {
 h1 {
   color: #333333;
   color: var(--color-text);
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-family: var(--fonts-serif);
+  font-family: "Literata Display", Georgia, "Times New Roman", Times, serif;
+  font-family: var(--fonts-serif-static-display);
   font-size: 2.25rem;
   font-size: var(--h1-size-s);
   line-height: 1.05;
@@ -169,8 +478,8 @@ h1 + p {
 h2 {
   color: #333333;
   color: var(--color-text);
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-family: var(--fonts-serif);
+  font-family: "Literata Deck", Georgia, "Times New Roman", Times, serif;
+  font-family: var(--fonts-serif-static-deck);
   font-size: 1.5rem;
   font-size: var(--h2-size-s);
   line-height: 1.1;
@@ -197,7 +506,40 @@ h2 {
       max-width: var(--content-width); } }
 
 h2 + p {
-  margin-top: calc( var(--body-text-spacer) * 2); }
+  margin-top: calc( var(--body-text-spacer) * 1); }
+
+h3 {
+  color: #333333;
+  color: var(--color-text);
+  font-family: "Literata", Georgia, "Times New Roman", Times, serif;
+  font-family: var(--fonts-serif-static);
+  font-size: 1.25rem;
+  font-size: var(--h3-size-s);
+  line-height: 1.1;
+  line-height: var(--h3-lh-s);
+  margin: 2rem 0 0 0;
+  max-width: 92vw;
+  max-width: var(--content-width);
+  position: relative; }
+  @media screen and (min-width: 42em) {
+    h3 {
+      font-size: 1.375rem;
+      font-size: var(--h3-size-m);
+      line-height: 1.15;
+      line-height: var(--h3-lh-m);
+      max-width: 40rem;
+      max-width: var(--content-width); } }
+  @media screen and (min-width: 60em) {
+    h3 {
+      font-size: 1.5rem;
+      font-size: var(--h3-size-l);
+      line-height: 1.2;
+      line-height: var(--h3-lh-l);
+      max-width: 44rem;
+      max-width: var(--content-width); } }
+
+h3 + p {
+  margin-top: calc( var(--body-text-spacer) * 1); }
 
 p {
   color: #333333;
@@ -280,7 +622,7 @@ ul {
       max-width: var(--content-width); } }
 
 a:link {
-  color: #3333ff;
+  color: #14218c;
   color: var(--color-a-link);
   text-decoration: underline;
   text-decoration-thickness: 0.05em;
@@ -289,7 +631,7 @@ a:link {
   transition: all .2s ease; }
 
 a:visited {
-  color: #8221e4;
+  color: #5407a2;
   color: var(--color-a-visited);
   text-decoration: underline;
   text-decoration-thickness: 0.05em;
@@ -318,18 +660,25 @@ a:active {
   /* Add an end mark at the end of the last paragraph */
   /* Style the initial letter */ }
   .chapter > p:first-of-type::first-line {
+    color: #594747;
     font-variant-caps: small-caps;
-    font-weight: bold; }
-  .chapter > p:last-child:after {
-    content: "\2766";
-    display: inline;
-    font-family: Georgia, "Times New Roman", Times, serif;
-    font-family: var(--fonts-serif);
-    font-size: 1.25em;
+    font-weight: 600; }
+  .chapter > p:last-of-type:after {
+    content: " ";
+    -webkit-mask: url(../images/svg/end_mark.svg);
+    mask: url(../images/svg/end_mark.svg);
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: #594747;
+    height: 0.65em;
+    width: 1em;
+    display: inline-block;
     line-height: 0.5; }
   .chapter > p:first-of-type::first-letter {
-    color: #555555;
+    color: #594747;
     float: left;
+    font-family: "Literata Display", Georgia, "Times New Roman", Times, serif;
+    font-family: var(--fonts-serif-static-display);
     font-weight: normal;
     font-size: 5.125em;
     /* tweak vertical positioning in Chrome & Safari */
@@ -374,6 +723,8 @@ article {
 
 /* Navigation */
 .toc {
+  font-family: "Literata Caption", Georgia, "Times New Roman", Times, serif;
+  font-family: var(--fonts-serif-static-caption);
   position: relative; }
   .toc-trigger {
     display: block;
@@ -400,7 +751,7 @@ article {
         padding: 0.5em 0.15em; }
     .toc .toc-menu a {
       display: block;
-      font-size: 0.92rem;
+      font-size: 0.875rem;
       padding: 0.5em 0.15em; }
       .toc .toc-menu a:link {
         text-decoration: none; }
@@ -449,6 +800,8 @@ article {
   .prev-next-chapters .next {
     text-align: right; }
   .prev-next-chapters a:link, .prev-next-chapters a:visited {
+    font-family: "Literata Caption", Georgia, "Times New Roman", Times, serif;
+    font-family: var(--fonts-serif-static-caption);
     font-size: 0.875rem;
     text-decoration: none; }
     @media screen and (min-width: 60em) {
