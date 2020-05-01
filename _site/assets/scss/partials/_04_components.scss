@@ -14,9 +14,14 @@
 /* Navigation */
 
 .toc {
+  --text-opsz: 10;
   font-family: $fonts-serif-static-caption;
   font-family: var(--fonts-serif-static-caption);
   position: relative;
+  @supports (font-variation-settings: normal) {
+    font-family: var(--fonts-serif);
+    font-variation-settings: 'opsz' var(--text-opsz);
+  }
 
   &-trigger {
     display: block;
@@ -124,10 +129,15 @@
   a {
     &:link,
     &:visited {
+      --text-opsz: 10;
       font-family: $fonts-serif-static-caption;
       font-family: var(--fonts-serif-static-caption);
       font-size: 0.875rem;
       text-decoration: none;
+      @supports (font-variation-settings: normal) {
+        font-family: var(--fonts-serif);
+        font-variation-settings: 'opsz' var(--text-opsz);
+      }
       @media screen and (min-width: $bp--large) {
         font-size: 1rem;
       }

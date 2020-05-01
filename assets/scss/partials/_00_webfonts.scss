@@ -391,3 +391,20 @@
   src: url('../fonts/literata/woff2/Literata-72ptBlackItalic-subset.woff2') format('woff2'),
        url('../fonts/literata/woff/Literata-72ptBlackItalic-subset.woff') format('woff');
 }
+
+/* Literata Variable */
+@font-face {
+  font-family: 'Literata Variable';
+  font-style: normal;
+  font-weight: 200 900;
+  src: url('../fonts/literata-vf/Literata-Roman-VF-subset.woff2') format('woff2 supports variations'),
+       url('../fonts/literata-vf/Literata-Roman-VF-subset.woff2') format('woff2-variations');
+}
+
+@font-face {
+  font-family: 'Literata Variable';
+  font-style: italic;
+  font-weight: 200 900;
+  src: url('../fonts/literata-vf/Literata-Italic-VF-subset.woff2') format('woff2 supports variations'),
+       url('../fonts/literata-vf/Literata-Italic-VF-subset.woff2') format('woff2-variations');
+}

@@ -38,7 +38,7 @@
   --fonts-serif-static-caption: Literata Caption, Georgia, Times New Roman, Times, serif;
   --fonts-serif-static-deck: Literata Deck, Georgia, Times New Roman, Times, serif;
   --fonts-serif-static-display: Literata Display, Georgia, Times New Roman, Times, serif;
-  --fonts-serif: Georgia, Times New Roman, Times, serif;
+  --fonts-serif: Literata Variable, Georgia, Times New Roman, Times, serif;
   --fonts-sans: Helvetica, Arial, sans-serif; }
 
 /* Text sizing */
@@ -91,7 +91,19 @@
   --h2-lh-l: 1.2;
   --h3-lh-s: 1.1;
   --h3-lh-m: 1.15;
-  --h3-lh-l: 1.2; }
+  --h3-lh-l: 1.2;
+  --p-opsz-s: 16;
+  --p-opsz-m: 18;
+  --p-opsz-l: 20;
+  --h1-opsz-s: 36;
+  --h1-opsz-m: v48;
+  --h1-opsz-l: 64;
+  --h2-opsz-s: 24;
+  --h2-opsz-m: 30;
+  --h2-opsz-l: 36;
+  --h3-opsz-s: 20;
+  --h3-opsz-m: 22;
+  --h3-opsz-l: 24; }
 
 /* Responsive text-size spacer */
 :root {
@@ -397,6 +409,19 @@
   font-weight: 900;
   src: url("../fonts/literata/woff2/Literata-72ptBlackItalic-subset.woff2") format("woff2"), url("../fonts/literata/woff/Literata-72ptBlackItalic-subset.woff") format("woff"); }
 
+/* Literata Variable */
+@font-face {
+  font-family: 'Literata Variable';
+  font-style: normal;
+  font-weight: 200 900;
+  src: url("../fonts/literata-vf/Literata-Roman-VF-subset.woff2") format("woff2 supports variations"), url("../fonts/literata-vf/Literata-Roman-VF-subset.woff2") format("woff2-variations"); }
+
+@font-face {
+  font-family: 'Literata Variable';
+  font-style: italic;
+  font-weight: 200 900;
+  src: url("../fonts/literata-vf/Literata-Italic-VF-subset.woff2") format("woff2 supports variations"), url("../fonts/literata-vf/Literata-Italic-VF-subset.woff2") format("woff2-variations"); }
+
 .visually-hidden:not(:focus):not(:active) {
   position: absolute !important;
   height: 1px;
@@ -423,6 +448,7 @@ html {
       scroll-behavior: auto; } }
 
 body {
+  --text-opsz: var(--p-opsz-s);
   background-color: var(--color-background);
   font-family: "Literata", Georgia, "Times New Roman", Times, serif;
   font-family: var(--fonts-serif-static);
@@ -430,6 +456,10 @@ body {
   line-height: 1.5;
   margin: 0;
   padding: 0; }
+  @supports (font-variation-settings: normal) {
+    body {
+      font-family: var(--fonts-serif);
+      font-variation-settings: "opsz" var(--text-opsz); } }
 
 img {
   height: auto;
@@ -442,6 +472,8 @@ table {
     padding-left: 1rem; }
 
 h1 {
+  /* force the optical size axis in the variable font for finer details */
+  --text-opsz: var(--h1-opsz-l);
   color: #333333;
   color: var(--color-text);
   font-family: "Literata Display", Georgia, "Times New Roman", Times, serif;
@@ -455,8 +487,13 @@ h1 {
   max-width: 92vw;
   max-width: var(--content-width);
   position: relative; }
+  @supports (font-variation-settings: normal) {
+    h1 {
+      font-family: var(--fonts-serif);
+      font-variation-settings: "opsz" var(--text-opsz); } }
   @media screen and (min-width: 42em) {
     h1 {
+      --text-opsz: var(--h1-opsz-l);
       font-size: 3rem;
       font-size: var(--h1-size-m);
       line-height: 1.1;
@@ -465,6 +502,7 @@ h1 {
       max-width: var(--content-width); } }
   @media screen and (min-width: 60em) {
     h1 {
+      --text-opsz: var(--h1-opsz-l);
       font-size: 4rem;
       font-size: var(--h1-size-l);
       line-height: 1.15;
@@ -476,6 +514,7 @@ h1 + p {
   margin-top: calc( var(--body-text-spacer) * 3); }
 
 h2 {
+  --text-opsz: var(--h2-opsz-s);
   color: #333333;
   color: var(--color-text);
   font-family: "Literata Deck", Georgia, "Times New Roman", Times, serif;
@@ -488,8 +527,13 @@ h2 {
   max-width: 92vw;
   max-width: var(--content-width);
   position: relative; }
+  @supports (font-variation-settings: normal) {
+    h2 {
+      font-family: var(--fonts-serif);
+      font-variation-settings: "opsz" var(--text-opsz); } }
   @media screen and (min-width: 42em) {
     h2 {
+      --text-opsz: var(--h2-opsz-m);
       font-size: 1.875rem;
       font-size: var(--h2-size-m);
       line-height: 1.15;
@@ -498,6 +542,7 @@ h2 {
       max-width: var(--content-width); } }
   @media screen and (min-width: 60em) {
     h2 {
+      --text-opsz: var(--h2-opsz-l);
       font-size: 2.25rem;
       font-size: var(--h2-size-l);
       line-height: 1.2;
@@ -509,6 +554,7 @@ h2 + p {
   margin-top: calc( var(--body-text-spacer) * 1); }
 
 h3 {
+  --text-opsz: var(--h3-opsz-s);
   color: #333333;
   color: var(--color-text);
   font-family: "Literata", Georgia, "Times New Roman", Times, serif;
@@ -521,8 +567,13 @@ h3 {
   max-width: 92vw;
   max-width: var(--content-width);
   position: relative; }
+  @supports (font-variation-settings: normal) {
+    h3 {
+      font-family: var(--fonts-serif);
+      font-variation-settings: "opsz" var(--text-opsz); } }
   @media screen and (min-width: 42em) {
     h3 {
+      --text-opsz: var(--h3-opsz-m);
       font-size: 1.375rem;
       font-size: var(--h3-size-m);
       line-height: 1.15;
@@ -531,6 +582,7 @@ h3 {
       max-width: var(--content-width); } }
   @media screen and (min-width: 60em) {
     h3 {
+      --text-opsz: var(--h3-opsz-l);
       font-size: 1.5rem;
       font-size: var(--h3-size-l);
       line-height: 1.2;
@@ -542,6 +594,7 @@ h3 + p {
   margin-top: calc( var(--body-text-spacer) * 1); }
 
 p {
+  --text-opsz: var(--p-opsz-s);
   color: #333333;
   color: var(--color-text);
   font-size: 1rem;
@@ -554,8 +607,12 @@ p {
   max-width: 92vw;
   max-width: var(--content-width);
   position: relative; }
+  @supports (font-variation-settings: normal) {
+    p {
+      font-variation-settings: "opsz" var(--text-opsz); } }
   @media screen and (min-width: 42em) {
     p {
+      --text-opsz: var(--p-opsz-m);
       font-size: 1.125rem;
       font-size: var(--p-size-m);
       -webkit-hyphens: none;
@@ -566,6 +623,7 @@ p {
       max-width: var(--content-width); } }
   @media screen and (min-width: 60em) {
     p {
+      --text-opsz: var(--p-opsz-l);
       font-size: 1.25rem;
       font-size: var(--p-size-l);
       line-height: 1.5;
@@ -576,24 +634,31 @@ p {
     text-indent: 1.5em; }
 
 td {
+  --text-opsz: var(--p-opsz-s);
   font-size: 1rem;
   font-size: var(--p-size-s);
   line-height: 1.4;
   line-height: var(--p-lh-s); }
+  @supports (font-variation-settings: normal) {
+    td {
+      font-variation-settings: "opsz" var(--text-opsz); } }
   @media screen and (min-width: 42em) {
     td {
+      --text-opsz: var(--p-opsz-m);
       font-size: 1.125rem;
       font-size: var(--p-size-m);
       line-height: 1.45;
       line-height: var(--p-lh-m); } }
   @media screen and (min-width: 60em) {
     td {
+      --text-opsz: var(--p-opsz-l);
       font-size: 1.25rem;
       font-size: var(--p-size-l);
       line-height: 1.5;
       line-height: var(--p-lh-l); } }
 
 ul {
+  --text-opsz: var(--p-opsz-s);
   color: #333333;
   color: var(--color-text);
   font-size: 1rem;
@@ -604,8 +669,12 @@ ul {
   max-width: 92vw;
   max-width: var(--content-width);
   padding-left: 1.25rem; }
+  @supports (font-variation-settings: normal) {
+    ul {
+      font-variation-settings: "opsz" var(--text-opsz); } }
   @media screen and (min-width: 42em) {
     ul {
+      --text-opsz: var(--p-opsz-m);
       font-size: 1.125rem;
       font-size: var(--p-size-m);
       line-height: 1.45;
@@ -614,6 +683,7 @@ ul {
       max-width: var(--content-width); } }
   @media screen and (min-width: 60em) {
     ul {
+      --text-opsz: var(--p-opsz-l);
       font-size: 1.25rem;
       font-size: var(--p-size-l);
       line-height: 1.5;
@@ -675,6 +745,7 @@ a:active {
     display: inline-block;
     line-height: 0.5; }
   .chapter > p:first-of-type::first-letter {
+    --text-opsz: var(--h1-opsz-l);
     color: #594747;
     float: left;
     font-family: "Literata Display", Georgia, "Times New Roman", Times, serif;
@@ -690,6 +761,10 @@ a:active {
     @media screen and (min-width: 60em) {
       .chapter > p:first-of-type::first-letter {
         padding-top: 0.1em; } }
+    @supports (font-variation-settings: normal) {
+      .chapter > p:first-of-type::first-letter {
+        font-family: var(--fonts-serif);
+        font-variation-settings: "opsz" var(--text-opsz); } }
 
 /* Layout */
 .title-page {
@@ -723,9 +798,14 @@ article {
 
 /* Navigation */
 .toc {
+  --text-opsz: 10;
   font-family: "Literata Caption", Georgia, "Times New Roman", Times, serif;
   font-family: var(--fonts-serif-static-caption);
   position: relative; }
+  @supports (font-variation-settings: normal) {
+    .toc {
+      font-family: var(--fonts-serif);
+      font-variation-settings: "opsz" var(--text-opsz); } }
   .toc-trigger {
     display: block;
     height: 2rem;
@@ -800,10 +880,15 @@ article {
   .prev-next-chapters .next {
     text-align: right; }
   .prev-next-chapters a:link, .prev-next-chapters a:visited {
+    --text-opsz: 10;
     font-family: "Literata Caption", Georgia, "Times New Roman", Times, serif;
     font-family: var(--fonts-serif-static-caption);
     font-size: 0.875rem;
     text-decoration: none; }
+    @supports (font-variation-settings: normal) {
+      .prev-next-chapters a:link, .prev-next-chapters a:visited {
+        font-family: var(--fonts-serif);
+        font-variation-settings: "opsz" var(--text-opsz); } }
     @media screen and (min-width: 60em) {
       .prev-next-chapters a:link, .prev-next-chapters a:visited {
         font-size: 1rem; } }

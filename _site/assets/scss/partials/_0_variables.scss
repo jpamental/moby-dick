@@ -83,7 +83,7 @@ $fonts-serif-static-caption: "Literata Caption", $fonts-base-serif;
 $fonts-serif-static-deck: "Literata Deck", $fonts-base-serif;
 $fonts-serif-static-display: "Literata Display", $fonts-base-serif;
 
-$fonts-serif: $fonts-base-serif;
+$fonts-serif: "Literata Variable", $fonts-base-serif;
 $fonts-sans: $fonts-base-sans;
 
 :root {
@@ -245,6 +245,22 @@ $h3-lh-l: 1.2;
   --h3-lh-s: #{$h3-lh-s};
   --h3-lh-m: #{$h3-lh-m};
   --h3-lh-l: #{$h3-lh-l};
+
+  --p-opsz-s: #{$p-size-s-px};
+  --p-opsz-m: #{$p-size-m-px};
+  --p-opsz-l: #{$p-size-l-px};
+
+  --h1-opsz-s: #{$h1-size-s-px};
+  --h1-opsz-m: v#{$h1-size-m-px};
+  --h1-opsz-l: #{$h1-size-l-px};
+
+  --h2-opsz-s: #{$h2-size-s-px};
+  --h2-opsz-m: #{$h2-size-m-px};
+  --h2-opsz-l: #{$h2-size-l-px};
+
+  --h3-opsz-s: #{$h3-size-s-px};
+  --h3-opsz-m: #{$h3-size-m-px};
+  --h3-opsz-l: #{$h3-size-l-px};
 }
 
 /* Responsive text-size spacer */

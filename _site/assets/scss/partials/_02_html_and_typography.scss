@@ -16,6 +16,7 @@ html {
 }
 
 body {
+  --text-opsz: var(--p-opsz-s);
   background-color: var(--color-background);
   font-family: $fonts-serif-static;
   font-family: var(--fonts-serif-static);
@@ -23,6 +24,10 @@ body {
   line-height: 1.5;
   margin: 0;
   padding: 0;
+  @supports (font-variation-settings: normal) {
+    font-family: var(--fonts-serif);
+    font-variation-settings: 'opsz' var(--text-opsz);
+  }
 }
 
 img {
@@ -41,6 +46,8 @@ table {
 }
 
 h1 {
+  /* force the optical size axis in the variable font for finer details */
+  --text-opsz: var(--h1-opsz-l);
   color: $color-dark-gray;
   color: var(--color-text);
   font-family: $fonts-serif-static-display;
@@ -54,7 +61,12 @@ h1 {
   max-width: $content-width-s;
   max-width: var(--content-width);
   position: relative;
+  @supports (font-variation-settings: normal) {
+    font-family: var(--fonts-serif);
+    font-variation-settings: 'opsz' var(--text-opsz);
+  }
   @media screen and (min-width: $bp--medium) {
+    --text-opsz: var(--h1-opsz-l);
     font-size: $h1-size-m;
     font-size: var(--h1-size-m);
     line-height: $h1-lh-m;
@@ -63,6 +75,7 @@ h1 {
     max-width: var(--content-width);
  }
   @media screen and (min-width: $bp--large) {
+    --text-opsz: var(--h1-opsz-l);
     font-size: $h1-size-l;
     font-size: var(--h1-size-l);
     line-height: $h1-lh-l;
@@ -78,6 +91,7 @@ h1 + p {
 }
 
 h2 {
+  --text-opsz: var(--h2-opsz-s);
   color: $color-dark-gray;
   color: var(--color-text);
   font-family: $fonts-serif-static-deck;
@@ -90,7 +104,12 @@ h2 {
   max-width: $content-width-s;
   max-width: var(--content-width);
   position: relative;
+  @supports (font-variation-settings: normal) {
+    font-family: var(--fonts-serif);
+    font-variation-settings: 'opsz' var(--text-opsz);
+  }
   @media screen and (min-width: $bp--medium) {
+    --text-opsz: var(--h2-opsz-m);
     font-size: $h2-size-m;
     font-size: var(--h2-size-m);
     line-height: $h2-lh-m;
@@ -99,6 +118,7 @@ h2 {
     max-width: var(--content-width);
  }
   @media screen and (min-width: $bp--large) {
+    --text-opsz: var(--h2-opsz-l);
     font-size: $h2-size-l;
     font-size: var(--h2-size-l);
     line-height: $h2-lh-l;
@@ -113,6 +133,7 @@ h2 + p {
 }
 
 h3 {
+  --text-opsz: var(--h3-opsz-s);
   color: $color-dark-gray;
   color: var(--color-text);
   font-family: $fonts-serif-static;
@@ -125,7 +146,12 @@ h3 {
   max-width: $content-width-s;
   max-width: var(--content-width);
   position: relative;
+  @supports (font-variation-settings: normal) {
+    font-family: var(--fonts-serif);
+    font-variation-settings: 'opsz' var(--text-opsz);
+  }
   @media screen and (min-width: $bp--medium) {
+    --text-opsz: var(--h3-opsz-m);
     font-size: $h3-size-m;
     font-size: var(--h3-size-m);
     line-height: $h3-lh-m;
@@ -134,6 +160,7 @@ h3 {
     max-width: var(--content-width);
  }
   @media screen and (min-width: $bp--large) {
+    --text-opsz: var(--h3-opsz-l);
     font-size: $h3-size-l;
     font-size: var(--h3-size-l);
     line-height: $h3-lh-l;
@@ -148,6 +175,7 @@ h3 + p {
 }
 
 p {
+  --text-opsz: var(--p-opsz-s);
   color: $color-dark-gray;
   color: var(--color-text);
   font-size: $p-size-s;
@@ -160,7 +188,11 @@ p {
   max-width: $content-width-s;
   max-width: var(--content-width);
   position: relative;
+  @supports (font-variation-settings: normal) {
+    font-variation-settings: 'opsz' var(--text-opsz);
+  }
   @media screen and (min-width: $bp--medium) {
+    --text-opsz: var(--p-opsz-m);
     font-size: $p-size-m;
     font-size: var(--p-size-m);
     -webkit-hyphens: none;
@@ -171,6 +203,7 @@ p {
     max-width: var(--content-width);
   }
   @media screen and (min-width: $bp--large) {
+    --text-opsz: var(--p-opsz-l);
     font-size: $p-size-l;
     font-size: var(--p-size-l);
     line-height: $p-lh-l;
@@ -185,17 +218,23 @@ p {
 }
 
 td {
+  --text-opsz: var(--p-opsz-s);
   font-size: $p-size-s;
   font-size: var(--p-size-s);
   line-height: $p-lh-s;
   line-height: var(--p-lh-s);
+  @supports (font-variation-settings: normal) {
+    font-variation-settings: 'opsz' var(--text-opsz);
+  }
   @media screen and (min-width: $bp--medium) {
+    --text-opsz: var(--p-opsz-m);
     font-size: $p-size-m;
     font-size: var(--p-size-m);
     line-height: $p-lh-m;
     line-height: var(--p-lh-m);
   }
   @media screen and (min-width: $bp--large) {
+    --text-opsz: var(--p-opsz-l);
     font-size: $p-size-l;
     font-size: var(--p-size-l);
     line-height: $p-lh-l;
@@ -204,6 +243,7 @@ td {
 }
 
 ul {
+  --text-opsz: var(--p-opsz-s);
   color: $color-dark-gray;
   color: var(--color-text);
   font-size: $p-size-s;
@@ -214,7 +254,11 @@ ul {
   max-width: $content-width-s;
   max-width: var(--content-width);
   padding-left: 1.25rem;
+  @supports (font-variation-settings: normal) {
+    font-variation-settings: 'opsz' var(--text-opsz);
+  }
   @media screen and (min-width: $bp--medium) {
+    --text-opsz: var(--p-opsz-m);
     font-size: $p-size-m;
     font-size: var(--p-size-m);
     line-height: $p-lh-m;
@@ -223,6 +267,7 @@ ul {
     max-width: var(--content-width);
   }
   @media screen and (min-width: $bp--large) {
+    --text-opsz: var(--p-opsz-l);
     font-size: $p-size-l;
     font-size: var(--p-size-l);
     line-height: $p-lh-l;
@@ -298,6 +343,7 @@ a {
 
   /* Style the initial letter */
   > p:first-of-type::first-letter {
+    --text-opsz: var(--h1-opsz-l);
     color: #594747;
     float: left;
     font-family: $fonts-serif-static-display;
@@ -313,6 +359,10 @@ a {
     padding-top: 0.05em;
     @media screen and (min-width: $bp--large) {
       padding-top: 0.1em;
+    }
+    @supports (font-variation-settings: normal) {
+      font-family: var(--fonts-serif);
+      font-variation-settings: 'opsz' var(--text-opsz);
     }
   }
 }
