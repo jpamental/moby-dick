@@ -1,6 +1,8 @@
 
 /* Top bar */
 .top-bar { 
+  background-color: $color-background-accent;
+  background-color: var(--color-background-accent);
   border-bottom: solid 1px rgba(0,0,0,.25);
   display: grid;
   grid-template-columns: max-content 1fr;
@@ -14,6 +16,10 @@
 /* Navigation */
 
 .title-link {
+  font-weight: 600;
+  @supports (font-variation-settings: normal) {
+    font-weight: 625;
+  }
   &:link,
   &:visited {
     text-decoration: none;
@@ -123,7 +129,8 @@
     }
     .toc:focus-within &,
     .toc:hover & {
-        background-color: #fafafa;
+        background-color: $color-background-accent;
+        background-color: var(--color-background-accent);
         border-left: solid 1px rgba(0,0,0,.25);
         box-shadow: 0.1em 0.1em 0.2em #eaeaea;
         height: 35vh;
