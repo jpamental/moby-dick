@@ -46,6 +46,7 @@ $color-dark-gray: #333333;
 $color-blue: #14218c;
 $color-purple: #5407a2;
 $color-red: #ff4444;
+$color-warm-dark-gray: #594747;
 
 $color-background: $color-paper-light;
 $color-text: $color-dark-gray;
@@ -54,7 +55,7 @@ $color-a-visited: $color-purple;
 $color-a-hover: $color-red;
 $color-a-focus: $color-red;
 $color-a-active: $color-red;
-
+$color-text-accent: $color-warm-dark-gray;
 
 :root {
   --color-paper-light: #{$color-paper-light};
@@ -70,6 +71,7 @@ $color-a-active: $color-red;
   --color-a-hover: #{$color-red};
   --color-a-focus: #{$color-red};
   --color-a-active: #{$color-red};
+  --color-text-accent: #{$color-text-accent};
 }
 
 /* Fonts */
@@ -114,8 +116,8 @@ $p-size-m-px: 18;
 $p-size-l-px: 20;
 
 $h1-size-s-px: 36;
-$h1-size-m-px: 48;
-$h1-size-l-px: 64;
+$h1-size-m-px: 56;
+$h1-size-l-px: 72;
 
 $h2-size-s-px: 24;
 $h2-size-m-px: 30;
@@ -246,17 +248,19 @@ $h3-lh-l: 1.2;
   --h3-lh-m: #{$h3-lh-m};
   --h3-lh-l: #{$h3-lh-l};
 
+  /* tie optical size axis to font size */
   --p-opsz-s: #{$p-size-s-px};
   --p-opsz-m: #{$p-size-m-px};
   --p-opsz-l: #{$p-size-l-px};
 
-  --h1-opsz-s: #{$h1-size-s-px};
-  --h1-opsz-m: v#{$h1-size-m-px};
-  --h1-opsz-l: #{$h1-size-l-px};
+  /* Force optical size axis to the highest value for greatest contrast */
+  --h1-opsz-s: 72;
+  --h1-opsz-m: 72;
+  --h1-opsz-l: 72;
 
-  --h2-opsz-s: #{$h2-size-s-px};
-  --h2-opsz-m: #{$h2-size-m-px};
-  --h2-opsz-l: #{$h2-size-l-px};
+  --h2-opsz-s: 56;
+  --h2-opsz-m: 60;
+  --h2-opsz-l: 64;
 
   --h3-opsz-s: #{$h3-size-s-px};
   --h3-opsz-m: #{$h3-size-m-px};

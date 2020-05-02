@@ -26,7 +26,8 @@
   --color-a-visited: #5407a2;
   --color-a-hover: #ff4444;
   --color-a-focus: #ff4444;
-  --color-a-active: #ff4444; }
+  --color-a-active: #ff4444;
+  --color-text-accent: #594747; }
 
 /* Fonts */
 /* No web fonts specified for Sans */
@@ -54,8 +55,8 @@
   --p-size-m-value: 1.125;
   --p-size-l-value: 1.25;
   --h1-size-s-value: 2.25;
-  --h1-size-m-value: 3;
-  --h1-size-l-value: 4;
+  --h1-size-m-value: 3.5;
+  --h1-size-l-value: 4.5;
   --h2-size-s-value: 1.5;
   --h2-size-m-value: 1.875;
   --h2-size-l-value: 2.25;
@@ -69,8 +70,8 @@
   --p-size-m: 1.125rem;
   --p-size-l: 1.25rem;
   --h1-size-s: 2.25rem;
-  --h1-size-m: 3rem;
-  --h1-size-l: 4rem;
+  --h1-size-m: 3.5rem;
+  --h1-size-l: 4.5rem;
   --h2-size-s: 1.5rem;
   --h2-size-m: 1.875rem;
   --h2-size-l: 2.25rem;
@@ -92,15 +93,17 @@
   --h3-lh-s: 1.1;
   --h3-lh-m: 1.15;
   --h3-lh-l: 1.2;
+  /* tie optical size axis to font size */
   --p-opsz-s: 16;
   --p-opsz-m: 18;
   --p-opsz-l: 20;
-  --h1-opsz-s: 36;
-  --h1-opsz-m: v48;
-  --h1-opsz-l: 64;
-  --h2-opsz-s: 24;
-  --h2-opsz-m: 30;
-  --h2-opsz-l: 36;
+  /* Force optical size axis to the highest value for greatest contrast */
+  --h1-opsz-s: 72;
+  --h1-opsz-m: 72;
+  --h1-opsz-l: 72;
+  --h2-opsz-s: 56;
+  --h2-opsz-m: 60;
+  --h2-opsz-l: 64;
   --h3-opsz-s: 20;
   --h3-opsz-m: 22;
   --h3-opsz-l: 24; }
@@ -490,11 +493,12 @@ h1 {
   @supports (font-variation-settings: normal) {
     h1 {
       font-family: var(--fonts-serif);
-      font-variation-settings: "opsz" var(--text-opsz); } }
+      font-variation-settings: "opsz" var(--text-opsz);
+      font-weight: 250; } }
   @media screen and (min-width: 42em) {
     h1 {
       --text-opsz: var(--h1-opsz-l);
-      font-size: 3rem;
+      font-size: 3.5rem;
       font-size: var(--h1-size-m);
       line-height: 1.1;
       line-height: var(--h1-lh-m);
@@ -503,7 +507,7 @@ h1 {
   @media screen and (min-width: 60em) {
     h1 {
       --text-opsz: var(--h1-opsz-l);
-      font-size: 4rem;
+      font-size: 4.5rem;
       font-size: var(--h1-size-l);
       line-height: 1.15;
       line-height: var(--h1-lh-l);
@@ -530,7 +534,8 @@ h2 {
   @supports (font-variation-settings: normal) {
     h2 {
       font-family: var(--fonts-serif);
-      font-variation-settings: "opsz" var(--text-opsz); } }
+      font-variation-settings: "opsz" var(--text-opsz);
+      font-weight: 325; } }
   @media screen and (min-width: 42em) {
     h2 {
       --text-opsz: var(--h2-opsz-m);
@@ -570,7 +575,8 @@ h3 {
   @supports (font-variation-settings: normal) {
     h3 {
       font-family: var(--fonts-serif);
-      font-variation-settings: "opsz" var(--text-opsz); } }
+      font-variation-settings: "opsz" var(--text-opsz);
+      font-weight: 575; } }
   @media screen and (min-width: 42em) {
     h3 {
       --text-opsz: var(--h3-opsz-m);
@@ -610,7 +616,7 @@ p {
   @supports (font-variation-settings: normal) {
     p {
       font-variation-settings: "opsz" var(--text-opsz);
-      font-weight: 375; } }
+      font-weight: 385; } }
   @media screen and (min-width: 42em) {
     p {
       --text-opsz: var(--p-opsz-m);
@@ -633,6 +639,10 @@ p {
       max-width: var(--content-width); } }
   p + p {
     text-indent: 1.5em; }
+
+@supports (font-variation-settings: normal) {
+  strong {
+    font-weight: 625; } }
 
 td {
   --text-opsz: var(--p-opsz-s);
@@ -715,6 +725,11 @@ a:hover {
   color: var(--color-a-hover);
   text-decoration: underline; }
 
+@media (pointer: coarse) {
+  a:hover {
+    color: unset;
+    text-decoration: unset; } }
+
 a:focus {
   color: #ff4444;
   color: var(--color-a-focus);
@@ -732,6 +747,7 @@ a:active {
   /* Style the initial letter */ }
   .chapter > p:first-of-type::first-line {
     color: #594747;
+    color: var(--color-text-accent);
     font-variant-caps: small-caps;
     font-weight: 600; }
     @supports (font-variation-settings: normal) {
@@ -744,6 +760,7 @@ a:active {
     -webkit-mask-size: cover;
     mask-size: cover;
     background-color: #594747;
+    background-color: var(--color-text-accent);
     height: 0.65em;
     width: 1em;
     display: inline-block;
@@ -751,6 +768,7 @@ a:active {
   .chapter > p:first-of-type::first-letter {
     --text-opsz: var(--h1-opsz-l);
     color: #594747;
+    color: var(--color-text-accent);
     float: left;
     font-family: "Literata Display", Georgia, "Times New Roman", Times, serif;
     font-family: var(--fonts-serif-static-display);
@@ -775,7 +793,7 @@ a:active {
   display: flex;
   flex-direction: column;
   min-height: 100vh; }
-  .title-page .title {
+  .title-page .publication-title {
     padding-top: 10vh; }
 
 /* Main content */
@@ -801,6 +819,22 @@ article {
     justify-self: right; }
 
 /* Navigation */
+.title-link:link, .title-link:visited {
+  text-decoration: none; }
+
+.title-link:hover {
+  text-decoration: underline; }
+
+.title-link:focus {
+  text-decoration: underline; }
+
+.title-link:active {
+  text-decoration: underline; }
+
+@media (pointer: coarse) {
+  .title-link:hover {
+    text-decoration: unset; } }
+
 .toc {
   --text-opsz: 10;
   font-family: "Literata Caption", Georgia, "Times New Roman", Times, serif;
@@ -815,6 +849,17 @@ article {
     height: 2rem;
     min-width: 15rem;
     text-align: right; }
+    .toc-trigger:link, .toc-trigger:visited {
+      text-decoration: none; }
+    .toc-trigger:hover {
+      text-decoration: underline; }
+    .toc-trigger:focus {
+      text-decoration: underline; }
+    .toc-trigger:active {
+      text-decoration: underline; }
+    @media (pointer: coarse) {
+      .toc-trigger:hover {
+        text-decoration: unset; } }
   .toc .toc-menu {
     font-size: 0.92rem;
     height: 1px;
@@ -898,6 +943,13 @@ article {
         font-size: 1rem; } }
   .prev-next-chapters a:hover, .prev-next-chapters a:focus, .prev-next-chapters a:active {
     text-decoration: underline; }
+  @media (pointer: coarse) {
+    .prev-next-chapters a:hover {
+      text-decoration: unset; } }
+
+/* Book title */
+.publication-title {
+  font-weight: 900; }
 
 /* Editor's note */
 .note {
@@ -1020,10 +1072,11 @@ blockquote {
     display: inline-block;
     font-style: italic; }
 
-article > h1 {
-  margin-left: calc( var(--margin-left) / 2);
-  margin-right: calc( var(--margin-left) / 2);
-  max-width: calc( 100vw - var(--margin-left)); }
+@media screen and (min-width: 42em) {
+  article > h1 {
+    margin-left: calc( var(--margin-left) / 2);
+    margin-right: calc( var(--margin-left) / 2);
+    max-width: calc( 100vw - var(--margin-left)); } }
 
 article figure + h1 {
   margin-top: 0.25rem;

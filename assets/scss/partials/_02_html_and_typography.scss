@@ -64,6 +64,7 @@ h1 {
   @supports (font-variation-settings: normal) {
     font-family: var(--fonts-serif);
     font-variation-settings: 'opsz' var(--text-opsz);
+    font-weight: 250;
   }
   @media screen and (min-width: $bp--medium) {
     --text-opsz: var(--h1-opsz-l);
@@ -107,6 +108,7 @@ h2 {
   @supports (font-variation-settings: normal) {
     font-family: var(--fonts-serif);
     font-variation-settings: 'opsz' var(--text-opsz);
+    font-weight: 325;
   }
   @media screen and (min-width: $bp--medium) {
     --text-opsz: var(--h2-opsz-m);
@@ -149,6 +151,7 @@ h3 {
   @supports (font-variation-settings: normal) {
     font-family: var(--fonts-serif);
     font-variation-settings: 'opsz' var(--text-opsz);
+    font-weight: 575;
   }
   @media screen and (min-width: $bp--medium) {
     --text-opsz: var(--h3-opsz-m);
@@ -190,7 +193,7 @@ p {
   position: relative;
   @supports (font-variation-settings: normal) {
     font-variation-settings: 'opsz' var(--text-opsz);
-    font-weight: 375;
+    font-weight: 385;
   }
   @media screen and (min-width: $bp--medium) {
     --text-opsz: var(--p-opsz-m);
@@ -215,6 +218,12 @@ p {
 
   + p {
     text-indent: 1.5em;
+  }
+}
+
+strong {
+  @supports (font-variation-settings: normal) {
+    font-weight: 625;
   }
 }
 
@@ -304,7 +313,13 @@ a {
     color: var(--color-a-hover);
     text-decoration: underline;
   }
-  
+  @media (pointer: coarse) {
+    &:hover {
+      color: unset;
+      text-decoration: unset;
+    }
+  }
+
   &:focus {
     color: $color-a-focus;
     color: var(--color-a-focus);
@@ -323,7 +338,8 @@ a {
 .chapter {
   /* Style first line of the first paragraph in the chapter */
   > p:first-of-type::first-line {
-    color: #594747;
+    color: $color-text-accent;
+    color: var(--color-text-accent);
     font-variant-caps: small-caps;
     font-weight: 600;
     @supports (font-variation-settings: normal) {
@@ -338,7 +354,8 @@ a {
     mask: url(../images/svg/end_mark.svg);
     -webkit-mask-size: cover;
     mask-size: cover;
-    background-color: #594747;
+    background-color: $color-text-accent;
+    background-color: var(--color-text-accent);
     height: 0.65em;
     width: 1em;
     display: inline-block;
@@ -348,7 +365,8 @@ a {
   /* Style the initial letter */
   > p:first-of-type::first-letter {
     --text-opsz: var(--h1-opsz-l);
-    color: #594747;
+    color: $color-text-accent;
+    color: var(--color-text-accent);
     float: left;
     font-family: $fonts-serif-static-display;
     font-family: var(--fonts-serif-static-display);

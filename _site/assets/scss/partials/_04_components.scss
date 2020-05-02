@@ -13,6 +13,27 @@
 
 /* Navigation */
 
+.title-link {
+  &:link,
+  &:visited {
+    text-decoration: none;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+  &:focus {
+    text-decoration: underline;
+  }
+  &:active {
+    text-decoration: underline;
+  }
+  @media (pointer: coarse) {
+    &:hover {
+      text-decoration: unset;
+    }
+  }
+}
+
 .toc {
   --text-opsz: 10;
   font-family: $fonts-serif-static-caption;
@@ -28,6 +49,24 @@
     height: 2rem;
     min-width: 15rem;
     text-align: right;
+    &:link,
+    &:visited {
+      text-decoration: none;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+    &:focus {
+      text-decoration: underline;
+    }
+    &:active {
+      text-decoration: underline;
+    }
+    @media (pointer: coarse) {
+      &:hover {
+        text-decoration: unset;
+      }
+    }
   }
 
   &-menu {
@@ -147,7 +186,17 @@
     &:active {
       text-decoration: underline;
     }
+    @media (pointer: coarse) {
+      &:hover {
+        text-decoration: unset;
+      }
+    }
   }
+}
+
+/* Book title */
+.publication-title {
+  font-weight: 900;
 }
 
 /* Editor's note */
@@ -311,9 +360,11 @@ blockquote {
 
 article {
   > h1 {
-    margin-left: calc( var(--margin-left) / 2 );
-    margin-right: calc( var(--margin-left) / 2 );
-    max-width: calc( 100vw - var(--margin-left) );
+    @media screen and (min-width: $bp--medium) {
+      margin-left: calc( var(--margin-left) / 2 );
+      margin-right: calc( var(--margin-left) / 2 );
+      max-width: calc( 100vw - var(--margin-left) );
+    }
   }
   figure + h1 {
     margin-top: 0.25rem;
