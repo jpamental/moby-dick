@@ -144,6 +144,7 @@ h3 {
   font-family: var(--fonts-serif-static);
   font-size: $h3-size-s;
   font-size: var(--h3-size-s);
+  font-variant-ligatures: common-ligatures discretionary-ligatures;
   line-height: $h3-lh-s;
   line-height: var(--h3-lh-s);
   margin: 2rem 0 0 0;
