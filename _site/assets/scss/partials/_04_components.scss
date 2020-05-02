@@ -301,6 +301,7 @@ blockquote {
   p {
     font-size: $bq-size-s;
     font-size: var(--bq-size-s);
+    font-variant-ligatures: common-ligatures discretionary-ligatures;
     @media screen and (min-width: $bp--medium) {
       font-size: $bq-size-m;
       font-size: var(--bq-size-m);
@@ -323,6 +324,7 @@ blockquote {
       display: inline;
       font-size: $p-size-s;
       font-size: var(--p-size-s);
+      font-variant-ligatures: common-ligatures;
       @media screen and (min-width: $bp--medium) {
         font-size: $p-size-m;
         font-size: var(--p-size-m);

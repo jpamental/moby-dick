@@ -83,9 +83,9 @@
   --bq-size-s: 1.25rem;
   --bq-size-m: 1.375rem;
   --bq-size-l: 1.5rem;
-  --p-lh-s: 1.45;
-  --p-lh-m: 1.5;
-  --p-lh-l: 1.5;
+  --p-lh-s: 1.5;
+  --p-lh-m: 1.525;
+  --p-lh-l: 1.55;
   --h1-lh-s: 1.05;
   --h1-lh-m: 1.1;
   --h1-lh-l: 1.15;
@@ -485,6 +485,7 @@ h1 {
   font-family: var(--fonts-serif-static-display);
   font-size: 2.25rem;
   font-size: var(--h1-size-s);
+  font-variant-ligatures: common-ligatures discretionary-ligatures;
   line-height: 1.05;
   line-height: var(--h1-lh-s);
   margin: 2rem 0 0 0;
@@ -527,6 +528,7 @@ h2 {
   font-family: var(--fonts-serif-static-deck);
   font-size: 1.5rem;
   font-size: var(--h2-size-s);
+  font-variant-ligatures: common-ligatures discretionary-ligatures;
   line-height: 1.1;
   line-height: var(--h2-lh-s);
   margin: 2rem 0 0 0;
@@ -609,7 +611,7 @@ p {
   font-size: var(--p-size-s);
   -webkit-hyphens: auto;
   hyphens: auto;
-  line-height: 1.45;
+  line-height: 1.5;
   line-height: var(--p-lh-s);
   margin: 0;
   max-width: 88vw;
@@ -626,7 +628,7 @@ p {
       font-size: var(--p-size-m);
       -webkit-hyphens: none;
       hyphens: none;
-      line-height: 1.5;
+      line-height: 1.525;
       line-height: var(--p-lh-m);
       max-width: 40rem;
       max-width: var(--content-width); } }
@@ -635,7 +637,7 @@ p {
       --text-opsz: var(--p-opsz-l);
       font-size: 1.25rem;
       font-size: var(--p-size-l);
-      line-height: 1.5;
+      line-height: 1.55;
       line-height: var(--p-lh-l);
       max-width: 44rem;
       max-width: var(--content-width); } }
@@ -650,7 +652,7 @@ td {
   --text-opsz: var(--p-opsz-s);
   font-size: 1rem;
   font-size: var(--p-size-s);
-  line-height: 1.45;
+  line-height: 1.5;
   line-height: var(--p-lh-s); }
   @supports (font-variation-settings: normal) {
     td {
@@ -660,14 +662,14 @@ td {
       --text-opsz: var(--p-opsz-m);
       font-size: 1.125rem;
       font-size: var(--p-size-m);
-      line-height: 1.5;
+      line-height: 1.525;
       line-height: var(--p-lh-m); } }
   @media screen and (min-width: 60em) {
     td {
       --text-opsz: var(--p-opsz-l);
       font-size: 1.25rem;
       font-size: var(--p-size-l);
-      line-height: 1.5;
+      line-height: 1.55;
       line-height: var(--p-lh-l); } }
 
 ul {
@@ -676,7 +678,7 @@ ul {
   color: var(--color-text);
   font-size: 1rem;
   font-size: var(--p-size-s);
-  line-height: 1.45;
+  line-height: 1.5;
   line-height: var(--p-lh-s);
   margin: 0;
   max-width: 88vw;
@@ -690,7 +692,7 @@ ul {
       --text-opsz: var(--p-opsz-m);
       font-size: 1.125rem;
       font-size: var(--p-size-m);
-      line-height: 1.5;
+      line-height: 1.525;
       line-height: var(--p-lh-m);
       max-width: 40rem;
       max-width: var(--content-width); } }
@@ -699,7 +701,7 @@ ul {
       --text-opsz: var(--p-opsz-l);
       font-size: 1.25rem;
       font-size: var(--p-size-l);
-      line-height: 1.5;
+      line-height: 1.55;
       line-height: var(--p-lh-l);
       max-width: 44rem;
       max-width: var(--content-width); } }
@@ -1027,7 +1029,8 @@ blockquote {
     margin-top: var(--body-text-spacer); }
   blockquote p {
     font-size: 1.25rem;
-    font-size: var(--bq-size-s); }
+    font-size: var(--bq-size-s);
+    font-variant-ligatures: common-ligatures discretionary-ligatures; }
     @media screen and (min-width: 42em) {
       blockquote p {
         font-size: 1.375rem;
@@ -1044,7 +1047,8 @@ blockquote {
   blockquote.bq--inline p {
     display: inline;
     font-size: 1rem;
-    font-size: var(--p-size-s); }
+    font-size: var(--p-size-s);
+    font-variant-ligatures: common-ligatures; }
     @media screen and (min-width: 42em) {
       blockquote.bq--inline p {
         font-size: 1.125rem;

@@ -54,6 +54,7 @@ h1 {
   font-family: var(--fonts-serif-static-display);
   font-size: $h1-size-s;
   font-size: var(--h1-size-s);
+  font-variant-ligatures: common-ligatures discretionary-ligatures;
   line-height: $h1-lh-s;
   line-height: var(--h1-lh-s);
   margin: 2rem 0 0 0;
@@ -99,6 +100,7 @@ h2 {
   font-family: var(--fonts-serif-static-deck);
   font-size: $h2-size-s;
   font-size: var(--h2-size-s);
+  font-variant-ligatures: common-ligatures discretionary-ligatures;
   line-height: $h2-lh-s;
   line-height: var(--h2-lh-s);
   margin: 2rem 0 0 0;
