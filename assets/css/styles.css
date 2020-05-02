@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* Set custom properties for layout and sizing */
 :root {
-  --content-width: 92vw;
+  --content-width: 88vw;
   --margin-left: calc( (100vw - var(--content-width)) / 2 );
   --margin-right: calc( (100vw - var(--content-width)) / 2 ); }
   @media screen and (min-width: 42em) {
@@ -80,8 +80,8 @@
   --bq-size-s: 1.25rem;
   --bq-size-m: 1.375rem;
   --bq-size-l: 1.5rem;
-  --p-lh-s: 1.4;
-  --p-lh-m: 1.45;
+  --p-lh-s: 1.45;
+  --p-lh-m: 1.5;
   --p-lh-l: 1.5;
   --h1-lh-s: 1.05;
   --h1-lh-m: 1.1;
@@ -484,7 +484,7 @@ h1 {
   line-height: var(--h1-lh-s);
   margin: 2rem 0 0 0;
   margin-top: calc( var(--body-text-spacer) * 2);
-  max-width: 92vw;
+  max-width: 88vw;
   max-width: var(--content-width);
   position: relative; }
   @supports (font-variation-settings: normal) {
@@ -524,7 +524,7 @@ h2 {
   line-height: 1.1;
   line-height: var(--h2-lh-s);
   margin: 2rem 0 0 0;
-  max-width: 92vw;
+  max-width: 88vw;
   max-width: var(--content-width);
   position: relative; }
   @supports (font-variation-settings: normal) {
@@ -564,7 +564,7 @@ h3 {
   line-height: 1.1;
   line-height: var(--h3-lh-s);
   margin: 2rem 0 0 0;
-  max-width: 92vw;
+  max-width: 88vw;
   max-width: var(--content-width);
   position: relative; }
   @supports (font-variation-settings: normal) {
@@ -601,10 +601,10 @@ p {
   font-size: var(--p-size-s);
   -webkit-hyphens: auto;
   hyphens: auto;
-  line-height: 1.4;
+  line-height: 1.45;
   line-height: var(--p-lh-s);
   margin: 0;
-  max-width: 92vw;
+  max-width: 88vw;
   max-width: var(--content-width);
   position: relative; }
   @supports (font-variation-settings: normal) {
@@ -618,7 +618,7 @@ p {
       font-size: var(--p-size-m);
       -webkit-hyphens: none;
       hyphens: none;
-      line-height: 1.45;
+      line-height: 1.5;
       line-height: var(--p-lh-m);
       max-width: 40rem;
       max-width: var(--content-width); } }
@@ -638,7 +638,7 @@ td {
   --text-opsz: var(--p-opsz-s);
   font-size: 1rem;
   font-size: var(--p-size-s);
-  line-height: 1.4;
+  line-height: 1.45;
   line-height: var(--p-lh-s); }
   @supports (font-variation-settings: normal) {
     td {
@@ -648,7 +648,7 @@ td {
       --text-opsz: var(--p-opsz-m);
       font-size: 1.125rem;
       font-size: var(--p-size-m);
-      line-height: 1.45;
+      line-height: 1.5;
       line-height: var(--p-lh-m); } }
   @media screen and (min-width: 60em) {
     td {
@@ -664,10 +664,10 @@ ul {
   color: var(--color-text);
   font-size: 1rem;
   font-size: var(--p-size-s);
-  line-height: 1.4;
+  line-height: 1.45;
   line-height: var(--p-lh-s);
   margin: 0;
-  max-width: 92vw;
+  max-width: 88vw;
   max-width: var(--content-width);
   padding-left: 1.25rem; }
   @supports (font-variation-settings: normal) {
@@ -678,7 +678,7 @@ ul {
       --text-opsz: var(--p-opsz-m);
       font-size: 1.125rem;
       font-size: var(--p-size-m);
-      line-height: 1.45;
+      line-height: 1.5;
       line-height: var(--p-lh-m);
       max-width: 40rem;
       max-width: var(--content-width); } }
@@ -759,7 +759,7 @@ a:active {
     /* tweak vertical positioning in Chrome & Safari */
     line-height: 0.7;
     margin: 0;
-    padding: 0 0.1em 0 0;
+    padding: 0 0.025em 0 0;
     /* tweak vertical positioning in Firefox */
     padding-top: 0.05em; }
     @media screen and (min-width: 60em) {
@@ -913,7 +913,7 @@ article {
 
 figure {
   padding: 0;
-  max-width: 92vw;
+  max-width: 88vw;
   max-width: var(--content-width);
   width: 100%; }
   @media screen and (min-width: 42em) {
