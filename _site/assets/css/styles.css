@@ -1109,10 +1109,18 @@ body > footer {
       padding-left: var(--margin-left);
       text-align: left; } }
   body > footer a:link, body > footer a:visited {
-    font-family: Helvetica, Arial, sans-serif;
-    font-family: var(--fonts-sans);
-    font-size: 0.75rem;
+    --text-opsz: 7;
+    font-family: "Literata Caption", Georgia, "Times New Roman", Times, serif;
+    font-family: var(--fonts-serif-static-caption);
+    font-size: 0.625rem;
     text-decoration: none; }
+    @media screen and (min-width: 28em) {
+      body > footer a:link, body > footer a:visited {
+        font-size: 0.75rem; } }
+    @supports (font-variation-settings: normal) {
+      body > footer a:link, body > footer a:visited {
+        font-family: var(--fonts-serif);
+        font-variation-settings: "opsz" var(--text-opsz); } }
   body > footer a:hover, body > footer a:focus, body > footer a:active {
     text-decoration: underline; }
 
