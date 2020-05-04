@@ -55,6 +55,7 @@ h1 {
   font-size: $h1-size-s;
   font-size: var(--h1-size-s);
   font-variant-ligatures: common-ligatures discretionary-ligatures;
+  font-weight: 300;
   line-height: $h1-lh-s;
   line-height: var(--h1-lh-s);
   margin: 2rem 0 0 0;
@@ -100,6 +101,7 @@ h2 {
   font-family: var(--fonts-serif-static-deck);
   font-size: $h2-size-s;
   font-size: var(--h2-size-s);
+  font-weight: 300;
   font-variant-ligatures: common-ligatures discretionary-ligatures;
   line-height: $h2-lh-s;
   line-height: var(--h2-lh-s);
@@ -145,6 +147,7 @@ h3 {
   font-size: $h3-size-s;
   font-size: var(--h3-size-s);
   font-variant-ligatures: common-ligatures discretionary-ligatures;
+  font-weight: 600;
   line-height: $h3-lh-s;
   line-height: var(--h3-lh-s);
   margin: 2rem 0 0 0;
@@ -225,6 +228,7 @@ p {
 }
 
 strong {
+  font-weight: 600;
   @supports (font-variation-settings: normal) {
     font-weight: 625;
   }
@@ -344,7 +348,7 @@ a {
     color: $color-text-accent;
     color: var(--color-text-accent);
     font-variant-caps: small-caps;
-    font-weight: 600;
+    font-weight: 500;
     @supports (font-variation-settings: normal) {
       font-weight: 525;
     }

@@ -486,6 +486,7 @@ h1 {
   font-size: 2.25rem;
   font-size: var(--h1-size-s);
   font-variant-ligatures: common-ligatures discretionary-ligatures;
+  font-weight: 300;
   line-height: 1.05;
   line-height: var(--h1-lh-s);
   margin: 2rem 0 0 0;
@@ -528,6 +529,7 @@ h2 {
   font-family: var(--fonts-serif-static-deck);
   font-size: 1.5rem;
   font-size: var(--h2-size-s);
+  font-weight: 300;
   font-variant-ligatures: common-ligatures discretionary-ligatures;
   line-height: 1.1;
   line-height: var(--h2-lh-s);
@@ -571,6 +573,7 @@ h3 {
   font-size: 1.25rem;
   font-size: var(--h3-size-s);
   font-variant-ligatures: common-ligatures discretionary-ligatures;
+  font-weight: 600;
   line-height: 1.1;
   line-height: var(--h3-lh-s);
   margin: 2rem 0 0 0;
@@ -645,9 +648,11 @@ p {
   p + p {
     text-indent: 1.5em; }
 
-@supports (font-variation-settings: normal) {
-  strong {
-    font-weight: 625; } }
+strong {
+  font-weight: 600; }
+  @supports (font-variation-settings: normal) {
+    strong {
+      font-weight: 625; } }
 
 td {
   --text-opsz: var(--p-opsz-s);
@@ -754,7 +759,7 @@ a:active {
     color: #594747;
     color: var(--color-text-accent);
     font-variant-caps: small-caps;
-    font-weight: 600; }
+    font-weight: 500; }
     @supports (font-variation-settings: normal) {
       .chapter > p:first-of-type::first-line {
         font-weight: 525; } }
