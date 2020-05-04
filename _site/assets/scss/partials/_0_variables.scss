@@ -1,0 +1,287 @@
+
+// mq values (no unit)
+$bp--small-value: 28;
+$bp--medium-value: 42;
+$bp--large-value: 60;
+$bp--xlarge-value: 75;
+$bp--xxlarge-value: 90;
+$bp--xxxlarge-value: 110;
+
+// mq's in ems
+$bp--small: $bp--small-value * 1em;
+$bp--medium: $bp--medium-value * 1em;
+$bp--large: $bp--large-value * 1em;
+$bp--xlarge: $bp--xlarge-value * 1em;
+$bp--xxlarge: $bp--xxlarge-value * 1em;
+$bp--xxxlarge: $bp--xxxlarge-value * 1em;
+
+
+
+/* Set custom properties for layout and sizing */
+
+$content-width-s: 88vw;
+$content-width-m: 40rem;
+$content-width-l: 44rem;
+
+:root {
+  --content-width: #{$content-width-s};
+  --margin-left: calc( (100vw - var(--content-width)) / 2 );
+  --margin-right: calc( (100vw - var(--content-width)) / 2 );
+
+  @media screen and (min-width: $bp--medium) {
+    --content-width: #{$content-width-m};
+    --margin-left: calc( ((100vw - var(--content-width)) / 5) * 2 );
+    --margin-right: calc( ((100vw - var(--content-width)) / 5) * 3 );
+  }
+
+  @media screen and (min-width: $bp--large) {
+    --content-width: #{$content-width-l};
+  }
+}
+
+/* Colors */
+
+$color-paper-light: #fafafd;
+$color-dark-gray: #333333;
+$color-light-gray: #f0f0f0;
+$color-blue: #14218c;
+$color-purple: #5407a2;
+$color-red: #ff4444;
+$color-warm-dark-gray: #594747;
+
+$color-background: $color-paper-light;
+$color-background-accent: $color-light-gray;
+$color-text: $color-dark-gray;
+$color-a-link: $color-blue;
+$color-a-visited: $color-purple;
+$color-a-hover: $color-red;
+$color-a-focus: $color-red;
+$color-a-active: $color-red;
+$color-text-accent: $color-warm-dark-gray;
+
+:root {
+  --color-paper-light: #{$color-paper-light};
+  --color-dark-gray: #{$color-dark-gray};
+  --color-light-gray: #{$color-light-gray};
+  --color-blue: #{$color-blue};
+  --color-purple: #{$color-purple};
+  --color-red: #{$color-red};
+
+  --color-background: var(--color-paper-light);
+  --color-background-accent: var(--color-light-gray);
+  --color-text: var(--color-dark-gray);
+  --color-a-link: #{$color-blue};
+  --color-a-visited: #{$color-purple};
+  --color-a-hover: #{$color-red};
+  --color-a-focus: #{$color-red};
+  --color-a-active: #{$color-red};
+  --color-text-accent: #{$color-text-accent};
+}
+
+/* Fonts */
+$fonts-base-serif: Georgia, 'Times New Roman', Times, serif;
+$fonts-base-sans: Helvetica, Arial, sans-serif;
+
+$fonts-serif-static: "Literata", $fonts-base-serif;
+$fonts-sans-static: $fonts-base-sans; /* No web fonts specified for Sans */
+
+$fonts-serif-static-caption: "Literata Caption", $fonts-base-serif;
+$fonts-serif-static-deck: "Literata Deck", $fonts-base-serif;
+$fonts-serif-static-display: "Literata Display", $fonts-base-serif;
+
+$fonts-serif: "Literata Variable", $fonts-base-serif;
+$fonts-sans: $fonts-base-sans;
+
+:root {
+  --fonts-base-serif: #{$fonts-base-serif};
+  --fonts-base-sans: #{$fonts-base-sans};
+
+  --fonts-serif-static: #{$fonts-serif-static};
+  --fonts-sans-static: #{$fonts-sans-static};
+
+  --fonts-serif-static-caption: #{$fonts-serif-static-caption};
+  --fonts-serif-static-deck: #{$fonts-serif-static-deck};
+  --fonts-serif-static-display: #{$fonts-serif-static-display};
+
+  --fonts-serif: #{$fonts-serif};
+  --fonts-sans: #{$fonts-sans};
+}
+
+/* Text sizing */
+
+/* Set base text size for all calcs */
+$text-base-size: 16;
+
+/* Preprocessed for fallbacks */
+
+/* Change px values here for all font sizing */
+$p-size-s-px: 16;
+$p-size-m-px: 18;
+$p-size-l-px: 20;
+
+$h1-size-s-px: 36;
+$h1-size-m-px: 56;
+$h1-size-l-px: 72;
+
+$h2-size-s-px: 24;
+$h2-size-m-px: 30;
+$h2-size-l-px: 36;
+
+$h3-size-s-px: 20;
+$h3-size-m-px: 22;
+$h3-size-l-px: 24;
+
+$bq-size-s-px: 20;
+$bq-size-m-px: 22;
+$bq-size-l-px: 24;
+
+/* Font size rem values (needed for dynamic sizing) */
+$p-size-s-value: $p-size-s-px / $text-base-size;
+$p-size-m-value: $p-size-m-px / $text-base-size;
+$p-size-l-value: $p-size-l-px / $text-base-size;
+
+$h1-size-s-value: $h1-size-s-px / $text-base-size;
+$h1-size-m-value: $h1-size-m-px / $text-base-size;
+$h1-size-l-value: $h1-size-l-px / $text-base-size;
+
+$h2-size-s-value: $h2-size-s-px / $text-base-size;
+$h2-size-m-value: $h2-size-m-px / $text-base-size;
+$h2-size-l-value: $h2-size-l-px / $text-base-size;
+
+$h3-size-s-value: $h3-size-s-px / $text-base-size;
+$h3-size-m-value: $h3-size-m-px / $text-base-size;
+$h3-size-l-value: $h3-size-l-px / $text-base-size;
+
+$bq-size-s-value: $bq-size-s-px / $text-base-size;
+$bq-size-m-value: $bq-size-m-px / $text-base-size;
+$bq-size-l-value: $bq-size-l-px / $text-base-size;
+
+/* Font sizes in rems */
+$p-size-s: $p-size-s-value * 1rem;
+$p-size-m: $p-size-m-value * 1rem;
+$p-size-l: $p-size-l-value * 1rem;
+
+$h1-size-s: $h1-size-s-value * 1rem;
+$h1-size-m: $h1-size-m-value * 1rem;
+$h1-size-l: $h1-size-l-value * 1rem;
+
+$h2-size-s: $h2-size-s-value * 1rem;
+$h2-size-m: $h2-size-m-value * 1rem;
+$h2-size-l: $h2-size-l-value * 1rem;
+
+$h3-size-s: $h3-size-s-value * 1rem;
+$h3-size-m: $h3-size-m-value * 1rem;
+$h3-size-l: $h3-size-l-value * 1rem;
+
+$bq-size-s: $bq-size-s-value * 1rem;
+$bq-size-m: $bq-size-m-value * 1rem;
+$bq-size-l: $bq-size-l-value * 1rem;
+
+/* Line-height */
+$p-lh-s: 1.5;
+$p-lh-m: 1.525;
+$p-lh-l: 1.55;
+
+$h1-lh-s: 1.05;
+$h1-lh-m: 1.1;
+$h1-lh-l: 1.15;
+
+$h2-lh-s: 1.1;
+$h2-lh-m: 1.15;
+$h2-lh-l: 1.2;
+
+$h3-lh-s: 1.1;
+$h3-lh-m: 1.15;
+$h3-lh-l: 1.2;
+
+/* Custom props for modern browsers */
+:root {
+  --p-size-s-value: #{$p-size-s-value};
+  --p-size-m-value: #{$p-size-m-value};
+  --p-size-l-value: #{$p-size-l-value};
+
+  --h1-size-s-value: #{$h1-size-s-value};
+  --h1-size-m-value: #{$h1-size-m-value};
+  --h1-size-l-value: #{$h1-size-l-value};
+
+  --h2-size-s-value: #{$h2-size-s-value};
+  --h2-size-m-value: #{$h2-size-m-value};
+  --h2-size-l-value: #{$h2-size-l-value};
+
+  --h3-size-s-value: #{$h3-size-s-value};
+  --h3-size-m-value: #{$h3-size-m-value};
+  --h3-size-l-value: #{$h3-size-l-value};
+
+  --bq-size-s-value: #{$bq-size-s-value};
+  --bq-size-m-value: #{$bq-size-m-value};
+  --bq-size-l-value: #{$bq-size-l-value};
+
+  --p-size-s: #{$p-size-s-value * 1rem};
+  --p-size-m: #{$p-size-m-value * 1rem};
+  --p-size-l: #{$p-size-l-value * 1rem};
+
+  --h1-size-s: #{$h1-size-s-value * 1rem};
+  --h1-size-m: #{$h1-size-m-value * 1rem};
+  --h1-size-l: #{$h1-size-l-value * 1rem};
+
+  --h2-size-s: #{$h2-size-s-value * 1rem};
+  --h2-size-m: #{$h2-size-m-value * 1rem};
+  --h2-size-l: #{$h2-size-l-value * 1rem};
+
+  --h3-size-s: #{$h3-size-s-value * 1rem};
+  --h3-size-m: #{$h3-size-m-value * 1rem};
+  --h3-size-l: #{$h3-size-l-value * 1rem};
+
+  --bq-size-s: #{$bq-size-s-value * 1rem};
+  --bq-size-m: #{$bq-size-m-value * 1rem};
+  --bq-size-l: #{$bq-size-l-value * 1rem};
+
+  --p-lh-s: #{$p-lh-s};
+  --p-lh-m: #{$p-lh-m};
+  --p-lh-l: #{$p-lh-l};
+
+  --h1-lh-s: #{$h1-lh-s};
+  --h1-lh-m: #{$h1-lh-m};
+  --h1-lh-l: #{$h1-lh-l};
+
+  --h2-lh-s: #{$h2-lh-s};
+  --h2-lh-m: #{$h2-lh-m};
+  --h2-lh-l: #{$h2-lh-l};
+
+  --h3-lh-s: #{$h3-lh-s};
+  --h3-lh-m: #{$h3-lh-m};
+  --h3-lh-l: #{$h3-lh-l};
+
+  /* tie optical size axis to font size */
+  --p-opsz-s: #{$p-size-s-px};
+  --p-opsz-m: #{$p-size-m-px};
+  --p-opsz-l: #{$p-size-l-px};
+
+  /* Force optical size axis to the highest value for greatest contrast */
+  --h1-opsz-s: 72;
+  --h1-opsz-m: 72;
+  --h1-opsz-l: 72;
+
+  --h2-opsz-s: 56;
+  --h2-opsz-m: 60;
+  --h2-opsz-l: 64;
+
+  --h3-opsz-s: #{$h3-size-s-px};
+  --h3-opsz-m: #{$h3-size-m-px};
+  --h3-opsz-l: #{$h3-size-l-px};
+}
+
+/* Responsive text-size spacer */
+$body-text-spacer-s: $p-size-s;
+$body-text-spacer-m: $p-size-m;
+$body-text-spacer-l: $p-size-l;
+
+:root {
+  --body-text-spacer: #{$body-text-spacer-s};
+  @media screen and (min-width: $bp--medium) {
+    --body-text-spacer: #{$body-text-spacer-m};
+  }  
+  @media screen and (min-width: $bp--large) {
+    --body-text-spacer: #{$body-text-spacer-l};
+  }  
+}

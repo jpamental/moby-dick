@@ -19,7 +19,7 @@ $bp--xxxlarge: $bp--xxxlarge-value * 1em;
 
 /* Set custom properties for layout and sizing */
 
-$content-width-s: 92vw;
+$content-width-s: 88vw;
 $content-width-m: 40rem;
 $content-width-l: 44rem;
 
@@ -43,45 +43,65 @@ $content-width-l: 44rem;
 
 $color-paper-light: #fafafd;
 $color-dark-gray: #333333;
-$color-blue: #3333ff;
-$color-purple: #8221e4;
+$color-light-gray: #f0f0f0;
+$color-blue: #14218c;
+$color-purple: #5407a2;
 $color-red: #ff4444;
+$color-warm-dark-gray: #594747;
 
 $color-background: $color-paper-light;
+$color-background-accent: $color-light-gray;
 $color-text: $color-dark-gray;
 $color-a-link: $color-blue;
 $color-a-visited: $color-purple;
 $color-a-hover: $color-red;
 $color-a-focus: $color-red;
 $color-a-active: $color-red;
-
+$color-text-accent: $color-warm-dark-gray;
 
 :root {
   --color-paper-light: #{$color-paper-light};
   --color-dark-gray: #{$color-dark-gray};
+  --color-light-gray: #{$color-light-gray};
   --color-blue: #{$color-blue};
   --color-purple: #{$color-purple};
   --color-red: #{$color-red};
 
   --color-background: var(--color-paper-light);
+  --color-background-accent: var(--color-light-gray);
   --color-text: var(--color-dark-gray);
   --color-a-link: #{$color-blue};
   --color-a-visited: #{$color-purple};
   --color-a-hover: #{$color-red};
   --color-a-focus: #{$color-red};
   --color-a-active: #{$color-red};
+  --color-text-accent: #{$color-text-accent};
 }
 
 /* Fonts */
 $fonts-base-serif: Georgia, 'Times New Roman', Times, serif;
 $fonts-base-sans: Helvetica, Arial, sans-serif;
 
-$fonts-serif: $fonts-base-serif;
+$fonts-serif-static: "Literata", $fonts-base-serif;
+$fonts-sans-static: $fonts-base-sans; /* No web fonts specified for Sans */
+
+$fonts-serif-static-caption: "Literata Caption", $fonts-base-serif;
+$fonts-serif-static-deck: "Literata Deck", $fonts-base-serif;
+$fonts-serif-static-display: "Literata Display", $fonts-base-serif;
+
+$fonts-serif: "Literata Variable", $fonts-base-serif;
 $fonts-sans: $fonts-base-sans;
 
 :root {
   --fonts-base-serif: #{$fonts-base-serif};
   --fonts-base-sans: #{$fonts-base-sans};
+
+  --fonts-serif-static: #{$fonts-serif-static};
+  --fonts-sans-static: #{$fonts-sans-static};
+
+  --fonts-serif-static-caption: #{$fonts-serif-static-caption};
+  --fonts-serif-static-deck: #{$fonts-serif-static-deck};
+  --fonts-serif-static-display: #{$fonts-serif-static-display};
 
   --fonts-serif: #{$fonts-serif};
   --fonts-sans: #{$fonts-sans};
@@ -100,12 +120,16 @@ $p-size-m-px: 18;
 $p-size-l-px: 20;
 
 $h1-size-s-px: 36;
-$h1-size-m-px: 48;
-$h1-size-l-px: 64;
+$h1-size-m-px: 56;
+$h1-size-l-px: 72;
 
 $h2-size-s-px: 24;
 $h2-size-m-px: 30;
 $h2-size-l-px: 36;
+
+$h3-size-s-px: 20;
+$h3-size-m-px: 22;
+$h3-size-l-px: 24;
 
 $bq-size-s-px: 20;
 $bq-size-m-px: 22;
@@ -124,6 +148,10 @@ $h2-size-s-value: $h2-size-s-px / $text-base-size;
 $h2-size-m-value: $h2-size-m-px / $text-base-size;
 $h2-size-l-value: $h2-size-l-px / $text-base-size;
 
+$h3-size-s-value: $h3-size-s-px / $text-base-size;
+$h3-size-m-value: $h3-size-m-px / $text-base-size;
+$h3-size-l-value: $h3-size-l-px / $text-base-size;
+
 $bq-size-s-value: $bq-size-s-px / $text-base-size;
 $bq-size-m-value: $bq-size-m-px / $text-base-size;
 $bq-size-l-value: $bq-size-l-px / $text-base-size;
@@ -141,14 +169,18 @@ $h2-size-s: $h2-size-s-value * 1rem;
 $h2-size-m: $h2-size-m-value * 1rem;
 $h2-size-l: $h2-size-l-value * 1rem;
 
+$h3-size-s: $h3-size-s-value * 1rem;
+$h3-size-m: $h3-size-m-value * 1rem;
+$h3-size-l: $h3-size-l-value * 1rem;
+
 $bq-size-s: $bq-size-s-value * 1rem;
 $bq-size-m: $bq-size-m-value * 1rem;
 $bq-size-l: $bq-size-l-value * 1rem;
 
 /* Line-height */
-$p-lh-s: 1.4;
-$p-lh-m: 1.45;
-$p-lh-l: 1.5;
+$p-lh-s: 1.5;
+$p-lh-m: 1.525;
+$p-lh-l: 1.55;
 
 $h1-lh-s: 1.05;
 $h1-lh-m: 1.1;
@@ -157,6 +189,10 @@ $h1-lh-l: 1.15;
 $h2-lh-s: 1.1;
 $h2-lh-m: 1.15;
 $h2-lh-l: 1.2;
+
+$h3-lh-s: 1.1;
+$h3-lh-m: 1.15;
+$h3-lh-l: 1.2;
 
 /* Custom props for modern browsers */
 :root {
@@ -171,6 +207,10 @@ $h2-lh-l: 1.2;
   --h2-size-s-value: #{$h2-size-s-value};
   --h2-size-m-value: #{$h2-size-m-value};
   --h2-size-l-value: #{$h2-size-l-value};
+
+  --h3-size-s-value: #{$h3-size-s-value};
+  --h3-size-m-value: #{$h3-size-m-value};
+  --h3-size-l-value: #{$h3-size-l-value};
 
   --bq-size-s-value: #{$bq-size-s-value};
   --bq-size-m-value: #{$bq-size-m-value};
@@ -188,6 +228,10 @@ $h2-lh-l: 1.2;
   --h2-size-m: #{$h2-size-m-value * 1rem};
   --h2-size-l: #{$h2-size-l-value * 1rem};
 
+  --h3-size-s: #{$h3-size-s-value * 1rem};
+  --h3-size-m: #{$h3-size-m-value * 1rem};
+  --h3-size-l: #{$h3-size-l-value * 1rem};
+
   --bq-size-s: #{$bq-size-s-value * 1rem};
   --bq-size-m: #{$bq-size-m-value * 1rem};
   --bq-size-l: #{$bq-size-l-value * 1rem};
@@ -203,6 +247,28 @@ $h2-lh-l: 1.2;
   --h2-lh-s: #{$h2-lh-s};
   --h2-lh-m: #{$h2-lh-m};
   --h2-lh-l: #{$h2-lh-l};
+
+  --h3-lh-s: #{$h3-lh-s};
+  --h3-lh-m: #{$h3-lh-m};
+  --h3-lh-l: #{$h3-lh-l};
+
+  /* tie optical size axis to font size */
+  --p-opsz-s: #{$p-size-s-px};
+  --p-opsz-m: #{$p-size-m-px};
+  --p-opsz-l: #{$p-size-l-px};
+
+  /* Force optical size axis to the highest value for greatest contrast */
+  --h1-opsz-s: 72;
+  --h1-opsz-m: 72;
+  --h1-opsz-l: 72;
+
+  --h2-opsz-s: 56;
+  --h2-opsz-m: 60;
+  --h2-opsz-l: 64;
+
+  --h3-opsz-s: #{$h3-size-s-px};
+  --h3-opsz-m: #{$h3-size-m-px};
+  --h3-opsz-l: #{$h3-size-l-px};
 }
 
 /* Responsive text-size spacer */
