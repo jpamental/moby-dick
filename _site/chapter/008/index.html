@@ -14,6 +14,115 @@
     </title>
     <link rel="stylesheet" href="/assets/css/styles.css" />
     <script src="/assets/js/vendor/widowadjust-min.js"></script>
+    <script src="/assets/js/vendor/fontfaceobserver.js"></script>
+
+    <script type="text/javascript">
+  		(function() {
+  			document.documentElement.className += " wf-inactive"; 
+
+        function cssPropertyValueSupported(prop, value) {
+          var d = document.createElement('div');
+          d.style[prop] = value;
+          return d.style[prop] === value;
+        }
+        function vfSupported() {
+          const vfCheck = getComputedStyle(document.documentElement).getPropertyValue('--vf-support');
+          //console.log(vfCheck);
+          if (vfCheck) {
+            return vfCheck;
+          }
+        }
+        var vfSupport = true;
+        
+        var vfSupport = vfSupported();
+        // should return true if the browser supports variable fonts
+				console.log('vfSupport: '+vfSupport);
+
+  	
+  			// Optimization for Repeat Views
+  			if( sessionStorage.foutFontsLoaded ) {
+  				document.documentElement.classList.remove("wf-inactive");
+  				document.documentElement.classList.add("wf-active");
+  				return;
+  			}
+        
+        if( vfSupport == true ) { // Check for variable fonts 
+					var fontA = new FontFaceObserver('Literata Variable', {
+						weight: 400,
+						style: 'normal'
+					});
+					var fontB = new FontFaceObserver('Literata Variable', {
+							weight: 400,
+							style: 'italic'
+						});
+			
+					Promise.all([fontA.load(), fontB.load()]).then(function () {
+            document.documentElement.classList.remove("wf-inactive");
+            document.documentElement.classList.add("wf-active");
+          
+    				// Optimization for Repeat Views
+    				sessionStorage.foutFontsLoaded = true;
+  				});
+        } else { // Else check for static web fonts
+					var fontA = new FontFaceObserver('Literata', {
+							weight: 'normal',
+							style: 'normal'
+						});
+					var fontB = new FontFaceObserver('Literata', {
+							weight: 'normal',
+							style: 'italic'
+						});
+          var fontC = new FontFaceObserver('Literata', {
+							weight: 'bold',
+							style: 'normal'
+						});
+					var fontD = new FontFaceObserver('Literata', {
+							weight: 'bold',
+							style: 'italic'
+						});
+					var fontE = new FontFaceObserver('Literata', {
+							weight: '300',
+							style: 'normal'
+						});
+					var fontF = new FontFaceObserver('Literata', {
+							weight: '500',
+							style: 'normal'
+						});
+					var fontG = new FontFaceObserver('Literata', {
+							weight: '600',
+							style: 'normal'
+						});
+					var fontH = new FontFaceObserver('Literata Caption', {
+							weight: 'normal',
+							style: 'normal'
+						});
+					var fontI = new FontFaceObserver('Literata Deck', {
+							weight: '300',
+							style: 'normal'
+						});
+					var fontJ = new FontFaceObserver('Literata Display', {
+							weight: '300',
+							style: 'normal'
+						});
+					var fontK = new FontFaceObserver('Literata Display', {
+							weight: 'normal',
+							style: 'normal'
+						});
+					var fontL = new FontFaceObserver('Literata Display', {
+							weight: '900',
+							style: 'normal'
+						});
+
+					Promise.all([fontA.load(), fontB.load(), fontC.load(), fontD.load(), fontE.load(), fontF.load(), fontG.load(), fontH.load(), fontI.load(), fontJ.load(), fontK.load(), fontL.load()]).then(function () {
+            document.documentElement.classList.remove("wf-inactive");
+            document.documentElement.classList.add("wf-active");
+          
+    				// Optimization for Repeat Views
+    				sessionStorage.foutFontsLoaded = true;
+    			});
+        }
+  		})();
+  	</script>
 
   </head>
   <body>

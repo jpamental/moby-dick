@@ -120,6 +120,13 @@
     :root {
       --body-text-spacer: 1.25rem; } }
 
+/* Test for variable font support */
+:root {
+  --vf-support: false; }
+  @supports (font-variation-settings: normal) {
+    :root {
+      --vf-support: true; } }
+
 /* Literata Static Fonts */
 /* Standard Regular, Italic, Bold, Bold Italic */
 @font-face {
