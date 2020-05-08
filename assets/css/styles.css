@@ -471,7 +471,9 @@ body {
   @supports (font-variation-settings: normal) {
     body {
       font-family: var(--fonts-serif);
-      font-variation-settings: "opsz" var(--text-opsz); } }
+      font-variation-settings: "opsz" var(--text-opsz); }
+      .wf-inactive body {
+        font-family: var(--fonts-base-serif); } }
 
 img {
   height: auto;
@@ -505,7 +507,10 @@ h1 {
     h1 {
       font-family: var(--fonts-serif);
       font-variation-settings: "opsz" var(--text-opsz);
-      font-weight: 250; } }
+      font-weight: 250; }
+      .wf-inactive h1 {
+        font-family: var(--fonts-base-serif);
+        font-weight: normal; } }
   @media screen and (min-width: 42em) {
     h1 {
       --text-opsz: var(--h1-opsz-l);
@@ -549,6 +554,9 @@ h2 {
       font-family: var(--fonts-serif);
       font-variation-settings: "opsz" var(--text-opsz);
       font-weight: 325; } }
+  .wf-inactive h2 {
+    font-family: var(--fonts-base-serif);
+    font-weight: normal; }
   @media screen and (min-width: 42em) {
     h2 {
       --text-opsz: var(--h2-opsz-m);
@@ -592,6 +600,9 @@ h3 {
       font-family: var(--fonts-serif);
       font-variation-settings: "opsz" var(--text-opsz);
       font-weight: 575; } }
+  .wf-inactive h3 {
+    font-family: var(--fonts-base-serif);
+    font-weight: bold; }
   @media screen and (min-width: 42em) {
     h3 {
       --text-opsz: var(--h3-opsz-m);
@@ -632,6 +643,9 @@ p {
     p {
       font-variation-settings: "opsz" var(--text-opsz);
       font-weight: 385; } }
+  .wf-inactive p {
+    font-family: var(--fonts-base-serif);
+    font-weight: normal; }
   @media screen and (min-width: 42em) {
     p {
       --text-opsz: var(--p-opsz-m);
@@ -769,7 +783,9 @@ a:active {
     font-weight: 500; }
     @supports (font-variation-settings: normal) {
       .chapter > p:first-of-type::first-line {
-        font-weight: 525; } }
+        font-weight: 525; }
+        .wf-inactive .chapter > p:first-of-type::first-line {
+          font-weight: bold; } }
   .chapter > p:last-of-type:after {
     content: " ";
     -webkit-mask: url(../images/svg/end_mark.svg);
@@ -803,7 +819,10 @@ a:active {
     @supports (font-variation-settings: normal) {
       .chapter > p:first-of-type::first-letter {
         font-family: var(--fonts-serif);
-        font-variation-settings: "opsz" var(--text-opsz); } }
+        font-variation-settings: "opsz" var(--text-opsz); }
+        .wf-inactive .chapter > p:first-of-type::first-letter {
+          font-family: var(--fonts-base-serif);
+          font-weight: normal; } }
 
 /* Layout */
 .title-page {
@@ -842,7 +861,9 @@ article {
   font-weight: 600; }
   @supports (font-variation-settings: normal) {
     .title-link {
-      font-weight: 625; } }
+      font-weight: 625; }
+      .wf-inactive .title-link {
+        font-weight: bold; } }
   .title-link:link, .title-link:visited {
     text-decoration: none; }
   .title-link:hover {
@@ -863,7 +884,9 @@ article {
   @supports (font-variation-settings: normal) {
     .toc {
       font-family: var(--fonts-serif);
-      font-variation-settings: "opsz" var(--text-opsz); } }
+      font-variation-settings: "opsz" var(--text-opsz); }
+      .wf-inactive .toc {
+        font-family: var(--fonts-base-serif); } }
   .toc-trigger {
     display: block;
     height: 2rem;
@@ -958,7 +981,9 @@ article {
     @supports (font-variation-settings: normal) {
       .prev-next-chapters a:link, .prev-next-chapters a:visited {
         font-family: var(--fonts-serif);
-        font-variation-settings: "opsz" var(--text-opsz); } }
+        font-variation-settings: "opsz" var(--text-opsz); }
+        .wf-inactive .prev-next-chapters a:link, .wf-inactive .prev-next-chapters a:visited {
+          font-family: var(--fonts-base-serif); } }
     @media screen and (min-width: 60em) {
       .prev-next-chapters a:link, .prev-next-chapters a:visited {
         font-size: 1rem; } }
@@ -1127,7 +1152,10 @@ body > footer {
     @supports (font-variation-settings: normal) {
       body > footer a:link, body > footer a:visited {
         font-family: var(--fonts-serif);
-        font-variation-settings: "opsz" var(--text-opsz); } }
+        font-variation-settings: "opsz" var(--text-opsz); }
+        .wf-inactive body > footer a:link, .wf-inactive body > footer a:visited {
+          font-family: var(--fonts-base-serif);
+          font-weight: normal; } }
   body > footer a:hover, body > footer a:focus, body > footer a:active {
     text-decoration: underline; }
 

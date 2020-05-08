@@ -1,0 +1,56 @@
+        		<!-- BEGIN web font toggle -->
+        		<a href="#" id="toggle-fonts" class="toggle-fonts button on">Web Fonts</a>
+				<style>
+					.button {
+					  font-size: 14px;
+					  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+					  text-decoration: none;
+					  font-weight: bold;
+					  color: #383838;
+					  background-color: #fefafa;
+					  background-image: -webkit-linear-gradient(#ffffff, #ede9e9);
+					  background-image: -moz-linear-gradient(#ffffff, #ede9e9);
+					  background-image: linear-gradient(#ffffff, #ede9e9);
+					  padding: 0.25em;
+					  border-radius: 0.5em;
+					  -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+					  -moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+					  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+					}
+					.button:hover {
+					  background-color: #e4e1e1;
+					  background-image: -webkit-linear-gradient(#fefafa, #cbc7c7);
+					  background-image: -moz-linear-gradient(#fefafa, #cbc7c7);
+					  background-image: linear-gradient(#fefafa, #cbc7c7);
+					}
+					.toggle-fonts {
+					  position: fixed; 
+					  top: 3.5em; 
+					  right: 0.5em; 
+					  z-index: 999;
+					}
+					.toggle-fonts.on:after {
+					  content: ": on";
+					}
+					.toggle-fonts.off:after {
+					  content: ": off";
+					}
+				</style>
+				
+
+				<script>
+					if (!'classList' in document.createElement('span')) {
+  					document.getElementById('c-unsupported').classList.remove('hidden');
+            document.getElementById('execute').setAttribute('disabled', 'disabled');
+          } else {
+            document.getElementById('toggle-fonts').addEventListener('click', function(e) {
+              e.preventDefault();
+							document.getElementById('toggle-fonts').classList.toggle('on');
+							document.getElementById('toggle-fonts').classList.toggle('off');
+							document.getElementsByTagName("html")[0].classList.toggle('wf-active');
+							document.getElementsByTagName("html")[0].classList.toggle('wf-inactive');
+            });
+         	}
+        </script>
+
+        		<!-- END web font toggle -->
