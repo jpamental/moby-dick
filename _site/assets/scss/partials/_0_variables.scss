@@ -80,6 +80,7 @@ $color-text-accent: $color-warm-dark-gray;
 
 /* Fonts */
 $fonts-base-serif: Georgia, 'Times New Roman', Times, serif;
+$fonts-base-serif-display: 'Times New Roman', Times, serif;
 $fonts-base-sans: Helvetica, Arial, sans-serif;
 
 $fonts-serif-static: "Literata", $fonts-base-serif;
@@ -94,6 +95,7 @@ $fonts-sans: $fonts-base-sans;
 
 :root {
   --fonts-base-serif: #{$fonts-base-serif};
+  --fonts-base-serif-display: #{$fonts-base-serif-display};
   --fonts-base-sans: #{$fonts-base-sans};
 
   --fonts-serif-static: #{$fonts-serif-static};

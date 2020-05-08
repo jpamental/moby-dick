@@ -35,6 +35,7 @@
 /* No web fonts specified for Sans */
 :root {
   --fonts-base-serif: Georgia, Times New Roman, Times, serif;
+  --fonts-base-serif-display: Times New Roman, Times, serif;
   --fonts-base-sans: Helvetica, Arial, sans-serif;
   --fonts-serif-static: Literata, Georgia, Times New Roman, Times, serif;
   --fonts-sans-static: Helvetica, Arial, sans-serif;
@@ -554,8 +555,9 @@ h1 {
       font-variation-settings: "opsz" var(--text-opsz);
       font-weight: 250; }
       .wf-inactive h1 {
-        font-family: var(--fonts-base-serif);
-        font-weight: normal; } }
+        font-family: var(--fonts-base-serif-display);
+        font-weight: normal;
+        letter-spacing: 0.015em; } }
   @media screen and (min-width: 42em) {
     h1 {
       --text-opsz: var(--h1-opsz-l);
@@ -598,10 +600,10 @@ h2 {
     h2 {
       font-family: var(--fonts-serif);
       font-variation-settings: "opsz" var(--text-opsz);
-      font-weight: 325; } }
-  .wf-inactive h2 {
-    font-family: var(--fonts-base-serif);
-    font-weight: normal; }
+      font-weight: 325; }
+      .wf-inactive h2 {
+        font-family: var(--fonts-base-serif-display);
+        font-weight: normal; } }
   @media screen and (min-width: 42em) {
     h2 {
       --text-opsz: var(--h2-opsz-m);
@@ -687,10 +689,11 @@ p {
   @supports (font-variation-settings: normal) {
     p {
       font-variation-settings: "opsz" var(--text-opsz);
-      font-weight: 385; } }
-  .wf-inactive p {
-    font-family: var(--fonts-base-serif);
-    font-weight: normal; }
+      font-weight: 385; }
+      .wf-inactive p {
+        font-family: var(--fonts-base-serif);
+        font-weight: normal;
+        letter-spacing: 0.0275em; } }
   @media screen and (min-width: 42em) {
     p {
       --text-opsz: var(--p-opsz-m);
@@ -830,7 +833,8 @@ a:active {
       .chapter > p:first-of-type::first-line {
         font-weight: 525; }
         .wf-inactive .chapter > p:first-of-type::first-line {
-          font-weight: bold; } }
+          font-weight: bold;
+          letter-spacing: 0.01em; } }
   .chapter > p:last-of-type:after {
     content: " ";
     -webkit-mask: url(../images/svg/end_mark.svg);
@@ -866,7 +870,7 @@ a:active {
         font-family: var(--fonts-serif);
         font-variation-settings: "opsz" var(--text-opsz); }
         .wf-inactive .chapter > p:first-of-type::first-letter {
-          font-family: var(--fonts-base-serif);
+          font-family: var(--fonts-base-serif-display);
           font-weight: normal; } }
 
 /* Layout */
@@ -931,7 +935,8 @@ article {
       font-family: var(--fonts-serif);
       font-variation-settings: "opsz" var(--text-opsz); }
       .wf-inactive .toc {
-        font-family: var(--fonts-base-serif); } }
+        font-family: var(--fonts-base-serif);
+        font-size: 1.1em; } }
   .toc-trigger {
     display: block;
     height: 2rem;
@@ -970,6 +975,9 @@ article {
       display: block;
       font-size: 0.875rem;
       padding: 0.5em 0.15em; }
+      .wf-inactive .toc .toc-menu a {
+        font-size: 0.9rem;
+        padding: 0.475em 0.15em; }
       .toc .toc-menu a:link {
         text-decoration: none; }
       .toc .toc-menu a:visited {
@@ -1114,6 +1122,12 @@ blockquote {
     font-size: 1.25rem;
     font-size: var(--bq-size-s);
     font-variant-ligatures: common-ligatures discretionary-ligatures; }
+    .wf-inactive blockquote p {
+      letter-spacing: 0;
+      word-spacing: 0.05em; }
+      .wf-inactive blockquote p em {
+        letter-spacing: -0.0025em;
+        word-spacing: -0.01em; }
     @media screen and (min-width: 42em) {
       blockquote p {
         font-size: 1.375rem;
@@ -1200,7 +1214,8 @@ body > footer {
         font-variation-settings: "opsz" var(--text-opsz); }
         .wf-inactive body > footer a:link, .wf-inactive body > footer a:visited {
           font-family: var(--fonts-base-serif);
-          font-weight: normal; } }
+          font-weight: normal;
+          font-size: 0.8675rem; } }
   body > footer a:hover, body > footer a:focus, body > footer a:active {
     text-decoration: underline; }
 
