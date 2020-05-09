@@ -44,7 +44,7 @@ module.exports = function(eleventyConfig) {
         cacheDuration: "1d"
       });
       let lowestSrc = stats.jpeg[0];
-      let sizes = "(max-width: 1600px) 100vw, 1600px"; // Make sure you customize this!
+      let sizes = "(min-width: 550px) 900px, (min-width: 950px) 1200px, (min-width: 1300px) 1600px, 100vw"; // Make sure you customize this!
       let loadingLazy = options;
       if(loadingLazy === 'lazy') {
         loadingLazyString = 'loading="lazy"';
@@ -61,9 +61,7 @@ module.exports = function(eleventyConfig) {
       return `<img 
         ${Object.values(stats).map(imageFormat => {
           return ` srcset="${imageFormat.map(entry => `${entry.url} ${entry.width}w`).join(", ")}" sizes="${sizes}" alt="${alt}"
-          src="${lowestSrc.url}"
-          width="${lowestSrc.width}"
-          height="${lowestSrc.height}"
+          src="${lowestSrc.url}" width="${lowestSrc.width}" height="${lowestSrc.height}"
           ${loadingLazyString} `;
         }).join("\n")} >`;
     });
