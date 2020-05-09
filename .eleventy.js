@@ -28,7 +28,7 @@ module.exports = function(eleventyConfig) {
       let stats = await Image(src, {
         // Array of widths
         // Optional: use falsy value to fall back to native image size
-        widths: [800, 1200, null],
+        widths: [900, 1200, null],
       
         // Pass any format supported by sharp
         formats: ["webp", "jpeg"], //"png"
