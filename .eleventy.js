@@ -28,10 +28,10 @@ module.exports = function(eleventyConfig) {
       let stats = await Image(src, {
         // Array of widths
         // Optional: use falsy value to fall back to native image size
-        widths: [900, 1200, null],
+        widths: [480, 900, 1200, null],
       
         // Pass any format supported by sharp
-        formats: ["webp", "jpeg"], //"png"
+        formats: ["jpeg"], //"png"
       
         // the directory in the image URLs <img src="/img/MY_IMAGE.png">
         urlPath: "/assets/respimg/",
@@ -44,7 +44,7 @@ module.exports = function(eleventyConfig) {
         cacheDuration: "1d"
       });
       let lowestSrc = stats.jpeg[0];
-      let sizes = "(min-width: 60rem) 80vw,(min-width: 40rem) 90vw,100vw"; // Make sure you customize this!
+      let sizes = "(max-width: 1600px) 100vw, 1600px"; // Make sure you customize this!
       let loadingLazy = options;
       if(loadingLazy === 'lazy') {
         loadingLazyString = 'loading="lazy"';
@@ -58,19 +58,18 @@ module.exports = function(eleventyConfig) {
       }
 
       // Iterate over formats and widths
-      return `<picture>
+      return `<img 
         ${Object.values(stats).map(imageFormat => {
-          return `  <source type="image/${imageFormat[0].format}" srcset="${imageFormat.map(entry => `${entry.url} ${entry.width}w`).join(", ")}" sizes="${sizes}">`;
+          return ` srcset="${imageFormat.map(entry => `${entry.url} ${entry.width}w`).join(", ")}" sizes="${sizes}" alt="${alt}"
+          src="${lowestSrc.url}"
+          width="${lowestSrc.width}"
+          height="${lowestSrc.height}"
+          ${loadingLazyString}>`;
         }).join("\n")}
-  <img
-    alt="${alt}"
-    src="${lowestSrc.url}"
-    width="${lowestSrc.width}"
-    height="${lowestSrc.height}"
-    ${loadingLazyString}>
-</picture>`;
+/>`;
     });
 
+    
     return {
       dir: {
         // ⚠️ These values are both relative to your input directory.
