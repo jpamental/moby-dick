@@ -64,9 +64,8 @@ module.exports = function(eleventyConfig) {
           src="${lowestSrc.url}"
           width="${lowestSrc.width}"
           height="${lowestSrc.height}"
-          ${loadingLazyString}>`;
-        }).join("\n")}
-/>`;
+          ${loadingLazyString} `;
+        }).join("\n")} >`;
     });
 
     
