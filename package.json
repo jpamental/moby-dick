@@ -24,5 +24,8 @@
     "gulp-sass": "^4.0.2",
     "gulp-sass-glob": "^1.1.0",
     "gulp-sourcemaps": "^2.6.5"
+  },
+  "dependencies": {
+    "@11ty/eleventy-img": "^0.2.4"
   }
 }

@@ -83,6 +83,9 @@ title: Etymology.
   </li>
 </ul>
 
-<figure class="medium center">
-  <img src="{{ '/' | url }}assets/images/jpg/etymology_1.jpg" loading="lazy" alt="Illustration of a stack of books with an hourglass on top" />
-</figure>
+{% include partials/responsive_image.liquid with
+  src:  'assets/images/jpg/etymology_1.jpg'
+  alt: "Illustration of a stack of books with an hourglass on top"
+  loading: 'lazy'
+  classes: 'medium center'
+%}

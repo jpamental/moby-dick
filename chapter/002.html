@@ -4,9 +4,11 @@ tags: chapter
 date: 2020-04-19
 title: CHAPTER 2. The Carpet-Bag.
 ---
-<figure class="wide">
-  <img src="{{ '/' | url }}assets/images/jpg/ch2_1.jpg" alt="Ismael walking over a hilltop towards the sea" />
-</figure>
+{% include partials/responsive_image.liquid with
+  src:  'assets/images/jpg/ch2_1.jpg'
+  alt: "Ismael walking over a hilltop towards the sea"
+  classes: 'wide'
+%}
 
 <h1>
   {{ title }}
@@ -50,9 +52,12 @@ title: CHAPTER 2. The Carpet-Bag.
   conclude to lodge for the night, my dear Ishmael, be sure to inquire the
   price, and don&rsquo;t be too particular.
 </p>
-<figure>
-  <img src="{{ '/' | url }}assets/images/jpg/ch2_2.jpg" loading="lazy" alt="Ismael walking with a bag and a walking stick" />
-</figure>
+{% include partials/responsive_image.liquid with
+  src:  'assets/images/jpg/ch2_2.jpg'
+  alt: "Ismael walking with a bag and a walking stick"
+  loading: 'lazy'
+%}
+
 <p>
   With halting steps I paced the streets, and passed the sign of &ldquo;The
   Crossed Harpoons&rdquo;&mdash;but it looked too expensive and jolly there.
@@ -91,9 +96,12 @@ title: CHAPTER 2. The Carpet-Bag.
   wailing and teeth-gnashing there. Ha, Ishmael, muttered I, backing out,
   Wretched entertainment at the sign of &lsquo;The Trap!&rsquo;
 </p>
-<figure>
-  <img src="{{ '/' | url }}assets/images/jpg/ch2_3.jpg" loading="lazy" alt="Looking down from the bluff over the town and harbor with ships at anchor" />
-</figure>
+{% include partials/responsive_image.liquid with
+  src:  'assets/images/jpg/ch2_3.jpg'
+  alt: "Looking down from the bluff over the town and harbor with ships at anchor"
+  loading: 'lazy'
+%}
+
 <p>
   Moving on, I at last came to a dim sort of light not far from the docks,
   and heard a forlorn creaking in the air; and looking up, saw a swinging
@@ -157,6 +165,8 @@ title: CHAPTER 2. The Carpet-Bag.
   plenty of that yet to come. Let us scrape the ice from our frosted feet,
   and see what sort of a place this &ldquo;Spouter&rdquo; may be.
 </p>
-<figure>
-  <img src="{{ '/' | url }}assets/images/jpg/ch2_4.jpg" loading="lazy" alt="The silhouette of a whale" />
-</figure>
+{% include partials/responsive_image.liquid with
+  src:  'assets/images/jpg/ch2_4.jpg'
+  alt: "The silhouette of a whale"
+  loading: 'lazy'
+%}
