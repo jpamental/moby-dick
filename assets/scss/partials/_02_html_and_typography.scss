@@ -27,6 +27,9 @@ body {
   @supports (font-variation-settings: normal) {
     font-family: var(--fonts-serif);
     font-variation-settings: 'opsz' var(--text-opsz);
+    .wf-inactive & {
+      font-family: var(--fonts-base-serif);
+    }
   }
 }
 
@@ -67,6 +70,11 @@ h1 {
     font-family: var(--fonts-serif);
     font-variation-settings: 'opsz' var(--text-opsz);
     font-weight: 250;
+    .wf-inactive & {
+      font-family: var(--fonts-base-serif-display);
+      font-weight: normal;
+      letter-spacing: 0.015em;
+    }
   }
   @media screen and (min-width: $bp--medium) {
     --text-opsz: var(--h1-opsz-l);
@@ -113,6 +121,10 @@ h2 {
     font-family: var(--fonts-serif);
     font-variation-settings: 'opsz' var(--text-opsz);
     font-weight: 325;
+    .wf-inactive & {
+      font-family: var(--fonts-base-serif-display);
+      font-weight: normal;
+    }
   }
   @media screen and (min-width: $bp--medium) {
     --text-opsz: var(--h2-opsz-m);
@@ -159,6 +171,10 @@ h3 {
     font-variation-settings: 'opsz' var(--text-opsz);
     font-weight: 575;
   }
+  .wf-inactive & {
+    font-family: var(--fonts-base-serif);
+    font-weight: bold;
+  }
   @media screen and (min-width: $bp--medium) {
     --text-opsz: var(--h3-opsz-m);
     font-size: $h3-size-m;
@@ -200,6 +216,11 @@ p {
   @supports (font-variation-settings: normal) {
     font-variation-settings: 'opsz' var(--text-opsz);
     font-weight: 385;
+    .wf-inactive & {
+      font-family: var(--fonts-base-serif);
+      font-weight: normal;
+      letter-spacing: 0.0275em;
+    }
   }
   @media screen and (min-width: $bp--medium) {
     --text-opsz: var(--p-opsz-m);
@@ -351,6 +372,10 @@ a {
     font-weight: 500;
     @supports (font-variation-settings: normal) {
       font-weight: 525;
+      .wf-inactive & {
+        font-weight: bold;
+        letter-spacing: 0.01em;
+      }
     }
   }
 
@@ -380,18 +405,22 @@ a {
     font-weight: normal;
     font-size: 5.125em;
     /* tweak vertical positioning in Chrome & Safari */
-    line-height: 0.7;
+    line-height: 0.6;
     margin: 0;
     padding: 0 0.025em 0 0;
 
     /* tweak vertical positioning in Firefox */
-    padding-top: 0.05em;
+    padding-top: 0.085em;
     @media screen and (min-width: $bp--large) {
       padding-top: 0.1em;
     }
     @supports (font-variation-settings: normal) {
       font-family: var(--fonts-serif);
       font-variation-settings: 'opsz' var(--text-opsz);
+      .wf-inactive & {
+        font-family: var(--fonts-base-serif-display);
+        font-weight: normal;
+      }
     }
   }
 }

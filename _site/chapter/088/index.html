@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -13,6 +14,116 @@
       CHAPTER 88. Schools and Schoolmasters. | Moby Dick; or The Whale, by Herman Melville
     </title>
     <link rel="stylesheet" href="/assets/css/styles.css" />
+    <script src="/assets/js/vendor/widowadjust-min.js"></script>
+    <script src="/assets/js/vendor/fontfaceobserver.js"></script>
+
+    <script type="text/javascript">
+  		(function() {
+  			document.documentElement.className += " wf-inactive"; 
+
+        function cssPropertyValueSupported(prop, value) {
+          var d = document.createElement('div');
+          d.style[prop] = value;
+          return d.style[prop] === value;
+        }
+        function vfSupported() {
+          const vfCheck = getComputedStyle(document.documentElement).getPropertyValue('--vf-support');
+          //console.log(vfCheck);
+          if (vfCheck) {
+            return vfCheck;
+          }
+        }
+        var vfSupport = true;
+        
+        var vfSupport = vfSupported();
+        // should return true if the browser supports variable fonts
+				console.log('vfSupport: '+vfSupport);
+
+  	
+  			// Optimization for Repeat Views
+  			if( sessionStorage.foutFontsLoaded ) {
+  				document.documentElement.classList.remove("wf-inactive");
+  				document.documentElement.classList.add("wf-active");
+  				return;
+  			}
+        
+        if( vfSupport == true ) { // Check for variable fonts 
+					var fontA = new FontFaceObserver('Literata Variable', {
+						weight: 400,
+						style: 'normal'
+					});
+					var fontB = new FontFaceObserver('Literata Variable', {
+							weight: 400,
+							style: 'italic'
+						});
+			
+					Promise.all([fontA.load(), fontB.load()]).then(function () {
+            document.documentElement.classList.remove("wf-inactive");
+            document.documentElement.classList.add("wf-active");
+          
+    				// Optimization for Repeat Views
+    				sessionStorage.foutFontsLoaded = true;
+  				});
+        } else { // Else check for static web fonts
+					var fontA = new FontFaceObserver('Literata', {
+							weight: 'normal',
+							style: 'normal'
+						});
+					var fontB = new FontFaceObserver('Literata', {
+							weight: 'normal',
+							style: 'italic'
+						});
+          var fontC = new FontFaceObserver('Literata', {
+							weight: 'bold',
+							style: 'normal'
+						});
+					var fontD = new FontFaceObserver('Literata', {
+							weight: 'bold',
+							style: 'italic'
+						});
+					var fontE = new FontFaceObserver('Literata', {
+							weight: '300',
+							style: 'normal'
+						});
+					var fontF = new FontFaceObserver('Literata', {
+							weight: '500',
+							style: 'normal'
+						});
+					var fontG = new FontFaceObserver('Literata', {
+							weight: '600',
+							style: 'normal'
+						});
+					var fontH = new FontFaceObserver('Literata Caption', {
+							weight: 'normal',
+							style: 'normal'
+						});
+					var fontI = new FontFaceObserver('Literata Deck', {
+							weight: '300',
+							style: 'normal'
+						});
+					var fontJ = new FontFaceObserver('Literata Display', {
+							weight: '300',
+							style: 'normal'
+						});
+					var fontK = new FontFaceObserver('Literata Display', {
+							weight: 'normal',
+							style: 'normal'
+						});
+					var fontL = new FontFaceObserver('Literata Display', {
+							weight: '900',
+							style: 'normal'
+						});
+
+					Promise.all([fontA.load(), fontB.load(), fontC.load(), fontD.load(), fontE.load(), fontF.load(), fontG.load(), fontH.load(), fontI.load(), fontJ.load(), fontK.load(), fontL.load()]).then(function () {
+            document.documentElement.classList.remove("wf-inactive");
+            document.documentElement.classList.add("wf-active");
+          
+    				// Optimization for Repeat Views
+    				sessionStorage.foutFontsLoaded = true;
+    			});
+        }
+  		})();
+  	</script>
 
   </head>
   <body>
@@ -304,6 +415,62 @@
       </nav>
     </header>
     <main id="main_content">
+                		<!-- BEGIN web font toggle -->
+        		<a href="#" id="toggle-fonts" class="toggle-fonts button on">Web Fonts</a>
+				<style>
+					.button {
+					  font-size: 14px;
+					  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+					  text-decoration: none;
+					  font-weight: bold;
+					  color: #383838;
+					  background-color: #fefafa;
+					  background-image: linear-gradient(#ffffff, #ede9e9);
+					  padding: 0.25em;
+					  border-radius: 0.5em;
+					  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+					}
+          .button:link,
+          .button:visited {
+            text-decoration: none;
+          }
+					.button:hover {
+					  background-color: #e4e1e1;
+					  background-image: linear-gradient(#fefafa, #cbc7c7);
+					}
+					.toggle-fonts {
+					  position: sticky; 
+					  top: 3.5em; 
+					  float: right;
+            margin-right: 1em; 
+					  z-index: 98;
+					}
+					.toggle-fonts.on:after {
+					  content: ": on";
+					}
+					.toggle-fonts.off:after {
+					  content: ": off";
+					}
+				</style>
+				
+
+				<script>
+					if (!'classList' in document.createElement('span')) {
+  					document.getElementById('c-unsupported').classList.remove('hidden');
+            document.getElementById('execute').setAttribute('disabled', 'disabled');
+          } else {
+            document.getElementById('toggle-fonts').addEventListener('click', function(e) {
+              e.preventDefault();
+							document.getElementById('toggle-fonts').classList.toggle('on');
+							document.getElementById('toggle-fonts').classList.toggle('off');
+							document.getElementsByTagName("html")[0].classList.toggle('wf-active');
+							document.getElementsByTagName("html")[0].classList.toggle('wf-inactive');
+            });
+         	}
+        </script>
+
+        		<!-- END web font toggle -->
+
 
 
 <article class="chapter">
@@ -453,6 +620,6 @@ CHAPTER 88. Schools and Schoolmasters.
       <a href="https://github.com/jpamental/moby-dick">Source on GitHub</a> | 
       <a href="https://www.gutenberg.org/files/2701/2701-h/2701-h.htm">Book text on Project Gutenberg</a>
     </footer>
-    <script src="../assets/js/scripts.js"></script>
+    <script src="/assets/js/scripts.js" async></script>
   </body>
 </html>
