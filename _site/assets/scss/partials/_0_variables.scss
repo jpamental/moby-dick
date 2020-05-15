@@ -308,10 +308,3 @@ $body-text-spacer-l: $p-size-l;
   }  
 }
 
-/* Test for variable font support */
-:root {
-  --vf-support: false;
-  @supports (font-variation-settings: normal) {
-    --vf-support: true;
-  }
-}
