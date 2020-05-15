@@ -35,6 +35,7 @@ body {
   font-family: $fonts-serif-static;
   font-family: var(--fonts-serif-static);
   font-size: 1rem;
+  font-variant-numeric: oldstyle-nums;
   line-height: 1.5;
   margin: 0;
   padding: 0;
@@ -73,6 +74,7 @@ h1 {
   font-size: $h1-size-s;
   font-size: var(--h1-size-s);
   font-variant-ligatures: common-ligatures discretionary-ligatures;
+  font-variant-numeric: lining-nums;
   font-weight: 300;
   line-height: $h1-lh-s;
   line-height: var(--h1-lh-s);
