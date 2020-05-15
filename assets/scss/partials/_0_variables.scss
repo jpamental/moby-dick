@@ -137,6 +137,26 @@ $bq-size-s-px: 20;
 $bq-size-m-px: 22;
 $bq-size-l-px: 24;
 
+/* Scaling typography bits - set scaling values */
+:root {
+  --p-scaler-value: 1;
+  --h1-scaler-value: 4.5;
+  --h2-scaler-value: 3;
+  --h3-scaler-value: 2;
+  --bq-scaler-value: 2.25;
+  --p-lh-scaler-value: 3;
+  --h1-lh-scaler-value: 3.5;
+  --h2-lh-scaler-value: 3;
+  --h3-lh-scaler-value: 3.75;
+  --bq-lh-scaler-value: 2.5;
+
+
+  /* default starting values for scaling formulas */
+  --font-size-min-value: 1;
+  --font-size-max-value: 1.25;
+  --font-size-scaler-value: 1.25;
+}
+
 /* Font size rem values (needed for dynamic sizing) */
 $p-size-s-value: $p-size-s-px / $text-base-size;
 $p-size-m-value: $p-size-m-px / $text-base-size;

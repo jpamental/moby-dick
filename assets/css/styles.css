@@ -49,6 +49,23 @@
 /* Set base text size for all calcs */
 /* Preprocessed for fallbacks */
 /* Change px values here for all font sizing */
+/* Scaling typography bits - set scaling values */
+:root {
+  --p-scaler-value: 1;
+  --h1-scaler-value: 4.5;
+  --h2-scaler-value: 3;
+  --h3-scaler-value: 2;
+  --bq-scaler-value: 2.25;
+  --p-lh-scaler-value: 3;
+  --h1-lh-scaler-value: 3.5;
+  --h2-lh-scaler-value: 3;
+  --h3-lh-scaler-value: 3.75;
+  --bq-lh-scaler-value: 2.5;
+  /* default starting values for scaling formulas */
+  --font-size-min-value: 1;
+  --font-size-max-value: 1.25;
+  --font-size-scaler-value: 1.25; }
+
 /* Font size rem values (needed for dynamic sizing) */
 /* Font sizes in rems */
 /* Line-height */
@@ -497,6 +514,17 @@ html {
 *, *:before, *:after {
   box-sizing: inherit; }
 
+/* Scaling typography setup */
+* {
+  --font-size-min: calc(var(--font-size-min-value) * 1rem);
+  --font-size-max: calc(var(--font-size-max-value) * 1rem);
+  --font-size-scaler: calc(var(--font-size-scaler-value) * 1vw);
+  --font-size: clamp(var(--font-size-min), calc(0.5rem + var(--font-size-scaler)), var(--font-size-max));
+  --font-lh-min: calc(var(--font-lh-min-value) * 1em);
+  --font-lh-max: calc(var(--font-lh-max-value) * 1em);
+  --font-lh-scaler: calc(var(--font-lh-scaler-value) * 1vw);
+  --line-height: clamp(var(--font-lh-min), calc(0.5rem + var(--font-lh-scaler)), var(--font-lh-max)); }
+
 /* Base typography */
 html {
   font-size: 100%;
@@ -522,6 +550,7 @@ body {
         font-family: var(--fonts-base-serif); } }
 
 img {
+  display: block;
   height: auto;
   max-width: 100%;
   width: 100%; }
@@ -548,7 +577,8 @@ h1 {
   margin-top: calc( var(--body-text-spacer) * 2);
   max-width: 88vw;
   max-width: var(--content-width);
-  position: relative; }
+  position: relative;
+  transition: font-size .1s ease; }
   @supports (font-variation-settings: normal) {
     h1 {
       font-family: var(--fonts-serif);
@@ -576,6 +606,17 @@ h1 {
       line-height: var(--h1-lh-l);
       max-width: 44rem;
       max-width: var(--content-width); } }
+  @supports (font-size: clamp(1rem, 2vw, 3rem)) {
+    h1 {
+      /* responsive typography scaling bits */
+      --font-size-min-value: var(--h1-size-s-value);
+      --font-size-max-value: var(--h1-size-l-value);
+      --font-size-scaler-value: var(--h1-scaler-value);
+      font-size: var(--font-size);
+      --font-lh-min-value: var(--h1-lh-s);
+      --font-lh-max-value: var(--h1-lh-l);
+      --font-lh-scaler-value: var(--h1-lh-scaler-value);
+      line-height: var(--line-height); } }
 
 h1 + p {
   margin-top: calc( var(--body-text-spacer) * 3); }
@@ -622,6 +663,17 @@ h2 {
       line-height: var(--h2-lh-l);
       max-width: 44rem;
       max-width: var(--content-width); } }
+  @supports (font-size: clamp(1rem, 2vw, 3rem)) {
+    h2 {
+      /* responsive typography scaling bits */
+      --font-size-min-value: var(--h2-size-s-value);
+      --font-size-max-value: var(--h2-size-l-value);
+      --font-size-scaler-value: var(--h2-scaler-value);
+      font-size: var(--font-size);
+      --font-lh-min-value: var(--h2-lh-s);
+      --font-lh-max-value: var(--h2-lh-l);
+      --font-lh-scaler-value: var(--h2-lh-scaler-value);
+      line-height: var(--line-height); } }
 
 h2 + p {
   margin-top: calc( var(--body-text-spacer) * 1); }
@@ -668,6 +720,17 @@ h3 {
       line-height: var(--h3-lh-l);
       max-width: 44rem;
       max-width: var(--content-width); } }
+  @supports (font-size: clamp(1rem, 2vw, 3rem)) {
+    h3 {
+      /* responsive typography scaling bits */
+      --font-size-min-value: var(--h3-size-s-value);
+      --font-size-max-value: var(--h3-size-l-value);
+      --font-size-scaler-value: var(--h3-scaler-value);
+      font-size: var(--font-size);
+      --font-lh-min-value: var(--h3-lh-s);
+      --font-lh-max-value: var(--h3-lh-l);
+      --font-lh-scaler-value: var(--h3-lh-scaler-value);
+      line-height: var(--line-height); } }
 
 h3 + p {
   margin-top: calc( var(--body-text-spacer) * 1); }
@@ -714,6 +777,17 @@ p {
       line-height: var(--p-lh-l);
       max-width: 44rem;
       max-width: var(--content-width); } }
+  @supports (font-size: clamp(1rem, 2vw, 3rem)) {
+    p {
+      /* responsive typography scaling bits */
+      --font-size-min-value: var(--p-size-s-value);
+      --font-size-max-value: var(--p-size-l-value);
+      --font-size-scaler-value: var(--p-scaler-value);
+      font-size: var(--font-size);
+      --font-lh-min-value: var(--p-lh-s);
+      --font-lh-max-value: var(--p-lh-l);
+      --font-lh-scaler-value: var(--p-lh-scaler-value);
+      line-height: var(--line-height); } }
   p + p {
     text-indent: 1.5em; }
 
@@ -1136,6 +1210,17 @@ blockquote {
       blockquote p {
         font-size: 1.5rem;
         font-size: var(--bq-size-l); } }
+    @supports (font-size: clamp(1rem, 2vw, 3rem)) {
+      blockquote p {
+        /* responsive typography scaling bits */
+        --font-size-min-value: var(--bq-size-s-value);
+        --font-size-max-value: var(--bq-size-l-value);
+        --font-size-scaler-value: var(--bq-scaler-value);
+        font-size: var(--font-size);
+        --font-lh-min-value: var(--bq-lh-s);
+        --font-lh-max-value: var(--bq-lh-l);
+        --font-lh-scaler-value: var(--bq-lh-scaler-value);
+        line-height: var(--line-height); } }
     blockquote p:before {
       content: '“';
       margin-left: -0.5em; }
@@ -1154,6 +1239,40 @@ blockquote {
       blockquote.bq--inline p {
         font-size: 1.25rem;
         font-size: var(--p-size-l); } }
+    @supports (font-size: clamp(1rem, 2vw, 3rem)) {
+      blockquote.bq--inline p {
+        /* responsive typography scaling bits */
+        --font-size-min-value: var(--p-size-s-value);
+        --font-size-max-value: var(--p-size-l-value);
+        --font-size-scaler-value: var(--p-scaler-value);
+        font-size: var(--font-size);
+        --font-lh-min-value: var(--p-lh-s);
+        --font-lh-max-value: var(--p-lh-l);
+        --font-lh-scaler-value: var(--p-lh-scaler-value);
+        line-height: var(--line-height); } }
+  blockquote.bq--plaque {
+    padding-left: 5vw;
+    padding-right: 5vw; }
+    blockquote.bq--plaque p {
+      border: solid 1px #333333;
+      border-color: var(--color-text);
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75), 2px 2px 2px rgba(0, 0, 0, 0.75);
+      font-size: 0.925em;
+      font-variant-caps: all-small-caps;
+      -webkit-hyphens: none;
+      hyphens: none;
+      line-height: 1.75;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 27em;
+      padding: 1.5rem 1rem;
+      text-align: center; }
+      blockquote.bq--plaque p:before, blockquote.bq--plaque p:after {
+        content: ""; }
+    blockquote.bq--plaque .name {
+      display: block;
+      font-size: 1.25em;
+      font-weight: 450; }
   blockquote cite {
     font-size: 1rem;
     font-size: var(--p-size-s);
@@ -1166,6 +1285,17 @@ blockquote {
       blockquote cite {
         font-size: 1.25rem;
         font-size: var(--p-size-l); } }
+    @supports (font-size: clamp(1rem, 2vw, 3rem)) {
+      blockquote cite {
+        /* responsive typography scaling bits */
+        --font-size-min-value: var(--p-size-s-value);
+        --font-size-max-value: var(--p-size-l-value);
+        --font-size-scaler-value: var(--p-scaler-value);
+        font-size: var(--font-size);
+        --font-lh-min-value: var(--p-lh-s);
+        --font-lh-max-value: var(--p-lh-l);
+        --font-lh-scaler-value: var(--p-lh-scaler-value);
+        line-height: var(--line-height); } }
     blockquote cite:before {
       content: "—"; }
 
