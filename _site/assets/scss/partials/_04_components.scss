@@ -390,7 +390,8 @@ blockquote {
       border-color: var(--color-text);
       box-shadow: 1px 1px 2px rgba(0,0,0,.75), 2px 2px 2px rgba(0,0,0,.75);
       font-size: 0.925em;
-      font-variant-caps: all-small-caps;
+      text-transform: lowercase;
+      font-variant-caps: small-caps;
       -webkit-hyphens: none;
       hyphens: none;
       line-height: 1.75;
