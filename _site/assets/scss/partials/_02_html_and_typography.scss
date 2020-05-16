@@ -483,6 +483,7 @@ a {
     @supports (font-variation-settings: normal) {
       font-family: var(--fonts-serif);
       font-variation-settings: 'opsz' var(--text-opsz);
+      font-weight: 325;
       .wf-inactive & {
         font-family: var(--fonts-base-serif-display);
         font-weight: normal;

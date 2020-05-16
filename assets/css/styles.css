@@ -937,7 +937,8 @@ a:active {
     @supports (font-variation-settings: normal) {
       .chapter > p:first-of-type::first-letter {
         font-family: var(--fonts-serif);
-        font-variation-settings: "opsz" var(--text-opsz); }
+        font-variation-settings: "opsz" var(--text-opsz);
+        font-weight: 325; }
         .wf-inactive .chapter > p:first-of-type::first-letter {
           font-family: var(--fonts-base-serif-display);
           font-weight: normal; } }
@@ -1252,7 +1253,7 @@ blockquote {
       border: solid 1px #333333;
       border-color: var(--color-text);
       box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75), 2px 2px 2px rgba(0, 0, 0, 0.75);
-      font-size: 0.925em;
+      font-size: 0.9em;
       text-transform: lowercase;
       font-variant-caps: small-caps;
       -webkit-hyphens: none;
