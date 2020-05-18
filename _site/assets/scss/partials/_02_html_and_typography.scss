@@ -5,6 +5,20 @@ html {
   box-sizing: inherit;
 }
 
+/* Scaling typography setup */
+
+* {
+  --font-size-min: calc(var(--font-size-min-value) * 1rem);
+  --font-size-max: calc(var(--font-size-max-value) * 1rem);
+  --font-size-scaler: calc(var(--font-size-scaler-value) * 1vw);
+  --font-size: clamp(var(--font-size-min), calc(0.5rem + var(--font-size-scaler)), var(--font-size-max));
+
+  --font-lh-min: calc(var(--font-lh-min-value) * 1em);
+  --font-lh-max: calc(var(--font-lh-max-value) * 1em);
+  --font-lh-scaler: calc(var(--font-lh-scaler-value) * 1vw);
+  --line-height: clamp(var(--font-lh-min), calc(0.5rem + var(--font-lh-scaler)), var(--font-lh-max)); 
+}
+
 /* Base typography */
 
 html {
@@ -21,6 +35,7 @@ body {
   font-family: $fonts-serif-static;
   font-family: var(--fonts-serif-static);
   font-size: 1rem;
+  font-variant-numeric: oldstyle-nums;
   line-height: 1.5;
   margin: 0;
   padding: 0;
@@ -34,6 +49,7 @@ body {
 }
 
 img {
+  display: block;
   height: auto;
   max-width: 100%;
   width: 100%;
@@ -58,6 +74,7 @@ h1 {
   font-size: $h1-size-s;
   font-size: var(--h1-size-s);
   font-variant-ligatures: common-ligatures discretionary-ligatures;
+  font-variant-numeric: lining-nums;
   font-weight: 300;
   line-height: $h1-lh-s;
   line-height: var(--h1-lh-s);
@@ -66,6 +83,7 @@ h1 {
   max-width: $content-width-s;
   max-width: var(--content-width);
   position: relative;
+  transition: font-size .1s ease; 
   @supports (font-variation-settings: normal) {
     font-family: var(--fonts-serif);
     font-variation-settings: 'opsz' var(--text-opsz);
@@ -93,6 +111,18 @@ h1 {
     line-height: var(--h1-lh-l);
     max-width: $content-width-l;
     max-width: var(--content-width);
+  }
+  @supports (font-size: clamp(1rem, 2vw, 3rem)) {
+    /* responsive typography scaling bits */
+    --font-size-min-value: var(--h1-size-s-value);
+    --font-size-max-value: var(--h1-size-l-value);
+    --font-size-scaler-value: var(--h1-scaler-value);
+    font-size: var(--font-size);
+
+    --font-lh-min-value: var(--h1-lh-s);
+    --font-lh-max-value: var(--h1-lh-l);
+    --font-lh-scaler-value: var(--h1-lh-scaler-value);
+    line-height: var(--line-height); 
   }
 }
 
@@ -144,6 +174,18 @@ h2 {
     max-width: $content-width-l;
     max-width: var(--content-width);
   }
+  @supports (font-size: clamp(1rem, 2vw, 3rem)) {
+    /* responsive typography scaling bits */
+    --font-size-min-value: var(--h2-size-s-value);
+    --font-size-max-value: var(--h2-size-l-value);
+    --font-size-scaler-value: var(--h2-scaler-value);
+    font-size: var(--font-size);
+
+    --font-lh-min-value: var(--h2-lh-s);
+    --font-lh-max-value: var(--h2-lh-l);
+    --font-lh-scaler-value: var(--h2-lh-scaler-value);
+    line-height: var(--line-height); 
+  }
 }
 
 h2 + p {
@@ -193,6 +235,18 @@ h3 {
     max-width: $content-width-l;
     max-width: var(--content-width);
   }
+  @supports (font-size: clamp(1rem, 2vw, 3rem)) {
+    /* responsive typography scaling bits */
+    --font-size-min-value: var(--h3-size-s-value);
+    --font-size-max-value: var(--h3-size-l-value);
+    --font-size-scaler-value: var(--h3-scaler-value);
+    font-size: var(--font-size);
+
+    --font-lh-min-value: var(--h3-lh-s);
+    --font-lh-max-value: var(--h3-lh-l);
+    --font-lh-scaler-value: var(--h3-lh-scaler-value);
+    line-height: var(--line-height); 
+  }
 }
 
 h3 + p {
@@ -241,6 +295,18 @@ p {
     line-height: var(--p-lh-l);
     max-width: $content-width-l;
     max-width: var(--content-width);
+  }
+  @supports (font-size: clamp(1rem, 2vw, 3rem)) {
+    /* responsive typography scaling bits */
+    --font-size-min-value: var(--p-size-s-value);
+    --font-size-max-value: var(--p-size-l-value);
+    --font-size-scaler-value: var(--p-scaler-value);
+    font-size: var(--font-size);
+
+    --font-lh-min-value: var(--p-lh-s);
+    --font-lh-max-value: var(--p-lh-l);
+    --font-lh-scaler-value: var(--p-lh-scaler-value);
+    line-height: var(--line-height); 
   }
 
   + p {
@@ -379,6 +445,53 @@ a {
     }
   }
 
+  /* Section mark divider */
+  hr {
+    border: none;
+    margin-top: calc( var(--body-text-spacer) * 1 );
+    margin-bottom: calc( var(--body-text-spacer) * 1 );
+    text-align: center;
+    &:after {
+      color: $color-text;
+      color: var(--color-text);
+      content: "§";
+    }
+    --text-opsz: var(--p-opsz-s);
+    font-size: $p-size-s;
+    font-size: var(--p-size-s);
+    line-height: $p-lh-s;
+    line-height: var(--p-lh-s);
+    @supports (font-variation-settings: normal) {
+      font-variation-settings: 'opsz' var(--text-opsz);
+    }
+    @media screen and (min-width: $bp--medium) {
+      --text-opsz: var(--p-opsz-m);
+      font-size: $p-size-m;
+      font-size: var(--p-size-m);
+      line-height: $p-lh-m;
+      line-height: var(--p-lh-m);
+    }
+    @media screen and (min-width: $bp--large) {
+      --text-opsz: var(--p-opsz-l);
+      font-size: $p-size-l;
+      font-size: var(--p-size-l);
+      line-height: $p-lh-l;
+      line-height: var(--p-lh-l);
+    }
+    @supports (font-size: clamp(1rem, 2vw, 3rem)) {
+      /* responsive typography scaling bits */
+      --font-size-min-value: var(--p-size-s-value);
+      --font-size-max-value: var(--p-size-l-value);
+      --font-size-scaler-value: var(--p-scaler-value);
+      font-size: var(--font-size);
+  
+      --font-lh-min-value: var(--p-lh-s);
+      --font-lh-max-value: var(--p-lh-l);
+      --font-lh-scaler-value: var(--p-lh-scaler-value);
+      line-height: var(--line-height); 
+    }
+  }
+
   /* Add an end mark at the end of the last paragraph */
   > p:last-of-type:after {
     content: " ";
@@ -417,6 +530,7 @@ a {
     @supports (font-variation-settings: normal) {
       font-family: var(--fonts-serif);
       font-variation-settings: 'opsz' var(--text-opsz);
+      font-weight: 325;
       .wf-inactive & {
         font-family: var(--fonts-base-serif-display);
         font-weight: normal;

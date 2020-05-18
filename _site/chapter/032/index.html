@@ -26,28 +26,16 @@
           d.style[prop] = value;
           return d.style[prop] === value;
         }
-        function vfSupported() {
-          const vfCheckString = getComputedStyle(document.documentElement).getPropertyValue('--vf-support').trim();
-          //console.log(vfCheckString);
-          if (vfCheckString) {
-            if (vfCheckString == 'true') {
-              var vfCheck = true;
-            } else {
-              var vfCheck = false;
-            }
-            return vfCheck;
-          }
-        }
 
+        // set initial var for support of variable fonts
+        // starting with true since most browsers support them now
         var vfSupport = true;
         
-        var vfSupport = vfSupported();
+        // Check for browser support of variable fonts
+        var vfSupport = "CSS" in window && "supports" in CSS && CSS.supports("(font-variation-settings: normal)");
         // should return true if the browser supports variable fonts
 				console.log('vfSupport: '+vfSupport);
-        const vfJsCheck = "CSS" in window && "supports" in CSS && CSS.supports("(font-variation-settings: normal)");  
-        console.log('vfJsCheck:');
-        console.log(vfJsCheck);
-
+        
   			// Optimization for Repeat Views
   			if( sessionStorage.foutFontsLoaded ) {
   				document.documentElement.classList.remove("wf-inactive");
@@ -627,19 +615,10 @@
   By the above definition of what a whale is, I do by no means exclude from
   the leviathanic brotherhood any sea creature hitherto identified with the
   whale by the best informed Nantucketers; nor, on the other hand, link with
-  it any fish hitherto authoritatively regarded as alien.* Hence, all the
+  it any fish hitherto authoritatively regarded as alien.<a href="#ch032-fn1" id="ch032-fnref1" class="footnote--reference">1</a> Hence, all the
   smaller, spouting, and horizontal tailed fish must be included in this
   ground-plan of Cetology. Now, then, come the grand divisions of the entire
   whale host.
-</p>
-<p>
-  *I am aware that down to the present time, the fish styled Lamatins and
-  Dugongs (Pig-fish and Sow-fish of the Coffins of Nantucket) are included
-  by many naturalists among the whales. But as these pig-fish are a noisy,
-  contemptible set, mostly lurking in the mouths of rivers, and feeding on
-  wet hay, and especially as they do not spout, I deny their credentials as
-  whales; and have presented them with their passports to quit the Kingdom
-  of Cetology.
 </p>
 <p>
   First: According to magnitude I divide the whales into three primary BOOKS
@@ -815,16 +794,9 @@
   Thus ends BOOK I. (<em>Folio</em>), and now begins BOOK II. (<em>Octavo</em>).
 </p>
 <p>
-  OCTAVOES.*&mdash;These embrace the whales of middling magnitude, among
+  OCTAVOES.<a href="#ch032-fn2" id="ch032-fnref2" class="footnote--reference">2</a>&mdash;These embrace the whales of middling magnitude, among
   which present may be numbered:&mdash;I., the <em>Grampus</em>; II., the <em>Black Fish</em>;
   III., the <em>Narwhale</em>; IV., the <em>Thrasher</em>; V., the <em>Killer</em>.
-</p>
-<p>
-  *Why this book of whales is not denominated the Quarto is very plain.
-  Because, while the whales of this order, though smaller than those of the
-  former order, nevertheless retain a proportionate likeness to them in
-  figure, yet the bookbinder&rsquo;s Quarto volume in its dimensioned form does
-  not preserve the shape of the Folio volume, but the Octavo volume does.
 </p>
 <p>
   BOOK II. (<em>Octavo</em>), CHAPTER I. (<em>Grampus</em>).&mdash;Though this fish, whose
@@ -981,9 +953,7 @@
   escaped from a felonious visit to a meal-bag. A most mean and mealy
   aspect! His oil is much like that of the common porpoise.
 </p>
-<p>
- * * * * * *
-</p>
+<hr />
 <p>
   Beyond the DUODECIMO, this system does not proceed, inasmuch as the
   Porpoise is the smallest of the whales. Above, you have all the Leviathans
@@ -1014,6 +984,26 @@
   is but a draught&mdash;nay, but the draught of a draught. Oh, Time,
   Strength, Cash, and Patience!
 </p>
+<ol class="footnotes">
+  <li id="ch032-fn1"><p>
+    I am aware that down to the present time, the fish styled Lamatins and
+    Dugongs (Pig-fish and Sow-fish of the Coffins of Nantucket) are included
+    by many naturalists among the whales. But as these pig-fish are a noisy,
+    contemptible set, mostly lurking in the mouths of rivers, and feeding on
+    wet hay, and especially as they do not spout, I deny their credentials as
+    whales; and have presented them with their passports to quit the Kingdom
+    of Cetology.
+  <a href="#ch032-fnref1" class="footnotes--backlink" title="Jump back to footnote 1 in the text.">↩︎</a></p>
+  </li>
+  <li id="ch032-fn2"><p>
+    Why this book of whales is not denominated the Quarto is very plain.
+    Because, while the whales of this order, though smaller than those of the
+    former order, nevertheless retain a proportionate likeness to them in
+    figure, yet the bookbinder&rsquo;s Quarto volume in its dimensioned form does
+    not preserve the shape of the Folio volume, but the Octavo volume does.
+  <a href="#ch032-fnref2" class="footnotes--backlink" title="Jump back to footnote 2 in the text.">↩︎</a></p>
+  </li>
+</ol>
 
 </article>
 <nav aria-labelledby="chapter-pagination">

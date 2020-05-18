@@ -332,6 +332,18 @@ blockquote {
       font-size: $bq-size-l;
       font-size: var(--bq-size-l);
     }
+    @supports (font-size: clamp(1rem, 2vw, 3rem)) {
+      /* responsive typography scaling bits */
+      --font-size-min-value: var(--bq-size-s-value);
+      --font-size-max-value: var(--bq-size-l-value);
+      --font-size-scaler-value: var(--bq-scaler-value);
+      font-size: var(--font-size);
+  
+      --font-lh-min-value: var(--bq-lh-s);
+      --font-lh-max-value: var(--bq-lh-l);
+      --font-lh-scaler-value: var(--bq-lh-scaler-value);
+      line-height: var(--line-height); 
+    }
     &:before {
       content: '“';
       margin-left: -0.5em;
@@ -355,8 +367,49 @@ blockquote {
         font-size: $p-size-l;
         font-size: var(--p-size-l);
       }
+      @supports (font-size: clamp(1rem, 2vw, 3rem)) {
+        /* responsive typography scaling bits */
+        --font-size-min-value: var(--p-size-s-value);
+        --font-size-max-value: var(--p-size-l-value);
+        --font-size-scaler-value: var(--p-scaler-value);
+        font-size: var(--font-size);
+    
+        --font-lh-min-value: var(--p-lh-s);
+        --font-lh-max-value: var(--p-lh-l);
+        --font-lh-scaler-value: var(--p-lh-scaler-value);
+        line-height: var(--line-height); 
+      }
     }
 
+  }
+  &.bq--plaque {
+    padding-left: 5vw;
+    padding-right: 5vw;
+    p {
+      border: solid 1px $color-dark-gray;
+      border-color: var(--color-text);
+      box-shadow: 1px 1px 2px rgba(0,0,0,.75), 2px 2px 2px rgba(0,0,0,.75);
+      font-size: 0.9em;
+      text-transform: lowercase;
+      font-variant-caps: small-caps;
+      -webkit-hyphens: none;
+      hyphens: none;
+      line-height: 1.75;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 27em;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      &:before,
+      &:after {
+        content: "";
+      }
+    }
+    .name {
+      display: block;
+      font-size: 1.25em;
+      font-weight: 450;
+    }
   }
   cite {
     font-size: $p-size-s;
@@ -369,6 +422,18 @@ blockquote {
     @media screen and (min-width: $bp--large) {
       font-size: $p-size-l;
       font-size: var(--p-size-l);
+    }
+    @supports (font-size: clamp(1rem, 2vw, 3rem)) {
+      /* responsive typography scaling bits */
+      --font-size-min-value: var(--p-size-s-value);
+      --font-size-max-value: var(--p-size-l-value);
+      --font-size-scaler-value: var(--p-scaler-value);
+      font-size: var(--font-size);
+  
+      --font-lh-min-value: var(--p-lh-s);
+      --font-lh-max-value: var(--p-lh-l);
+      --font-lh-scaler-value: var(--p-lh-scaler-value);
+      line-height: var(--line-height); 
     }
     &:before {
       content: "—";
@@ -441,5 +506,36 @@ body > footer {
       text-decoration: underline;
     }
   }
+}
 
+.footnote {
+  &--reference {
+    &:link,
+    &:visited {
+      font-size: inherit;
+      font-variant-numeric: lining-nums;
+      font-feature-settings: 'numr' 1;
+      font-weight: 500;
+      line-height: inherit;
+      vertical-align: inherit;
+      padding-left: 0.1em;
+      padding-right: 0.1em;
+      text-underline-offset: -0.15em;
+      scroll-padding: 2em 0 0 0;
+    }
+  }
+}
+.footnotes {
+  padding-left: 1em;
+
+  li {
+    --p-size-s-value: 0.75;
+    --p-size-m-value: 0.875;
+    --p-size-l-value: 1;
+    text-align: top;
+    scroll-padding: 2em 0 0 0;
+    + li {
+      margin-top: calc( var(--body-text-spacer) * 1 );
+    }
+  }
 }

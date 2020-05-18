@@ -49,6 +49,23 @@
 /* Set base text size for all calcs */
 /* Preprocessed for fallbacks */
 /* Change px values here for all font sizing */
+/* Scaling typography bits - set scaling values */
+:root {
+  --p-scaler-value: 1;
+  --h1-scaler-value: 4.5;
+  --h2-scaler-value: 3;
+  --h3-scaler-value: 2;
+  --bq-scaler-value: 2.25;
+  --p-lh-scaler-value: 3;
+  --h1-lh-scaler-value: 3.5;
+  --h2-lh-scaler-value: 3;
+  --h3-lh-scaler-value: 3.75;
+  --bq-lh-scaler-value: 2.5;
+  /* default starting values for scaling formulas */
+  --font-size-min-value: 1;
+  --font-size-max-value: 1.25;
+  --font-size-scaler-value: 1.25; }
+
 /* Font size rem values (needed for dynamic sizing) */
 /* Font sizes in rems */
 /* Line-height */
@@ -120,13 +137,6 @@
   @media screen and (min-width: 60em) {
     :root {
       --body-text-spacer: 1.25rem; } }
-
-/* Test for variable font support */
-:root {
-  --vf-support: false; }
-  @supports (font-variation-settings: normal) {
-    :root {
-      --vf-support: true; } }
 
 /* Literata Static Fonts */
 /* Standard Regular, Italic, Bold, Bold Italic */
@@ -497,6 +507,17 @@ html {
 *, *:before, *:after {
   box-sizing: inherit; }
 
+/* Scaling typography setup */
+* {
+  --font-size-min: calc(var(--font-size-min-value) * 1rem);
+  --font-size-max: calc(var(--font-size-max-value) * 1rem);
+  --font-size-scaler: calc(var(--font-size-scaler-value) * 1vw);
+  --font-size: clamp(var(--font-size-min), calc(0.5rem + var(--font-size-scaler)), var(--font-size-max));
+  --font-lh-min: calc(var(--font-lh-min-value) * 1em);
+  --font-lh-max: calc(var(--font-lh-max-value) * 1em);
+  --font-lh-scaler: calc(var(--font-lh-scaler-value) * 1vw);
+  --line-height: clamp(var(--font-lh-min), calc(0.5rem + var(--font-lh-scaler)), var(--font-lh-max)); }
+
 /* Base typography */
 html {
   font-size: 100%;
@@ -511,6 +532,7 @@ body {
   font-family: "Literata", Georgia, "Times New Roman", Times, serif;
   font-family: var(--fonts-serif-static);
   font-size: 1rem;
+  font-variant-numeric: oldstyle-nums;
   line-height: 1.5;
   margin: 0;
   padding: 0; }
@@ -522,6 +544,7 @@ body {
         font-family: var(--fonts-base-serif); } }
 
 img {
+  display: block;
   height: auto;
   max-width: 100%;
   width: 100%; }
@@ -541,6 +564,7 @@ h1 {
   font-size: 2.25rem;
   font-size: var(--h1-size-s);
   font-variant-ligatures: common-ligatures discretionary-ligatures;
+  font-variant-numeric: lining-nums;
   font-weight: 300;
   line-height: 1.05;
   line-height: var(--h1-lh-s);
@@ -548,7 +572,8 @@ h1 {
   margin-top: calc( var(--body-text-spacer) * 2);
   max-width: 88vw;
   max-width: var(--content-width);
-  position: relative; }
+  position: relative;
+  transition: font-size .1s ease; }
   @supports (font-variation-settings: normal) {
     h1 {
       font-family: var(--fonts-serif);
@@ -576,6 +601,17 @@ h1 {
       line-height: var(--h1-lh-l);
       max-width: 44rem;
       max-width: var(--content-width); } }
+  @supports (font-size: clamp(1rem, 2vw, 3rem)) {
+    h1 {
+      /* responsive typography scaling bits */
+      --font-size-min-value: var(--h1-size-s-value);
+      --font-size-max-value: var(--h1-size-l-value);
+      --font-size-scaler-value: var(--h1-scaler-value);
+      font-size: var(--font-size);
+      --font-lh-min-value: var(--h1-lh-s);
+      --font-lh-max-value: var(--h1-lh-l);
+      --font-lh-scaler-value: var(--h1-lh-scaler-value);
+      line-height: var(--line-height); } }
 
 h1 + p {
   margin-top: calc( var(--body-text-spacer) * 3); }
@@ -622,6 +658,17 @@ h2 {
       line-height: var(--h2-lh-l);
       max-width: 44rem;
       max-width: var(--content-width); } }
+  @supports (font-size: clamp(1rem, 2vw, 3rem)) {
+    h2 {
+      /* responsive typography scaling bits */
+      --font-size-min-value: var(--h2-size-s-value);
+      --font-size-max-value: var(--h2-size-l-value);
+      --font-size-scaler-value: var(--h2-scaler-value);
+      font-size: var(--font-size);
+      --font-lh-min-value: var(--h2-lh-s);
+      --font-lh-max-value: var(--h2-lh-l);
+      --font-lh-scaler-value: var(--h2-lh-scaler-value);
+      line-height: var(--line-height); } }
 
 h2 + p {
   margin-top: calc( var(--body-text-spacer) * 1); }
@@ -668,6 +715,17 @@ h3 {
       line-height: var(--h3-lh-l);
       max-width: 44rem;
       max-width: var(--content-width); } }
+  @supports (font-size: clamp(1rem, 2vw, 3rem)) {
+    h3 {
+      /* responsive typography scaling bits */
+      --font-size-min-value: var(--h3-size-s-value);
+      --font-size-max-value: var(--h3-size-l-value);
+      --font-size-scaler-value: var(--h3-scaler-value);
+      font-size: var(--font-size);
+      --font-lh-min-value: var(--h3-lh-s);
+      --font-lh-max-value: var(--h3-lh-l);
+      --font-lh-scaler-value: var(--h3-lh-scaler-value);
+      line-height: var(--line-height); } }
 
 h3 + p {
   margin-top: calc( var(--body-text-spacer) * 1); }
@@ -714,6 +772,17 @@ p {
       line-height: var(--p-lh-l);
       max-width: 44rem;
       max-width: var(--content-width); } }
+  @supports (font-size: clamp(1rem, 2vw, 3rem)) {
+    p {
+      /* responsive typography scaling bits */
+      --font-size-min-value: var(--p-size-s-value);
+      --font-size-max-value: var(--p-size-l-value);
+      --font-size-scaler-value: var(--p-scaler-value);
+      font-size: var(--font-size);
+      --font-lh-min-value: var(--p-lh-s);
+      --font-lh-max-value: var(--p-lh-l);
+      --font-lh-scaler-value: var(--p-lh-scaler-value);
+      line-height: var(--line-height); } }
   p + p {
     text-indent: 1.5em; }
 
@@ -822,6 +891,7 @@ a:active {
 /* Scope these styles to just within chapter content */
 .chapter {
   /* Style first line of the first paragraph in the chapter */
+  /* Section mark divider */
   /* Add an end mark at the end of the last paragraph */
   /* Style the initial letter */ }
   .chapter > p:first-of-type::first-line {
@@ -835,6 +905,48 @@ a:active {
         .wf-inactive .chapter > p:first-of-type::first-line {
           font-weight: bold;
           letter-spacing: 0.01em; } }
+  .chapter hr {
+    border: none;
+    margin-top: calc( var(--body-text-spacer) * 1);
+    margin-bottom: calc( var(--body-text-spacer) * 1);
+    text-align: center;
+    --text-opsz: var(--p-opsz-s);
+    font-size: 1rem;
+    font-size: var(--p-size-s);
+    line-height: 1.5;
+    line-height: var(--p-lh-s); }
+    .chapter hr:after {
+      color: #333333;
+      color: var(--color-text);
+      content: "§"; }
+    @supports (font-variation-settings: normal) {
+      .chapter hr {
+        font-variation-settings: "opsz" var(--text-opsz); } }
+    @media screen and (min-width: 42em) {
+      .chapter hr {
+        --text-opsz: var(--p-opsz-m);
+        font-size: 1.125rem;
+        font-size: var(--p-size-m);
+        line-height: 1.525;
+        line-height: var(--p-lh-m); } }
+    @media screen and (min-width: 60em) {
+      .chapter hr {
+        --text-opsz: var(--p-opsz-l);
+        font-size: 1.25rem;
+        font-size: var(--p-size-l);
+        line-height: 1.55;
+        line-height: var(--p-lh-l); } }
+    @supports (font-size: clamp(1rem, 2vw, 3rem)) {
+      .chapter hr {
+        /* responsive typography scaling bits */
+        --font-size-min-value: var(--p-size-s-value);
+        --font-size-max-value: var(--p-size-l-value);
+        --font-size-scaler-value: var(--p-scaler-value);
+        font-size: var(--font-size);
+        --font-lh-min-value: var(--p-lh-s);
+        --font-lh-max-value: var(--p-lh-l);
+        --font-lh-scaler-value: var(--p-lh-scaler-value);
+        line-height: var(--line-height); } }
   .chapter > p:last-of-type:after {
     content: " ";
     -webkit-mask: url(../images/svg/end_mark.svg);
@@ -868,7 +980,8 @@ a:active {
     @supports (font-variation-settings: normal) {
       .chapter > p:first-of-type::first-letter {
         font-family: var(--fonts-serif);
-        font-variation-settings: "opsz" var(--text-opsz); }
+        font-variation-settings: "opsz" var(--text-opsz);
+        font-weight: 325; }
         .wf-inactive .chapter > p:first-of-type::first-letter {
           font-family: var(--fonts-base-serif-display);
           font-weight: normal; } }
@@ -1136,6 +1249,17 @@ blockquote {
       blockquote p {
         font-size: 1.5rem;
         font-size: var(--bq-size-l); } }
+    @supports (font-size: clamp(1rem, 2vw, 3rem)) {
+      blockquote p {
+        /* responsive typography scaling bits */
+        --font-size-min-value: var(--bq-size-s-value);
+        --font-size-max-value: var(--bq-size-l-value);
+        --font-size-scaler-value: var(--bq-scaler-value);
+        font-size: var(--font-size);
+        --font-lh-min-value: var(--bq-lh-s);
+        --font-lh-max-value: var(--bq-lh-l);
+        --font-lh-scaler-value: var(--bq-lh-scaler-value);
+        line-height: var(--line-height); } }
     blockquote p:before {
       content: '“';
       margin-left: -0.5em; }
@@ -1154,6 +1278,41 @@ blockquote {
       blockquote.bq--inline p {
         font-size: 1.25rem;
         font-size: var(--p-size-l); } }
+    @supports (font-size: clamp(1rem, 2vw, 3rem)) {
+      blockquote.bq--inline p {
+        /* responsive typography scaling bits */
+        --font-size-min-value: var(--p-size-s-value);
+        --font-size-max-value: var(--p-size-l-value);
+        --font-size-scaler-value: var(--p-scaler-value);
+        font-size: var(--font-size);
+        --font-lh-min-value: var(--p-lh-s);
+        --font-lh-max-value: var(--p-lh-l);
+        --font-lh-scaler-value: var(--p-lh-scaler-value);
+        line-height: var(--line-height); } }
+  blockquote.bq--plaque {
+    padding-left: 5vw;
+    padding-right: 5vw; }
+    blockquote.bq--plaque p {
+      border: solid 1px #333333;
+      border-color: var(--color-text);
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75), 2px 2px 2px rgba(0, 0, 0, 0.75);
+      font-size: 0.9em;
+      text-transform: lowercase;
+      font-variant-caps: small-caps;
+      -webkit-hyphens: none;
+      hyphens: none;
+      line-height: 1.75;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 27em;
+      padding: 1.5rem 1rem;
+      text-align: center; }
+      blockquote.bq--plaque p:before, blockquote.bq--plaque p:after {
+        content: ""; }
+    blockquote.bq--plaque .name {
+      display: block;
+      font-size: 1.25em;
+      font-weight: 450; }
   blockquote cite {
     font-size: 1rem;
     font-size: var(--p-size-s);
@@ -1166,6 +1325,17 @@ blockquote {
       blockquote cite {
         font-size: 1.25rem;
         font-size: var(--p-size-l); } }
+    @supports (font-size: clamp(1rem, 2vw, 3rem)) {
+      blockquote cite {
+        /* responsive typography scaling bits */
+        --font-size-min-value: var(--p-size-s-value);
+        --font-size-max-value: var(--p-size-l-value);
+        --font-size-scaler-value: var(--p-scaler-value);
+        font-size: var(--font-size);
+        --font-lh-min-value: var(--p-lh-s);
+        --font-lh-max-value: var(--p-lh-l);
+        --font-lh-scaler-value: var(--p-lh-scaler-value);
+        line-height: var(--line-height); } }
     blockquote cite:before {
       content: "—"; }
 
@@ -1218,5 +1388,28 @@ body > footer {
           font-size: 0.8675rem; } }
   body > footer a:hover, body > footer a:focus, body > footer a:active {
     text-decoration: underline; }
+
+.footnote--reference:link, .footnote--reference:visited {
+  font-size: inherit;
+  font-variant-numeric: lining-nums;
+  font-feature-settings: 'numr' 1;
+  font-weight: 500;
+  line-height: inherit;
+  vertical-align: inherit;
+  padding-left: 0.1em;
+  padding-right: 0.1em;
+  text-underline-offset: -0.15em;
+  scroll-padding: 2em 0 0 0; }
+
+.footnotes {
+  padding-left: 1em; }
+  .footnotes li {
+    --p-size-s-value: 0.75;
+    --p-size-m-value: 0.875;
+    --p-size-l-value: 1;
+    text-align: top;
+    scroll-padding: 2em 0 0 0; }
+    .footnotes li + li {
+      margin-top: calc( var(--body-text-spacer) * 1); }
 
 /*# sourceMappingURL=styles.css.map */

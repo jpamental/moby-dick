@@ -26,28 +26,16 @@
           d.style[prop] = value;
           return d.style[prop] === value;
         }
-        function vfSupported() {
-          const vfCheckString = getComputedStyle(document.documentElement).getPropertyValue('--vf-support').trim();
-          //console.log(vfCheckString);
-          if (vfCheckString) {
-            if (vfCheckString == 'true') {
-              var vfCheck = true;
-            } else {
-              var vfCheck = false;
-            }
-            return vfCheck;
-          }
-        }
 
+        // set initial var for support of variable fonts
+        // starting with true since most browsers support them now
         var vfSupport = true;
         
-        var vfSupport = vfSupported();
+        // Check for browser support of variable fonts
+        var vfSupport = "CSS" in window && "supports" in CSS && CSS.supports("(font-variation-settings: normal)");
         // should return true if the browser supports variable fonts
 				console.log('vfSupport: '+vfSupport);
-        const vfJsCheck = "CSS" in window && "supports" in CSS && CSS.supports("(font-variation-settings: normal)");  
-        console.log('vfJsCheck:');
-        console.log(vfJsCheck);
-
+        
   			// Optimization for Repeat Views
   			if( sessionStorage.foutFontsLoaded ) {
   				document.documentElement.classList.remove("wf-inactive");
@@ -483,8 +471,8 @@
 <article class="chapter">
   <figure class="wide">
   <img 
-         srcset="/assets/respimg/447c8047-480.jpeg 480w, /assets/respimg/447c8047-900.jpeg 900w, /assets/respimg/447c8047-1200.jpeg 1200w, /assets/respimg/447c8047.jpeg 1600w" sizes="(min-width: 550px) 900px, (min-width: 950px) 1200px, (min-width: 1300px) 1600px, 100vw" alt="Person laying down on their belly on a bluff, looking out over the sea"
-          src="/assets/respimg/447c8047-480.jpeg" width="480" height="240"
+         srcset="/assets/respimg/ad122447-480.jpeg 480w, /assets/respimg/ad122447-900.jpeg 900w, /assets/respimg/ad122447-1200.jpeg 1200w, /assets/respimg/ad122447.jpeg 1600w" sizes="(min-width: 550px) 900px, (min-width: 950px) 1200px, (min-width: 1300px) 1600px, 100vw" alt="Person laying down on their belly on a bluff, looking out over the sea"
+          src="/assets/respimg/ad122447-480.jpeg" width="480" height="240"
             >
 </figure>
 
@@ -703,8 +691,8 @@
 
 <figure class="">
   <img 
-         srcset="/assets/respimg/97181244-480.jpeg 480w, /assets/respimg/97181244-900.jpeg 900w, /assets/respimg/97181244-1200.jpeg 1200w, /assets/respimg/97181244.jpeg 1600w" sizes="(min-width: 550px) 900px, (min-width: 950px) 1200px, (min-width: 1300px) 1600px, 100vw" alt="Person sitting atop a piling, looking out to see at a ship in the distance"
-          src="/assets/respimg/97181244-480.jpeg" width="480" height="340"
+         srcset="/assets/respimg/58cc22c4-480.jpeg 480w, /assets/respimg/58cc22c4-900.jpeg 900w, /assets/respimg/58cc22c4-1200.jpeg 1200w, /assets/respimg/58cc22c4.jpeg 1600w" sizes="(min-width: 550px) 900px, (min-width: 950px) 1200px, (min-width: 1300px) 1600px, 100vw" alt="Person sitting atop a piling, looking out to see at a ship in the distance"
+          src="/assets/respimg/58cc22c4-480.jpeg" width="480" height="340"
           loading="lazy"  >
 </figure>
 

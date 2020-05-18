@@ -26,28 +26,16 @@
           d.style[prop] = value;
           return d.style[prop] === value;
         }
-        function vfSupported() {
-          const vfCheckString = getComputedStyle(document.documentElement).getPropertyValue('--vf-support').trim();
-          //console.log(vfCheckString);
-          if (vfCheckString) {
-            if (vfCheckString == 'true') {
-              var vfCheck = true;
-            } else {
-              var vfCheck = false;
-            }
-            return vfCheck;
-          }
-        }
 
+        // set initial var for support of variable fonts
+        // starting with true since most browsers support them now
         var vfSupport = true;
         
-        var vfSupport = vfSupported();
+        // Check for browser support of variable fonts
+        var vfSupport = "CSS" in window && "supports" in CSS && CSS.supports("(font-variation-settings: normal)");
         // should return true if the browser supports variable fonts
 				console.log('vfSupport: '+vfSupport);
-        const vfJsCheck = "CSS" in window && "supports" in CSS && CSS.supports("(font-variation-settings: normal)");  
-        console.log('vfJsCheck:');
-        console.log(vfJsCheck);
-
+        
   			// Optimization for Repeat Views
   			if( sessionStorage.foutFontsLoaded ) {
   				document.documentElement.classList.remove("wf-inactive");
@@ -483,8 +471,8 @@
 <article class="chapter">
   <figure class="wide">
   <img 
-         srcset="/assets/respimg/6e1fe043-480.jpeg 480w, /assets/respimg/6e1fe043-900.jpeg 900w, /assets/respimg/6e1fe043-1200.jpeg 1200w, /assets/respimg/6e1fe043.jpeg 1600w" sizes="(min-width: 550px) 900px, (min-width: 950px) 1200px, (min-width: 1300px) 1600px, 100vw" alt="Ishmael at breakfast"
-          src="/assets/respimg/6e1fe043-480.jpeg" width="480" height="281"
+         srcset="/assets/respimg/b3581543-480.jpeg 480w, /assets/respimg/b3581543-900.jpeg 900w, /assets/respimg/b3581543-1200.jpeg 1200w, /assets/respimg/b3581543.jpeg 1600w" sizes="(min-width: 550px) 900px, (min-width: 950px) 1200px, (min-width: 1300px) 1600px, 100vw" alt="Ishmael at breakfast"
+          src="/assets/respimg/b3581543-480.jpeg" width="480" height="281"
             >
 </figure>
 <h1>
