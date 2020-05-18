@@ -445,6 +445,19 @@ a {
     }
   }
 
+  /* Section mark divider */
+  .section {
+    border: none;
+    margin-top: calc( var(--body-text-spacer) * 1 );
+    margin-bottom: calc( var(--body-text-spacer) * 1 );
+    text-align: center;
+    &:after {
+      color: $color-text;
+      color: var(--color-text);
+      content: "§";
+    }
+  }
+
   /* Add an end mark at the end of the last paragraph */
   > p:last-of-type:after {
     content: " ";

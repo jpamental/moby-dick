@@ -506,5 +506,36 @@ body > footer {
       text-decoration: underline;
     }
   }
+}
 
+.footnote {
+  &--reference {
+    &:link,
+    &:visited {
+      font-size: inherit;
+      font-variant-numeric: lining-nums;
+      font-feature-settings: 'numr' 1;
+      font-weight: 500;
+      line-height: inherit;
+      vertical-align: inherit;
+      padding-left: 0.1em;
+      padding-right: 0.1em;
+      text-underline-offset: -0.15em;
+      scroll-padding: 2em 0 0 0;
+    }
+  }
+}
+.footnotes {
+  padding-left: 1em;
+
+  li {
+    --p-size-s-value: 0.75;
+    --p-size-m-value: 0.875;
+    --p-size-l-value: 1;
+    text-align: top;
+    scroll-padding: 2em 0 0 0;
+    + li {
+      margin-top: calc( var(--body-text-spacer) * 1 );
+    }
+  }
 }

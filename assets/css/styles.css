@@ -891,6 +891,7 @@ a:active {
 /* Scope these styles to just within chapter content */
 .chapter {
   /* Style first line of the first paragraph in the chapter */
+  /* Section mark divider */
   /* Add an end mark at the end of the last paragraph */
   /* Style the initial letter */ }
   .chapter > p:first-of-type::first-line {
@@ -904,6 +905,15 @@ a:active {
         .wf-inactive .chapter > p:first-of-type::first-line {
           font-weight: bold;
           letter-spacing: 0.01em; } }
+  .chapter .section {
+    border: none;
+    margin-top: calc( var(--body-text-spacer) * 1);
+    margin-bottom: calc( var(--body-text-spacer) * 1);
+    text-align: center; }
+    .chapter .section:after {
+      color: #333333;
+      color: var(--color-text);
+      content: "§"; }
   .chapter > p:last-of-type:after {
     content: " ";
     -webkit-mask: url(../images/svg/end_mark.svg);
@@ -1345,5 +1355,28 @@ body > footer {
           font-size: 0.8675rem; } }
   body > footer a:hover, body > footer a:focus, body > footer a:active {
     text-decoration: underline; }
+
+.footnote--reference:link, .footnote--reference:visited {
+  font-size: inherit;
+  font-variant-numeric: lining-nums;
+  font-feature-settings: 'numr' 1;
+  font-weight: 500;
+  line-height: inherit;
+  vertical-align: inherit;
+  padding-left: 0.1em;
+  padding-right: 0.1em;
+  text-underline-offset: -0.15em;
+  scroll-padding: 2em 0 0 0; }
+
+.footnotes {
+  padding-left: 1em; }
+  .footnotes li {
+    --p-size-s-value: 0.75;
+    --p-size-m-value: 0.875;
+    --p-size-l-value: 1;
+    text-align: top;
+    scroll-padding: 2em 0 0 0; }
+    .footnotes li + li {
+      margin-top: calc( var(--body-text-spacer) * 1); }
 
 /*# sourceMappingURL=styles.css.map */
