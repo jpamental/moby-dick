@@ -446,7 +446,7 @@ a {
   }
 
   /* Section mark divider */
-  .section {
+  hr {
     border: none;
     margin-top: calc( var(--body-text-spacer) * 1 );
     margin-bottom: calc( var(--body-text-spacer) * 1 );
@@ -455,6 +455,40 @@ a {
       color: $color-text;
       color: var(--color-text);
       content: "§";
+    }
+    --text-opsz: var(--p-opsz-s);
+    font-size: $p-size-s;
+    font-size: var(--p-size-s);
+    line-height: $p-lh-s;
+    line-height: var(--p-lh-s);
+    @supports (font-variation-settings: normal) {
+      font-variation-settings: 'opsz' var(--text-opsz);
+    }
+    @media screen and (min-width: $bp--medium) {
+      --text-opsz: var(--p-opsz-m);
+      font-size: $p-size-m;
+      font-size: var(--p-size-m);
+      line-height: $p-lh-m;
+      line-height: var(--p-lh-m);
+    }
+    @media screen and (min-width: $bp--large) {
+      --text-opsz: var(--p-opsz-l);
+      font-size: $p-size-l;
+      font-size: var(--p-size-l);
+      line-height: $p-lh-l;
+      line-height: var(--p-lh-l);
+    }
+    @supports (font-size: clamp(1rem, 2vw, 3rem)) {
+      /* responsive typography scaling bits */
+      --font-size-min-value: var(--p-size-s-value);
+      --font-size-max-value: var(--p-size-l-value);
+      --font-size-scaler-value: var(--p-scaler-value);
+      font-size: var(--font-size);
+  
+      --font-lh-min-value: var(--p-lh-s);
+      --font-lh-max-value: var(--p-lh-l);
+      --font-lh-scaler-value: var(--p-lh-scaler-value);
+      line-height: var(--line-height); 
     }
   }
 

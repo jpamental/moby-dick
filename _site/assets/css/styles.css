@@ -905,15 +905,48 @@ a:active {
         .wf-inactive .chapter > p:first-of-type::first-line {
           font-weight: bold;
           letter-spacing: 0.01em; } }
-  .chapter .section {
+  .chapter hr {
     border: none;
     margin-top: calc( var(--body-text-spacer) * 1);
     margin-bottom: calc( var(--body-text-spacer) * 1);
-    text-align: center; }
-    .chapter .section:after {
+    text-align: center;
+    --text-opsz: var(--p-opsz-s);
+    font-size: 1rem;
+    font-size: var(--p-size-s);
+    line-height: 1.5;
+    line-height: var(--p-lh-s); }
+    .chapter hr:after {
       color: #333333;
       color: var(--color-text);
       content: "§"; }
+    @supports (font-variation-settings: normal) {
+      .chapter hr {
+        font-variation-settings: "opsz" var(--text-opsz); } }
+    @media screen and (min-width: 42em) {
+      .chapter hr {
+        --text-opsz: var(--p-opsz-m);
+        font-size: 1.125rem;
+        font-size: var(--p-size-m);
+        line-height: 1.525;
+        line-height: var(--p-lh-m); } }
+    @media screen and (min-width: 60em) {
+      .chapter hr {
+        --text-opsz: var(--p-opsz-l);
+        font-size: 1.25rem;
+        font-size: var(--p-size-l);
+        line-height: 1.55;
+        line-height: var(--p-lh-l); } }
+    @supports (font-size: clamp(1rem, 2vw, 3rem)) {
+      .chapter hr {
+        /* responsive typography scaling bits */
+        --font-size-min-value: var(--p-size-s-value);
+        --font-size-max-value: var(--p-size-l-value);
+        --font-size-scaler-value: var(--p-scaler-value);
+        font-size: var(--font-size);
+        --font-lh-min-value: var(--p-lh-s);
+        --font-lh-max-value: var(--p-lh-l);
+        --font-lh-scaler-value: var(--p-lh-scaler-value);
+        line-height: var(--line-height); } }
   .chapter > p:last-of-type:after {
     content: " ";
     -webkit-mask: url(../images/svg/end_mark.svg);
