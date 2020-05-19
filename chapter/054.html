@@ -3,6 +3,9 @@ layout: chapter.liquid
 tags: chapter
 date: 2020-04-19
 title: CHAPTER 54. The Town-Ho&rsquo;s Story.
+footnotes: 
+ - "The ancient whale-cry upon first sighting a whale from the mast-head,
+    still used by whalemen in hunting the famous Gallipagos terrapin."
 ---
 <h1>
   {{ title }}
@@ -17,7 +20,7 @@ title: CHAPTER 54. The Town-Ho&rsquo;s Story.
 </p>
 <p>
   It was not very long after speaking the Goney that another homeward-bound
-  whaleman, the Town-Ho,* was encountered. She was manned almost wholly by
+  whaleman, the Town-Ho,<a href="#ch{{ page.fileSlug }}-fn1" id="ch{{ page.fileSlug }}-fnref1" class="footnote--reference">1</a> was encountered. She was manned almost wholly by
   Polynesians. In the short gam that ensued she gave us strong news of Moby
   Dick. To some the general interest in the White Whale was now wildly
   heightened by a circumstance of the Town-Ho&rsquo;s story, which seemed
@@ -39,10 +42,6 @@ title: CHAPTER 54. The Town-Ho&rsquo;s Story.
   main-mast. Interweaving in its proper place this darker thread with the
   story as publicly narrated on the ship, the whole of this strange affair I
   now proceed to put on lasting record.
-</p>
-<p>
-  *The ancient whale-cry upon first sighting a whale from the mast-head,
-  still used by whalemen in hunting the famous Gallipagos terrapin.
 </p>
 <p>
   For my humor&rsquo;s sake, I shall preserve the style in which I once narrated
@@ -899,4 +898,8 @@ title: CHAPTER 54. The Town-Ho&rsquo;s Story.
   is in substance and its great items, true. I know it to be true; it
   happened on this ball; I trod the ship; I knew the crew; I have seen and
   talked with Steelkilt since the death of Radney.&rsquo;&rdquo;
- </p>
+</p>
+
+{% include partials/footnote.liquid with 
+  footnotes: footnotes 
+%}

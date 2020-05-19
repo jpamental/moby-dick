@@ -3,6 +3,12 @@ layout: chapter.liquid
 tags: chapter
 date: 2020-04-19
 title: CHAPTER 72. The Monkey-Rope.
+footnotes: 
+ - "The monkey-rope is found in all whalers; but it was only in the Pequod
+    that the monkey and his holder were ever tied together. This improvement
+    upon the original usage was introduced by no less a man than Stubb, in
+    order to afford the imperilled harpooneer the strongest possible guarantee
+    for the faithfulness and vigilance of his monkey-rope holder."
 ---
 <h1>
 {{ title }}
@@ -69,14 +75,7 @@ title: CHAPTER 72. The Monkey-Rope.
   chances of life. But handle Queequeg&rsquo;s monkey-rope heedfully as I would,
   sometimes he jerked it so, that I came very near sliding overboard. Nor
   could I possibly forget that, do what I would, I only had the management
-  of one end of it.*
-</p>
-<p>
-  *The monkey-rope is found in all whalers; but it was only in the Pequod
-  that the monkey and his holder were ever tied together. This improvement
-  upon the original usage was introduced by no less a man than Stubb, in
-  order to afford the imperilled harpooneer the strongest possible guarantee
-  for the faithfulness and vigilance of his monkey-rope holder.
+  of one end of it.<a href="#ch{{ page.fileSlug }}-fn1" id="ch{{ page.fileSlug }}-fnref1" class="footnote--reference">1</a>
 </p>
 <p>
   I have hinted that I would often jerk poor Queequeg from between the whale
@@ -183,3 +182,7 @@ title: CHAPTER 72. The Monkey-Rope.
   handed to Queequeg; the second was Aunt Charity&rsquo;s gift, and that was
   freely given to the waves.
 </p>
+
+{% include partials/footnote.liquid with 
+  footnotes: footnotes 
+%}

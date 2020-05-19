@@ -3,6 +3,12 @@ layout: chapter.liquid
 tags: chapter
 date: 2020-04-19
 title: CHAPTER 77. The Great Heidelburgh Tun.
+footnotes: 
+ - "Quoin is not a Euclidean term. It belongs to the pure nautical
+    mathematics. I know not that it has been defined before. A quoin is a
+    solid which differs from a wedge in having its sharp end formed by the
+    steep inclination of one side, instead of the mutual tapering of both
+    sides."
 ---
 <h1>
 {{ title }}
@@ -14,20 +20,13 @@ title: CHAPTER 77. The Great Heidelburgh Tun.
 </p>
 <p>
   Regarding the Sperm Whale&rsquo;s head as a solid oblong, you may, on an
-  inclined plane, sideways divide it into two quoins,* whereof the lower is
+  inclined plane, sideways divide it into two quoins,<a href="#ch{{ page.fileSlug }}-fn1" id="ch{{ page.fileSlug }}-fnref1" class="footnote--reference">1</a> whereof the lower is
   the bony structure, forming the cranium and jaws, and the upper an
   unctuous mass wholly free from bones; its broad forward end forming the
   expanded vertical apparent forehead of the whale. At the middle of the
   forehead horizontally subdivide this upper quoin, and then you have two
   almost equal parts, which before were naturally divided by an internal
   wall of a thick tendinous substance.
-</p>
-<p>
-  *Quoin is not a Euclidean term. It belongs to the pure nautical
-  mathematics. I know not that it has been defined before. A quoin is a
-  solid which differs from a wedge in having its sharp end formed by the
-  steep inclination of one side, instead of the mutual tapering of both
-  sides.
 </p>
 <p>
   The lower subdivided part, called the junk, is one immense honeycomb of
@@ -80,3 +79,7 @@ title: CHAPTER 77. The Great Heidelburgh Tun.
   this particular instance&mdash;almost fatal operation whereby the Sperm
   Whale&rsquo;s great Heidelburgh Tun is tapped.
 </p>
+
+{% include partials/footnote.liquid with 
+  footnotes: footnotes 
+%}

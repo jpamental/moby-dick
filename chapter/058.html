@@ -3,6 +3,13 @@ layout: chapter.liquid
 tags: chapter
 date: 2020-04-19
 title: CHAPTER 58. Brit.
+footnotes: 
+ - "That part of the sea known among whalemen as the &ldquo;Brazil Banks&rdquo; does not
+    bear that name as the Banks of Newfoundland do, because of there being
+    shallows and soundings there, but because of this remarkable meadow-like
+    appearance, caused by the vast drifts of brit continually floating in
+    those latitudes, where the Right Whale is often chased."
+
 ---
 <h1>
   {{ title }}
@@ -24,14 +31,7 @@ title: CHAPTER 58. Brit.
   As morning mowers, who side by side slowly and seethingly advance their
   scythes through the long wet grass of marshy meads; even so these monsters
   swam, making a strange, grassy, cutting sound; and leaving behind them
-  endless swaths of blue upon the yellow sea.*
-</p>
-<p>
-  *That part of the sea known among whalemen as the &ldquo;Brazil Banks&rdquo; does not
-  bear that name as the Banks of Newfoundland do, because of there being
-  shallows and soundings there, but because of this remarkable meadow-like
-  appearance, caused by the vast drifts of brit continually floating in
-  those latitudes, where the Right Whale is often chased.
+  endless swaths of blue upon the yellow sea.<a href="#ch{{ page.fileSlug }}-fn1" id="ch{{ page.fileSlug }}-fnref1" class="footnote--reference">1</a>
 </p>
 <p>
   But it was only the sound they made as they parted the brit which at all
@@ -115,3 +115,7 @@ title: CHAPTER 58. Brit.
   half known life. God keep thee! Push not off from that isle, thou canst
   never return!
 </p>
+
+{% include partials/footnote.liquid with 
+  footnotes: footnotes 
+%}

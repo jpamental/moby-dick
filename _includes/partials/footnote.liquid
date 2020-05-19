@@ -1,0 +1,10 @@
+
+
+<ol class="footnotes">
+  {% for footnote in footnotes %}
+  <li id="ch{{ page.fileSlug }}-fn{{ forloop.index }}"><p>
+    {{ footnote }}
+    <a href="#ch{{ page.fileSlug }}-fnref{{ forloop.index }}" class="footnotes--backlink" title="Jump back to footnote {{ forloop.index }} in the text.">↩︎</a></p>
+  </li>
+  {% endfor %}
+</ol>

@@ -3,6 +3,8 @@ layout: chapter.liquid
 tags: chapter
 date: 2020-04-19
 title: CHAPTER 24. The Advocate.
+footnotes: 
+ - "See subsequent chapters for something more on this head."
 ---
 <h1>
   {{ title }}
@@ -196,9 +198,7 @@ title: CHAPTER 24. The Advocate.
   prospectively ascribe all the honor and the glory to whaling; for a
   whale-ship was my Yale College and my Harvard.
 </p>
-<ol class="footnotes">
-  <li id="ch024-fn1"><p>
-    See subsequent chapters for something more on this head.
-  <a href="#ch024-fnref1" class="footnotes--backlink" title="Jump back to footnote 1 in the text.">↩︎</a></p>
-  </li>
-</ol>
+
+{% include partials/footnote.liquid with 
+  footnotes: footnotes 
+%}
