@@ -21,7 +21,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("favicon.ico");
   
 
-
+  eleventyConfig.addLiquidShortcode("footnote", function(number, chapter) { 
+    return `<a href="#ch${chapter}-fn${number}" id="ch${chapter}-fnref${number}" class="footnote--reference">${number}</a>`;
+  });
 
   // works also with addLiquidShortcode or addNunjucksAsyncShortcode
   eleventyConfig.addLiquidShortcode("myResponsiveImage", async function(src, alt, options) {
