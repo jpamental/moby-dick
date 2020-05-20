@@ -440,7 +440,7 @@ a {
       font-weight: 525;
       .wf-inactive & {
         font-weight: bold;
-        letter-spacing: 0.01em;
+        letter-spacing: -0.01em;
       }
     }
   }
