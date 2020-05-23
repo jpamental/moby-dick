@@ -1007,6 +1007,26 @@ article {
     margin-left: var(--margin-left);
     margin-right: var(--margin-right); }
 
+.swipe .top-bar {
+  position: fixed;
+  top: 0;
+  width: 100vw; }
+
+.swipe .chapter {
+  columns: 95vw auto;
+  column-gap: 0;
+  height: 82vh;
+  padding-top: 3em;
+  position: relative;
+  widows: 2;
+  orphans: 2; }
+
+.swipe body > footer {
+  margin-top: 0;
+  position: fixed;
+  bottom: 0;
+  width: 100vw; }
+
 /* Top bar */
 .top-bar {
   background-color: #f0f0f0;

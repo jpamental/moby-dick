@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -122,7 +122,7 @@
   	</script>
 
   </head>
-  <body>
+  <body class="">
     <header id="top" class="top-bar">
       <a href="#main_content" class="visually-hidden">Jump to main <span role="presentation">content</span></a>
       <div>
@@ -410,9 +410,9 @@
 
       </nav>
     </header>
-    <main id="main_content">
-                		<!-- BEGIN web font toggle -->
-        		<a href="#" id="toggle-fonts" class="toggle-fonts button on">Web Fonts</a>
+    <main id="main_content" class="main-content">
+                		<!-- BEGIN swipe toggle -->
+        		<a href="#" id="toggle-swipe" class="toggle-swipe button off">Swipe UI</a>
 				<style>
 					.button {
 					  font-size: 14px;
@@ -434,16 +434,16 @@
 					  background-color: #e4e1e1;
 					  background-image: linear-gradient(#fefafa, #cbc7c7);
 					}
-					.toggle-fonts {
+					.toggle-swipe {
 					  position: fixed; 
 					  top: 3.5em; 
 					  right: 1em;
 					  z-index: 98;
 					}
-					.toggle-fonts.on:after {
+					.toggle-swipe.on:after {
 					  content: ": on";
 					}
-					.toggle-fonts.off:after {
+					.toggle-swipe.off:after {
 					  content: ": off";
 					}
 				</style>
@@ -454,17 +454,16 @@
   					document.getElementById('c-unsupported').classList.remove('hidden');
             document.getElementById('execute').setAttribute('disabled', 'disabled');
           } else {
-            document.getElementById('toggle-fonts').addEventListener('click', function(e) {
+            document.getElementById('toggle-swipe').addEventListener('click', function(e) {
               e.preventDefault();
-							document.getElementById('toggle-fonts').classList.toggle('on');
-							document.getElementById('toggle-fonts').classList.toggle('off');
-							document.getElementsByTagName("html")[0].classList.toggle('wf-active');
-							document.getElementsByTagName("html")[0].classList.toggle('wf-inactive');
+							document.getElementById('toggle-swipe').classList.toggle('on');
+							document.getElementById('toggle-swipe').classList.toggle('off');
+							document.getElementsByTagName("html")[0].classList.toggle('swipe');
             });
          	}
         </script>
 
-        		<!-- END web font toggle -->
+        		<!-- END swipe toggle -->
 
 
 

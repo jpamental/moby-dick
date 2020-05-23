@@ -27,3 +27,25 @@ article {
   }
 }
 
+.swipe {
+  .top-bar {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+  }
+  .chapter {
+    columns: 95vw auto;
+    column-gap: 0;
+    height: 82vh;
+    padding-top: 3em;
+    position: relative;
+    widows: 2;
+    orphans: 2;
+  }
+  body > footer {
+    margin-top: 0;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+  }
+}
