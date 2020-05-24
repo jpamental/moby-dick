@@ -138,6 +138,10 @@
     :root {
       --body-text-spacer: 1.25rem; } }
 
+/* Swipe UI */
+:root {
+  --page-count: 1; }
+
 /* Literata Static Fonts */
 /* Standard Regular, Italic, Bold, Bold Italic */
 @font-face {
@@ -1020,6 +1024,27 @@ article {
   position: relative;
   widows: 2;
   orphans: 2; }
+
+.swipe .main-content {
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory; }
+
+.swipe .pager-wrapper {
+  display: flex;
+  width: calc( 100vw * var(--page-count)); }
+  .swipe .pager-wrapper--page {
+    background-color: transparent;
+    float: left;
+    height: 10px;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: none;
+    width: 100vw;
+    scroll-snap-align: start;
+    position: relative;
+    z-index: 10; }
+    .swipe .pager-wrapper--page:nth-child(odd) {
+      background-color: #a1a1a1; }
 
 .swipe body > footer {
   margin-top: 0;
