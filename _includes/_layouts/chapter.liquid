@@ -2,14 +2,16 @@
 
 <article class="chapter">
   {{ content }}
+
+  <nav aria-labelledby="chapter-pagination">
+    <h2 id="chapter-pagination" class="visually-hidden">Previous/Next Chapter</h2>
+    <ul class="prev-next-chapters">
+      <li class="previous">{% if prevPost.url %}<a href="{{ prevPost.url }}">&laquo; {{ prevPost.data.title }}</a>{% else %}<a href="/contents">&laquo; Table of Contents</a>{% endif %}</li>
+      <li class="next">{% if nextPost.url %}<a href="{{ nextPost.url }}">{{ nextPost.data.title }} &raquo;</a>{% endif %}</li>
+    </ul>
+  </nav>
+
 </article>
-<nav aria-labelledby="chapter-pagination">
-  <h2 id="chapter-pagination" class="visually-hidden">Previous/Next Chapter</h2>
-  <ul class="prev-next-chapters">
-    <li class="previous">{% if prevPost.url %}<a href="{{ prevPost.url }}">&laquo; {{ prevPost.data.title }}</a>{% else %}<a href="/contents">&laquo; Table of Contents</a>{% endif %}</li>
-    <li class="next">{% if nextPost.url %}<a href="{{ nextPost.url }}">{{ nextPost.data.title }} &raquo;</a>{% endif %}</li>
-  </ul>
-</nav>
 <div class="pager-wrapper" id="pager_wrapper"></div>
 
 {% include partials/meta_close %}

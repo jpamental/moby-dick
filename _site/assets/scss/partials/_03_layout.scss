@@ -32,19 +32,27 @@ article {
     position: fixed;
     top: 0;
     width: 100vw;
+    z-index: 90;
   }
-  .chapter {
+  article {
     columns: 95vw auto;
     column-gap: 0;
-    height: 82vh;
+    height: 90vh;
+    margin-top: 0;
     padding-top: 3em;
+    padding-bottom: 0;
     position: relative;
     widows: 2;
     orphans: 2;
   }
   .main-content {
+    height: 100vh;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
+    overflow-y: hidden;
+  }
+  .prev-next-chapters {
+    margin-left: 0;
   }
   .pager-wrapper {
     display: flex;
@@ -52,7 +60,7 @@ article {
     &--page {
       background-color: transparent;
       float: left;
-      height: 10px;
+      height: 1px;
       margin-left: 0;
       margin-right: 0;
       max-width: none;
@@ -61,11 +69,20 @@ article {
       position: relative;
       z-index: 10;
       &:nth-child(odd) {
-        background-color: #a1a1a1;
+        //background-color: #a1a1a1;
       }
     }
   }
-  
+  figure {
+    img {
+      max-height: 70vh;
+    }
+    &.wide {
+      img {
+        max-height: 50vh;
+      }
+    }
+  }
 
   body > footer {
     margin-top: 0;

@@ -128,10 +128,15 @@
       <div>
         <a href="{{ '/' | url }}" class="title-link">{{ metadata.title }}</a>
       </div>
-      <nav class="toc">
-        <a href="{{ '/' | url }}contents" class="toc-trigger">Table of Contents</a>
-        {% include partials/toc.liquid %}
-      </nav>
+      <div class="link-wrapper">
+				<div class="settings">
+					<a href="{{ '/' | url }}settings" class="settings-trigger">Settings</a>
+					{% include partials/settings.liquid %}
+				</div>
+				<nav class="toc">
+					<a href="{{ '/' | url }}contents" class="toc-trigger">Contents</a>
+					{% include partials/toc.liquid %}
+				</nav>
+			</div>
     </header>
     <main id="main_content" class="main-content">
-        {% include partials/swipe_toggle.liquid %}

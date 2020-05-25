@@ -128,9 +128,19 @@
       <div>
         <a href="/" class="title-link">Moby Dick</a>
       </div>
-      <nav class="toc">
-        <a href="/contents" class="toc-trigger">Table of Contents</a>
-        <ul class="toc-menu"><li>
+      <div class="link-wrapper">
+				<div class="settings">
+					<a href="/settings" class="settings-trigger">Settings</a>
+					<ul class="settings-menu">
+    <li>
+      <a href="#" id="toggle-swipe" class="toggle-swipe off">Swipe UI</a>
+    </li>
+</ul>
+
+				</div>
+				<nav class="toc">
+					<a href="/contents" class="toc-trigger">Contents</a>
+					<ul class="toc-menu"><li>
       <a href="/chapter/000a/">Etymology.</a>
     </li><li>
       <a href="/chapter/000b/">Extracts.</a>
@@ -408,65 +418,10 @@
       <a href="/chapter/epilogue/">Epilogue</a>
     </li></ul>
 
-      </nav>
+				</nav>
+			</div>
     </header>
     <main id="main_content" class="main-content">
-                		<!-- BEGIN swipe toggle -->
-        		<a href="#" id="toggle-swipe" class="toggle-swipe button off">Swipe UI</a>
-				<style>
-					.button {
-					  font-size: 14px;
-					  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
-					  text-decoration: none;
-					  font-weight: bold;
-					  color: #383838;
-					  background-color: #fefafa;
-					  background-image: linear-gradient(#ffffff, #ede9e9);
-					  padding: 0.25em;
-					  border-radius: 0.5em;
-					  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-					}
-          .button:link,
-          .button:visited {
-            text-decoration: none;
-          }
-					.button:hover {
-					  background-color: #e4e1e1;
-					  background-image: linear-gradient(#fefafa, #cbc7c7);
-					}
-					.toggle-swipe {
-					  position: fixed; 
-					  top: 3.5em; 
-					  right: 1em;
-					  z-index: 98;
-					}
-					.toggle-swipe.on:after {
-					  content: ": on";
-					}
-					.toggle-swipe.off:after {
-					  content: ": off";
-					}
-				</style>
-				
-
-				<script>
-					if (!'classList' in document.createElement('span')) {
-  					document.getElementById('c-unsupported').classList.remove('hidden');
-            document.getElementById('execute').setAttribute('disabled', 'disabled');
-          } else {
-            document.getElementById('toggle-swipe').addEventListener('click', function(e) {
-              e.preventDefault();
-							document.getElementById('toggle-swipe').classList.toggle('on');
-							document.getElementById('toggle-swipe').classList.toggle('off');
-							document.getElementsByTagName("html")[0].classList.toggle('swipe');
-              pageCounter();
-
-            });
-         	}
-        </script>
-
-        		<!-- END swipe toggle -->
-
 
 
 <article class="chapter">
@@ -641,22 +596,23 @@
           loading="lazy"  >
 </figure>
 
+
+  <nav aria-labelledby="chapter-pagination">
+    <h2 id="chapter-pagination" class="visually-hidden">Previous/Next Chapter</h2>
+    <ul class="prev-next-chapters">
+      <li class="previous"><a href="/chapter/001/">&laquo; CHAPTER 1. Loomings.</a></li>
+      <li class="next"><a href="/chapter/003/">CHAPTER 3. The Spouter-Inn. &raquo;</a></li>
+    </ul>
+  </nav>
+
 </article>
-<nav aria-labelledby="chapter-pagination">
-  <h2 id="chapter-pagination" class="visually-hidden">Previous/Next Chapter</h2>
-  <ul class="prev-next-chapters">
-    <li class="previous"><a href="/chapter/001/">&laquo; CHAPTER 1. Loomings.</a></li>
-    <li class="next"><a href="/chapter/003/">CHAPTER 3. The Spouter-Inn. &raquo;</a></li>
-  </ul>
-</nav>
 <div class="pager-wrapper" id="pager_wrapper"></div>
 
     </main>
     <footer>
       <a href="#top">Top</a> | 
       <a href="/">Home</a> | 
-      <a href="https://github.com/jpamental/moby-dick">Source on GitHub</a> | 
-      <a href="https://www.gutenberg.org/files/2701/2701-h/2701-h.htm">Book text on Project Gutenberg</a>
+      <a href="/about">About this project</a> 
     </footer>
     <script src="/assets/js/scripts.js" async></script>
   </body>

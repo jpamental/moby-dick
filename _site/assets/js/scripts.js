@@ -17,16 +17,39 @@ wt.fix({
 });
 
 window.onload = function(){
-  //console.log('test onload');
+	pageCounter();
+	swipeCheck();
+}
+window.onresize = function(){
   pageCounter();
 }
 
-window.onresize = function(){
-  //console.log("test onresize");
-  //var style = getComputedStyle(document.body);
-  //var style_value = style.getPropertyValue('--p-vf-wdth-temp');
-  //console.log(style_value);  
-  pageCounter();
+document.getElementById('toggle-swipe').addEventListener('click', function(e) {
+	e.preventDefault();
+	if (document.getElementsByTagName("html")[0].classList.contains('swipe')) {
+		// set a cookie to save the setting
+		document.cookie = "swipe=off;max-age=31536000;path='/'";
+	} else {
+		// set a cookie to save the setting
+		document.cookie = "swipe=on;max-age=31536000;path='/'";
+	}
+	swipeCheck();
+	document.getElementById('toggle-swipe').blur();
+});
+
+function swipeCheck() {
+	if (document.cookie.split(';').some((item) => item.includes('swipe=on'))) {
+		document.getElementsByTagName("html")[0].classList.add('swipe');
+		document.getElementById('toggle-swipe').classList.add('on');
+		document.getElementById('toggle-swipe').classList.remove('off');
+		// set a cookie to save the setting
+		document.cookie = "swipe=on;max-age=31536000;path='/'";
+		pageCounter();
+	} else {
+		document.getElementsByTagName("html")[0].classList.remove('swipe');
+		document.getElementById('toggle-swipe').classList.remove('on');
+		document.getElementById('toggle-swipe').classList.add('off');
+	}
 }
 
 function pageCounter() {
@@ -36,7 +59,7 @@ function pageCounter() {
   document.body.style.setProperty('--page-count', pageCount);
 
 	var currentDiv = document.getElementById("pager_wrapper"); 
-	var children = currentDiv.getElementsByTagName('div');
+	// clear out existing child 'page' divs
 	currentDiv.innerHTML = "";
 
   // add the newly created element and its content into the DOM 
@@ -49,7 +72,6 @@ function pageCounter() {
     pageDiv.appendChild(newContent);
     pageDiv.classList.add('pager-wrapper--page');
     // set margin-left to keep divs in place
-    //pageDiv.style.marginLeft = 'calc( 101vw * '+ i + ' )';
     currentDiv.appendChild(pageDiv);
   }
 }
