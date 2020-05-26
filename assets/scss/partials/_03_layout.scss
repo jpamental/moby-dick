@@ -48,6 +48,9 @@ article {
       height: 85vh;
     }
   }
+  blockquote {
+    break-inside: avoid;
+  }
   .main-content {
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
@@ -76,6 +79,7 @@ article {
     }
   }
   figure {
+    break-inside: avoid;
     img {
       max-height: 70vh;
     }

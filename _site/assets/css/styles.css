@@ -1032,6 +1032,9 @@ article {
     .swipe article {
       height: 85vh; } }
 
+.swipe blockquote {
+  break-inside: avoid; }
+
 .swipe .main-content {
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
@@ -1055,11 +1058,12 @@ article {
     position: relative;
     z-index: 10; }
 
-.swipe figure img {
-  max-height: 70vh; }
-
-.swipe figure.wide img {
-  max-height: 50vh; }
+.swipe figure {
+  break-inside: avoid; }
+  .swipe figure img {
+    max-height: 70vh; }
+  .swipe figure.wide img {
+    max-height: 50vh; }
 
 .swipe body > footer {
   margin-top: 0;
