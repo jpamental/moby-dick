@@ -39,14 +39,18 @@ article {
     column-gap: 0;
     height: 80vh;
     margin-top: 0;
-    padding-top: 3rem;
+    padding-top: 4rem;
     padding-bottom: 1rem;
     position: relative;
     widows: 2;
     orphans: 2;
     @media screen and (min-width: $bp--medium) {
-      height: 85vh;
+      height: 87vh;
     }
+  }
+  h1 + p {
+    -webkit-column-break-before: always;
+    break-before: column;
   }
   blockquote {
     break-inside: avoid;
