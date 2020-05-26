@@ -1114,8 +1114,11 @@ article {
   .settings-trigger {
     display: block;
     height: 2rem;
-    min-width: 7rem;
+    min-width: 5rem;
     text-align: right; }
+    @media screen and (min-width: 42em) {
+      .settings-trigger {
+        min-width: 7rem; } }
     .settings-trigger:link, .settings-trigger:visited {
       text-decoration: none; }
     .settings-trigger:hover {
@@ -1192,11 +1195,13 @@ article {
   .toc-trigger {
     display: block;
     height: 2rem;
-    min-width: 15rem;
+    min-width: 11rem;
     text-align: right; }
     @media screen and (min-width: 42em) {
-      .toc-trigger::before {
-        content: "Table of "; } }
+      .toc-trigger {
+        min-width: 15rem; }
+        .toc-trigger::before {
+          content: "Table of "; } }
     .toc-trigger:link, .toc-trigger:visited {
       text-decoration: none; }
     .toc-trigger:hover {

@@ -64,8 +64,11 @@
   &-trigger {
     display: block;
     height: 2rem;
-    min-width: 7rem;
+    min-width: 5rem;
     text-align: right;
+    @media screen and (min-width: $bp--medium) {
+      min-width: 7rem;
+    }
     &:link,
     &:visited {
       text-decoration: none;
@@ -175,9 +178,10 @@
   &-trigger {
     display: block;
     height: 2rem;
-    min-width: 15rem;
+    min-width: 11rem;
     text-align: right;
     @media screen and (min-width: $bp--medium) {
+      min-width: 15rem;
       &::before {
         content: "Table of ";
       }
