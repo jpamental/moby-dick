@@ -37,16 +37,15 @@ article {
   article {
     columns: 95vw auto;
     column-gap: 0;
-    height: 90vh;
+    height: 85vh;
     margin-top: 0;
-    padding-top: 3em;
-    padding-bottom: 0;
+    padding-top: 3rem;
+    padding-bottom: 1rem;
     position: relative;
     widows: 2;
     orphans: 2;
   }
   .main-content {
-    height: 100vh;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     overflow-y: hidden;

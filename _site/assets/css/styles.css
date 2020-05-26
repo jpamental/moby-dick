@@ -1020,16 +1020,15 @@ article {
 .swipe article {
   columns: 95vw auto;
   column-gap: 0;
-  height: 90vh;
+  height: 85vh;
   margin-top: 0;
-  padding-top: 3em;
-  padding-bottom: 0;
+  padding-top: 3rem;
+  padding-bottom: 1rem;
   position: relative;
   widows: 2;
   orphans: 2; }
 
 .swipe .main-content {
-  height: 100vh;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
   overflow-y: hidden; }
@@ -1114,8 +1113,8 @@ article {
   .settings-trigger {
     display: block;
     height: 2rem;
-    min-width: 8rem;
-    text-align: left; }
+    min-width: 7rem;
+    text-align: right; }
     .settings-trigger:link, .settings-trigger:visited {
       text-decoration: none; }
     .settings-trigger:hover {

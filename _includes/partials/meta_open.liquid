@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -20,12 +20,21 @@
     <script type="text/javascript">
   		(function() {
   			document.documentElement.className += " wf-inactive"; 
+  			document.documentElement.className += " swipe"; 
 
         function cssPropertyValueSupported(prop, value) {
           var d = document.createElement('div');
           d.style[prop] = value;
           return d.style[prop] === value;
         }
+
+        // Check for Swipe UI preference
+				if (document.cookie.split(';').some((item) => item.includes('swipe=on'))) {
+					// set a cookie to save the setting
+					document.cookie = "swipe=on;max-age=31536000;path='/'";
+				} else {
+					document.getElementsByTagName("html")[0].classList.remove('swipe');
+				}
 
         // set initial var for support of variable fonts
         // starting with true since most browsers support them now
@@ -129,14 +138,14 @@
         <a href="{{ '/' | url }}" class="title-link">{{ metadata.title }}</a>
       </div>
       <div class="link-wrapper">
-				<div class="settings">
-					<a href="{{ '/' | url }}settings" class="settings-trigger">Settings</a>
-					{% include partials/settings.liquid %}
-				</div>
 				<nav class="toc">
 					<a href="{{ '/' | url }}contents" class="toc-trigger">Contents</a>
 					{% include partials/toc.liquid %}
 				</nav>
+				<div class="settings">
+					<a href="{{ '/' | url }}settings" class="settings-trigger">Settings</a>
+					{% include partials/settings.liquid %}
+				</div>
 			</div>
     </header>
     <main id="main_content" class="main-content">
