@@ -1021,13 +1021,16 @@ article {
 .swipe article {
   columns: 95vw auto;
   column-gap: 0;
-  height: 85vh;
+  height: 80vh;
   margin-top: 0;
   padding-top: 3rem;
   padding-bottom: 1rem;
   position: relative;
   widows: 2;
   orphans: 2; }
+  @media screen and (min-width: 42em) {
+    .swipe article {
+      height: 85vh; } }
 
 .swipe .main-content {
   overflow-x: scroll;
