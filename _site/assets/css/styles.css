@@ -1114,7 +1114,12 @@ article {
   display: inline-block;
   font-family: "Literata Caption", Georgia, "Times New Roman", Times, serif;
   font-family: var(--fonts-serif-static-caption);
-  position: relative; }
+  min-width: 5rem;
+  position: relative;
+  text-align: right; }
+  @media screen and (min-width: 42em) {
+    .settings {
+      min-width: 7rem; } }
   @supports (font-variation-settings: normal) {
     .settings {
       font-family: var(--fonts-serif);
@@ -1123,13 +1128,9 @@ article {
         font-family: var(--fonts-base-serif);
         font-size: 1.1em; } }
   .settings-trigger {
-    display: block;
+    display: inline-block;
     height: 2rem;
-    min-width: 5rem;
     text-align: right; }
-    @media screen and (min-width: 42em) {
-      .settings-trigger {
-        min-width: 7rem; } }
     .settings-trigger:link, .settings-trigger:visited {
       text-decoration: none; }
     .settings-trigger:hover {
@@ -1150,6 +1151,7 @@ article {
     overflow: hidden;
     padding: 0.25rem;
     position: absolute;
+    text-align: left;
     top: 2rem;
     transition: opacity 0.2s ease-in, height 0.1s ease-in;
     left: 0;

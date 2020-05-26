@@ -51,7 +51,12 @@
   display: inline-block;
   font-family: $fonts-serif-static-caption;
   font-family: var(--fonts-serif-static-caption);
+  min-width: 5rem;
   position: relative;
+  text-align: right;
+  @media screen and (min-width: $bp--medium) {
+    min-width: 7rem;
+  }
   @supports (font-variation-settings: normal) {
     font-family: var(--fonts-serif);
     font-variation-settings: 'opsz' var(--text-opsz);
@@ -62,13 +67,9 @@
   }
 
   &-trigger {
-    display: block;
+    display: inline-block;
     height: 2rem;
-    min-width: 5rem;
     text-align: right;
-    @media screen and (min-width: $bp--medium) {
-      min-width: 7rem;
-    }
     &:link,
     &:visited {
       text-decoration: none;
@@ -100,6 +101,7 @@
       overflow: hidden;
       padding: 0.25rem;
       position: absolute;
+      text-align: left;
       top: 2rem;
       transition: opacity 0.2s ease-in, height 0.1s ease-in;
       left: 0;
