@@ -49,8 +49,10 @@ article {
     }
   }
   h1 + p {
-    -webkit-column-break-before: always;
-    break-before: column;
+    @media screen and (min-width: $bp--medium) {
+      -webkit-column-break-before: always;
+      break-before: column;
+    }
   }
   blockquote {
     break-inside: avoid;
