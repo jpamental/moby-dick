@@ -24,31 +24,43 @@ window.onresize = function(){
   pageCounter();
 }
 
-document.getElementById('toggle-swipe').addEventListener('click', function(e) {
+const toggles = [].slice.call(document.querySelectorAll('.toggle-swipe'));
+toggles.forEach(toggle => toggle.addEventListener('click', function(e) {
 	e.preventDefault();
+	console.log('toggle found');
 	if (document.getElementsByTagName("html")[0].classList.contains('swipe')) {
-		// set a cookie to save the setting
-		document.cookie = "swipe=off;max-age=31536000;path='/'";
+		// set a cookie to expire the setting
+		document.cookie = "swipe=on; max-age=0; path=/; samesite=strict";
+		document.getElementsByTagName("html")[0].classList.remove('swipe');
+		swipeCheck();
 	} else {
 		// set a cookie to save the setting
-		document.cookie = "swipe=on;max-age=31536000;path='/'";
+		document.cookie = "swipe=on; max-age=31536000; path=/; samesite=strict";
+		document.getElementsByTagName("html")[0].classList.add('swipe');
+		swipeCheck();
 	}
-	swipeCheck();
-	document.getElementById('toggle-swipe').blur();
-});
+	document.getElementsByClassName('toggle-swipe')[0].blur();
+}));
 
 function swipeCheck() {
-	if (document.cookie.split(';').some((item) => item.includes('swipe=on'))) {
-		document.getElementsByTagName("html")[0].classList.add('swipe');
-		document.getElementById('toggle-swipe').classList.add('on');
-		document.getElementById('toggle-swipe').classList.remove('off');
+	console.log('doing swipeCheck');
+
+	var toggleArray = document.getElementsByClassName('toggle-swipe');
+
+	if (document.getElementsByTagName("html")[0].classList.contains('swipe')) {
+		for (let i = 0; i < toggleArray.length; i++) {
+			toggleArray[i].classList.add('on');
+			toggleArray[i].classList.remove('off');
+		}
 		// set a cookie to save the setting
-		document.cookie = "swipe=on;max-age=31536000;path='/'";
+		document.cookie = "swipe=on;max-age=31536000;path=/;samesite=strict";
 		pageCounter();
 	} else {
-		document.getElementsByTagName("html")[0].classList.remove('swipe');
-		document.getElementById('toggle-swipe').classList.remove('on');
-		document.getElementById('toggle-swipe').classList.add('off');
+		for (let i = 0; i < toggleArray.length; i++) {
+			toggleArray[i].classList.remove('on');
+			toggleArray[i].classList.add('off');
+		}
+		document.cookie = "swipe=on;max-age=0;path='/';samesite=strict";
 	}
 }
 

@@ -617,7 +617,8 @@ h1 {
       --font-lh-scaler-value: var(--h1-lh-scaler-value);
       line-height: var(--line-height); } }
 
-h1 + p {
+h1 + p,
+h1 + ul {
   margin-top: calc( var(--body-text-spacer) * 3); }
 
 h2 {

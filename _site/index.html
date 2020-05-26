@@ -31,7 +31,7 @@
         // Check for Swipe UI preference
 				if (document.cookie.split(';').some((item) => item.includes('swipe=on'))) {
 					// set a cookie to save the setting
-					document.cookie = "swipe=on;max-age=31536000;path='/'";
+					document.cookie = "swipe=on;max-age=31536000;path=/;samesite=strict";
 				} else {
 					document.getElementsByTagName("html")[0].classList.remove('swipe');
 				}
@@ -454,6 +454,7 @@
 
 
 
+<div class="pager-wrapper" id="pager_wrapper"></div>
 
     </main>
     <footer>
