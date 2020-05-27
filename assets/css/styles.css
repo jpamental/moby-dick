@@ -1016,7 +1016,7 @@ article {
   position: fixed;
   top: 0;
   width: 100vw;
-  z-index: 90; }
+  z-index: 95; }
 
 .swipe article {
   columns: 95vw auto;
@@ -1083,7 +1083,9 @@ article {
   border-bottom: solid 1px rgba(0, 0, 0, 0.25);
   display: grid;
   grid-template-columns: max-content 1fr;
-  padding: 0.5rem 2vw 0; }
+  padding: 0.5rem 2vw 0;
+  position: relative;
+  z-index: 98; }
   .top-bar *:last-child {
     justify-self: right; }
 
@@ -1110,40 +1112,33 @@ article {
 .link-wrapper {
   display: flex; }
 
-.settings {
+.page-mask {
+  background-color: rgba(0, 0, 0, 0);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: -1;
+  transition: all 0.1s ease-in; }
+  .page-mask.active {
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 90; }
+
+.dd-menu {
   --text-opsz: 10;
   display: inline-block;
   font-family: "Literata Caption", Georgia, "Times New Roman", Times, serif;
   font-family: var(--fonts-serif-static-caption);
-  min-width: 5rem;
-  position: relative;
-  text-align: right; }
-  @media screen and (min-width: 42em) {
-    .settings {
-      min-width: 7rem; } }
+  position: relative; }
   @supports (font-variation-settings: normal) {
-    .settings {
+    .dd-menu {
       font-family: var(--fonts-serif);
       font-variation-settings: "opsz" var(--text-opsz); }
-      .wf-inactive .settings {
+      .wf-inactive .dd-menu {
         font-family: var(--fonts-base-serif);
         font-size: 1.1em; } }
-  .settings-trigger {
-    display: inline-block;
-    height: 2rem;
-    text-align: right; }
-    .settings-trigger:link, .settings-trigger:visited {
-      text-decoration: none; }
-    .settings-trigger:hover {
-      text-decoration: underline; }
-    .settings-trigger:focus {
-      text-decoration: underline; }
-    .settings-trigger:active {
-      text-decoration: underline; }
-    @media (pointer: coarse) {
-      .settings-trigger:hover {
-        text-decoration: unset; } }
-  .settings .settings-menu {
+  .dd-menu .menu {
     font-size: 0.92rem;
     height: 1px;
     list-style: none;
@@ -1157,34 +1152,48 @@ article {
     transition: opacity 0.2s ease-in, height 0.1s ease-in;
     left: 0;
     width: 100%; }
-    .settings .settings-menu li {
+    .dd-menu .menu li {
       border-bottom: solid 1px rgba(0, 0, 0, 0.25); }
-      .settings .settings-menu li:last-child {
+      .dd-menu .menu li:last-child {
         border-bottom: none; }
-      .settings .settings-menu li.active {
+      .dd-menu .menu li.active {
         padding: 0.5em 0.15em; }
-    .settings .settings-menu a {
+    .dd-menu .menu a {
       display: block;
       font-size: 0.875rem;
       padding: 0.5em 0.15em; }
-      .wf-inactive .settings .settings-menu a {
+      .wf-inactive .dd-menu .menu a {
         font-size: 0.9rem;
         padding: 0.475em 0.15em; }
-      .settings .settings-menu a:link {
+      .dd-menu .menu a:link {
         text-decoration: none; }
-      .settings .settings-menu a:visited {
+      .dd-menu .menu a:visited {
         text-decoration: none; }
-      .settings .settings-menu a:hover {
+      .dd-menu .menu a:hover {
         background-color: rgba(0, 0, 0, 0.05);
         text-decoration: none; }
-      .settings .settings-menu a:focus {
+      .dd-menu .menu a:focus {
         background-color: rgba(0, 0, 0, 0.05);
         text-decoration: none; }
-      .settings .settings-menu a:active {
+      .dd-menu .menu a:active {
         background-color: rgba(0, 0, 0, 0.05);
         text-decoration: none; }
-  .settings:focus-within .settings-menu,
-  .settings:hover .settings-menu {
+  .dd-menu-trigger {
+    display: inline-block;
+    height: 2rem;
+    text-align: right; }
+    .dd-menu-trigger:link, .dd-menu-trigger:visited {
+      text-decoration: none; }
+    .dd-menu-trigger:hover {
+      text-decoration: underline; }
+    .dd-menu-trigger:focus {
+      text-decoration: underline; }
+    .dd-menu-trigger:active {
+      text-decoration: underline; }
+    @media (pointer: coarse) {
+      .dd-menu-trigger:hover {
+        text-decoration: unset; } }
+  .dd-menu:focus-within .menu, .dd-menu:hover .menu {
     background-color: #f0f0f0;
     background-color: var(--color-background-accent);
     border-left: solid 1px rgba(0, 0, 0, 0.25);
@@ -1194,88 +1203,25 @@ article {
     overflow-y: scroll;
     z-index: 99; }
 
-.toc {
-  --text-opsz: 10;
-  font-family: "Literata Caption", Georgia, "Times New Roman", Times, serif;
-  font-family: var(--fonts-serif-static-caption);
-  position: relative; }
-  @supports (font-variation-settings: normal) {
-    .toc {
-      font-family: var(--fonts-serif);
-      font-variation-settings: "opsz" var(--text-opsz); }
-      .wf-inactive .toc {
-        font-family: var(--fonts-base-serif);
-        font-size: 1.1em; } }
-  .toc-trigger {
-    display: block;
-    height: 2rem;
-    min-width: 11rem;
-    text-align: right; }
-    @media screen and (min-width: 42em) {
-      .toc-trigger {
-        min-width: 15rem; }
-        .toc-trigger::before {
-          content: "Table of "; } }
-    .toc-trigger:link, .toc-trigger:visited {
-      text-decoration: none; }
-    .toc-trigger:hover {
-      text-decoration: underline; }
-    .toc-trigger:focus {
-      text-decoration: underline; }
-    .toc-trigger:active {
-      text-decoration: underline; }
-    @media (pointer: coarse) {
-      .toc-trigger:hover {
-        text-decoration: unset; } }
-  .toc .toc-menu {
-    font-size: 0.92rem;
-    height: 1px;
-    list-style: none;
-    margin: 0;
-    opacity: 0;
-    overflow: hidden;
-    padding: 0.25rem;
-    position: absolute;
-    top: 2rem;
-    transition: opacity 0.2s ease-in, height 0.1s ease-in;
-    left: 0; }
-    .toc .toc-menu li {
-      border-bottom: solid 1px rgba(0, 0, 0, 0.25); }
-      .toc .toc-menu li:last-child {
-        border-bottom: none; }
-      .toc .toc-menu li.active {
-        padding: 0.5em 0.15em; }
-    .toc .toc-menu a {
-      display: block;
-      font-size: 0.875rem;
-      padding: 0.5em 0.15em; }
-      .wf-inactive .toc .toc-menu a {
-        font-size: 0.9rem;
-        padding: 0.475em 0.15em; }
-      .toc .toc-menu a:link {
-        text-decoration: none; }
-      .toc .toc-menu a:visited {
-        text-decoration: none; }
-      .toc .toc-menu a:hover {
-        background-color: rgba(0, 0, 0, 0.05);
-        text-decoration: none; }
-      .toc .toc-menu a:focus {
-        background-color: rgba(0, 0, 0, 0.05);
-        text-decoration: none; }
-      .toc .toc-menu a:active {
-        background-color: rgba(0, 0, 0, 0.05);
-        text-decoration: none; }
-  .toc:focus-within .toc-menu,
-  .toc:hover .toc-menu {
-    background-color: #f0f0f0;
-    background-color: var(--color-background-accent);
-    border-left: solid 1px rgba(0, 0, 0, 0.25);
-    box-shadow: 0.1em 0.1em 0.2em #eaeaea;
-    height: 35vh;
-    min-height: 10rem;
-    opacity: 1;
-    overflow-y: scroll;
-    z-index: 99; }
+.settings {
+  min-width: 5rem;
+  text-align: right; }
+  @media screen and (min-width: 42em) {
+    .settings {
+      min-width: 7rem; } }
+
+.toc .dd-menu-trigger {
+  min-width: 11rem;
+  text-align: right; }
+  @media screen and (min-width: 42em) {
+    .toc .dd-menu-trigger {
+      min-width: 15rem; }
+      .toc .dd-menu-trigger::before {
+        content: "Table of "; } }
+
+.toc:focus-within .menu, .toc:hover .menu {
+  height: 35vh;
+  min-height: 10rem; }
 
 /* Settings */
 .toggle-swipe.on:after {

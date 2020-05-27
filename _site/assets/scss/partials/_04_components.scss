@@ -7,6 +7,8 @@
   display: grid;
   grid-template-columns: max-content 1fr;
   padding: 0.5rem 2vw 0;
+  position: relative;
+  z-index: 98;
   *:last-child {
     justify-self: right;
   }
@@ -46,17 +48,27 @@
   display: flex;
 }
 
-.settings {
+.page-mask {
+  background-color: rgba(0,0,0,0);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: -1;
+  transition: all 0.1s ease-in;
+  &.active {
+    background-color: rgba(0,0,0,.75);
+    z-index: 90;
+  }
+}
+
+.dd-menu {
   --text-opsz: 10;
   display: inline-block;
   font-family: $fonts-serif-static-caption;
   font-family: var(--fonts-serif-static-caption);
-  min-width: 5rem;
   position: relative;
-  text-align: right;
-  @media screen and (min-width: $bp--medium) {
-    min-width: 7rem;
-  }
   @supports (font-variation-settings: normal) {
     font-family: var(--fonts-serif);
     font-variation-settings: 'opsz' var(--text-opsz);
@@ -65,7 +77,63 @@
       font-size: 1.1em;
     }
   }
+  .menu {
+    font-size: 0.92rem;
+    height: 1px;
+    list-style: none;
+    margin: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0.25rem;
+    position: absolute;
+    text-align: left;
+    top: 2rem;
+    transition: opacity 0.2s ease-in, height 0.1s ease-in;
+    left: 0;
+    width: 100%;
+    li {
+      border-bottom: solid 1px rgba(0,0,0,.25);
+      &:last-child {
+        border-bottom: none;
+      }
+      &.active {
+        padding: 0.5em 0.15em;
+      }
+    }
 
+    a {
+      display: block;
+      font-size: 0.875rem;
+      padding: 0.5em 0.15em;
+      .wf-inactive & {
+        font-size: 0.9rem;
+        padding: 0.475em 0.15em;
+      }
+
+      &:link {
+        text-decoration: none;
+      }
+      
+      &:visited {
+        text-decoration: none;
+      }
+      
+      &:hover {
+        background-color: rgba(0,0,0,.05);
+        text-decoration: none;
+      }
+      
+      &:focus {
+        background-color: rgba(0,0,0,.05);
+        text-decoration: none;
+      }
+      
+      &:active {
+        background-color: rgba(0,0,0,.05);
+        text-decoration: none;
+      }
+    }
+  }
   &-trigger {
     display: inline-block;
     height: 2rem;
@@ -89,97 +157,31 @@
       }
     }
   }
-
-  &-menu {
-
-    .settings & {
-      font-size: 0.92rem;
-      height: 1px;
-      list-style: none;
-      margin: 0;
-      opacity: 0;
-      overflow: hidden;
-      padding: 0.25rem;
-      position: absolute;
-      text-align: left;
-      top: 2rem;
-      transition: opacity 0.2s ease-in, height 0.1s ease-in;
-      left: 0;
-      width: 100%;
-      li {
-        border-bottom: solid 1px rgba(0,0,0,.25);
-        &:last-child {
-          border-bottom: none;
-        }
-        &.active {
-          padding: 0.5em 0.15em;
-        }
-      }
-  
-      a {
-        display: block;
-        font-size: 0.875rem;
-        padding: 0.5em 0.15em;
-        .wf-inactive & {
-          font-size: 0.9rem;
-          padding: 0.475em 0.15em;
-        }
-  
-        &:link {
-          text-decoration: none;
-        }
-        
-        &:visited {
-          text-decoration: none;
-        }
-        
-        &:hover {
-          background-color: rgba(0,0,0,.05);
-          text-decoration: none;
-        }
-        
-        &:focus {
-          background-color: rgba(0,0,0,.05);
-          text-decoration: none;
-        }
-        
-        &:active {
-          background-color: rgba(0,0,0,.05);
-          text-decoration: none;
-        }
-      }
-    }
-    .settings:focus-within &,
-    .settings:hover & {
-        background-color: $color-background-accent;
-        background-color: var(--color-background-accent);
-        border-left: solid 1px rgba(0,0,0,.25);
-        box-shadow: 0.1em 0.1em 0.2em #eaeaea;
-        min-height: 8rem;
-        opacity: 1;
-        overflow-y: scroll;
-        z-index: 99;
+  &:focus-within,
+  &:hover {
+    .menu {
+      background-color: $color-background-accent;
+      background-color: var(--color-background-accent);
+      border-left: solid 1px rgba(0,0,0,.25);
+      box-shadow: 0.1em 0.1em 0.2em #eaeaea;
+      min-height: 8rem;
+      opacity: 1;
+      overflow-y: scroll;
+      z-index: 99;
     }
   }
 }
 
-.toc {
-  --text-opsz: 10;
-  font-family: $fonts-serif-static-caption;
-  font-family: var(--fonts-serif-static-caption);
-  position: relative;
-  @supports (font-variation-settings: normal) {
-    font-family: var(--fonts-serif);
-    font-variation-settings: 'opsz' var(--text-opsz);
-    .wf-inactive & {
-      font-family: var(--fonts-base-serif);
-      font-size: 1.1em;
-    }
+.settings {
+  min-width: 5rem;
+  text-align: right;
+  @media screen and (min-width: $bp--medium) {
+    min-width: 7rem;
   }
+}
 
-  &-trigger {
-    display: block;
-    height: 2rem;
+.toc {
+  .dd-menu-trigger {
     min-width: 11rem;
     text-align: right;
     @media screen and (min-width: $bp--medium) {
@@ -188,93 +190,12 @@
         content: "Table of ";
       }
     }
-    &:link,
-    &:visited {
-      text-decoration: none;
-    }
-    &:hover {
-      text-decoration: underline;
-    }
-    &:focus {
-      text-decoration: underline;
-    }
-    &:active {
-      text-decoration: underline;
-    }
-    @media (pointer: coarse) {
-      &:hover {
-        text-decoration: unset;
-      }
-    }
   }
-
-  &-menu {
-    .toc & {
-      font-size: 0.92rem;
-      height: 1px;
-      list-style: none;
-      margin: 0;
-      opacity: 0;
-      overflow: hidden;
-      padding: 0.25rem;
-      position: absolute;
-      top: 2rem;
-      transition: opacity 0.2s ease-in, height 0.1s ease-in;
-      left: 0;
-      li {
-        border-bottom: solid 1px rgba(0,0,0,.25);
-        &:last-child {
-          border-bottom: none;
-        }
-        &.active {
-          padding: 0.5em 0.15em;
-        }
-      }
-  
-      a {
-        display: block;
-        font-size: 0.875rem;
-        padding: 0.5em 0.15em;
-        .wf-inactive & {
-          font-size: 0.9rem;
-          padding: 0.475em 0.15em;
-        }
-  
-        &:link {
-          text-decoration: none;
-        }
-        
-        &:visited {
-          text-decoration: none;
-        }
-        
-        &:hover {
-          background-color: rgba(0,0,0,.05);
-          text-decoration: none;
-        }
-        
-        &:focus {
-          background-color: rgba(0,0,0,.05);
-          text-decoration: none;
-        }
-        
-        &:active {
-          background-color: rgba(0,0,0,.05);
-          text-decoration: none;
-        }
-      }
-    }
-    .toc:focus-within &,
-    .toc:hover & {
-        background-color: $color-background-accent;
-        background-color: var(--color-background-accent);
-        border-left: solid 1px rgba(0,0,0,.25);
-        box-shadow: 0.1em 0.1em 0.2em #eaeaea;
-        height: 35vh;
-        min-height: 10rem;
-        opacity: 1;
-        overflow-y: scroll;
-        z-index: 99;
+  &:focus-within,
+  &:hover {
+    .menu {
+      height: 35vh;
+      min-height: 10rem;
     }
   }
 }

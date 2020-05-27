@@ -22,12 +22,6 @@
   			document.documentElement.className += " wf-inactive"; 
   			document.documentElement.className += " swipe"; 
 
-        function cssPropertyValueSupported(prop, value) {
-          var d = document.createElement('div');
-          d.style[prop] = value;
-          return d.style[prop] === value;
-        }
-
         // Check for Swipe UI preference
 				if (document.cookie.split(';').some((item) => item.includes('swipe=on'))) {
 					// set a cookie to save the setting
@@ -43,7 +37,7 @@
         // Check for browser support of variable fonts
         var vfSupport = "CSS" in window && "supports" in CSS && CSS.supports("(font-variation-settings: normal)");
         // should return true if the browser supports variable fonts
-				console.log('vfSupport: '+vfSupport);
+				//console.log('vfSupport: '+vfSupport);
         
   			// Optimization for Repeat Views
   			if( sessionStorage.foutFontsLoaded ) {
@@ -138,9 +132,9 @@
         <a href="/" class="title-link">Moby Dick</a>
       </div>
       <div class="link-wrapper">
-				<nav class="toc">
-					<a href="/contents" class="toc-trigger">Contents</a>
-					<ul class="toc-menu"><li>
+				<nav class="toc dd-menu">
+					<a href="/contents" class="dd-menu-trigger" id="toc_trigger">Contents</a>
+					<ul class="menu"><li>
       <a href="/chapter/000a/">Etymology.</a>
     </li><li class="active">
       Extracts.
@@ -419,9 +413,9 @@
     </li></ul>
 
 				</nav>
-				<div class="settings">
-					<a href="/settings" class="settings-trigger">Settings</a>
-					<ul class="settings-menu">
+				<div class="settings dd-menu">
+					<a href="/settings" class="dd-menu-trigger" id="settings_trigger">Settings</a>
+					<ul class="menu">
     <li>
       <a href="#" id="toggle-swipe" class="toggle-swipe off">Swipe UI</a>
     </li>

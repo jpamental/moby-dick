@@ -24,6 +24,44 @@ window.onresize = function(){
   pageCounter();
 }
 
+const settingsMenuToggle = document.getElementById('settings_trigger');
+const tocMenuToggle = document.getElementById('toc_trigger');
+
+const pageMask = document.createElement("div");
+let divContent = document.createTextNode(" "); 
+pageMask.appendChild(divContent);
+pageMask.id = 'page_mask';
+pageMask.classList.add('page-mask');
+document.getElementsByTagName("body")[0].appendChild(pageMask);
+
+if (pageMask) {
+	document.getElementsByTagName("html")[0].classList.add('touch-nav');
+
+	pageMask.addEventListener('click', function(e) {
+		e.preventDefault();
+		pageMask.classList.remove('active');
+		const menus = [].slice.call(document.querySelectorAll('.menu'));
+		for (let i = 0; i < menus.length; i++) {
+			menus[i].classList.remove('open');
+		}
+	});
+}
+
+
+
+const ddMenuTriggers = [].slice.call(document.querySelectorAll('.dd-menu-trigger'));
+ddMenuTriggers.forEach(ddMenuTrigger => ddMenuTrigger.addEventListener('click', function(e) {
+	e.preventDefault();
+	if (ddMenuTrigger.parentElement.classList.contains('open')) {
+		ddMenuTrigger.parentElement.classList.remove('open');
+		pageMask.classList.remove('active');
+	} else {
+		ddMenuTrigger.parentElement.classList.add('open');
+		pageMask.classList.add('active');
+	}
+}));
+
+
 const toggles = [].slice.call(document.querySelectorAll('.toggle-swipe'));
 toggles.forEach(toggle => toggle.addEventListener('click', function(e) {
 	e.preventDefault();
@@ -40,10 +78,10 @@ toggles.forEach(toggle => toggle.addEventListener('click', function(e) {
 		swipeCheck();
 	}
 	document.getElementsByClassName('toggle-swipe')[0].blur();
+	pageMask.classList.remove('active');
 }));
 
 function swipeCheck() {
-	console.log('doing swipeCheck');
 
 	var toggleArray = document.getElementsByClassName('toggle-swipe');
 
