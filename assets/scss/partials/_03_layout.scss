@@ -62,6 +62,11 @@ article {
     scroll-snap-type: x mandatory;
     overflow-y: hidden;
   }
+  nav[aria-labelledby="chapter-pagination"] {
+    clear: both;
+    float: right;
+    width: var(--content-width);
+}
   .prev-next-chapters {
     margin-left: 0;
   }
@@ -86,6 +91,7 @@ article {
   }
   figure {
     break-inside: avoid;
+    float: right;
     img {
       max-height: 70vh;
     }

@@ -1045,6 +1045,11 @@ article {
   scroll-snap-type: x mandatory;
   overflow-y: hidden; }
 
+.swipe nav[aria-labelledby="chapter-pagination"] {
+  clear: both;
+  float: right;
+  width: var(--content-width); }
+
 .swipe .prev-next-chapters {
   margin-left: 0; }
 
@@ -1064,7 +1069,8 @@ article {
     z-index: 10; }
 
 .swipe figure {
-  break-inside: avoid; }
+  break-inside: avoid;
+  float: right; }
   .swipe figure img {
     max-height: 70vh; }
   .swipe figure.wide img {
