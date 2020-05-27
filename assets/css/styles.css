@@ -1179,7 +1179,7 @@ article {
         background-color: rgba(0, 0, 0, 0.05);
         text-decoration: none; }
   .dd-menu-trigger {
-    display: inline-block;
+    display: block;
     height: 2rem;
     text-align: right; }
     .dd-menu-trigger:link, .dd-menu-trigger:visited {

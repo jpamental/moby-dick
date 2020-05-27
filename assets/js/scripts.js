@@ -65,7 +65,6 @@ ddMenuTriggers.forEach(ddMenuTrigger => ddMenuTrigger.addEventListener('click', 
 const toggles = [].slice.call(document.querySelectorAll('.toggle-swipe'));
 toggles.forEach(toggle => toggle.addEventListener('click', function(e) {
 	e.preventDefault();
-	console.log('toggle found');
 	if (document.getElementsByTagName("html")[0].classList.contains('swipe')) {
 		// set a cookie to expire the setting
 		document.cookie = "swipe=on; max-age=0; path=/; samesite=strict";
@@ -78,6 +77,8 @@ toggles.forEach(toggle => toggle.addEventListener('click', function(e) {
 		swipeCheck();
 	}
 	document.getElementsByClassName('toggle-swipe')[0].blur();
+	document.getElementById('settings_trigger').blur();
+	document.getElementById('settings_trigger').parentElement.blur();
 	pageMask.classList.remove('active');
 }));
 
