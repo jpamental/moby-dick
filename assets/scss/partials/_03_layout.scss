@@ -54,22 +54,22 @@ article {
       break-before: column;
     }
   }
+
   blockquote {
     break-inside: avoid;
   }
+
   .main-content {
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     overflow-y: hidden;
   }
-  nav[aria-labelledby="chapter-pagination"] {
-    clear: both;
-    float: right;
-    width: var(--content-width);
-}
+
   .prev-next-chapters {
     margin-left: 0;
   }
+
+
   .pager-wrapper {
     display: flex;
     width: calc( 100vw * var(--page-count) );
@@ -91,7 +91,6 @@ article {
   }
   figure {
     break-inside: avoid;
-    float: right;
     img {
       max-height: 70vh;
     }
