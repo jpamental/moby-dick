@@ -24,6 +24,7 @@ window.onresize = function(){
   pageCounter();
 }
 
+const menus = [].slice.call(document.querySelectorAll('.dd-menu'));
 const settingsMenuToggle = document.getElementById('settings_trigger');
 const tocMenuToggle = document.getElementById('toc_trigger');
 
@@ -40,7 +41,6 @@ if (pageMask) {
 	pageMask.addEventListener('click', function(e) {
 		e.preventDefault();
 		pageMask.classList.remove('active');
-		const menus = [].slice.call(document.querySelectorAll('.menu'));
 		for (let i = 0; i < menus.length; i++) {
 			menus[i].classList.remove('open');
 		}
@@ -56,6 +56,10 @@ ddMenuTriggers.forEach(ddMenuTrigger => ddMenuTrigger.addEventListener('click', 
 		ddMenuTrigger.parentElement.classList.remove('open');
 		pageMask.classList.remove('active');
 	} else {
+		// reset open menus
+		for (let i = 0; i < menus.length; i++) {
+			menus[i].classList.remove('open');
+		}
 		ddMenuTrigger.parentElement.classList.add('open');
 		pageMask.classList.add('active');
 	}
@@ -79,6 +83,10 @@ toggles.forEach(toggle => toggle.addEventListener('click', function(e) {
 	document.getElementsByClassName('toggle-swipe')[0].blur();
 	document.getElementById('settings_trigger').blur();
 	document.getElementById('settings_trigger').parentElement.blur();
+	// reset open menus
+	for (let i = 0; i < menus.length; i++) {
+		menus[i].classList.remove('open');
+	}
 	pageMask.classList.remove('active');
 }));
 

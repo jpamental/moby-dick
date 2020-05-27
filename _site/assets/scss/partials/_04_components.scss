@@ -118,7 +118,7 @@
         text-decoration: none;
       }
       
-      &:hover {
+      html:not(.touch-nav) &:hover {
         background-color: rgba(0,0,0,.05);
         text-decoration: none;
       }
@@ -157,8 +157,9 @@
       }
     }
   }
-  &:focus-within,
-  &:hover {
+  html:not(.touch-nav) &:focus-within,
+  html:not(.touch-nav) &:hover,
+  &.open {
     .menu {
       background-color: $color-background-accent;
       background-color: var(--color-background-accent);

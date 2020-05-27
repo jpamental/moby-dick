@@ -1169,7 +1169,7 @@ article {
         text-decoration: none; }
       .dd-menu .menu a:visited {
         text-decoration: none; }
-      .dd-menu .menu a:hover {
+      html:not(.touch-nav) .dd-menu .menu a:hover {
         background-color: rgba(0, 0, 0, 0.05);
         text-decoration: none; }
       .dd-menu .menu a:focus {
@@ -1193,7 +1193,8 @@ article {
     @media (pointer: coarse) {
       .dd-menu-trigger:hover {
         text-decoration: unset; } }
-  .dd-menu:focus-within .menu, .dd-menu:hover .menu {
+  html:not(.touch-nav) .dd-menu:focus-within .menu,
+  html:not(.touch-nav) .dd-menu:hover .menu, .dd-menu.open .menu {
     background-color: #f0f0f0;
     background-color: var(--color-background-accent);
     border-left: solid 1px rgba(0, 0, 0, 0.25);
