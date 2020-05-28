@@ -1018,6 +1018,11 @@ article {
   width: 100vw;
   z-index: 95; }
 
+.swipe .main-content {
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  overflow-y: hidden; }
+
 .swipe article {
   columns: 100vw auto;
   column-gap: 0;
@@ -1034,11 +1039,6 @@ article {
 
 .swipe blockquote {
   break-inside: avoid; }
-
-.swipe .main-content {
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  overflow-y: hidden; }
 
 .swipe .prev-next-chapters {
   margin-left: 0; }
