@@ -135,6 +135,7 @@ function pageCounter() {
   }
 }
 
+// useful for adding paging buttons in the future
 function offset(el) {
     var rect = el.getBoundingClientRect(),
     scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
