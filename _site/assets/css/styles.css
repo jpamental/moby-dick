@@ -1032,11 +1032,6 @@ article {
     .swipe article {
       height: 87vh; } }
 
-@media screen and (min-width: 42em) {
-  .swipe h1 + p {
-    -webkit-column-break-before: always;
-    break-before: column; } }
-
 .swipe blockquote {
   break-inside: avoid; }
 

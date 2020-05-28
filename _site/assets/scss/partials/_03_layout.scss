@@ -48,12 +48,6 @@ article {
       height: 87vh;
     }
   }
-  h1 + p {
-    @media screen and (min-width: $bp--medium) {
-      -webkit-column-break-before: always;
-      break-before: column;
-    }
-  }
 
   blockquote {
     break-inside: avoid;
