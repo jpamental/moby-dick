@@ -1,0 +1,55 @@
+        		<!-- BEGIN swipe toggle -->
+        		<a href="#" id="toggle-swipe" class="toggle-swipe button off">Swipe UI</a>
+				<style>
+					.button {
+					  font-size: 14px;
+					  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+					  text-decoration: none;
+					  font-weight: bold;
+					  color: #383838;
+					  background-color: #fefafa;
+					  background-image: linear-gradient(#ffffff, #ede9e9);
+					  padding: 0.25em;
+					  border-radius: 0.5em;
+					  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+					}
+          .button:link,
+          .button:visited {
+            text-decoration: none;
+          }
+					.button:hover {
+					  background-color: #e4e1e1;
+					  background-image: linear-gradient(#fefafa, #cbc7c7);
+					}
+					.toggle-swipe {
+					  position: fixed; 
+					  top: 3.5em; 
+					  right: 1em;
+					  z-index: 98;
+					}
+					.toggle-swipe.on:after {
+					  content: ": on";
+					}
+					.toggle-swipe.off:after {
+					  content: ": off";
+					}
+				</style>
+				
+
+				<script>
+					if (!'classList' in document.createElement('span')) {
+  					document.getElementById('c-unsupported').classList.remove('hidden');
+            document.getElementById('execute').setAttribute('disabled', 'disabled');
+          } else {
+            document.getElementById('toggle-swipe').addEventListener('click', function(e) {
+              e.preventDefault();
+							document.getElementById('toggle-swipe').classList.toggle('on');
+							document.getElementById('toggle-swipe').classList.toggle('off');
+							document.getElementsByTagName("html")[0].classList.toggle('swipe');
+              pageCounter();
+
+            });
+         	}
+        </script>
+
+        		<!-- END swipe toggle -->

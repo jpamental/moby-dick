@@ -20,12 +20,15 @@
     <script type="text/javascript">
   		(function() {
   			document.documentElement.className += " wf-inactive"; 
+  			document.documentElement.className += " swipe"; 
 
-        function cssPropertyValueSupported(prop, value) {
-          var d = document.createElement('div');
-          d.style[prop] = value;
-          return d.style[prop] === value;
-        }
+        // Check for Swipe UI preference
+				if (document.cookie.split(';').some((item) => item.includes('swipe=on'))) {
+					// set a cookie to save the setting
+					document.cookie = "swipe=on;max-age=31536000;path=/;samesite=strict";
+				} else {
+					document.getElementsByTagName("html")[0].classList.remove('swipe');
+				}
 
         // set initial var for support of variable fonts
         // starting with true since most browsers support them now
@@ -34,7 +37,7 @@
         // Check for browser support of variable fonts
         var vfSupport = "CSS" in window && "supports" in CSS && CSS.supports("(font-variation-settings: normal)");
         // should return true if the browser supports variable fonts
-				console.log('vfSupport: '+vfSupport);
+				//console.log('vfSupport: '+vfSupport);
         
   			// Optimization for Repeat Views
   			if( sessionStorage.foutFontsLoaded ) {
@@ -122,16 +125,21 @@
   	</script>
 
   </head>
-  <body>
+  <body class="">
     <header id="top" class="top-bar">
       <a href="#main_content" class="visually-hidden">Jump to main <span role="presentation">content</span></a>
       <div>
         <a href="{{ '/' | url }}" class="title-link">{{ metadata.title }}</a>
       </div>
-      <nav class="toc">
-        <a href="{{ '/' | url }}contents" class="toc-trigger">Table of Contents</a>
-        {% include partials/toc.liquid %}
-      </nav>
+      <div class="link-wrapper">
+				<nav class="toc dd-menu">
+					<a href="{{ '/' | url }}contents" class="dd-menu-trigger" id="toc_trigger">Contents</a>
+					{% include partials/toc.liquid %}
+				</nav>
+				<div class="settings dd-menu">
+					<a href="{{ '/' | url }}settings" class="dd-menu-trigger" id="settings_trigger">Settings</a>
+					{% include partials/settings.liquid %}
+				</div>
+			</div>
     </header>
-    <main id="main_content">
-        {% include partials/webfont_toggle.liquid %}
+    <main id="main_content" class="main-content">

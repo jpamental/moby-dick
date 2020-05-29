@@ -20,12 +20,15 @@
     <script type="text/javascript">
   		(function() {
   			document.documentElement.className += " wf-inactive"; 
+  			document.documentElement.className += " swipe"; 
 
-        function cssPropertyValueSupported(prop, value) {
-          var d = document.createElement('div');
-          d.style[prop] = value;
-          return d.style[prop] === value;
-        }
+        // Check for Swipe UI preference
+				if (document.cookie.split(';').some((item) => item.includes('swipe=on'))) {
+					// set a cookie to save the setting
+					document.cookie = "swipe=on;max-age=31536000;path=/;samesite=strict";
+				} else {
+					document.getElementsByTagName("html")[0].classList.remove('swipe');
+				}
 
         // set initial var for support of variable fonts
         // starting with true since most browsers support them now
@@ -34,7 +37,7 @@
         // Check for browser support of variable fonts
         var vfSupport = "CSS" in window && "supports" in CSS && CSS.supports("(font-variation-settings: normal)");
         // should return true if the browser supports variable fonts
-				console.log('vfSupport: '+vfSupport);
+				//console.log('vfSupport: '+vfSupport);
         
   			// Optimization for Repeat Views
   			if( sessionStorage.foutFontsLoaded ) {
@@ -122,15 +125,16 @@
   	</script>
 
   </head>
-  <body>
+  <body class="">
     <header id="top" class="top-bar">
       <a href="#main_content" class="visually-hidden">Jump to main <span role="presentation">content</span></a>
       <div>
         <a href="/" class="title-link">Moby Dick</a>
       </div>
-      <nav class="toc">
-        <a href="/contents" class="toc-trigger">Table of Contents</a>
-        <ul class="toc-menu"><li>
+      <div class="link-wrapper">
+				<nav class="toc dd-menu">
+					<a href="/contents" class="dd-menu-trigger" id="toc_trigger">Contents</a>
+					<ul class="menu"><li>
       <a href="/chapter/000a/">Etymology.</a>
     </li><li>
       <a href="/chapter/000b/">Extracts.</a>
@@ -408,64 +412,19 @@
       <a href="/chapter/epilogue/">Epilogue</a>
     </li></ul>
 
-      </nav>
+				</nav>
+				<div class="settings dd-menu">
+					<a href="/settings" class="dd-menu-trigger" id="settings_trigger">Settings</a>
+					<ul class="menu">
+    <li>
+      <a href="#" id="toggle-swipe" class="toggle-swipe off">Swipe UI</a>
+    </li>
+</ul>
+
+				</div>
+			</div>
     </header>
-    <main id="main_content">
-                		<!-- BEGIN web font toggle -->
-        		<a href="#" id="toggle-fonts" class="toggle-fonts button on">Web Fonts</a>
-				<style>
-					.button {
-					  font-size: 14px;
-					  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
-					  text-decoration: none;
-					  font-weight: bold;
-					  color: #383838;
-					  background-color: #fefafa;
-					  background-image: linear-gradient(#ffffff, #ede9e9);
-					  padding: 0.25em;
-					  border-radius: 0.5em;
-					  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-					}
-          .button:link,
-          .button:visited {
-            text-decoration: none;
-          }
-					.button:hover {
-					  background-color: #e4e1e1;
-					  background-image: linear-gradient(#fefafa, #cbc7c7);
-					}
-					.toggle-fonts {
-					  position: fixed; 
-					  top: 3.5em; 
-					  right: 1em;
-					  z-index: 98;
-					}
-					.toggle-fonts.on:after {
-					  content: ": on";
-					}
-					.toggle-fonts.off:after {
-					  content: ": off";
-					}
-				</style>
-				
-
-				<script>
-					if (!'classList' in document.createElement('span')) {
-  					document.getElementById('c-unsupported').classList.remove('hidden');
-            document.getElementById('execute').setAttribute('disabled', 'disabled');
-          } else {
-            document.getElementById('toggle-fonts').addEventListener('click', function(e) {
-              e.preventDefault();
-							document.getElementById('toggle-fonts').classList.toggle('on');
-							document.getElementById('toggle-fonts').classList.toggle('off');
-							document.getElementsByTagName("html")[0].classList.toggle('wf-active');
-							document.getElementsByTagName("html")[0].classList.toggle('wf-inactive');
-            });
-         	}
-        </script>
-
-        		<!-- END web font toggle -->
-
+    <main id="main_content" class="main-content">
 
 
 <article class="chapter">
@@ -571,21 +530,23 @@
   air!
 </p>
 
+
+  <nav aria-labelledby="chapter-pagination">
+    <h2 id="chapter-pagination" class="visually-hidden">Previous/Next Chapter</h2>
+    <ul class="prev-next-chapters">
+      <li class="previous"><a href="/chapter/032/">&laquo; CHAPTER 32. Cetology.</a></li>
+      <li class="next"><a href="/chapter/034/">CHAPTER 34. The Cabin-Table. &raquo;</a></li>
+    </ul>
+  </nav>
+
 </article>
-<nav aria-labelledby="chapter-pagination">
-  <h2 id="chapter-pagination" class="visually-hidden">Previous/Next Chapter</h2>
-  <ul class="prev-next-chapters">
-    <li class="previous"><a href="/chapter/032/">&laquo; CHAPTER 32. Cetology.</a></li>
-    <li class="next"><a href="/chapter/034/">CHAPTER 34. The Cabin-Table. &raquo;</a></li>
-  </ul>
-</nav>
+<div class="pager-wrapper" id="pager_wrapper"></div>
 
     </main>
     <footer>
       <a href="#top">Top</a> | 
       <a href="/">Home</a> | 
-      <a href="https://github.com/jpamental/moby-dick">Source on GitHub</a> | 
-      <a href="https://www.gutenberg.org/files/2701/2701-h/2701-h.htm">Book text on Project Gutenberg</a>
+      <a href="/about">About this project</a> 
     </footer>
     <script src="/assets/js/scripts.js" async></script>
   </body>
