@@ -747,8 +747,7 @@ p {
   line-height: var(--p-lh-s);
   margin: 0;
   max-width: 88vw;
-  max-width: var(--content-width);
-  position: relative; }
+  max-width: var(--content-width); }
   @supports (font-variation-settings: normal) {
     p {
       font-variation-settings: "opsz" var(--text-opsz);
@@ -972,16 +971,16 @@ a:active {
     font-family: "Literata Display", Georgia, "Times New Roman", Times, serif;
     font-family: var(--fonts-serif-static-display);
     font-weight: normal;
-    font-size: 5.125em;
+    font-size: 3.125em;
     /* tweak vertical positioning in Chrome & Safari */
     line-height: 0.6;
     margin: 0;
     padding: 0 0.025em 0 0;
     /* tweak vertical positioning in Firefox */
-    padding-top: 0.085em; }
+    padding-top: 0.175em; }
     @media screen and (min-width: 60em) {
       .chapter > p:first-of-type::first-letter {
-        padding-top: 0.1em; } }
+        padding-top: 0.17em; } }
     @supports (font-variation-settings: normal) {
       .chapter > p:first-of-type::first-letter {
         font-family: var(--fonts-serif);

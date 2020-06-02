@@ -267,7 +267,6 @@ p {
   margin: 0;
   max-width: $content-width-s;
   max-width: var(--content-width);
-  position: relative;
   @supports (font-variation-settings: normal) {
     font-variation-settings: 'opsz' var(--text-opsz);
     font-weight: 385;
@@ -517,16 +516,16 @@ a {
     font-family: $fonts-serif-static-display;
     font-family: var(--fonts-serif-static-display);
     font-weight: normal;
-    font-size: 5.125em;
+    font-size: 3.125em;
     /* tweak vertical positioning in Chrome & Safari */
     line-height: 0.6;
     margin: 0;
     padding: 0 0.025em 0 0;
 
     /* tweak vertical positioning in Firefox */
-    padding-top: 0.085em;
+    padding-top: 0.175em;
     @media screen and (min-width: $bp--large) {
-      padding-top: 0.1em;
+      padding-top: 0.17em;
     }
     @supports (font-variation-settings: normal) {
       font-family: var(--fonts-serif);
