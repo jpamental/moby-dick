@@ -17,8 +17,10 @@
 :root {
   --color-paper-light: #fafafd;
   --color-dark-gray: #333333;
+  --color-warm-dark-gray: #594747;
   --color-light-gray: #f0f0f0;
   --color-blue: #14218c;
+  --color-light-blue: #e0f0ff;
   --color-purple: #5407a2;
   --color-red: #ff4444;
   --color-background: var(--color-paper-light);
@@ -141,6 +143,13 @@
 /* Swipe UI */
 :root {
   --page-count: 1; }
+
+/* Light mode */
+:root {
+  --osLightMode: light; }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --osLightMode: dark; } }
 
 /* Literata Static Fonts */
 /* Standard Regular, Italic, Bold, Bold Italic */
@@ -1204,6 +1213,9 @@ article {
   @media screen and (min-width: 42em) {
     .settings {
       min-width: 7rem; } }
+  @media screen and (min-width: 60em) {
+    .settings {
+      min-width: 9rem; } }
 
 .toc .dd-menu-trigger {
   min-width: 11rem;
@@ -1219,11 +1231,14 @@ article {
   min-height: 10rem; }
 
 /* Settings */
-.toggle-swipe.on:after {
-  content: ": on"; }
+.toggle-swipe.on:before {
+  content: "Disable "; }
 
-.toggle-swipe.off:after {
-  content: ": off"; }
+.toggle-swipe.off:before {
+  content: "Enable "; }
+
+.menu a.toggle-lightmode {
+  display: inline-block; }
 
 /* Chapter prev/next navigation */
 .prev-next-chapters {
@@ -1527,5 +1542,28 @@ body > footer {
     scroll-padding: 2em 0 0 0; }
     .footnotes li + li {
       margin-top: calc( var(--body-text-spacer) * 1); }
+
+@media (prefers-color-scheme: dark) {
+  html:not(.light) {
+    --color-background: var(--color-dark-gray);
+    --color-background-accent: var(--color-warm-dark-gray);
+    --color-text: var(--color-paper-light);
+    --color-a-link: var(--color-light-blue);
+    --color-a-visited: var(--color-light-gray);
+    --color-a-hover: #ff4444;
+    --color-a-focus: #ff4444;
+    --color-a-active: #ff4444;
+    --color-text-accent: var(--color-light-gray); } }
+
+.dark {
+  --color-background: var(--color-dark-gray);
+  --color-background-accent: var(--color-warm-dark-gray);
+  --color-text: var(--color-paper-light);
+  --color-a-link: var(--color-light-blue);
+  --color-a-visited: var(--color-light-gray);
+  --color-a-hover: #ff4444;
+  --color-a-focus: #ff4444;
+  --color-a-active: #ff4444;
+  --color-text-accent: var(--color-light-gray); }
 
 /*# sourceMappingURL=styles.css.map */

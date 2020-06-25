@@ -179,6 +179,9 @@
   @media screen and (min-width: $bp--medium) {
     min-width: 7rem;
   }
+  @media screen and (min-width: $bp--large) {
+    min-width: 9rem;
+  }
 }
 
 .toc {
@@ -203,14 +206,19 @@
 
 /* Settings */
 .toggle-swipe {
-  &.on:after {
-    content: ": on";
+  &.on:before {
+    content: "Disable ";
   }
-  &.off:after {
-    content: ": off";
+  &.off:before {
+    content: "Enable ";
   }
 }
 
+a.toggle-lightmode {
+  .menu & {
+    display: inline-block;
+  }
+}
 
 
 /* Chapter prev/next navigation */

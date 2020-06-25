@@ -30,6 +30,18 @@
 					document.getElementsByTagName("html")[0].classList.remove('swipe');
 				}
 
+        // Check for Light Mode preference
+				if (document.cookie.split(';').some((item) => item.includes('lightMode=dark'))) {
+					// set a cookie to save the setting
+					document.cookie = "lightMode=dark;max-age=31536000;path=/;samesite=strict";
+					document.documentElement.className += " dark";
+				} else if (document.cookie.split(';').some((item) => item.includes('lightMode=light'))) {
+					document.cookie = "lightMode=light;max-age=31536000;path=/;samesite=strict";
+					document.documentElement.className += " light";
+				} else {
+					document.cookie = "lightMode=auto;max-age=31536000;path=/;samesite=strict";
+				}
+
         // set initial var for support of variable fonts
         // starting with true since most browsers support them now
         var vfSupport = true;
@@ -416,8 +428,11 @@
 				<div class="settings dd-menu">
 					<a href="/settings" class="dd-menu-trigger" id="settings_trigger">Settings</a>
 					<ul class="menu">
-    <li>
+    <li class="settings__swipe">
       <a href="#" id="toggle-swipe" class="toggle-swipe off">Swipe UI</a>
+    </li>
+    <li class="settings__lightmode">
+      Light mode: <a href="#" id="light_mode_switch" class="toggle-lightmode switch">Switch</a>&middot;<a href="#" id="light_mode_reset" class="toggle-lightmode auto">Reset</a>
     </li>
 </ul>
 

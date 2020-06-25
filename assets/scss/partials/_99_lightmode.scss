@@ -1,0 +1,25 @@
+
+@media (prefers-color-scheme:dark) {
+  html:not(.light) {
+    --color-background: var(--color-dark-gray);
+    --color-background-accent: var(--color-warm-dark-gray);
+    --color-text: var(--color-paper-light);
+    --color-a-link: var(--color-light-blue);
+    --color-a-visited: var(--color-light-gray);
+    --color-a-hover: #{$color-red};
+    --color-a-focus: #{$color-red};
+    --color-a-active: #{$color-red};
+    --color-text-accent: var(--color-light-gray);
+  }
+}
+.dark {
+  --color-background: var(--color-dark-gray);
+  --color-background-accent: var(--color-warm-dark-gray);
+  --color-text: var(--color-paper-light);
+  --color-a-link: var(--color-light-blue);
+  --color-a-visited: var(--color-light-gray);
+  --color-a-hover: #{$color-red};
+  --color-a-focus: #{$color-red};
+  --color-a-active: #{$color-red};
+  --color-text-accent: var(--color-light-gray);
+}
