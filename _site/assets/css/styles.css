@@ -17,7 +17,7 @@
 :root {
   --color-paper-light: #fafafd;
   --color-dark-gray: #333333;
-  --color-warm-dark-gray: #594747;
+  --color-warm-dark-gray: #504747;
   --color-light-gray: #f0f0f0;
   --color-blue: #14218c;
   --color-light-blue: #e0f0ff;
@@ -31,7 +31,7 @@
   --color-a-hover: #ff4444;
   --color-a-focus: #ff4444;
   --color-a-active: #ff4444;
-  --color-text-accent: #594747; }
+  --color-text-accent: #504747; }
 
 /* Fonts */
 /* No web fonts specified for Sans */
@@ -908,7 +908,7 @@ a:active {
   /* Add an end mark at the end of the last paragraph */
   /* Style the initial letter */ }
   .chapter > p:first-of-type::first-line {
-    color: #594747;
+    color: #504747;
     color: var(--color-text-accent);
     font-variant-caps: small-caps;
     font-weight: 500; }
@@ -966,7 +966,7 @@ a:active {
     mask: url(../images/svg/end_mark.svg);
     -webkit-mask-size: cover;
     mask-size: cover;
-    background-color: #594747;
+    background-color: #504747;
     background-color: var(--color-text-accent);
     height: 0.65em;
     width: 1em;
@@ -974,7 +974,7 @@ a:active {
     line-height: 0.5; }
   .chapter > p:first-of-type::first-letter {
     --text-opsz: var(--h1-opsz-l);
-    color: #594747;
+    color: #504747;
     color: var(--color-text-accent);
     float: left;
     font-family: "Literata Display", Georgia, "Times New Roman", Times, serif;

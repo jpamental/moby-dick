@@ -26,17 +26,18 @@ window.onresize = function(){
 
 const lightModeToggle = document.getElementById('light_mode_switch');
 const lightModeReset = document.getElementById('light_mode_reset');
-const osLightMode = getComputedStyle(document.documentElement).getPropertyValue('--osLightMode');
-
+const osLightMode = getComputedStyle(document.documentElement).getPropertyValue('--osLightMode').trim();
+console.log(osLightMode);
 
 lightModeToggle.addEventListener('click', function(e) {
 	e.preventDefault();
-	if (document.getElementsByTagName("html")[0].classList.contains('dark')) {
+	if (osLightMode == 'dark') {
 		// set a cookie to expire the setting
+		console.log('check: '+osLightMode);
 		document.cookie = "lightMode=light; max-age=31536000; path=/; samesite=strict";
 		document.getElementsByTagName("html")[0].classList.remove('dark');
 		document.getElementsByTagName("html")[0].classList.add('light');
-	} else if (osLightMode == 'dark') {
+	} else if (document.getElementsByTagName("html")[0].classList.contains('dark')) {
 		// set a cookie to save the setting
 		document.cookie = "lightMode=light; max-age=31536000; path=/; samesite=strict";
 		document.getElementsByTagName("html")[0].classList.remove('dark');
