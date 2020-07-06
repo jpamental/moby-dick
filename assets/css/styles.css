@@ -1563,7 +1563,10 @@ body > footer {
     --color-a-hover: #ff4444;
     --color-a-focus: #ff4444;
     --color-a-active: #ff4444;
-    --color-text-accent: var(--color-light-gray); } }
+    --color-text-accent: var(--color-light-gray); }
+    html:not(.light) p {
+      font-weight: 350;
+      letter-spacing: 0.0015em; } }
 
 .dark {
   --color-background: var(--color-dark-gray);
@@ -1575,5 +1578,8 @@ body > footer {
   --color-a-focus: #ff4444;
   --color-a-active: #ff4444;
   --color-text-accent: var(--color-light-gray); }
+  .dark p {
+    font-weight: 350;
+    letter-spacing: 0.0015em; }
 
 /*# sourceMappingURL=styles.css.map */
