@@ -165,7 +165,7 @@
       background-color: var(--color-background-accent);
       border-left: solid 1px rgba(0,0,0,.25);
       box-shadow: 0.1em 0.1em 0.2em #eaeaea;
-      min-height: 8rem;
+      min-height: 10rem;
       opacity: 1;
       overflow-y: scroll;
       z-index: 99;
@@ -215,8 +215,28 @@
 }
 
 a.toggle-lightmode {
-  .menu & {
-    display: inline-block;
+  .dark & {
+    &.switch:after {
+      content: ' to light';
+    }
+  }
+  html:not(.dark) & {
+    &.switch:after {
+      content: ' to dark';
+    }
+  }
+  @media (prefers-color-scheme:dark) {
+    html:not(.light) & {
+      &.switch:after {
+        content: ' to light';
+      }
+    }
+  
+  }
+  .light & {
+    &.switch:after {
+      content: ' to dark';
+    }
   }
 }
 
