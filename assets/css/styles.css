@@ -17,8 +17,10 @@
 :root {
   --color-paper-light: #fafafd;
   --color-dark-gray: #333333;
+  --color-warm-dark-gray: #504747;
   --color-light-gray: #f0f0f0;
   --color-blue: #14218c;
+  --color-light-blue: #e0f0ff;
   --color-purple: #5407a2;
   --color-red: #ff4444;
   --color-background: var(--color-paper-light);
@@ -29,7 +31,7 @@
   --color-a-hover: #ff4444;
   --color-a-focus: #ff4444;
   --color-a-active: #ff4444;
-  --color-text-accent: #594747; }
+  --color-text-accent: #504747; }
 
 /* Fonts */
 /* No web fonts specified for Sans */
@@ -141,6 +143,13 @@
 /* Swipe UI */
 :root {
   --page-count: 1; }
+
+/* Light mode */
+:root {
+  --osLightMode: light; }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --osLightMode: dark; } }
 
 /* Literata Static Fonts */
 /* Standard Regular, Italic, Bold, Bold Italic */
@@ -899,7 +908,7 @@ a:active {
   /* Add an end mark at the end of the last paragraph */
   /* Style the initial letter */ }
   .chapter > p:first-of-type::first-line {
-    color: #594747;
+    color: #504747;
     color: var(--color-text-accent);
     font-variant-caps: small-caps;
     font-weight: 500; }
@@ -957,7 +966,7 @@ a:active {
     mask: url(../images/svg/end_mark.svg);
     -webkit-mask-size: cover;
     mask-size: cover;
-    background-color: #594747;
+    background-color: #504747;
     background-color: var(--color-text-accent);
     height: 0.65em;
     width: 1em;
@@ -965,7 +974,7 @@ a:active {
     line-height: 0.5; }
   .chapter > p:first-of-type::first-letter {
     --text-opsz: var(--h1-opsz-l);
-    color: #594747;
+    color: #504747;
     color: var(--color-text-accent);
     float: left;
     font-family: "Literata Display", Georgia, "Times New Roman", Times, serif;
@@ -1193,7 +1202,7 @@ article {
     background-color: var(--color-background-accent);
     border-left: solid 1px rgba(0, 0, 0, 0.25);
     box-shadow: 0.1em 0.1em 0.2em #eaeaea;
-    min-height: 8rem;
+    min-height: 10rem;
     opacity: 1;
     overflow-y: scroll;
     z-index: 99; }
@@ -1204,6 +1213,9 @@ article {
   @media screen and (min-width: 42em) {
     .settings {
       min-width: 7rem; } }
+  @media screen and (min-width: 60em) {
+    .settings {
+      min-width: 9rem; } }
 
 .toc .dd-menu-trigger {
   min-width: 11rem;
@@ -1219,11 +1231,24 @@ article {
   min-height: 10rem; }
 
 /* Settings */
-.toggle-swipe.on:after {
-  content: ": on"; }
+.toggle-swipe.on:before {
+  content: "Disable "; }
 
-.toggle-swipe.off:after {
-  content: ": off"; }
+.toggle-swipe.off:before {
+  content: "Enable "; }
+
+.dark a.toggle-lightmode.switch:after {
+  content: ' to light'; }
+
+html:not(.dark) a.toggle-lightmode.switch:after {
+  content: ' to dark'; }
+
+@media (prefers-color-scheme: dark) {
+  html:not(.light) a.toggle-lightmode.switch:after {
+    content: ' to light'; } }
+
+.light a.toggle-lightmode.switch:after {
+  content: ' to dark'; }
 
 /* Chapter prev/next navigation */
 .prev-next-chapters {
@@ -1527,5 +1552,34 @@ body > footer {
     scroll-padding: 2em 0 0 0; }
     .footnotes li + li {
       margin-top: calc( var(--body-text-spacer) * 1); }
+
+@media (prefers-color-scheme: dark) {
+  html:not(.light) {
+    --color-background: var(--color-dark-gray);
+    --color-background-accent: var(--color-warm-dark-gray);
+    --color-text: var(--color-paper-light);
+    --color-a-link: var(--color-light-blue);
+    --color-a-visited: var(--color-light-gray);
+    --color-a-hover: #ff4444;
+    --color-a-focus: #ff4444;
+    --color-a-active: #ff4444;
+    --color-text-accent: var(--color-light-gray); }
+    html:not(.light) p {
+      font-weight: 350;
+      letter-spacing: 0.0015em; } }
+
+.dark {
+  --color-background: var(--color-dark-gray);
+  --color-background-accent: var(--color-warm-dark-gray);
+  --color-text: var(--color-paper-light);
+  --color-a-link: var(--color-light-blue);
+  --color-a-visited: var(--color-light-gray);
+  --color-a-hover: #ff4444;
+  --color-a-focus: #ff4444;
+  --color-a-active: #ff4444;
+  --color-text-accent: var(--color-light-gray); }
+  .dark p {
+    font-weight: 350;
+    letter-spacing: 0.0015em; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -45,9 +45,10 @@ $color-paper-light: #fafafd;
 $color-dark-gray: #333333;
 $color-light-gray: #f0f0f0;
 $color-blue: #14218c;
+$color-light-blue: #e0f0ff;
 $color-purple: #5407a2;
 $color-red: #ff4444;
-$color-warm-dark-gray: #594747;
+$color-warm-dark-gray: #504747;
 
 $color-background: $color-paper-light;
 $color-background-accent: $color-light-gray;
@@ -62,8 +63,10 @@ $color-text-accent: $color-warm-dark-gray;
 :root {
   --color-paper-light: #{$color-paper-light};
   --color-dark-gray: #{$color-dark-gray};
+  --color-warm-dark-gray: #{$color-warm-dark-gray};
   --color-light-gray: #{$color-light-gray};
   --color-blue: #{$color-blue};
+  --color-light-blue: #{$color-light-blue};
   --color-purple: #{$color-purple};
   --color-red: #{$color-red};
 
@@ -311,4 +314,12 @@ $body-text-spacer-l: $p-size-l;
 /* Swipe UI */
 :root {
   --page-count: 1;
+}
+
+/* Light mode */
+:root {
+  --osLightMode: light;
+  @media (prefers-color-scheme:dark) {
+    --osLightMode: dark;
+  }
 }

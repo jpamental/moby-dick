@@ -24,6 +24,40 @@ window.onresize = function(){
   pageCounter();
 }
 
+const lightModeToggle = document.getElementById('light_mode_switch');
+const lightModeReset = document.getElementById('light_mode_reset');
+const osLightMode = getComputedStyle(document.documentElement).getPropertyValue('--osLightMode').trim();
+console.log(osLightMode);
+
+lightModeToggle.addEventListener('click', function(e) {
+	e.preventDefault();
+	if (osLightMode == 'dark') {
+		// set a cookie to expire the setting
+		console.log('check: '+osLightMode);
+		document.cookie = "lightMode=light; max-age=31536000; path=/; samesite=strict";
+		document.getElementsByTagName("html")[0].classList.remove('dark');
+		document.getElementsByTagName("html")[0].classList.add('light');
+	} else if (document.getElementsByTagName("html")[0].classList.contains('dark')) {
+		// set a cookie to save the setting
+		document.cookie = "lightMode=light; max-age=31536000; path=/; samesite=strict";
+		document.getElementsByTagName("html")[0].classList.remove('dark');
+		document.getElementsByTagName("html")[0].classList.add('light');
+	} else {
+		// set a cookie to save the setting
+		document.cookie = "lightMode=dark; max-age=31536000; path=/; samesite=strict";
+		document.getElementsByTagName("html")[0].classList.remove('light');
+		document.getElementsByTagName("html")[0].classList.add('dark');
+	}
+	e.blur();
+});
+lightModeReset.addEventListener('click', function(e) {
+	e.preventDefault();
+	document.cookie = "lightMode=auto; max-age=31536000; path=/; samesite=strict";
+	document.getElementsByTagName("html")[0].classList.remove('dark');
+	document.getElementsByTagName("html")[0].classList.remove('light');
+	e.blur();
+});
+
 const menus = [].slice.call(document.querySelectorAll('.dd-menu'));
 const settingsMenuToggle = document.getElementById('settings_trigger');
 const tocMenuToggle = document.getElementById('toc_trigger');
