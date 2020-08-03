@@ -6,12 +6,12 @@
   --margin-right: calc( (100vw - var(--content-width)) / 2 ); }
   @media screen and (min-width: 42em) {
     :root {
-      --content-width: 40rem;
+      --content-width: calc( min((40rem  * var(--fontSizeModifier)), 94vw ) );
       --margin-left: calc( ((100vw - var(--content-width)) / 5) * 2 );
       --margin-right: calc( ((100vw - var(--content-width)) / 5) * 3 ); } }
   @media screen and (min-width: 60em) {
     :root {
-      --content-width: 44rem; } }
+      --content-width: calc( min((44rem * var(--fontSizeModifier)), 94vw ) ); } }
 
 /* Colors */
 :root {
@@ -150,6 +150,18 @@
   @media (prefers-color-scheme: dark) {
     :root {
       --osLightMode: dark; } }
+
+/* Font size modifier */
+:root {
+  --fontSizeModifier: 1; }
+
+/* Line-height modifier */
+:root {
+  --lineHeightModifier: 1; }
+
+/* word space modifier */
+:root {
+  --wordSpaceModifier: 0; }
 
 /* Literata Static Fonts */
 /* Standard Regular, Italic, Bold, Bold Italic */
@@ -520,16 +532,17 @@ html {
 *, *:before, *:after {
   box-sizing: inherit; }
 
-/* Scaling typography setup */
+/* Scaling accessible typography setup */
 * {
-  --font-size-min: calc(var(--font-size-min-value) * 1rem);
-  --font-size-max: calc(var(--font-size-max-value) * 1rem);
+  --font-size-min: calc(var(--font-size-min-value) * var(--fontSizeModifier) * 1rem);
+  --font-size-max: calc(var(--font-size-max-value) * var(--fontSizeModifier)  * 1rem);
   --font-size-scaler: calc(var(--font-size-scaler-value) * 1vw);
   --font-size: clamp(var(--font-size-min), calc(0.5rem + var(--font-size-scaler)), var(--font-size-max));
-  --font-lh-min: calc(var(--font-lh-min-value) * 1em);
-  --font-lh-max: calc(var(--font-lh-max-value) * 1em);
+  --font-lh-min: calc(var(--font-lh-min-value) * var(--lineHeightModifier) * 1em);
+  --font-lh-max: calc(var(--font-lh-max-value) * var(--lineHeightModifier) * 1em);
   --font-lh-scaler: calc(var(--font-lh-scaler-value) * 1vw);
-  --line-height: clamp(var(--font-lh-min), calc(0.5rem + var(--font-lh-scaler)), var(--font-lh-max)); }
+  --line-height: clamp(var(--font-lh-min), calc(0.5rem + var(--font-lh-scaler)), var(--font-lh-max));
+  --word-spacing: calc( 1em * var(--wordSpaceModifier) ); }
 
 /* Base typography */
 html {
@@ -795,7 +808,8 @@ p {
       --font-lh-min-value: var(--p-lh-s);
       --font-lh-max-value: var(--p-lh-l);
       --font-lh-scaler-value: var(--p-lh-scaler-value);
-      line-height: var(--line-height); } }
+      line-height: var(--line-height);
+      word-spacing: var(--word-spacing); } }
   p + p {
     text-indent: 1.5em; }
 
@@ -1202,10 +1216,20 @@ article {
     background-color: var(--color-background-accent);
     border-left: solid 1px rgba(0, 0, 0, 0.25);
     box-shadow: 0.1em 0.1em 0.2em #eaeaea;
-    min-height: 10rem;
+    left: auto;
+    min-height: 50vh;
+    min-width: 21.5rem;
     opacity: 1;
     overflow-y: scroll;
+    position: absolute;
+    right: 0;
     z-index: 99; }
+  html:not(.touch-nav) .dd-menu:focus-within.toc .menu,
+  html:not(.touch-nav) .dd-menu:hover.toc .menu, .dd-menu.open.toc .menu {
+    right: -5rem; }
+  html:not(.touch-nav) .dd-menu:focus-within.settings .menu,
+  html:not(.touch-nav) .dd-menu:hover.settings .menu, .dd-menu.open.settings .menu {
+    right: -2vw; }
 
 .settings {
   min-width: 5rem;
@@ -1231,6 +1255,14 @@ article {
   min-height: 10rem; }
 
 /* Settings */
+.settings li {
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem; }
+
+.settings label {
+  font-weight: 500;
+  padding-bottom: 0.25rem; }
+
 .toggle-swipe.on:before {
   content: "Disable "; }
 
@@ -1249,6 +1281,20 @@ html:not(.dark) a.toggle-lightmode.switch:after {
 
 .light a.toggle-lightmode.switch:after {
   content: ' to dark'; }
+
+.settings-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 1.5vw; }
+
+.settings-slider {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 1.5vw; }
+  .settings-slider input {
+    grid-column: 1 / 3; }
+  .settings-slider div {
+    font-size: 0.875rem; }
 
 /* Chapter prev/next navigation */
 .prev-next-chapters {

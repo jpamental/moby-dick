@@ -165,10 +165,20 @@
       background-color: var(--color-background-accent);
       border-left: solid 1px rgba(0,0,0,.25);
       box-shadow: 0.1em 0.1em 0.2em #eaeaea;
-      min-height: 10rem;
+      left: auto;
+      min-height: 50vh;
+      min-width: 21.5rem;
       opacity: 1;
       overflow-y: scroll;
+      position: absolute;
+      right: 0;
       z-index: 99;
+    }
+    &.toc .menu {
+      right: -5rem;
+    }
+    &.settings .menu {
+      right: -2vw;
     }
   }
 }
@@ -205,6 +215,17 @@
 }
 
 /* Settings */
+
+.settings {
+  li {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  label {
+    font-weight: 500;
+    padding-bottom: 0.25rem;
+  }
+}
 .toggle-swipe {
   &.on:before {
     content: "Disable ";
@@ -240,6 +261,22 @@ a.toggle-lightmode {
   }
 }
 
+.settings-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 1.5vw;
+}
+.settings-slider {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 1.5vw;
+  input {
+    grid-column: 1 / 3;
+  }
+  div {
+    font-size: 0.875rem;
+  }
+}
 
 /* Chapter prev/next navigation */
 .prev-next-chapters {
