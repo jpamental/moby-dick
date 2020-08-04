@@ -167,7 +167,7 @@
       box-shadow: 0.1em 0.1em 0.2em #eaeaea;
       left: auto;
       min-height: 50vh;
-      min-width: 21.5rem;
+      min-width: 22rem;
       opacity: 1;
       overflow-y: scroll;
       position: absolute;
@@ -263,7 +263,7 @@ a.toggle-lightmode {
 
 .settings-toggle {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 4fr 5fr;
   padding: 0 1.5vw;
 }
 .settings-slider {
