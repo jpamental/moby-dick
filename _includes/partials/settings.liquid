@@ -3,10 +3,34 @@
       <a href="#" id="toggle-swipe" class="toggle-swipe off">Swipe UI</a>
     </li>
     <li class="settings__lightmode">
-      Light mode: 
-      <ul class="submenu">
-        <li><a href="#" id="light_mode_switch" class="toggle-lightmode switch">Switch</a></li>
-        <li><a href="#" id="light_mode_reset" class="toggle-lightmode auto">Use system preference</a></li>
-      </ul>
+      <label>Light mode: </label>
+      <div class="settings-toggle">
+        <a href="#" id="light_mode_switch" class="toggle-lightmode switch">Switch</a>
+        <a href="#" id="light_mode_reset" class="toggle-lightmode auto">Use system preference</a>
+      </div>
+    </li>
+    <li class="settings__fontsize">
+      <label for="size">Font size: </label>
+      <div class="settings-slider">
+        <input type="range" min="1" max="3" value="1" step="0.01" name="size" id="font_size_modifier" />
+        <div class="settings__fontsize--value low">Original</div>
+        <div class="settings__fontsize--value high">Larger</div>
+      </div>
+    </li>
+    <li class="settings__lineheight">
+      <label for="lineheight">Line spacing: </label>
+      <div class="settings-slider">
+        <input type="range" min="1" max="3" value="1" step="0.01" name="lineheight" id="line_height_modifier" />
+        <div class="settings__lineheight--value low">Original</div>
+        <div class="settings__lineheight--value high">More</div>
+      </div>
+    </li>
+    <li class="settings__wordspace">
+      <label for="wordspace">Word spacing: </label>
+      <div class="settings-slider">
+        <input type="range" min="0" max="2" value="1" step="0.01" name="wordspace" id="word_space_modifier" />
+        <div class="settings__wordspace--value low">Original</div>
+        <div class="settings__wordspace--value high">More</div>
+      </div>
     </li>
 </ul>

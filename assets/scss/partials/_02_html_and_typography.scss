@@ -5,18 +5,20 @@ html {
   box-sizing: inherit;
 }
 
-/* Scaling typography setup */
+/* Scaling accessible typography setup */
 
 * {
-  --font-size-min: calc(var(--font-size-min-value) * 1rem);
-  --font-size-max: calc(var(--font-size-max-value) * 1rem);
+  --font-size-min: calc(var(--font-size-min-value) * var(--fontSizeModifier) * 1rem);
+  --font-size-max: calc(var(--font-size-max-value) * var(--fontSizeModifier)  * 1rem);
   --font-size-scaler: calc(var(--font-size-scaler-value) * 1vw);
   --font-size: clamp(var(--font-size-min), calc(0.5rem + var(--font-size-scaler)), var(--font-size-max));
 
-  --font-lh-min: calc(var(--font-lh-min-value) * 1em);
-  --font-lh-max: calc(var(--font-lh-max-value) * 1em);
+  --font-lh-min: calc(var(--font-lh-min-value) * var(--lineHeightModifier) * 1em);
+  --font-lh-max: calc(var(--font-lh-max-value) * var(--lineHeightModifier) * 1em);
   --font-lh-scaler: calc(var(--font-lh-scaler-value) * 1vw);
   --line-height: clamp(var(--font-lh-min), calc(0.5rem + var(--font-lh-scaler)), var(--font-lh-max)); 
+
+  --word-spacing: calc( 1em * var(--wordSpaceModifier) );
 }
 
 /* Base typography */
@@ -307,6 +309,7 @@ p {
     --font-lh-max-value: var(--p-lh-l);
     --font-lh-scaler-value: var(--p-lh-scaler-value);
     line-height: var(--line-height); 
+    word-spacing: var(--word-spacing);
   }
 
   + p {

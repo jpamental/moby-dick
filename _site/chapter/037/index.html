@@ -21,24 +21,68 @@
   		(function() {
   			document.documentElement.className += " wf-inactive"; 
   			document.documentElement.className += " swipe"; 
+				const cookies = document.cookie.split(';');
 
-        // Check for Swipe UI preference
-				if (document.cookie.split(';').some((item) => item.includes('swipe=on'))) {
-					// set a cookie to save the setting
-					document.cookie = "swipe=on;max-age=31536000;path=/;samesite=strict";
-				} else {
+				var swipeSetting = false;
+				var lightSetting = false;
+
+				for (let i = 0; i < cookies.length; i++) {
+
+					// Check for Swipe UI preference
+					if (cookies[i].includes('swipe=on')) {
+						// set a cookie to save the setting
+						document.cookie = "swipe=on;max-age=31536000;path=/;samesite=strict";
+						swipeSetting = true;
+
+					// Check for Light Mode preference
+					} else if (cookies[i].includes('lightMode=dark')) {
+						// set a cookie to save the setting
+						document.cookie = "lightMode=dark;max-age=31536000;path=/;samesite=strict";
+						document.documentElement.className += " dark";
+						lightSetting = true;
+					} else if (cookies[i].includes('lightMode=light')) {
+						document.cookie = "lightMode=light;max-age=31536000;path=/;samesite=strict";
+						document.documentElement.className += " light";
+						lightSetting = true;
+
+					// Check for Font size preference
+					} else if (cookies[i].includes('fontSizeModifier')) {
+						let fontSizeCookieString = cookies[i];
+						// get the value
+						let fontSizeModifier = fontSizeCookieString.split('=');
+						let fontSizeModifierValue = fontSizeModifier[1];
+						console.log(fontSizeModifierValue);
+						document.cookie = "fontSizeModifier="+fontSizeModifierValue+";max-age=31536000;path=/;samesite=strict";
+						document.documentElement.style.setProperty(`--fontSizeModifier`, fontSizeModifierValue);
+
+					// Check for Line-height preference
+					} else if (cookies[i].includes('lineHeightModifier')) {
+						let lineHeightCookieString = cookies[i];
+						// get the value
+						let lineHeightModifier = lineHeightCookieString.split('=');
+						let lineHeightModifierValue = lineHeightModifier[1];
+						console.log(lineHeightModifierValue);
+						document.cookie = "lineHeightModifier="+lineHeightModifierValue+";max-age=31536000;path=/;samesite=strict";
+						document.documentElement.style.setProperty(`--lineHeightModifier`, lineHeightModifierValue);
+
+					// Check for word space preference
+					} else if (cookies[i].includes('wordSpaceModifier')) {
+						let wordSpaceCookieString = cookies[i];
+						// get the value
+						let wordSpaceModifier = wordSpaceCookieString.split('=');
+						let wordSpaceModifierValue = wordSpaceModifier[1];
+						console.log(wordSpaceModifierValue);
+						document.cookie = "wordSpaceModifier="+wordSpaceModifierValue+";max-age=31536000;path=/;samesite=strict";
+						document.documentElement.style.setProperty(`--wordSpaceModifier`, wordSpaceModifierValue);
+					}
+					
+				} // end for
+				
+				if (swipeSetting == false) {
 					document.getElementsByTagName("html")[0].classList.remove('swipe');
 				}
-
-        // Check for Light Mode preference
-				if (document.cookie.split(';').some((item) => item.includes('lightMode=dark'))) {
-					// set a cookie to save the setting
-					document.cookie = "lightMode=dark;max-age=31536000;path=/;samesite=strict";
-					document.documentElement.className += " dark";
-				} else if (document.cookie.split(';').some((item) => item.includes('lightMode=light'))) {
-					document.cookie = "lightMode=light;max-age=31536000;path=/;samesite=strict";
-					document.documentElement.className += " light";
-				} else {
+				
+				if (lightSetting == false) {
 					document.cookie = "lightMode=auto;max-age=31536000;path=/;samesite=strict";
 				}
 
@@ -432,11 +476,35 @@
       <a href="#" id="toggle-swipe" class="toggle-swipe off">Swipe UI</a>
     </li>
     <li class="settings__lightmode">
-      Light mode: 
-      <ul class="submenu">
-        <li><a href="#" id="light_mode_switch" class="toggle-lightmode switch">Switch</a></li>
-        <li><a href="#" id="light_mode_reset" class="toggle-lightmode auto">Use system preference</a></li>
-      </ul>
+      <label>Light mode: </label>
+      <div class="settings-toggle">
+        <a href="#" id="light_mode_switch" class="toggle-lightmode switch">Switch</a>
+        <a href="#" id="light_mode_reset" class="toggle-lightmode auto">Use system preference</a>
+      </div>
+    </li>
+    <li class="settings__fontsize">
+      <label for="size">Font size: </label>
+      <div class="settings-slider">
+        <input type="range" min="1" max="3" value="1" step="0.01" name="size" id="font_size_modifier" />
+        <div class="settings__fontsize--value low">Original</div>
+        <div class="settings__fontsize--value high">Larger</div>
+      </div>
+    </li>
+    <li class="settings__lineheight">
+      <label for="lineheight">Line spacing: </label>
+      <div class="settings-slider">
+        <input type="range" min="1" max="3" value="1" step="0.01" name="lineheight" id="line_height_modifier" />
+        <div class="settings__lineheight--value low">Original</div>
+        <div class="settings__lineheight--value high">More</div>
+      </div>
+    </li>
+    <li class="settings__wordspace">
+      <label for="wordspace">Word spacing: </label>
+      <div class="settings-slider">
+        <input type="range" min="0" max="2" value="1" step="0.01" name="wordspace" id="word_space_modifier" />
+        <div class="settings__wordspace--value low">Original</div>
+        <div class="settings__wordspace--value high">More</div>
+      </div>
     </li>
 </ul>
 

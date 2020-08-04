@@ -19,14 +19,18 @@ wt.fix({
 window.onload = function(){
 	pageCounter();
 	swipeCheck();
+	fontSizeSliderSet();
+	lineHeightSliderSet();
+	wordSpaceSliderSet();
 }
 window.onresize = function(){
   pageCounter();
 }
 
+// Light mode settings
 const lightModeToggle = document.getElementById('light_mode_switch');
 const lightModeReset = document.getElementById('light_mode_reset');
-const osLightMode = getComputedStyle(document.documentElement).getPropertyValue('--osLightMode').trim();
+var osLightMode = getComputedStyle(document.documentElement).getPropertyValue('--osLightMode').trim();
 console.log(osLightMode);
 
 lightModeToggle.addEventListener('click', function(e) {
@@ -58,6 +62,58 @@ lightModeReset.addEventListener('click', function(e) {
 	e.blur();
 });
 
+// Font size settings 
+const fontSizeSlider = document.getElementById('font_size_modifier');
+var currentFontSizeModifier = getComputedStyle(document.documentElement).getPropertyValue('--fontSizeModifier');
+
+fontSizeSlider.addEventListener('change', handleFontSizeSliderUpdate);
+
+function handleFontSizeSliderUpdate(e) {
+	document.documentElement.style.setProperty(`--fontSizeModifier`, this.value);
+	document.cookie = "fontSizeModifier="+this.value+"; max-age=31536000; path=/; samesite=strict";
+}
+
+function fontSizeSliderSet() {
+	let fontSizeModifier = getComputedStyle(document.documentElement).getPropertyValue('--fontSizeModifier');
+	document.getElementById('font_size_modifier').setAttribute('value',fontSizeModifier.trim());
+
+}
+
+// Line-height settings 
+const lineHeightSlider = document.getElementById('line_height_modifier');
+var currentlineHeightModifier = getComputedStyle(document.documentElement).getPropertyValue('--lineHeightModifier');
+
+lineHeightSlider.addEventListener('change', handleLineHeightSliderUpdate);
+
+function handleLineHeightSliderUpdate(e) {
+	document.documentElement.style.setProperty(`--lineHeightModifier`, this.value);
+	document.cookie = "lineHeightModifier="+this.value+"; max-age=31536000; path=/; samesite=strict";
+}
+
+function lineHeightSliderSet() {
+	let lineHeightModifier = getComputedStyle(document.documentElement).getPropertyValue('--lineHeightModifier');
+	document.getElementById('line_height_modifier').setAttribute('value',lineHeightModifier.trim());
+
+}
+
+// Word space settings 
+const wordSpaceSlider = document.getElementById('word_space_modifier');
+var currentWordSpaceModifier = getComputedStyle(document.documentElement).getPropertyValue('--wordSpaceModifier');
+
+wordSpaceSlider.addEventListener('change', handleWordSpaceSliderUpdate);
+
+function handleWordSpaceSliderUpdate(e) {
+	document.documentElement.style.setProperty(`--wordSpaceModifier`, this.value);
+	document.cookie = "wordSpaceModifier="+this.value+"; max-age=31536000; path=/; samesite=strict";
+}
+
+function wordSpaceSliderSet() {
+	let wordSpaceModifier = getComputedStyle(document.documentElement).getPropertyValue('--wordSpaceModifier');
+	document.getElementById('word_space_modifier').setAttribute('value',wordSpaceModifier.trim());
+
+}
+
+// Menus
 const menus = [].slice.call(document.querySelectorAll('.dd-menu'));
 const settingsMenuToggle = document.getElementById('settings_trigger');
 const tocMenuToggle = document.getElementById('toc_trigger');

@@ -29,13 +29,13 @@ $content-width-l: 44rem;
   --margin-right: calc( (100vw - var(--content-width)) / 2 );
 
   @media screen and (min-width: $bp--medium) {
-    --content-width: #{$content-width-m};
+    --content-width: calc( min((#{$content-width-m}  * var(--fontSizeModifier)), 94vw ) );
     --margin-left: calc( ((100vw - var(--content-width)) / 5) * 2 );
     --margin-right: calc( ((100vw - var(--content-width)) / 5) * 3 );
   }
 
   @media screen and (min-width: $bp--large) {
-    --content-width: #{$content-width-l};
+    --content-width: calc( min((#{$content-width-l} * var(--fontSizeModifier)), 94vw ) );
   }
 }
 
@@ -322,4 +322,19 @@ $body-text-spacer-l: $p-size-l;
   @media (prefers-color-scheme:dark) {
     --osLightMode: dark;
   }
+}
+
+/* Font size modifier */
+:root {
+  --fontSizeModifier: 1;
+}
+
+/* Line-height modifier */
+:root {
+  --lineHeightModifier: 1;
+}
+
+/* word space modifier */
+:root {
+  --wordSpaceModifier: 0;
 }
