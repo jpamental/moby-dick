@@ -245,7 +245,7 @@ function bookmarkActions() {
 	bookmarks = (bookmarks) ? JSON.parse(bookmarks) : [];
 	let bookmark_link = document.getElementById('bookmark_link');
 	bookmark_link.innerHTML = '';
-	if (bookmarks[0].length > 0) {
+	if (bookmarks) {
 		bookmarkLink(bookmarks[0]);
 	} 
 	return bookmarks;
