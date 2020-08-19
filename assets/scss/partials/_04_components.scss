@@ -7,7 +7,8 @@
   display: grid;
   grid-template-columns: max-content 1fr;
   padding: 0.5rem 2vw 0;
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 98;
   *:last-child {
     justify-self: right;
@@ -669,5 +670,99 @@ body > footer {
     + li {
       margin-top: calc( var(--body-text-spacer) * 1 );
     }
+  }
+}
+
+/* Paragraph numbering, sharing, & bookmarking */
+.chapter {
+  /* name the counter */
+  counter-reset: p-counter; 
+
+  > p {
+    /* say which counter you want to increment */
+    counter-increment: p-counter; 
+    position: relative;
+    &:not(:first-of-type) {
+      
+      &::before {
+        font-size: 0.825rem;
+        color: var(--color-text-accent);
+        font-weight: 500;
+        /* increment the counter for this level */
+        content: counter(p-counter);
+        float: left;
+        margin-left: -2.75rem;
+        opacity: 0.75;
+        @media screen and (min-width: $bp--medium) {
+          margin-left: calc( var(--margin-left) * -1 );
+        }
+          
+      }
+    }
+  }
+}
+
+blockquote + p::before {
+  text-indent: 1.5rem;
+  @media screen and (min-width: $bp--medium) {
+    text-indent: 1.75rem;
+  }
+}
+
+.location-actions {
+  position: absolute;
+  height: 1rem;
+  left: 1rem;
+  margin-left: -2.45rem;
+  opacity: 0.75;
+  top: 2rem;
+  width: 1.1rem;
+  @media screen and (min-width: $bp--medium) {
+    margin-left: calc( (var(--margin-left) - 0.65rem) * -1 );
+  }
+  &:focus-within {
+    opacity: 1;
+  }
+
+  button {
+    -webkit-mask: url(../images/svg/share.svg);
+    mask: url(../images/svg/share.svg);
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: $color-text-accent;
+    background-color: var(--color-text-accent);
+
+    background-size: 1rem 1.1rem;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    float: left;
+    height: 1rem;
+    text-indent: -999em;
+    width: 1.1rem;
+    &:hover {
+      background-color: var(--color-a-hover);
+    }
+    &:focus {
+      background-color: var(--color-a-focus);
+    }
+    &:active {
+      background-color: var(--color-a-active);
+    }
+
+    &.bookmark-location-button {
+      -webkit-mask: url(../images/svg/bookmark.svg);
+      mask: url(../images/svg/bookmark.svg);
+      mask-size: cover;
+      background-size: 0.9rem 1.1rem;
+      height: 1.2rem;
+      width: 0.9rem;
+    }
+  }
+  .location-url {
+    opacity: 0;
+    height: 1px;
+    width: 1px;
+    float: left;
   }
 }

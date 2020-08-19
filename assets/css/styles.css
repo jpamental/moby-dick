@@ -16,6 +16,7 @@
 /* Colors */
 :root {
   --color-paper-light: #fafafd;
+  --color-gray: #898989;
   --color-dark-gray: #333333;
   --color-warm-dark-gray: #504747;
   --color-light-gray: #f0f0f0;
@@ -30,7 +31,7 @@
   --color-a-visited: #5407a2;
   --color-a-hover: #ff4444;
   --color-a-focus: #ff4444;
-  --color-a-active: #ff4444;
+  --color-a-active: #dd0000;
   --color-text-accent: #504747; }
 
 /* Fonts */
@@ -1101,7 +1102,8 @@ article {
   display: grid;
   grid-template-columns: max-content 1fr;
   padding: 0.5rem 2vw 0;
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 98; }
   .top-bar *:last-child {
     justify-self: right; }
@@ -1598,6 +1600,80 @@ body > footer {
     scroll-padding: 2em 0 0 0; }
     .footnotes li + li {
       margin-top: calc( var(--body-text-spacer) * 1); }
+
+/* Paragraph numbering, sharing, & bookmarking */
+.chapter {
+  /* name the counter */
+  counter-reset: p-counter; }
+  .chapter > p {
+    /* say which counter you want to increment */
+    counter-increment: p-counter;
+    position: relative; }
+    .chapter > p:not(:first-of-type)::before {
+      font-size: 0.825rem;
+      color: var(--color-text-accent);
+      font-weight: 500;
+      /* increment the counter for this level */
+      content: counter(p-counter);
+      float: left;
+      margin-left: -2.75rem;
+      opacity: 0.75; }
+      @media screen and (min-width: 42em) {
+        .chapter > p:not(:first-of-type)::before {
+          margin-left: calc( var(--margin-left) * -1); } }
+
+blockquote + p::before {
+  text-indent: 1.5rem; }
+  @media screen and (min-width: 42em) {
+    blockquote + p::before {
+      text-indent: 1.75rem; } }
+
+.location-actions {
+  position: absolute;
+  height: 1rem;
+  left: 1rem;
+  margin-left: -2.45rem;
+  opacity: 0.75;
+  top: 2rem;
+  width: 1.1rem; }
+  @media screen and (min-width: 42em) {
+    .location-actions {
+      margin-left: calc( (var(--margin-left) - 0.65rem) * -1); } }
+  .location-actions:focus-within {
+    opacity: 1; }
+  .location-actions button {
+    -webkit-mask: url(../images/svg/share.svg);
+    mask: url(../images/svg/share.svg);
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: #504747;
+    background-color: var(--color-text-accent);
+    background-size: 1rem 1.1rem;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    float: left;
+    height: 1rem;
+    text-indent: -999em;
+    width: 1.1rem; }
+    .location-actions button:hover {
+      background-color: var(--color-a-hover); }
+    .location-actions button:focus {
+      background-color: var(--color-a-focus); }
+    .location-actions button:active {
+      background-color: var(--color-a-active); }
+    .location-actions button.bookmark-location-button {
+      -webkit-mask: url(../images/svg/bookmark.svg);
+      mask: url(../images/svg/bookmark.svg);
+      mask-size: cover;
+      background-size: 0.9rem 1.1rem;
+      height: 1.2rem;
+      width: 0.9rem; }
+  .location-actions .location-url {
+    opacity: 0;
+    height: 1px;
+    width: 1px;
+    float: left; }
 
 @media (prefers-color-scheme: dark) {
   html:not(.light) {
