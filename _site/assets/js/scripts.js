@@ -22,16 +22,22 @@ window.onload = function(){
 	fontSizeSliderSet();
 	lineHeightSliderSet();
 	wordSpaceSliderSet();
+	bookmarkActions();
+	paragraphLinks();
 }
 window.onresize = function(){
   pageCounter();
+	// set delay so it happens after widowtamer fires
+	window.setTimeout(() => {
+		paragraphLinks();
+	}, 1000);
 }
+
 
 // Light mode settings
 const lightModeToggle = document.getElementById('light_mode_switch');
 const lightModeReset = document.getElementById('light_mode_reset');
 var osLightMode = getComputedStyle(document.documentElement).getPropertyValue('--osLightMode').trim();
-console.log(osLightMode);
 
 lightModeToggle.addEventListener('click', function(e) {
 	e.preventDefault();
@@ -231,4 +237,98 @@ function offset(el) {
     scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
     scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
+}
+
+
+function bookmarkActions() {
+	var bookmarks = localStorage.getItem("bookmarks");
+	bookmarks = (bookmarks) ? JSON.parse(bookmarks) : [];
+	let bookmark_link = document.getElementById('bookmark_link');
+	bookmark_link.innerHTML = '';
+	if (bookmarks[0].length > 0) {
+		bookmarkLink(bookmarks[0]);
+	} 
+	return bookmarks;
+}
+
+function bookmarkSave(e) {
+	var bookmark = e;
+	var bookmarks = bookmarkActions();
+	
+  bookmarks[0] = bookmark;
+	localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+	bookmarkLink(bookmark);
+}
+
+function bookmarkLink(e) {
+	let bookmark_href = document.createElement("a");
+	bookmark_href.setAttribute('href', e); 
+	let bookmark_href_content = document.createTextNode("Go to your bookmark"); 
+	bookmark_href.appendChild(bookmark_href_content);
+	let bookmark_link = document.getElementById('bookmark_link');
+	bookmark_link.innerHTML = '';
+	bookmark_link.appendChild(bookmark_href);
+}
+
+function paragraphLinks() {
+
+	var pLinks = [].slice.call(document.querySelectorAll('.share-location'));
+	pLinks.forEach(pLink => pLink.remove());
+	
+
+	// Paragraph links
+	const paragraphs = [].slice.call(document.querySelectorAll('.chapter > p'));
+	const paragraphs_parent = paragraphs.parentElement;
+	for (let i = 1; i < paragraphs.length; i++) {
+		paragraphs[i].id = 'p'+ (i + 1);
+		let p_share = document.createElement("div");
+		p_share.classList.add('location-actions');
+
+		let p_share_button = document.createElement("button");
+		let p_share_button_content = document.createTextNode("Share this location"); 
+		p_share_button.appendChild(p_share_button_content);
+		p_share_button.id = paragraphs[i].id + '_share';
+		p_share_button.classList.add('share-location-button');
+
+		let p_bookmark_button = document.createElement("button");
+		let p_bookmark_button_content = document.createTextNode("Bookmark this location"); 
+		p_bookmark_button.appendChild(p_bookmark_button_content);
+		p_bookmark_button.id = paragraphs[i].id + '_bookmark';
+		p_bookmark_button.classList.add('bookmark-location-button');
+		
+		let p_share_url = document.createElement("input");
+		let location_base = location.href.split('#');
+		let location_str = location_base[0];
+		let p_share_url_content = document.createTextNode(location_str + "#" + paragraphs[i].id); 
+		p_share_url.id = paragraphs[i].id + '_location';
+		p_share_url.setAttribute('value', p_share_url_content.textContent);
+		p_share_url.classList.add('location-url');
+
+		p_share_button.setAttribute('data-clipboard-action', 'copy'); 
+		p_share_button.setAttribute('data-clipboard-target', '#' + p_share_url.id); 
+
+		p_bookmark_button.setAttribute('data-bookmark', p_share_url_content.textContent);
+
+		p_share.appendChild(p_share_button);
+		p_share.appendChild(p_share_url);
+		p_share.appendChild(p_bookmark_button);
+		paragraphs[i].appendChild(p_share);
+	}
+
+	var clipboard = new ClipboardJS('.share-location-button');
+	clipboard.on('success', function(e) {
+		//console.log(e);
+	});
+
+	clipboard.on('error', function(e) {
+			//console.log(e);
+	});
+
+	const bookmarkButtons = [].slice.call(document.querySelectorAll('.bookmark-location-button'));
+	bookmarkButtons.forEach(bookmarkButton => bookmarkButton.addEventListener('click', function(e) {
+		e.preventDefault();
+		let bookmarkLocation = bookmarkButton.getAttribute('data-bookmark');
+		bookmarkSave(bookmarkLocation);
+	}));
+	
 }
