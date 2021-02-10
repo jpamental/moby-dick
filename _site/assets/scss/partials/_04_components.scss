@@ -677,24 +677,33 @@ body > footer {
 .chapter {
   /* name the counter */
   counter-reset: p-counter; 
+  position: relative;
 
   > p {
     /* say which counter you want to increment */
     counter-increment: p-counter; 
     position: relative;
+    scroll-padding: 4em;
     &:not(:first-of-type) {
       
       &::before {
-        font-size: 0.825rem;
         color: var(--color-text-accent);
-        font-weight: 500;
         /* increment the counter for this level */
         content: counter(p-counter);
+        display: block;
         float: left;
-        margin-left: -2.75rem;
+        font-size: 0.825rem;
+        font-weight: 500;
+        height: 6rem;
+        line-height: 6rem;
+        margin-left: -1.25rem;
+        margin-top: -2.5em;
         opacity: 0.75;
+        text-indent: 0;
+        scroll-padding: 4em;
+      
         @media screen and (min-width: $bp--medium) {
-          margin-left: calc( var(--margin-left) * -1 );
+          margin-left: calc(( var(--margin-left) * -1 ) + 1rem);
         }
           
       }
@@ -710,15 +719,19 @@ blockquote + p::before {
 }
 
 .location-actions {
-  position: absolute;
-  height: 1rem;
-  left: 1rem;
-  margin-left: -2.45rem;
+  float: left;
+  left: 0;
+  margin-left: 0.25rem;
+  margin-right: -2.1rem;
   opacity: 0.75;
-  top: 2rem;
+  padding: 0.5rem 0 0 0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 5rem;
   width: 1.1rem;
+  z-index: 10;
   @media screen and (min-width: $bp--medium) {
-    margin-left: calc( (var(--margin-left) - 0.65rem) * -1 );
+    left: 0.75rem;
   }
   &:focus-within {
     opacity: 1;
@@ -737,7 +750,7 @@ blockquote + p::before {
     border: none;
     cursor: pointer;
     float: left;
-    height: 1rem;
+    height: 1.05rem;
     text-indent: -999em;
     width: 1.1rem;
     &:hover {
@@ -753,10 +766,11 @@ blockquote + p::before {
     &.bookmark-location-button {
       -webkit-mask: url(../images/svg/bookmark.svg);
       mask: url(../images/svg/bookmark.svg);
+      -webkit-mask-size: cover;
       mask-size: cover;
       background-size: 0.9rem 1.1rem;
       height: 1.2rem;
-      width: 0.9rem;
+      width: 0.95rem;
     }
   }
   .location-url {

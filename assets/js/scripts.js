@@ -18,19 +18,20 @@ wt.fix({
 
 window.onload = function(){
 	pageCounter();
+	paragraphShare();
+	paragraphObserver();
 	swipeCheck();
 	fontSizeSliderSet();
 	lineHeightSliderSet();
 	wordSpaceSliderSet();
 	bookmarkActions();
-	paragraphLinks();
 }
 window.onresize = function(){
   pageCounter();
 	// set delay so it happens after widowtamer fires
-	window.setTimeout(() => {
-		paragraphLinks();
-	}, 1000);
+	//window.setTimeout(() => {
+	//	paragraphLinks();
+	//}, 1200);
 }
 
 
@@ -270,6 +271,105 @@ function bookmarkLink(e) {
 	bookmark_link.appendChild(bookmark_href);
 }
 
+function getAnchor() {
+	var currentUrl = document.URL,
+	urlParts   = currentUrl.split('#');
+	return (urlParts.length > 1) ? urlParts[1] : null;
+}
+
+function paragraphShare() {
+
+	let p_share = document.createElement("div");
+	p_share.classList.add('location-actions');
+
+	let p_share_button = document.createElement("button");
+	let p_share_button_content = document.createTextNode("Share this location"); 
+	p_share_button.appendChild(p_share_button_content);
+	p_share_button.id = 'p_share';
+	p_share_button.classList.add('share-location-button');
+
+	let p_bookmark_button = document.createElement("button");
+	let p_bookmark_button_content = document.createTextNode("Bookmark this location"); 
+	p_bookmark_button.appendChild(p_bookmark_button_content);
+	p_bookmark_button.id = 'p_bookmark';
+	p_bookmark_button.classList.add('bookmark-location-button');
+	
+	let p_share_url = document.createElement("input");
+	let location_base = location.href.split('#');
+	let location_str = location_base[0];
+	let p_share_url_content = document.createTextNode(location_str); 
+	p_share_url.id = 'p_location';
+	p_share_url.setAttribute('value', p_share_url_content.textContent);
+	p_share_url.setAttribute('data-location-url', p_share_url_content.textContent);
+	p_share_url.classList.add('location-url');
+
+	p_share_button.setAttribute('data-clipboard-action', 'copy'); 
+	p_share_button.setAttribute('data-clipboard-target', '#p_location'); 
+
+	p_bookmark_button.setAttribute('data-bookmark', p_share_url_content.textContent);
+
+	p_share.appendChild(p_share_button);
+	p_share.appendChild(p_share_url);
+	p_share.appendChild(p_bookmark_button);
+
+	let targetNode = document.getElementById('p1');
+	let targetParentNode = targetNode.parentNode;
+	targetParentNode.insertBefore(p_share, targetNode);
+
+
+	var clipboard = new ClipboardJS('#p_share');
+	clipboard.on('success', function(e) {
+    console.info('Action:', e.action);
+    console.info('Text:', e.text);
+    console.info('Trigger:', e.trigger);
+
+    e.clearSelection();
+	});
+
+	clipboard.on('error', function(e) {
+			console.log(e);
+	});
+
+
+	const bookmarkButton = document.getElementById('p_bookmark');
+	bookmarkButton.addEventListener('click', function(e) {
+		e.preventDefault();
+		let bookmarkLocation = bookmarkButton.getAttribute('data-bookmark');
+		bookmarkSave(bookmarkLocation);
+	});
+
+}
+
+function paragraphObserver() {
+
+	if(!!window.IntersectionObserver){
+		let location_base = location.href.split('#');
+		let location_str = location_base[0];
+
+		let shareButton = document.getElementById('p_share');
+		let locationInput = document.getElementById('p_location');
+		locationUrl = locationInput.getAttribute('data-location-url');
+		let bookmarkButton = document.getElementById('p_bookmark');
+		let observer = new IntersectionObserver((entries, observer) => { 
+			entries.forEach(entry => {
+				if(entry.isIntersecting){
+					console.log(entry.target.id);
+					let paragraphId = entry.target.id;
+					//shareButton.setAttribute('data-clipboard-target', paragraphId);
+					locationInput.setAttribute('value', locationUrl + '#' + paragraphId);
+					bookmarkButton.setAttribute('data-bookmark', locationUrl + '#' + paragraphId);
+				}
+			});
+		}, {rootMargin: "0px 0px -200px 0px"});
+
+		document.querySelectorAll('.chapter > p').forEach(p => { observer.observe(p) });
+	
+	}
+
+	else console.log('not supported');
+
+}
+
 function paragraphLinks() {
 
 	var pLinks = [].slice.call(document.querySelectorAll('.share-location'));
@@ -279,6 +379,10 @@ function paragraphLinks() {
 	// Paragraph links
 	const paragraphs = [].slice.call(document.querySelectorAll('.chapter > p'));
 	const paragraphs_parent = paragraphs.parentElement;
+
+	
+
+
 	for (let i = 1; i < paragraphs.length; i++) {
 		paragraphs[i].id = 'p'+ (i + 1);
 		let p_share = document.createElement("div");
