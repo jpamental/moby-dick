@@ -18,19 +18,16 @@ wt.fix({
 
 window.onload = function(){
 	pageCounter();
+	paragraphShare();
+	paragraphObserver();
 	swipeCheck();
 	fontSizeSliderSet();
 	lineHeightSliderSet();
 	wordSpaceSliderSet();
 	bookmarkActions();
-	paragraphLinks();
 }
 window.onresize = function(){
   pageCounter();
-	// set delay so it happens after widowtamer fires
-	window.setTimeout(() => {
-		paragraphLinks();
-	}, 1000);
 }
 
 
@@ -239,7 +236,6 @@ function offset(el) {
     return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
 }
 
-
 function bookmarkActions() {
 	var bookmarks = localStorage.getItem("bookmarks");
 	bookmarks = (bookmarks) ? JSON.parse(bookmarks) : [];
@@ -270,65 +266,79 @@ function bookmarkLink(e) {
 	bookmark_link.appendChild(bookmark_href);
 }
 
-function paragraphLinks() {
+function getAnchor() {
+	var currentUrl = document.URL,
+	urlParts   = currentUrl.split('#');
+	return (urlParts.length > 1) ? urlParts[1] : null;
+}
 
-	var pLinks = [].slice.call(document.querySelectorAll('.share-location'));
-	pLinks.forEach(pLink => pLink.remove());
-	
+function paragraphShare() {
 
-	// Paragraph links
-	const paragraphs = [].slice.call(document.querySelectorAll('.chapter > p'));
-	const paragraphs_parent = paragraphs.parentElement;
-	for (let i = 1; i < paragraphs.length; i++) {
-		paragraphs[i].id = 'p'+ (i + 1);
-		let p_share = document.createElement("div");
-		p_share.classList.add('location-actions');
+	let p_share = document.createElement("div");
+	p_share.classList.add('location-actions');
 
-		let p_share_button = document.createElement("button");
-		let p_share_button_content = document.createTextNode("Share this location"); 
-		p_share_button.appendChild(p_share_button_content);
-		p_share_button.id = paragraphs[i].id + '_share';
-		p_share_button.classList.add('share-location-button');
+	let p_share_button = document.createElement("button");
+	let p_share_button_content = document.createTextNode("Share this location"); 
+	p_share_button.appendChild(p_share_button_content);
+	p_share_button.id = 'p_share';
+	p_share_button.classList.add('btn');
 
-		let p_bookmark_button = document.createElement("button");
-		let p_bookmark_button_content = document.createTextNode("Bookmark this location"); 
-		p_bookmark_button.appendChild(p_bookmark_button_content);
-		p_bookmark_button.id = paragraphs[i].id + '_bookmark';
-		p_bookmark_button.classList.add('bookmark-location-button');
-		
-		let p_share_url = document.createElement("input");
-		let location_base = location.href.split('#');
-		let location_str = location_base[0];
-		let p_share_url_content = document.createTextNode(location_str + "#" + paragraphs[i].id); 
-		p_share_url.id = paragraphs[i].id + '_location';
-		p_share_url.setAttribute('value', p_share_url_content.textContent);
-		p_share_url.classList.add('location-url');
+	let p_bookmark_button = document.getElementById("p_bookmark");
+	let p_share_url = document.getElementById("p_location");
+	let location_base = location.href.split('#');
+	let location_str = location_base[0];
+	let p_share_url_content = location_str; 
 
-		p_share_button.setAttribute('data-clipboard-action', 'copy'); 
-		p_share_button.setAttribute('data-clipboard-target', '#' + p_share_url.id); 
-
-		p_bookmark_button.setAttribute('data-bookmark', p_share_url_content.textContent);
-
-		p_share.appendChild(p_share_button);
-		p_share.appendChild(p_share_url);
-		p_share.appendChild(p_bookmark_button);
-		paragraphs[i].appendChild(p_share);
-	}
+	p_share_url.setAttribute('value', location_str);
+	p_share_url.setAttribute('data-location-url', p_share_url_content);
+	p_bookmark_button.setAttribute('data-bookmark', p_share_url_content);
 
 	var clipboard = new ClipboardJS('.share-location-button');
 	clipboard.on('success', function(e) {
-		//console.log(e);
+
+    e.clearSelection();
 	});
 
 	clipboard.on('error', function(e) {
 			//console.log(e);
 	});
 
-	const bookmarkButtons = [].slice.call(document.querySelectorAll('.bookmark-location-button'));
-	bookmarkButtons.forEach(bookmarkButton => bookmarkButton.addEventListener('click', function(e) {
+	const bookmarkButton = document.getElementById('p_bookmark');
+	bookmarkButton.addEventListener('click', function(e) {
 		e.preventDefault();
 		let bookmarkLocation = bookmarkButton.getAttribute('data-bookmark');
 		bookmarkSave(bookmarkLocation);
-	}));
+	});
+
+}
+
+function paragraphObserver() {
+
+	if(!!window.IntersectionObserver){
+		let location_base = location.href.split('#');
+		let location_str = location_base[0];
+
+		let shareButton = document.getElementById('p_share');
+		let locationInput = document.getElementById('p_location');
+		locationUrl = locationInput.getAttribute('data-location-url');
+		let bookmarkButton = document.getElementById('p_bookmark');
+		let observer = new IntersectionObserver((entries, observer) => { 
+			entries.forEach(entry => {
+				if(entry.isIntersecting){
+					console.log(entry.target.id);
+					let paragraphId = entry.target.id;
+					//shareButton.setAttribute('data-clipboard-target', paragraphId);
+					let paragraphUrl = locationUrl + '#' + paragraphId;
+					locationInput.setAttribute('value', paragraphUrl);
+					bookmarkButton.setAttribute('data-bookmark', locationUrl + '#' + paragraphId);
+				}
+			});
+		}, {rootMargin: "0px 0px -200px 0px"});
+
+		document.querySelectorAll('.chapter > p').forEach(p => { observer.observe(p) });
 	
+	}
+
+	else console.log('not supported');
+
 }
