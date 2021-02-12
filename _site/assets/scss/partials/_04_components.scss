@@ -770,13 +770,14 @@ blockquote + p::before {
       mask-size: cover;
       background-size: 0.9rem 1.1rem;
       height: 1.2rem;
+      margin-top: 0.5rem;
       width: 0.95rem;
     }
   }
-  .location-url {
-    opacity: 0;
-    height: 1px;
-    width: 1px;
-    float: left;
-  }
+}
+.share-location-url {
+  opacity: 0;
+  float: left;
+  position: fixed;
+  left: -50vw;
 }
