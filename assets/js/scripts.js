@@ -259,7 +259,7 @@ function bookmarkSave(e) {
 function bookmarkLink(e) {
 	let bookmark_href = document.createElement("a");
 	bookmark_href.setAttribute('href', e); 
-	let bookmark_href_content = document.createTextNode("Go to your bookmark"); 
+	let bookmark_href_content = document.createTextNode("Go to bookmark"); 
 	bookmark_href.appendChild(bookmark_href_content);
 	let bookmark_link = document.getElementById('bookmark_link');
 	bookmark_link.innerHTML = '';
