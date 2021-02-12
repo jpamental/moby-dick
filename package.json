@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@11ty/eleventy-img": "^0.2.4",
+    "@tbranyen/jsdom": "^13.0.0",
     "clipboard": "^2.0.6"
   }
 }
