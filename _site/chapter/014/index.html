@@ -2,6 +2,7 @@
 <html lang="en"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+		<meta property="og:title" content="CHAPTER 14. Nantucket.">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
@@ -184,9 +185,14 @@
         <a href="/" class="title-link">Moby Dick</a>
       </div>
       <div class="link-wrapper">
-				<div class="bookmarks" id="bookmark_link">No saved bookmark</div>
+				<div class="bookmarks dd-menu">
+					<a href="/bookmarks" class="dd-menu-trigger" id="bookmarks_trigger" title="Bookmarks">Bookmarks</a>
+					<ul class="menu">
+  <li class="add-bookmark"><a href="#">Bookmark this page</a></li>
+</ul>
+				</div>
 				<nav class="toc dd-menu">
-					<a href="/contents" class="dd-menu-trigger" id="toc_trigger">Contents</a>
+					<a href="/contents" class="dd-menu-trigger" id="toc_trigger" title="Table of Contents">Contents</a>
 					<ul class="menu"><li>
       <a href="/chapter/000a/">Etymology.</a>
     </li><li>
@@ -467,7 +473,7 @@
 
 				</nav>
 				<div class="settings dd-menu">
-					<a href="/settings" class="dd-menu-trigger" id="settings_trigger">Settings</a>
+					<a href="/settings" class="dd-menu-trigger" id="settings_trigger" title="Settings">Settings</a>
 					<ul class="menu">
     <li class="settings__swipe">
       <a href="#" id="toggle-swipe" class="toggle-swipe off">Swipe UI</a>

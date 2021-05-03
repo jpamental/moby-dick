@@ -25,6 +25,7 @@ window.onload = function(){
 	lineHeightSliderSet();
 	wordSpaceSliderSet();
 	bookmarkActions();
+	bookmarksArrayGet();
 }
 window.onresize = function(){
   pageCounter();
@@ -237,23 +238,54 @@ function offset(el) {
 }
 
 function bookmarkActions() {
-	var bookmarks = localStorage.getItem("bookmarks");
-	bookmarks = (bookmarks) ? JSON.parse(bookmarks) : [];
-	let bookmark_link = document.getElementById('bookmark_link');
-	bookmark_link.innerHTML = '';
-	if (bookmarks[0]) {
-		bookmarkLink(bookmarks[0]);
-	} 
-	return bookmarks;
+	
 }
 
-function bookmarkSave(e) {
-	var bookmark = e;
-	var bookmarks = bookmarkActions();
+function bookmarksArrayGet() {
+	let bookmarksArray = localStorage.getItem("bookmarksArray");
+	if (bookmarksArray.length < 1) {
+		//array.
+		bookmarksArray = [
+			["Location", "URL"],
+			["Chapter 1", "http://localhost:8080/chapter/001"] 
+		];
+		//bookmarksArray.add
+	}
+	let bookmarksJSON = JSON.parse(bookmarksArray);
+	console.log(bookmarksJSON);
+	print("<pre>" + bookmarksJSON + "</pre>");
+	return bookmarksJSON;
 	
-  bookmarks[0] = bookmark;
-	localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
-	bookmarkLink(bookmark);
+}
+
+//javascript create JSON object from two dimensional Array
+function bookmarksArrayToJSONObject (arr){
+	//header
+	var keys = arr[0];
+
+	//vacate keys from main array
+	var newArr = arr.slice(1, arr.length);
+
+	var formatted = [],
+	data = newArr,
+	cols = keys,
+	l = cols.length;
+	for (var i=0; i<data.length; i++) {
+					var d = data[i],
+									o = {};
+					for (var j=0; j<l; j++)
+									o[cols[j]] = d[j];
+					formatted.push(o);
+	}
+	return formatted;
+}
+
+function bookmarkSave(e,t) {
+	let bookmarksArray = bookmarksArrayGet();
+	bookmarksArray.push({ Location: t, URL: e });
+	localStorage.setItem("bookmarksArray", JSON.stringify(bookmarksArray));
+
+	console.log(bookmarksArray);
 }
 
 function bookmarkLink(e) {
@@ -261,7 +293,7 @@ function bookmarkLink(e) {
 	bookmark_href.setAttribute('href', e); 
 	let bookmark_href_content = document.createTextNode("Go to bookmark"); 
 	bookmark_href.appendChild(bookmark_href_content);
-	let bookmark_link = document.getElementById('bookmark_link');
+	let bookmark_link = document.getElementById('bookmarks_trigger');
 	bookmark_link.innerHTML = '';
 	bookmark_link.appendChild(bookmark_href);
 }
@@ -307,7 +339,13 @@ function paragraphShare() {
 	bookmarkButton.addEventListener('click', function(e) {
 		e.preventDefault();
 		let bookmarkLocation = bookmarkButton.getAttribute('data-bookmark');
-		bookmarkSave(bookmarkLocation);
+		let chapterTitle = document.querySelector("meta[property='og:title']").getAttribute("content");
+		let chapterP = bookmarkButton.getAttribute('data-bookmark-p');
+		let bookmarkLocationTitle = chapterTitle;
+		if (chapterP.length > 0) {
+			bookmarkLocationTitle = chapterTitle + ' (' + chapterP + ')';
+		}
+		bookmarkSave(bookmarkLocation,bookmarkLocationTitle);
 	});
 
 }
@@ -331,6 +369,7 @@ function paragraphObserver() {
 					let paragraphUrl = locationUrl + '#' + paragraphId;
 					locationInput.setAttribute('value', paragraphUrl);
 					bookmarkButton.setAttribute('data-bookmark', locationUrl + '#' + paragraphId);
+					bookmarkButton.setAttribute('data-bookmark-p', paragraphId);
 				}
 			});
 		}, {rootMargin: "0px 0px -200px 0px"});
