@@ -18,20 +18,24 @@ wt.fix({
 
 window.onload = function(){
 	pageCounter();
+	paragraphShare();
+	paragraphObserver();
 	swipeCheck();
 	fontSizeSliderSet();
 	lineHeightSliderSet();
 	wordSpaceSliderSet();
+	bookmarkActions();
+	bookmarksArrayGet();
 }
 window.onresize = function(){
   pageCounter();
 }
 
+
 // Light mode settings
 const lightModeToggle = document.getElementById('light_mode_switch');
 const lightModeReset = document.getElementById('light_mode_reset');
 var osLightMode = getComputedStyle(document.documentElement).getPropertyValue('--osLightMode').trim();
-console.log(osLightMode);
 
 lightModeToggle.addEventListener('click', function(e) {
 	e.preventDefault();
@@ -231,4 +235,149 @@ function offset(el) {
     scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
     scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
+}
+
+function bookmarkActions() {
+	
+}
+
+function bookmarksArrayGet() {
+	let bookmarksArray = localStorage.getItem("bookmarksArray");
+	if (bookmarksArray.length < 1) {
+		//array.
+		bookmarksArray = [
+			["Location", "URL"],
+			["Chapter 1", "http://localhost:8080/chapter/001"] 
+		];
+		//bookmarksArray.add
+	}
+	let bookmarksJSON = JSON.parse(bookmarksArray);
+	console.log(bookmarksJSON);
+	print("<pre>" + bookmarksJSON + "</pre>");
+	return bookmarksJSON;
+	
+}
+
+//javascript create JSON object from two dimensional Array
+function bookmarksArrayToJSONObject (arr){
+	//header
+	var keys = arr[0];
+
+	//vacate keys from main array
+	var newArr = arr.slice(1, arr.length);
+
+	var formatted = [],
+	data = newArr,
+	cols = keys,
+	l = cols.length;
+	for (var i=0; i<data.length; i++) {
+					var d = data[i],
+									o = {};
+					for (var j=0; j<l; j++)
+									o[cols[j]] = d[j];
+					formatted.push(o);
+	}
+	return formatted;
+}
+
+function bookmarkSave(e,t) {
+	let bookmarksArray = bookmarksArrayGet();
+	bookmarksArray.push({ Location: t, URL: e });
+	localStorage.setItem("bookmarksArray", JSON.stringify(bookmarksArray));
+
+	console.log(bookmarksArray);
+}
+
+function bookmarkLink(e) {
+	let bookmark_href = document.createElement("a");
+	bookmark_href.setAttribute('href', e); 
+	let bookmark_href_content = document.createTextNode("Go to bookmark"); 
+	bookmark_href.appendChild(bookmark_href_content);
+	let bookmark_link = document.getElementById('bookmarks_trigger');
+	bookmark_link.innerHTML = '';
+	bookmark_link.appendChild(bookmark_href);
+}
+
+function getAnchor() {
+	var currentUrl = document.URL,
+	urlParts   = currentUrl.split('#');
+	return (urlParts.length > 1) ? urlParts[1] : null;
+}
+
+function paragraphShare() {
+
+	let p_share = document.createElement("div");
+	p_share.classList.add('location-actions');
+
+	let p_share_button = document.createElement("button");
+	let p_share_button_content = document.createTextNode("Share this location"); 
+	p_share_button.appendChild(p_share_button_content);
+	p_share_button.id = 'p_share';
+	p_share_button.classList.add('btn');
+
+	let p_bookmark_button = document.getElementById("p_bookmark");
+	let p_share_url = document.getElementById("p_location");
+	let location_base = location.href.split('#');
+	let location_str = location_base[0];
+	let p_share_url_content = location_str; 
+
+	p_share_url.setAttribute('value', location_str);
+	p_share_url.setAttribute('data-location-url', p_share_url_content);
+	p_bookmark_button.setAttribute('data-bookmark', p_share_url_content);
+
+	var clipboard = new ClipboardJS('.share-location-button');
+	clipboard.on('success', function(e) {
+
+    e.clearSelection();
+	});
+
+	clipboard.on('error', function(e) {
+			//console.log(e);
+	});
+
+	const bookmarkButton = document.getElementById('p_bookmark');
+	bookmarkButton.addEventListener('click', function(e) {
+		e.preventDefault();
+		let bookmarkLocation = bookmarkButton.getAttribute('data-bookmark');
+		let chapterTitle = document.querySelector("meta[property='og:title']").getAttribute("content");
+		let chapterP = bookmarkButton.getAttribute('data-bookmark-p');
+		let bookmarkLocationTitle = chapterTitle;
+		if (chapterP.length > 0) {
+			bookmarkLocationTitle = chapterTitle + ' (' + chapterP + ')';
+		}
+		bookmarkSave(bookmarkLocation,bookmarkLocationTitle);
+	});
+
+}
+
+function paragraphObserver() {
+
+	if(!!window.IntersectionObserver){
+		let location_base = location.href.split('#');
+		let location_str = location_base[0];
+
+		let shareButton = document.getElementById('p_share');
+		let locationInput = document.getElementById('p_location');
+		locationUrl = locationInput.getAttribute('data-location-url');
+		let bookmarkButton = document.getElementById('p_bookmark');
+		let observer = new IntersectionObserver((entries, observer) => { 
+			entries.forEach(entry => {
+				if(entry.isIntersecting){
+					console.log(entry.target.id);
+					let paragraphId = entry.target.id;
+					//shareButton.setAttribute('data-clipboard-target', paragraphId);
+					let paragraphUrl = locationUrl + '#' + paragraphId;
+					locationInput.setAttribute('value', paragraphUrl);
+					bookmarkButton.setAttribute('data-bookmark', locationUrl + '#' + paragraphId);
+					bookmarkButton.setAttribute('data-bookmark-p', paragraphId);
+				}
+			});
+		}, {rootMargin: "0px 0px -200px 0px"});
+
+		document.querySelectorAll('.chapter > p').forEach(p => { observer.observe(p) });
+	
+	}
+
+	else console.log('not supported');
+
 }

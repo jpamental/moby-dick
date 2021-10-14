@@ -1,6 +1,12 @@
 {% include partials/meta_open %}
 
 <article class="chapter">
+  <div class="location-actions">
+    <button id="p_share" class="share-location-button" data-clipboard-action="copy" data-clipboard-target="#p_location">Share this location</button>
+    <input id="p_location" class="share-location-url" type="text" value="" />
+    <button id="p_bookmark" class="bookmark-location-button" data-bookmark="#p1">Bookmark this location</button>
+  </div>
+
   {{ content }}
 
   <nav aria-labelledby="chapter-pagination">
