@@ -82,6 +82,7 @@ h1 {
   line-height: var(--h1-lh-s);
   margin: 2rem 0 0 0;
   margin-top: calc( var(--body-text-spacer) * 2 );
+  margin-bottom: calc( var(--body-text-spacer) * 3 );    
   max-width: $content-width-s;
   max-width: var(--content-width);
   position: relative;
@@ -126,12 +127,6 @@ h1 {
     --font-lh-scaler-value: var(--h1-lh-scaler-value);
     line-height: var(--line-height); 
   }
-}
-
-
-h1 + p,
-h1 + ul {
-  margin-top: calc( var(--body-text-spacer) * 3 );
 }
 
 h2 {

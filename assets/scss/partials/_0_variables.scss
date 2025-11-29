@@ -43,6 +43,7 @@ $content-width-l: 44rem;
 
 $color-paper-light: #fafafd;
 $color-dark-gray: #333333;
+$color-gray: #898989;
 $color-light-gray: #f0f0f0;
 $color-blue: #14218c;
 $color-light-blue: #e0f0ff;
@@ -62,6 +63,7 @@ $color-text-accent: $color-warm-dark-gray;
 
 :root {
   --color-paper-light: #{$color-paper-light};
+  --color-gray: #{$color-gray};
   --color-dark-gray: #{$color-dark-gray};
   --color-warm-dark-gray: #{$color-warm-dark-gray};
   --color-light-gray: #{$color-light-gray};
@@ -77,7 +79,7 @@ $color-text-accent: $color-warm-dark-gray;
   --color-a-visited: #{$color-purple};
   --color-a-hover: #{$color-red};
   --color-a-focus: #{$color-red};
-  --color-a-active: #{$color-red};
+  --color-a-active: #{darken($color-red, 20%)};
   --color-text-accent: #{$color-text-accent};
 }
 

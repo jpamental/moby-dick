@@ -6,6 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
+		{% if title %}<meta property="og:title" content="{{ title }}">{% endif %}
     <link rel="apple-touch-icon" sizes="180x180" href="{{ '/' | url }}assets/images/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ '/' | url }}assets/images/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ '/' | url }}assets/images/favicons/favicon-16x16.png">
@@ -188,12 +189,16 @@
         <a href="{{ '/' | url }}" class="title-link">{{ metadata.title }}</a>
       </div>
       <div class="link-wrapper">
+				<div class="bookmarks dd-menu">
+					<a href="{{ '/' | url }}bookmarks" class="dd-menu-trigger" id="bookmarks_trigger" title="Bookmarks">Bookmarks</a>
+					{% include partials/bookmarks.liquid %}
+				</div>
 				<nav class="toc dd-menu">
-					<a href="{{ '/' | url }}contents" class="dd-menu-trigger" id="toc_trigger">Contents</a>
+					<a href="{{ '/' | url }}contents" class="dd-menu-trigger" id="toc_trigger" title="Table of Contents">Contents</a>
 					{% include partials/toc.liquid %}
 				</nav>
 				<div class="settings dd-menu">
-					<a href="{{ '/' | url }}settings" class="dd-menu-trigger" id="settings_trigger">Settings</a>
+					<a href="{{ '/' | url }}settings" class="dd-menu-trigger" id="settings_trigger" title="Settings">Settings</a>
 					{% include partials/settings.liquid %}
 				</div>
 			</div>
