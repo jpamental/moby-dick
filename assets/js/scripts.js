@@ -243,7 +243,7 @@ function bookmarkActions() {
 
 function bookmarksArrayGet() {
 	let bookmarksArray = localStorage.getItem("bookmarksArray");
-	if (bookmarksArray.length < 1) {
+	if (bookmarksArray && bookmarksArray.length < 1) {
 		//array.
 		bookmarksArray = [
 			["Location", "URL"],
